@@ -38,6 +38,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:0.20.1'
+    implementation 'com.facebook.react:react-native:+' // from node_modules (not maven)
 }
   
