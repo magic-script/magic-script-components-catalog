@@ -19,6 +19,14 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
     public ToastModule(ReactApplicationContext reactContext) {
         super(reactContext);
+
+        /*
+        AppCompatActivity activity = (AppCompatActivity)getCurrentActivity();
+        if (activity != null) {
+            // TODO Add AR fragment
+            activity.getSupportFragmentManager().beginTransaction()
+        }
+        */
     }
 
     @Override
