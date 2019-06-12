@@ -36,15 +36,20 @@ class MainActivity : AppCompatActivity() {
         val nodesFactory = NodesFactory(this)
 
         // Preparing nodes
-        nodesFactory.createImageView(Vector3(-0.3F, 0.3F, -3F)) { node ->
-            nodesState[node] = false
-        }
 
-        nodesFactory.createButton(Vector3(0F, 0F, -2F)) { node ->
+        nodesFactory.createButton(Vector3(0F, 0.4F, -2F)) { node ->
             nodesState[node] = false
             node.clickListener = {
                 Toast.makeText(this, "Click!", Toast.LENGTH_LONG).show()
             }
+        }
+
+        nodesFactory.createLabel(Vector3(0F, 0F, -2F)) { node ->
+            nodesState[node] = false
+        }
+
+        nodesFactory.createImageView(Vector3(0F, -0.6F, -2F)) { node ->
+            nodesState[node] = false
         }
 
         // Displaying nodes on scene

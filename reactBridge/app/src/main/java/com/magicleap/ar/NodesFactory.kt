@@ -19,6 +19,15 @@ class NodesFactory(private val context: Context) {
         }
     }
 
+    fun createLabel(position: Vector3, result: (uiNode: UiNode) -> Unit) {
+        val view = LayoutInflater.from(context).inflate(R.layout.label, null)
+        createRenderable(view) { renderable ->
+            val node = createUiNode(position, renderable)
+            view.setOnClickListener { node.clickListener?.invoke() }
+            result(node)
+        }
+    }
+
     fun createImageView(position: Vector3, result: (uiNode: UiNode) -> Unit) {
         val view = LayoutInflater.from(context).inflate(R.layout.image, null)
         createRenderable(view) { renderable ->
