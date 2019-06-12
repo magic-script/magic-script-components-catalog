@@ -9,8 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.ar.core.TrackingState
 import com.google.ar.sceneform.Node
-import com.google.ar.sceneform.rendering.Renderable
-import com.google.ar.sceneform.rendering.ViewRenderable
+import com.google.ar.sceneform.math.Vector3
 import com.google.ar.sceneform.samples.nomtekdemo.R
 import com.google.ar.sceneform.ux.ArFragment
 
@@ -21,8 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var arFragment: ArFragment
 
-    // Map of renderables indicating which of them has benn added to the scene
-    private var renderablesState = HashMap<Renderable, Boolean>()
+    // Map of nodes indicating which of them has benn added to the scene
+    private var nodesState = HashMap<Node, Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,42 +33,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         arFragment = supportFragmentManager.findFragmentById(R.id.ar_fragment) as ArFragment
 
-        // Preparing renderable view
-        ViewRenderable
-                .builder()
-                .setView(this, R.layout.button)
-                .build()
-                .thenAccept { renderable ->
-                    renderablesState[renderable] = false
-                    renderable.view.setOnClickListener {
-                        Toast.makeText(this, "click!", Toast.LENGTH_SHORT).show()
-                    }
-                }
+        val nodesFactory = NodesFactory(this)
 
-        // Displaying on scene
+        // Preparing nodes
+        nodesFactory.createImageView(Vector3(-0.3F, 0.3F, -3F)) { node ->
+            nodesState[node] = false
+        }
+
+        nodesFactory.createButton(Vector3(0F, 0F, -2F)) { node ->
+            nodesState[node] = false
+            node.clickListener = {
+                Toast.makeText(this, "Click!", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        // Displaying nodes on scene
         arFragment.arSceneView.scene.addOnUpdateListener {
             if (arFragment.arSceneView.arFrame?.camera?.trackingState == TrackingState.TRACKING) {
                 // We can add AR objects after session is ready and camera is in tracting mode
-                renderablesState.forEach { (renderable, isAdded) ->
+                nodesState.forEach { (node, isAdded) ->
                     if (!isAdded) {
-                        addButton(renderable)
-                        renderablesState[renderable] = true
+                        arFragment.arSceneView.scene.addChild(node)
+                        nodesState[node] = true
                     }
                 }
             }
         }
     }
 
-    // Creates Node and assign renderable view to it
-    private fun addButton(renderable: Renderable) {
-        // add after delay (session must be ready and in tracking mode)
-        val pos = floatArrayOf(0f, 0f, -2f)
-        val rotation = floatArrayOf(0f, 0f, 0f, 0f)
-
-        val buttonNode = Node()
-        buttonNode.renderable = renderable
-        arFragment.arSceneView.scene.addChild(buttonNode)
-    }
 
     companion object {
 

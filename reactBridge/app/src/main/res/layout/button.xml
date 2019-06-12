@@ -3,5 +3,4 @@
     android:text="Hello AR"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_rounded"
-    android:id="@+id/button" />
+    android:background="@drawable/bg_rounded" />
