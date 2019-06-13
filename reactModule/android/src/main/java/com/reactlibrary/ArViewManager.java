@@ -3,9 +3,9 @@ package com.reactlibrary;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
-import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class ArViewManager extends SimpleViewManager<TextView> {
 
@@ -21,6 +21,7 @@ public class ArViewManager extends SimpleViewManager<TextView> {
         return new TextView(reactContext);
     }
 
+    // requires importing com.facebook.react.uimanager.annotations.ReactProp;
     @ReactProp(name = "text")
     public void setText(TextView view, @Nullable String text) {
         view.setText(text);
