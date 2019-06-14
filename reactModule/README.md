@@ -1,53 +1,31 @@
+# MagicScript Components for iOS platform.
 
-# react-native-ar-library
+## Prerequisites
 
-## Getting started
+1. Install React Native:
 
-`$ npm install react-native-ar-library --save`
+- To install React Native please follow the instructions on [React Native](https://facebook.github.io/react-native/docs/getting-started.html) site.
 
-### Mostly automatic installation
+2. Install the required `yarn` packages from the app (`./ARDemo`) folder:
+- `yarn`
 
-`$ react-native link react-native-ar-library`
+## Running the demo app (iOS)
 
-### Manual installation
+1. Run iOS project in Xcode:
 
+- open iOS project at `./ARDemo/ios/ARDemo.xcodeproj` in Xcode
+- run the app by pressing `Cmd+Shift+R` or by pressing the `Build and run` button
 
-#### iOS
+2. Run metro bundler:
 
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-ar-library` and add `RNArLibrary.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libRNArLibrary.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+- from the app folder run: `react-native start`
 
-#### Android
+3. In the iOS simulator press `Cmd+R` to reload the app.
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNArLibraryPackage;` to the imports at the top of the file
-  - Add `new RNArLibraryPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-ar-library'
-  	project(':react-native-ar-library').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-ar-library/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-ar-library')
-  	```
+## Components included
 
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
+- [List of Components](https://github.com/magic-script/magic-script-components/blob/master/docs/Components.md)
 
-1. In Visual Studio add the `RNArLibrary.sln` in `node_modules/react-native-ar-library/windows/RNArLibrary.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using Ar.Library.RNArLibrary;` to the usings at the top of the file
-  - Add `new RNArLibraryPackage()` to the `List<IReactPackage>` returned by the `Packages` method
+## License
 
-
-## Usage
-```javascript
-import RNArLibrary from 'react-native-ar-library';
-
-// TODO: What to do with the module?
-RNArLibrary;
-```
-  
+This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](LICENSE) file for details
