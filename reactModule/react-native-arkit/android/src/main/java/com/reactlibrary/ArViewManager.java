@@ -3,7 +3,6 @@ package com.reactlibrary;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -11,17 +10,18 @@ import android.widget.FrameLayout;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.google.ar.sceneform.Scene;
 import com.google.ar.sceneform.ux.ArFragment;
+import com.reactlibrary.scene.NodesManager;
 
-
-// import com.facebook.react.uimanager.ReactProp;
-
+/**
+ * View manager that is responsible for creating AR Fragment
+ */
 public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupManager
 
     public static final String REACT_CLASS = "RCTArView";
-    static FragmentManager fragmentManager = null;
-    static int containerId = View.generateViewId();
 
+    // view that contains AR fragment
     private static FrameLayout mContainer;
 
     private static ViewGroupManager manager;
@@ -34,14 +34,11 @@ public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupMa
     @Override
     protected FrameLayout createViewInstance(ThemedReactContext reactContext) {
         manager = this;
-        FrameLayout arContainer = new FrameLayout(reactContext);
-        //arContainer.setBackgroundColor(Color.BLUE);
-        arContainer.setId(containerId);
+        mContainer = new FrameLayout(reactContext);
+        int viewId = View.generateViewId();
+        mContainer.setId(viewId);
 
-        // View child = LayoutInflater.from(reactContext).inflate(R.layout.test_fragment, arContainer, false);
-        // arContainer.addView(child);
-        mContainer = arContainer;
-        return arContainer;
+        return mContainer;
     }
 
     @Override
@@ -49,13 +46,15 @@ public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupMa
         return true;
     }
 
-    public static void beginFragment() {
+    public static void initArFragment(final FragmentManager fragmentManager) {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                Fragment fragment = new ArFragment(); // new ArFragment();
+                ArFragment fragment = new ArFragment(); // new ArFragment();
                 fragmentManager.beginTransaction().add(fragment, "arFragment").commitNow();
                 manager.addView(mContainer, fragment.getView(), 0);
+                Scene scene = fragment.getArSceneView().getScene();
+                NodesManager.registerScene(scene);
             }
         });
     }

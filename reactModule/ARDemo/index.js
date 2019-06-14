@@ -4,8 +4,8 @@ import App from './src/App';
 AppRegistry.registerComponent('ARDemo', () => App);
 
 
-// import React from 'react';
-// import { ARKitScript } from 'react-native-arkit';
-// import ListApp from './src/ListApp';
+import React from 'react';
+import { ARKitScript } from 'react-native-arkit';
+import ListApp from './src/ListApp';
 
-// ARKitScript.render(<ListApp />, { name: 'root' });
+ARKitScript.render(<ListApp />, { name: 'root' });

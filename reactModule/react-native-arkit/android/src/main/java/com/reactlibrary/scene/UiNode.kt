@@ -1,4 +1,4 @@
-package com.magicleap.ar
+package com.reactlibrary.scene
 
 import com.google.ar.sceneform.Node
 

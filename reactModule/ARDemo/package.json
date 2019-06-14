@@ -10,8 +10,7 @@
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-reconciler": "^0.20.4",
-    "react-native-arkit": "../react-native-arkit",
-    "react-native-arcore": "../react-native-arcore"
+    "react-native-arkit": "../react-native-arkit"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

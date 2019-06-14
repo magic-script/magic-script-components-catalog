@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 // import { ARView } from 'react-native-arkit';
-import { ToastExample } from 'react-native-arcore';
-import { ARView } from 'react-native-arcore';
+import { ARComponentManager } from 'react-native-arkit';
+import { ARView } from 'react-native-arkit';
 
 
 export default class App extends React.Component {
@@ -11,8 +11,7 @@ export default class App extends React.Component {
   onSwitchValueChange = () => {
     const value = this.state.debugNodesValue ? false : true;
     this.setState({ debugNodesValue: value });
-    console.log('ToastExample: ', ToastExample);
-    ToastExample.show('Awesome', ToastExample.SHORT);
+    ARComponentManager.init();
   }
 
   render() {
@@ -22,6 +21,7 @@ export default class App extends React.Component {
         <Text style={styles.headerText}>Sample React Native App</Text>
         <ARView style={styles.arView} rendersContinuously={true}>
             <Text style={styles.sceneTitle}>Scene 3d view</Text>
+
         </ARView>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Render debug nodes</Text>

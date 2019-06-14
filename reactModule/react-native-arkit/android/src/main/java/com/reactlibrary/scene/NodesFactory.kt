@@ -1,4 +1,4 @@
-package com.magicleap.ar
+package com.reactlibrary.scene
 
 import android.content.Context
 import android.view.LayoutInflater

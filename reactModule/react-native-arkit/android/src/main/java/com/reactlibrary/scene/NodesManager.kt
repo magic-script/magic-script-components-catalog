@@ -1,4 +1,4 @@
-package com.magicleap.ar
+package com.reactlibrary.scene
 
 import android.util.Log
 import com.google.ar.sceneform.Node
@@ -70,6 +70,17 @@ object NodesManager {
     }
 
     @JvmStatic
+    fun unregisterNode(nodeId: String) {
+        val node = nodesById[nodeId]
+
+        if (node == null) {
+            Log.e(LOG_TAG, "cannot unregister node (not found)")
+            return
+        }
+        nodesById.remove(nodeId)
+    }
+
+    @JvmStatic
     fun removeNode(nodeId: String) {
         val node = nodesById[nodeId]
 
@@ -78,7 +89,6 @@ object NodesManager {
             return
         }
         node.parent?.removeChild(node)
-        nodesById.remove(nodeId)
     }
 
     @JvmStatic
