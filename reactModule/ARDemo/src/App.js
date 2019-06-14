@@ -22,7 +22,6 @@ export default class App extends React.Component {
         <Text style={styles.headerText}>Sample React Native App</Text>
         <ARView style={styles.arView} rendersContinuously={true}>
             <Text style={styles.sceneTitle}>Scene 3d view</Text>
-            <ARView style={styles.arText} text={'Android'}></ARView>
         </ARView>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Render debug nodes</Text>

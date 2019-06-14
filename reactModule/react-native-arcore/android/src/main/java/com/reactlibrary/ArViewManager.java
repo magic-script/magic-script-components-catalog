@@ -41,7 +41,6 @@ public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupMa
         // View child = LayoutInflater.from(reactContext).inflate(R.layout.test_fragment, arContainer, false);
         // arContainer.addView(child);
         mContainer = arContainer;
-
         return arContainer;
     }
 
