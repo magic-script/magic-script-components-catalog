@@ -11,7 +11,7 @@ export default class App extends React.Component {
   onSwitchValueChange = () => {
     const value = this.state.debugNodesValue ? false : true;
     this.setState({ debugNodesValue: value });
-    ARComponentManager.init();
+    ARComponentManager.initAR();
   }
 
   render() {

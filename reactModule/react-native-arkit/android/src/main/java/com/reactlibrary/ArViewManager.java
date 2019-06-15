@@ -19,7 +19,7 @@ import com.reactlibrary.scene.NodesManager;
  */
 public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupManager
 
-    public static final String REACT_CLASS = "RCTArView";
+    public static final String REACT_CLASS = "RCTARKit";
 
     // view that contains AR fragment
     private static FrameLayout mContainer;

@@ -28,7 +28,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
 
     public ARComponentManager(ReactApplicationContext reactContext) {
         super(reactContext);
-        // here activity is null (so we use init method)
+        // here activity is null (so we use initAR method)
         nodesFactory = new NodesFactory(reactContext);
     }
 
@@ -46,7 +46,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
      * Must be called before adding AR View (Fragment)
      */
     @ReactMethod
-    public void init() {
+    public void initAR() {
         AppCompatActivity activity = (AppCompatActivity)getCurrentActivity();
         ArViewManager.initArFragment(activity.getSupportFragmentManager());
     }
@@ -56,7 +56,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
      * react-native-magic-script/components/platform/platform-factory.js
      */
     @ReactMethod
-    public void createButton(Object props, final String nodeId) {
+    public void createButtonNode(Object props, final String nodeId) {
         Vector3 position = new Vector3(0, 0, - 2);
         nodesFactory.createButton(position, new Function1<UiNode, Unit>() {
             @Override

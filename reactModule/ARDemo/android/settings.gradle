@@ -1,5 +1,5 @@
 rootProject.name = 'ARDemo'
-include ':react-native-arcore'
-project(':react-native-arcore').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-arcore/android')
+include ':react-native-arkit'
+project(':react-native-arkit').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-arkit/android')
 
 include ':app'
