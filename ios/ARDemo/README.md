@@ -6,7 +6,7 @@ This is a test project used for testing and development of [`react-native-magic-
 
 1. In order to run this project, you need to have React Native installed. Please follow [this link](https://facebook.github.io/react-native/docs/getting-started.html) to install React Native on your machine.
 
-2. Make sure you have the [`react-native-magic-script`](https://github.com/magic-script/react-native-magic-script) module cloned to the same folder as `magic-script-components-samples` repo. Right now the `react-native-magic-script` module is locally linked with this project (see the value of `dependencies/react-native-magic-script` in **package.json** file).
+2. Make sure you have the [`react-native-magic-script`](https://github.com/magic-script/react-native-magic-script) module cloned to the same folder as this repo. Right now the `react-native-magic-script` module is locally linked with this project (see the value of `dependencies/react-native-magic-script` in `/ios/ARDemo/package.json` file).
 
 3. Install the required packages.
 
