@@ -11,20 +11,20 @@ This is a test project used for testing and development of [`react-native-magic-
 3. Install the required packages.
 
      - NOTE: `npm install` does not work at the moment! Please use `yarn` instead.
-     - Call `yarn` from the main app folder (`./image_slider`).
+     - Call `yarn` from the main app folder (`./ios/ARDemo`).
 
 ## Running the demo app (iOS)
 
 1. Run iOS project in Xcode:
 
      - Open iOS project at `./ios/ARDemo/ios/ARDemo.xcodeproj` in Xcode.
-     - Select **ARDemoDemo Release** as the active scheme. **ARDemoDemo Debug** also works, but you will need the Metro Boundler running during the app run (e.g. if you unplug your device from the computer, the app will close and won't work as a standalone app).
+     - Select **ARDemo Release** as the active scheme. **ARDemo Debug** also works, but you will need the Metro Boundler running during the app run (e.g. if you unplug your device from the computer, the app will close and won't work as a standalone app).
      - Run the app by pressing `Cmd+Shift+R` or by pressing the `Build and run` button.
      - If the app does not build (you get multiple errors) then press the `Build and run` button again. ¯\\_(ツ)\_/¯
      ![Build and run](docs/set_active_scheme.jpg)
 
-2. Run **Metro Bundler** (if it did not run automatically):
+2. Run **Metro Bundler** (unless it runs automatically):
 
      - From the app folder run: `react-native start`.
 
-3. In the iOS simulator press `Cmd+R` to reload the app. For the device, you need to shake the device and select **Reload** to relaod the app.
+3. In the iOS simulator press `Cmd+R` to reload the app. For the device, you need to shake the device and select **Reload** to reload the app.
