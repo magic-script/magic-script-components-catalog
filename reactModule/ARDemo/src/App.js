@@ -6,12 +6,17 @@ import { ARView } from 'react-native-arkit';
 
 
 export default class App extends React.Component {
+  
+  constructor(props) {
+	  super(props);
+	  ARComponentManager.initAR();
+  }
+  
   state = { debugNodesValue: false }
   
   onSwitchValueChange = () => {
     const value = this.state.debugNodesValue ? false : true;
     this.setState({ debugNodesValue: value });
-    ARComponentManager.initAR();
   }
 
   render() {

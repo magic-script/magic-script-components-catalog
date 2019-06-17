@@ -4,12 +4,12 @@ import android.util.Log
 import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.Scene
 
-object NodesManager {
+object UiNodesManager {
 
     private val rootNode = Node()
     private val nodesById = HashMap<String, Node>()
 
-    private val LOG_TAG = "NodesManager"
+    private val LOG_TAG = "UiNodesManager"
 
     @JvmStatic
     fun registerScene(scene: Scene) {
@@ -57,7 +57,7 @@ object NodesManager {
     }
 
     @JvmStatic
-    fun updateNode(nodeId: String, properties: Map<String, Any>): Boolean {
+    fun updateNode(nodeId: String, properties: Any): Boolean {
         val node = nodesById[nodeId]
         if (node == null) {
             Log.e(LOG_TAG, "cannot update node: not found")
@@ -99,5 +99,28 @@ object NodesManager {
         }
     }
 
+    @JvmStatic
+    fun validateScene(): Boolean {
+        if (nodesById.isEmpty() && rootNode.children.isEmpty()) {
+            print("[UiNodesManager] Nodes tree hierarchy and nodes list are empty.")
+            return true
+        }
+
+        if (nodesById.isEmpty() || rootNode.children.isEmpty()) {
+            print("[UiNodesManager] One nodes container (either nodes tree hierarchy (${rootNode.children.size})) or nodes list (${nodesById.size})) is empty!")
+            return true
+        }
+
+        val looseNodes = rootNode.children.filter { child ->
+            return child.parent != null && nodesById.containsKey(child.name)
+        }
+
+        if (looseNodes.isNotEmpty()) {
+            print("[UiNodesManager] Found (${looseNodes.size}) loose nodes.")
+            return false
+        }
+
+        return true
+    }
 
 }
