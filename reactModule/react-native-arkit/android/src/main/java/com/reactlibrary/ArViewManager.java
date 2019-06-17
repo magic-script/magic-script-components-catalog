@@ -8,18 +8,18 @@ import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.google.ar.sceneform.Scene;
-import com.google.ar.sceneform.ux.ArFragment;
+import com.reactlibrary.scene.CustomArFragment;
 import com.reactlibrary.scene.UiNodesManager;
+
+import java.lang.ref.WeakReference;
 
 /**
  * View INSTANCE that is responsible for creating AR Fragment
  */
 public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupManager
 
-    public static final String REACT_CLASS = "RCTARKit";
-
-    // TODO Weak reference
-    private static AppCompatActivity mActivity;
+    private static final String REACT_CLASS = "RCTARKit";
+    private static WeakReference<AppCompatActivity> activityRef;
 
     @Override
     public String getName() {
@@ -30,14 +30,14 @@ public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupMa
     protected FrameLayout createViewInstance(final ThemedReactContext reactContext) {
         // view that contains AR fragment
         FrameLayout mContainer = new FrameLayout(reactContext);
-        // int viewId = View.generateViewId();
-        // mContainer.setId(viewId);
-
-        ArFragment fragment = new ArFragment(); // new ArFragment();
-        mActivity.getSupportFragmentManager().beginTransaction().add(fragment, "arFragment").commitNow();
-        addView(mContainer, fragment.getView(), 0);
-        Scene scene = fragment.getArSceneView().getScene();
-        UiNodesManager.registerScene(scene);
+        CustomArFragment fragment = new CustomArFragment(); // new ArFragment();
+        AppCompatActivity activity = activityRef.get();
+        if (activity != null) {
+            activity.getSupportFragmentManager().beginTransaction().add(fragment, "arFragment").commitNow();
+            addView(mContainer, fragment.getView(), 0);
+            Scene scene = fragment.getArSceneView().getScene();
+            UiNodesManager.registerScene(scene);
+        }
 
         return mContainer;
     }
@@ -47,10 +47,11 @@ public class ArViewManager extends ViewGroupManager<FrameLayout> { //ViewGroupMa
         return true;
     }
 
-    public static void initActivity(final AppCompatActivity activity) {
-        mActivity = activity;
+    static void initActivity(final AppCompatActivity activity) {
+        activityRef = new WeakReference<>(activity);
     }
 
+    // for tests
     @ReactProp(name = "text")
     public void setText(FrameLayout view, @Nullable String text) {
         // view.setText(text);

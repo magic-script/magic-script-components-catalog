@@ -1,6 +1,7 @@
 package com.reactlibrary.scene
 
 import android.util.Log
+import com.facebook.react.bridge.ReadableMap
 import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.Scene
 
@@ -9,11 +10,22 @@ object UiNodesManager {
     private val rootNode = Node()
     private val nodesById = HashMap<String, Node>()
 
-    private val LOG_TAG = "UiNodesManager"
+    private const val LOG_TAG = "UiNodesManager"
+
+    private var arReady = false
+    private lateinit var scene: Scene
+
+    fun onArFragmentReady() {
+        arReady = true
+        scene.addChild(rootNode)
+    }
 
     @JvmStatic
     fun registerScene(scene: Scene) {
-        scene.addChild(rootNode)
+        this.scene = scene
+        if (arReady) {
+            scene.addChild(rootNode)
+        }
     }
 
     @JvmStatic
@@ -57,7 +69,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
-    fun updateNode(nodeId: String, properties: Any): Boolean {
+    fun updateNode(nodeId: String, properties: ReadableMap): Boolean {
         val node = nodesById[nodeId]
         if (node == null) {
             Log.e(LOG_TAG, "cannot update node: not found")
@@ -122,5 +134,6 @@ object UiNodesManager {
 
         return true
     }
+
 
 }

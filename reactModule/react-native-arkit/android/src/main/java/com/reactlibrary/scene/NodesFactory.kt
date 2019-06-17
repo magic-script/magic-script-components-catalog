@@ -1,6 +1,7 @@
 package com.reactlibrary.scene
 
 import android.content.Context
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import com.google.ar.sceneform.math.Vector3
@@ -10,48 +11,56 @@ import com.reactlibrary.R
 
 class NodesFactory(private val context: Context) {
 
-    fun createButton(position: Vector3, result: (uiNode: UiNode) -> Unit) {
+    fun createButton(position: Vector3): UiNode {
+        val node = createUiNode(position)
         val view = LayoutInflater.from(context).inflate(R.layout.button, null)
         createRenderable(view) { renderable ->
-            val node = createUiNode(position, renderable)
+            node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
-            result(node)
         }
+        return node
     }
 
-    fun createLabel(position: Vector3, result: (uiNode: UiNode) -> Unit) {
+    fun createLabel(position: Vector3): UiNode {
+        val node = createUiNode(position)
         val view = LayoutInflater.from(context).inflate(R.layout.label, null)
         createRenderable(view) { renderable ->
-            val node = createUiNode(position, renderable)
+            node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
-            result(node)
         }
+        return node
     }
 
-    fun createImageView(position: Vector3, result: (uiNode: UiNode) -> Unit) {
+    fun createImageView(position: Vector3): UiNode {
+        val node = createUiNode(position)
         val view = LayoutInflater.from(context).inflate(R.layout.image, null)
         createRenderable(view) { renderable ->
-            val node = createUiNode(position, renderable)
+            node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
-            result(node)
         }
+        return node
     }
 
     private fun createRenderable(view: View, result: (renderable: Renderable) -> Unit) {
-        ViewRenderable
-                .builder()
-                .setView(context, view)
-                .build()
-                .thenAccept { renderable ->
-                    result(renderable)
-                }
+        // TODO replace delay
+        // Wait until AR engine was loaded
+        // @see: https://github.com/google-ar/sceneform-android-sdk/issues/574
+        Handler().postDelayed({
+            ViewRenderable
+                    .builder()
+                    .setView(context, view)
+                    .build()
+                    .thenAccept { renderable ->
+                        result(renderable)
+                    }
+        }, 1000)
     }
 
-    private fun createUiNode(localPos: Vector3, renderable: Renderable): UiNode {
+    private fun createUiNode(localPos: Vector3): UiNode {
         val node = UiNode()
         node.localPosition = localPos
-        node.renderable = renderable
         return node
     }
+
 
 }

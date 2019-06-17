@@ -8,7 +8,9 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.google.ar.sceneform.math.Vector3;
 import com.reactlibrary.scene.NodesFactory;
+import com.reactlibrary.scene.UiNode;
 import com.reactlibrary.scene.UiNodesManager;
 
 import java.util.Collections;
@@ -63,21 +65,15 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                /*
                 Vector3 position = new Vector3(0, 0, -2);
-                nodesFactory.createButton(position, new Function1<UiNode, Unit>() {
-                    @Override
-                    public Unit invoke(UiNode uiNode) {
-                        UiNodesManager.registerNode(uiNode, nodeId);
-                        return Unit.INSTANCE;
-                    }
-                }); */
+                UiNode node = nodesFactory.createButton(position);
+                UiNodesManager.registerNode(node, nodeId);
             }
         });
     }
 
     @ReactMethod
-    public void createViewNode(Object props, final String nodeId) {
+    public void createViewNode(ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -87,7 +83,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void createTextNode(Object props, final String nodeId) {
+    public void createTextNode(ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -97,7 +93,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void createGroupNode(Object props, final String nodeId) {
+    public void createGroupNode(ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -107,7 +103,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void createImageNode(Object props, final String nodeId) {
+    public void createImageNode(ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -157,7 +153,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void updateNode(final String nodeId, final Object properties) {
+    public void updateNode(final String nodeId, final ReadableMap properties) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
