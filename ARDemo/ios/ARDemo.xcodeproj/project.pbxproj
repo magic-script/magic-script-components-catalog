@@ -40,8 +40,8 @@
 		4493BED722B5B1600046BCE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */; };
 		4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
 		4493BEDB22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
-		4493BF0922B5B6550046BCE3 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4493BF0822B5B6430046BCE3 /* libRNMagicScript.a */; };
-		4493BF0A22B5B6610046BCE3 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4493BF0822B5B6430046BCE3 /* libRNMagicScript.a */; };
+		44FA561922B78C6C00B42251 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FA561822B78C5A00B42251 /* libRNMagicScript.a */; };
+		44FA561A22B78C7500B42251 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FA561822B78C5A00B42251 /* libRNMagicScript.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -272,9 +272,9 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
-		4493BF0722B5B6430046BCE3 /* PBXContainerItemProxy */ = {
+		44FA561722B78C5A00B42251 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 4493BF0322B5B6420046BCE3 /* RNMagicScript.xcodeproj */;
+			containerPortal = 44FA561322B78C5A00B42251 /* RNMagicScript.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNMagicScript;
@@ -337,7 +337,7 @@
 		4493BECD22B5B1600046BCE3 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 		4493BECE22B5B1600046BCE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4493BECF22B5B1600046BCE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4493BF0322B5B6420046BCE3 /* RNMagicScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMagicScript.xcodeproj; path = "../node_modules/react-native-magic-script/ios/RNMagicScript.xcodeproj"; sourceTree = "<group>"; };
+		44FA561322B78C5A00B42251 /* RNMagicScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMagicScript.xcodeproj; path = "../../../react-native-magic-script/ios/RNMagicScript.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4493BF0922B5B6550046BCE3 /* libRNMagicScript.a in Frameworks */,
+				44FA561922B78C6C00B42251 /* libRNMagicScript.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
@@ -372,7 +372,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4493BF0A22B5B6610046BCE3 /* libRNMagicScript.a in Frameworks */,
+				44FA561A22B78C7500B42251 /* libRNMagicScript.a in Frameworks */,
 				4410DEDD22B2992100A8522B /* JavaScriptCore.framework in Frameworks */,
 				4410DEDE22B2992100A8522B /* libRCTBlob.a in Frameworks */,
 				4410DEDF22B2992100A8522B /* libRCTAnimation.a in Frameworks */,
@@ -510,10 +510,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4493BF0422B5B6420046BCE3 /* Products */ = {
+		44FA561422B78C5A00B42251 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4493BF0822B5B6430046BCE3 /* libRNMagicScript.a */,
+				44FA561822B78C5A00B42251 /* libRNMagicScript.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -539,7 +539,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				4493BF0322B5B6420046BCE3 /* RNMagicScript.xcodeproj */,
+				44FA561322B78C5A00B42251 /* RNMagicScript.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -715,8 +715,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 4493BF0422B5B6420046BCE3 /* Products */;
-					ProjectRef = 4493BF0322B5B6420046BCE3 /* RNMagicScript.xcodeproj */;
+					ProductGroup = 44FA561422B78C5A00B42251 /* Products */;
+					ProjectRef = 44FA561322B78C5A00B42251 /* RNMagicScript.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -952,11 +952,11 @@
 			remoteRef = 44437EFF229C7F6900EF1F42 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4493BF0822B5B6430046BCE3 /* libRNMagicScript.a */ = {
+		44FA561822B78C5A00B42251 /* libRNMagicScript.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNMagicScript.a;
-			remoteRef = 4493BF0722B5B6430046BCE3 /* PBXContainerItemProxy */;
+			remoteRef = 44FA561722B78C5A00B42251 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
@@ -1081,6 +1081,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DEURTTZ5DW;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1104,6 +1105,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DEURTTZ5DW;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
