@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Image } from 'react-native'
+import { Alert } from 'react-native'
 
 class ListApp extends Component {
 	
@@ -26,8 +26,7 @@ class ListApp extends Component {
     render() {
 		const { selectedImageIndex } = this.state;
         const imageSource = this.images[selectedImageIndex];
-		// const imgProps = Image.resolveAssetSource(imageSource);
-		
+
 		return (
 			<view position={[0, 0, 0]}>
 				<image position={[0, 0, -3 ]} source={imageSource} size={{ width: 3, height: 3 }} />

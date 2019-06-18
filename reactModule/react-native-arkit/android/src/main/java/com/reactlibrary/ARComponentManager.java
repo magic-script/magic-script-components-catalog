@@ -1,9 +1,11 @@
 package com.reactlibrary;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -15,10 +17,7 @@ import com.reactlibrary.scene.NodesFactory;
 import com.reactlibrary.scene.UiNode;
 import com.reactlibrary.scene.UiNodesManager;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,21 +35,13 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     // All code inside react method must be called from main thread
     private Handler mainHandler = new Handler(Looper.getMainLooper());
 
+    private Context context;
+
     public ARComponentManager(ReactApplicationContext reactContext) {
         super(reactContext);
         // here activity is null (so we use initAR method)
         nodesFactory = new NodesFactory(reactContext);
-
-        try {
-            List<String> assetsFiles = Arrays.asList(reactContext.getResources().getAssets().list(""));
-            for (String path : assetsFiles) {
-                if (path.equals("images"))
-                    Log.d(LOG_TAG, "asset: " + path);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        this.context = reactContext;
     }
 
     @Override
@@ -125,6 +116,8 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
                 Log.d(LOG_TAG, "source= " + source.toString());
 
                 String path = source.getString("uri");
+
+                Toast.makeText(context, "Path= " + path, Toast.LENGTH_LONG).show();
 
                 Vector3 position = readPosition(props);
                 UiNode node = nodesFactory.createImageView(position, path);

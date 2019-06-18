@@ -43,7 +43,15 @@ class NodesFactory(private val context: Context) {
     fun createImageView(position: Vector3, path: String): UiNode {
         val node = createUiNode(position)
         val view = LayoutInflater.from(context).inflate(R.layout.image, null) as ImageView
-        Glide.with(context).load(path).into(view)
+
+        // TODO doesn't work without delay (load after attached?)
+        Handler().postDelayed({
+            // http://localhost:8081/assets/resources/DemoPicture1.jpg
+            Glide.with(context)
+                    .load(path)
+                    .into(view)
+        }, 3000)
+
         createRenderable(view) { renderable ->
             node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
