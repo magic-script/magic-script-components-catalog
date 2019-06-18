@@ -5,6 +5,9 @@ import com.facebook.react.bridge.ReadableMap
 import com.google.ar.sceneform.Node
 import com.google.ar.sceneform.Scene
 
+/**
+ * It manages nodes registration and attaching them to scene
+ */
 object UiNodesManager {
 
     private val rootNode = Node()
@@ -15,12 +18,14 @@ object UiNodesManager {
     private var arReady = false
     private lateinit var scene: Scene
 
+    @Synchronized
     fun onArFragmentReady() {
         arReady = true
         scene.addChild(rootNode)
     }
 
     @JvmStatic
+    @Synchronized
     fun registerScene(scene: Scene) {
         this.scene = scene
         if (arReady) {
@@ -29,11 +34,13 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun findNodeWithId(nodeId: String): Node? {
         return nodesById[nodeId]
     }
 
     @JvmStatic
+    @Synchronized
     fun registerNode(node: Node, nodeId: String) {
         node.name = nodeId
         nodesById[nodeId] = node
@@ -41,6 +48,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun addNodeToRoot(nodeId: String) {
         val node = nodesById[nodeId]
 
@@ -52,6 +60,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun addNodeToParent(nodeId: String, parentId: String) {
         val node = nodesById[nodeId]
         val parentNode = nodesById[parentId]
@@ -69,6 +78,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun updateNode(nodeId: String, properties: ReadableMap): Boolean {
         val node = nodesById[nodeId]
         if (node == null) {
@@ -82,6 +92,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun unregisterNode(nodeId: String) {
         val node = nodesById[nodeId]
 
@@ -93,6 +104,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun removeNode(nodeId: String) {
         val node = nodesById[nodeId]
 
@@ -104,6 +116,7 @@ object UiNodesManager {
     }
 
     @JvmStatic
+    @Synchronized
     fun clear() {
         nodesById.forEach { (_, node) ->
             node.parent?.removeChild(node)

@@ -3,33 +3,54 @@ package com.reactlibrary;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.google.ar.sceneform.math.Vector3;
 import com.reactlibrary.scene.NodesFactory;
 import com.reactlibrary.scene.UiNode;
 import com.reactlibrary.scene.UiNodesManager;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Android module that is responisble for "parsing" JS tags to generate AR Nodes
  * Based on: https://facebook.github.io/react-native/docs/native-modules-android
+ * <p>
+ * Node creation methods are called from
+ * react-native-magic-script/components/platform/platform-factory.js
  */
 public class ARComponentManager extends ReactContextBaseJavaModule {
 
+    private static final String LOG_TAG = "ARComponentManager";
     private NodesFactory nodesFactory;
-    // Methods must be called from main thread
+
+    // All code inside react method must be called from main thread
     private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     public ARComponentManager(ReactApplicationContext reactContext) {
         super(reactContext);
         // here activity is null (so we use initAR method)
         nodesFactory = new NodesFactory(reactContext);
+
+        try {
+            List<String> assetsFiles = Arrays.asList(reactContext.getResources().getAssets().list(""));
+            for (String path : assetsFiles) {
+                if (path.equals("images"))
+                    Log.d(LOG_TAG, "asset: " + path);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -56,16 +77,38 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         });
     }
 
+
     /**
-     * Node creation methods are called from
-     * react-native-magic-script/components/platform/platform-factory.js
+     * Creates node that is a parent for other nodes
+     * (it does not contain a view)
+     *
+     * @param props  properties (e.g. localPosition)
+     * @param nodeId id of the node
      */
     @ReactMethod
-    public void createButtonNode(ReadableMap props, final String nodeId) {
+    public void createViewNode(final ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                Vector3 position = new Vector3(0, 0, -2);
+                Vector3 position = readPosition(props);
+                UiNode node = nodesFactory.createViewGroup(position);
+                UiNodesManager.registerNode(node, nodeId);
+            }
+        });
+    }
+
+    /**
+     * Creates a button
+     *
+     * @param props  properties (e.g. localPosition)
+     * @param nodeId id of the node
+     */
+    @ReactMethod
+    public void createButtonNode(final ReadableMap props, final String nodeId) {
+        mainHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                Vector3 position = readPosition(props);
                 UiNode node = nodesFactory.createButton(position);
                 UiNodesManager.registerNode(node, nodeId);
             }
@@ -73,37 +116,25 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void createViewNode(ReadableMap props, final String nodeId) {
+    public void createImageNode(final ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                // TODO
+                ReadableMap source = props.getMap("source");
+
+                Log.d(LOG_TAG, "source= " + source.toString());
+
+                String path = source.getString("uri");
+
+                Vector3 position = readPosition(props);
+                UiNode node = nodesFactory.createImageView(position, path);
+                UiNodesManager.registerNode(node, nodeId);
             }
         });
     }
 
     @ReactMethod
     public void createTextNode(ReadableMap props, final String nodeId) {
-        mainHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                // TODO
-            }
-        });
-    }
-
-    @ReactMethod
-    public void createGroupNode(ReadableMap props, final String nodeId) {
-        mainHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                // TODO
-            }
-        });
-    }
-
-    @ReactMethod
-    public void createImageNode(ReadableMap props, final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -201,6 +232,15 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
                 // TODO
             }
         });
+    }
+
+    private Vector3 readPosition(ReadableMap props) {
+        ReadableArray posArray = props.getArray("position");
+        final float x = (float) posArray.getDouble(0);
+        final float y = (float) posArray.getDouble(1);
+        final float z = (float) posArray.getDouble(2);
+
+        return new Vector3(x, y, z);
     }
 
 }
