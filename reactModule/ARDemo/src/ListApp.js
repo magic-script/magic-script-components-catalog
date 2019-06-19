@@ -28,10 +28,10 @@ class ListApp extends Component {
         const imageSource = this.images[selectedImageIndex];
 
 		return (
-			<view position={[0, 0, 0]}>
-				<image position={[0, 0, -3 ]} source={imageSource} size={{ width: 3, height: 3 }} />
-				<button position={[-0.3, -0.6, -2 ]} onPress={() => this.onPlayButtonPress()} />
-				<button position={[0.3, -0.6, -2 ]} />
+			<view localPosition={[0, 0, 0]}>
+				<image localPosition={[0, -0.5, -2 ]} source={imageSource} width={1.5} height={1} />
+				<button localPosition={[-0.3, -0.6, -1 ]} width={0.25} height={0.10} textSize={0.035} onPress={() => this.onPlayButtonPress()} />
+				<button localPosition={[0.3, -0.6, -1 ]} width={0.25} height={0.10} textSize={0.02} />
 			</view>
 		);
   }
