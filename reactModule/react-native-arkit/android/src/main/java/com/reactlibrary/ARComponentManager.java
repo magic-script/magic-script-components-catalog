@@ -62,7 +62,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                AppCompatActivity activity = (AppCompatActivity) getCurrentActivity();
+                AppCompatActivity activity = (AppCompatActivity)getCurrentActivity();
                 ArViewManager.initActivity(activity);
             }
         });
@@ -73,7 +73,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
      * Creates node that is a parent for other nodes
      * (it does not contain a view)
      *
-     * @param props  properties (e.g. localPosition)
+     * @param props properties (e.g. localPosition)
      * @param nodeId id of the node
      */
     @ReactMethod
@@ -91,7 +91,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     /**
      * Creates a button
      *
-     * @param props  properties (e.g. localPosition)
+     * @param props properties (e.g. localPosition)
      * @param nodeId id of the node
      */
     @ReactMethod
@@ -112,12 +112,10 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 ReadableMap source = props.getMap("source");
-
-                Log.d(LOG_TAG, "source= " + source.toString());
-
                 String path = source.getString("uri");
 
                 Toast.makeText(context, "Path= " + path, Toast.LENGTH_LONG).show();
+                Log.d(LOG_TAG, "source= " + source);
 
                 Vector3 position = readPosition(props);
                 UiNode node = nodesFactory.createImageView(position, path);
@@ -229,9 +227,9 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
 
     private Vector3 readPosition(ReadableMap props) {
         ReadableArray posArray = props.getArray("position");
-        final float x = (float) posArray.getDouble(0);
-        final float y = (float) posArray.getDouble(1);
-        final float z = (float) posArray.getDouble(2);
+        final float x = (float)posArray.getDouble(0);
+        final float y = (float)posArray.getDouble(1);
+        final float z = (float)posArray.getDouble(2);
 
         return new Vector3(x, y, z);
     }
