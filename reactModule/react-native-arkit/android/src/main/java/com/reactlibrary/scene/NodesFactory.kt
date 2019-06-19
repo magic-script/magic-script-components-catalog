@@ -1,6 +1,7 @@
 package com.reactlibrary.scene
 
 import android.content.Context
+import android.net.Uri
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
@@ -44,11 +45,18 @@ class NodesFactory(private val context: Context) {
         val node = createUiNode(position)
         val view = LayoutInflater.from(context).inflate(R.layout.image, null) as ImageView
 
+        val uri = if (path.startsWith("resources_")) { // for release
+            val packageName = context.packageName
+            Uri.parse("android.resource://$packageName/drawable/$path")
+        } else { // for debug (metro, image located in localhost)
+            Uri.parse(path)
+        }
+
         // TODO doesn't work without delay (load after attached?)
         Handler().postDelayed({
             // http://localhost:8081/assets/resources/DemoPicture1.jpg
             Glide.with(context)
-                    .load(path)
+                    .load(uri)
                     .into(view)
         }, 3000)
 
