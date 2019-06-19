@@ -13,6 +13,8 @@ buildscript {
         jcenter()
     }
     dependencies {
+        // 3.4+ supported from RN 59.9
+        // see https://github.com/facebook/react-native/issues/25018
         classpath 'com.android.tools.build:gradle:3.4.1'
 
         // NOTE: Do not place your application dependencies here; they belong
