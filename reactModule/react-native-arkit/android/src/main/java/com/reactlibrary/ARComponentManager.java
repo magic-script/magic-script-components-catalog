@@ -3,8 +3,10 @@ package com.reactlibrary;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -19,6 +21,8 @@ import com.reactlibrary.scene.UiNodesManager;
 
 import java.util.Collections;
 import java.util.Map;
+
+import kotlin.Unit;
 
 /**
  * Android module that is responisble for "parsing" JS tags to generate AR Nodes
@@ -100,7 +104,9 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 Vector3 position = readPosition(props);
-                UiNode node = nodesFactory.createButton(position);
+                Vector3 size = readSize(props);
+                Double textSize = readTextSize(props);
+                UiNode node = nodesFactory.createButton(position, size, textSize);
                 UiNodesManager.registerNode(node, nodeId);
             }
         });
@@ -118,7 +124,8 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
                 Log.d(LOG_TAG, "source= " + source);
 
                 Vector3 position = readPosition(props);
-                UiNode node = nodesFactory.createImageView(position, path);
+                Vector3 size = readSize(props);
+                UiNode node = nodesFactory.createImageView(position, size, path);
                 UiNodesManager.registerNode(node, nodeId);
             }
         });
@@ -226,12 +233,23 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
     private Vector3 readPosition(ReadableMap props) {
-        ReadableArray posArray = props.getArray("position");
+        ReadableArray posArray = props.getArray("localPosition");
         final float x = (float)posArray.getDouble(0);
         final float y = (float)posArray.getDouble(1);
         final float z = (float)posArray.getDouble(2);
 
         return new Vector3(x, y, z);
+    }
+
+    private Vector3 readSize(ReadableMap props) {
+        final float width = (float)props.getDouble("width");
+        final float height = (float)props.getDouble("height");
+        return new Vector3(width, height, 0);
+    }
+
+    @Nullable
+    private Double readTextSize(ReadableMap props) {
+        return props.getDouble("textSize");
     }
 
 }

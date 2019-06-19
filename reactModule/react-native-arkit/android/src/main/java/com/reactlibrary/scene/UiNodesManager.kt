@@ -120,8 +120,8 @@ object UiNodesManager {
     fun clear() {
         nodesById.forEach { (_, node) ->
             node.parent?.removeChild(node)
-            nodesById.clear()
         }
+        nodesById.clear()
     }
 
     @JvmStatic
