@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.ardemo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.CAMERA" />
     <!-- This tag indicates that this application requires ARCore. This results in the application
         only being visible in the Google Play Store on devices that support ARCore. -->

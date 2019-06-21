@@ -6,6 +6,6 @@ AppRegistry.registerComponent('ARDemo', () => RNApp);
 
 import React from 'react';
 import { ARKitScript } from 'react-native-magic-script';
-import AndroidApp from './src/app';
+import ListApp from './src/ListApp';
 
-ARKitScript.render(<AndroidApp />, { name: 'root' });
+ARKitScript.render(<ListApp />, { name: 'root' });

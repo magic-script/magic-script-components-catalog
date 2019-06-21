@@ -6,4 +6,4 @@ export {
   ARView,
   ARKitScript,
   ARComponentManager
-};
+}; 
