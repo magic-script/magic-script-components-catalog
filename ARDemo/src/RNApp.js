@@ -1,19 +1,11 @@
 import React from 'react';
 import { StyleSheet, Switch, Text, View } from 'react-native';
 import { ARView } from 'react-native-magic-script';
-import { ARComponentManager } from 'react-native-magic-script';
 
 export default class RNApp extends React.Component {
-
-  // required by Android module
-  constructor(props) {
-	  super(props);
-	  ARComponentManager.initAR();
-  }
-
+  
   state = { debugNodesValue: false }
 
-  
   onSwitchValueChange = () => {
     const value = this.state.debugNodesValue ? false : true;
     this.setState({ debugNodesValue: value });
