@@ -61,6 +61,12 @@ export default class ImageSlider extends React.Component {
                     textSize={0.035}
                     onClick={this.onNextClick}
                 >next</button>
+                <model
+                    localPosition={[ 0.0, -1.15, 0]}
+                    modelPath={'resources/GlassVase.glb'}
+                    // localScale={[0.01, 0.01, 0.01]}
+                    // modelPath={'resources/Owl/owl_body.obj'}
+                />
             </view>
         );
     }
