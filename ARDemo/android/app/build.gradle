@@ -73,7 +73,10 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+    devDisabledInRelease: true,
+     // whether to bundle JS and assets in release mode
+    bundleInRelease     : true
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -108,6 +111,18 @@ android {
         versionCode 1
         versionName "1.0"
     }
+	
+	signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+	
     splits {
         abi {
             reset()
@@ -120,6 +135,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+			signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -134,10 +150,13 @@ android {
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
         }
+		
+		variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'jsr305'
     }
 }
 
 dependencies {
+    implementation project(':react-native-magic-script') // defined in settings.gradle
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
