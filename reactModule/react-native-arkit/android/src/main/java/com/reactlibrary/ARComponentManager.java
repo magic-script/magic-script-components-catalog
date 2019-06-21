@@ -1,20 +1,18 @@
 package com.reactlibrary;
 
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
-import com.google.ar.sceneform.math.Vector3;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.google.ar.sceneform.Node;
 import com.reactlibrary.scene.NodesFactory;
 import com.reactlibrary.scene.UiNode;
 import com.reactlibrary.scene.UiNodesManager;
@@ -23,6 +21,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 /**
  * Android module that is responisble for "parsing" JS tags to generate AR Nodes
@@ -39,7 +38,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     // All code inside react method must be called from main thread
     private Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    private Context context;
+    private ReactApplicationContext context;
 
     public ARComponentManager(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -85,8 +84,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                Vector3 position = readPosition(props);
-                UiNode node = nodesFactory.createViewGroup(position);
+                UiNode node = nodesFactory.createViewGroup(props);
                 UiNodesManager.registerNode(node, nodeId);
             }
         });
@@ -103,10 +101,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                Vector3 position = readPosition(props);
-                Vector3 size = readSize(props);
-                Double textSize = readTextSize(props);
-                UiNode node = nodesFactory.createButton(position, size, textSize);
+                UiNode node = nodesFactory.createButton(props);
                 UiNodesManager.registerNode(node, nodeId);
             }
         });
@@ -117,15 +112,7 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                ReadableMap source = props.getMap("source");
-                String path = source.getString("uri");
-
-                Toast.makeText(context, "Path= " + path, Toast.LENGTH_LONG).show();
-                Log.d(LOG_TAG, "source= " + source);
-
-                Vector3 position = readPosition(props);
-                Vector3 size = readSize(props);
-                UiNode node = nodesFactory.createImageView(position, size, path);
+                UiNode node = nodesFactory.createImageView(props);
                 UiNodesManager.registerNode(node, nodeId);
             }
         });
@@ -212,12 +199,30 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
     }
 
 
+    // TODO separate react method for onClick ?
     @ReactMethod
     public void addOnPressEventHandler(final String nodeId) {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                // TODO
+                Node node = UiNodesManager.findNodeWithId(nodeId);
+                if (node instanceof UiNode) {
+                    ((UiNode)node).setClickListener(new Function0<Unit>() {
+                        @Override
+                        public Unit invoke() {
+                            WritableMap pressParams = Arguments.createMap();
+                            pressParams.putString("nodeId", nodeId);
+
+                            // must use separte map
+                            WritableMap clickParams = Arguments.createMap();
+                            clickParams.putString("nodeId", nodeId);
+
+                            sendEvent("onPress", pressParams);
+                            sendEvent("onClick", clickParams);
+                            return Unit.INSTANCE;
+                        }
+                    });
+                }
             }
         });
     }
@@ -227,29 +232,17 @@ public class ARComponentManager extends ReactContextBaseJavaModule {
         mainHandler.post(new Runnable() {
             @Override
             public void run() {
-                // TODO
+                Node node = UiNodesManager.findNodeWithId(nodeId);
+                if (node instanceof UiNode) {
+                    ((UiNode)node).setClickListener(null);
+                }
             }
         });
     }
 
-    private Vector3 readPosition(ReadableMap props) {
-        ReadableArray posArray = props.getArray("localPosition");
-        final float x = (float)posArray.getDouble(0);
-        final float y = (float)posArray.getDouble(1);
-        final float z = (float)posArray.getDouble(2);
 
-        return new Vector3(x, y, z);
-    }
-
-    private Vector3 readSize(ReadableMap props) {
-        final float width = (float)props.getDouble("width");
-        final float height = (float)props.getDouble("height");
-        return new Vector3(width, height, 0);
-    }
-
-    @Nullable
-    private Double readTextSize(ReadableMap props) {
-        return props.getDouble("textSize");
+    private void sendEvent(String eventName, @Nullable WritableMap params) {
+        context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(eventName, params);
     }
 
 }

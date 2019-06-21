@@ -10,10 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.google.ar.sceneform.math.Vector3
+import com.facebook.react.bridge.ReadableMap
 import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.rendering.ViewRenderable
 import com.reactlibrary.R
+import com.reactlibrary.utils.PropertiesReader
 
 /**
  * Utility class with methods that create nodes.
@@ -28,37 +29,42 @@ class NodesFactory(private val context: Context) {
 
     private val screenDensity = context.resources.displayMetrics.density;
 
-    fun createViewGroup(position: Vector3): UiNode {
-        return createUiNode(position)
+    fun createViewGroup(props: ReadableMap): UiNode {
+        return createUiNode(props)
     }
 
-    fun createButton(position: Vector3, size: Vector3, textSize: Double?): UiNode {
-        val node = createUiNode(position)
+    fun createButton(props: ReadableMap): UiNode {
+        val node = createUiNode(props)
         val view = LayoutInflater.from(context).inflate(R.layout.button, null) as Button
+
+        val textSize = PropertiesReader.Common.getTextSize(props)
         if (textSize != null) {
             view.setTextSize(TypedValue.COMPLEX_UNIT_PX, metersToPx(textSize).toFloat())
         }
 
-        createRenderable(view, size) { renderable ->
+        createRenderable(view, props) { renderable ->
             node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
         }
         return node
     }
 
-    fun createLabel(position: Vector3, size: Vector3, textSize: Double? = null): UiNode {
-        val node = createUiNode(position)
+    fun createLabel(props: ReadableMap): UiNode {
+        val node = createUiNode(props)
         val view = LayoutInflater.from(context).inflate(R.layout.label, null)
-        createRenderable(view, size) { renderable ->
+        createRenderable(view, props) { renderable ->
             node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
         }
         return node
     }
 
-    fun createImageView(position: Vector3, size: Vector3, path: String): UiNode {
-        val node = createUiNode(position)
+    fun createImageView(props: ReadableMap): UiNode {
+        val node = createUiNode(props)
         val view = LayoutInflater.from(context).inflate(R.layout.image, null) as ImageView
+
+        val source = props.getMap("source")
+        val path = source?.getString("uri") ?: ""
 
         val uri = if (path.startsWith("resources_")) { // for release
             val packageName = context.packageName
@@ -67,7 +73,7 @@ class NodesFactory(private val context: Context) {
             Uri.parse(path)
         }
 
-        createRenderable(view, size) { renderable ->
+        createRenderable(view, props) { renderable ->
             node.renderable = renderable
             view.setOnClickListener { node.clickListener?.invoke() }
         }
@@ -83,13 +89,14 @@ class NodesFactory(private val context: Context) {
         return node
     }
 
-    private fun createRenderable(view: View, size: Vector3, result: (renderable: Renderable) -> Unit) {
+    private fun createRenderable(view: View, props: ReadableMap, result: (renderable: Renderable) -> Unit) {
+        val size = PropertiesReader.Common.getSize(props)
         // convert meters to px (1m is DP_TO_METER_RATIO by default)
-        val widthPx = metersToPx(size.x.toDouble())
-        val heightPx = metersToPx(size.y.toDouble())
+        val widthPx = metersToPx(size.width)
+        val heightPx = metersToPx(size.height)
         view.layoutParams = ViewGroup.LayoutParams(widthPx, heightPx)
 
-        // TODO replace delay
+        // TODO replace delay with callback when AR fragment has been loaded
         // Wait until AR engine was loaded
         // @see: https://github.com/google-ar/sceneform-android-sdk/issues/574
         Handler().postDelayed({
@@ -103,12 +110,12 @@ class NodesFactory(private val context: Context) {
         }, 1000)
     }
 
-    private fun createUiNode(localPos: Vector3): UiNode {
+    private fun createUiNode(props: ReadableMap): UiNode {
         val node = UiNode()
+        val localPos = PropertiesReader.Common.getPosition(props)
         node.localPosition = localPos
         return node
     }
-
 
     // converts ARCore's meters to pixels
     private fun metersToPx(meters: Double): Int {
