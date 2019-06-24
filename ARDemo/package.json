@@ -10,7 +10,7 @@
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-reconciler": "^0.20.4",
-    "react-native-magic-script": "../../react-native-magic-script"
+    "react-native-magic-script": "git+ssh://git@github.com:magic-script/react-native-magic-script.git#demo1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
