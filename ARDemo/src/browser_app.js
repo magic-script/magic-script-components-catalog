@@ -1,10 +1,11 @@
-import rollup from 'rollup';
+// import rollup from 'rollup';
 // import virtual from 'rollup-plugin-virtual';
 import React from 'react';
 // var RNFS = require('react-native-fs');
 
 
-import { Header, ImageSlider, Model, TextEditPage } from './components/index.js';
+import { Header, SceneA } from './sceneA/index.js';
+import { SceneB } from './sceneB/index.js';
 
 class BrowserApp extends React.Component {
   constructor(props) {
@@ -18,14 +19,14 @@ class BrowserApp extends React.Component {
     ];
 
     const scenes = [
-      <Header localPosition={[0, 1.3, 0]} title='Dynamic scene' subtitle='demo app' />,
-      // <ImageSlider localPosition={[0, -0.3, 0]} items={this.images} initialPosition={0} caption='Gallery'></ImageSlider>,
+      // <SceneA localPosition={[0, 0.6, 0]} />,
+      // <SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />
     ]
     this.state = { scenes };
   }
 
   onClick = () => {
-    const appPath = RNFS.DocumentDirectoryPath + '/app/bin/src/app.js';
+    // const appPath = RNFS.DocumentDirectoryPath + '/app/bin/src/app.js';
 
     // const result = rollup.rollup({
     //   entry: appPath,
@@ -64,6 +65,14 @@ class BrowserApp extends React.Component {
       
   //     return code;
   // });
+    let { scenes } = this.state;
+    if (scenes.length == 0) {
+      scenes.push(<SceneA localPosition={[0, 0.6, 0]} />);
+      this.setState({ scenes });
+    } else if (scenes.length == 1) {
+      scenes.push(<SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />);
+      this.setState({ scenes });
+    }
   }
 
   renderScenes() {
@@ -78,7 +87,9 @@ class BrowserApp extends React.Component {
   render() {
     return (
       <view name='main-view'>
-        {this.renderScenes()}
+        <view>
+          {this.renderScenes()}
+        </view>
         <button 
             localPosition={[0, 1, 0]} 
             width={0.25} 

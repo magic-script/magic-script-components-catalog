@@ -3,7 +3,7 @@ import React from 'react';
 export default class Header extends React.Component {
     render() {
         return (
-            <view localPosition={this.props.refPosition}>
+            <view localPosition={this.props.localPosition}>
                 <text
                     localPosition={[0, 0.04, 0]}
                     textSize={0.07}
