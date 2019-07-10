@@ -1,5 +1,5 @@
 import React from 'react';
-var babel = require('@babel/core');
+// var babel = require('@babel/core');
 var RNFS = require('react-native-fs');
 
 
@@ -24,36 +24,21 @@ class BrowserApp extends React.Component {
     this.state = { scenes };
   }
 
+  addScene(scene) {
+    const { scenes } = this.state;
+    scenes.push(scene);
+    this.setState({ scenes });
+  }
+
   onClick = () => {
     
     const sceneBundlePath = RNFS.DocumentDirectoryPath + '/bundle.js';
-    // eval();
-    // const appPath = RNFS.DocumentDirectoryPath + '/app/bin/src/app.js';
-    // const result = rollup.rollup({
-    //   entry: appPath,
-    //   plugins: [
-    //     virtual({
-    //       [appPath]: 'export default 1'
-    //     })
-    //   ]
-    // }).then(bundle => {
-    //   const output = bundle.generate({
-    //     format: 'iife'   // cjs, amd, es6, iife, umd
-    //   });
-    //   console.log('bundle.generate.output: ', result);
-    //   return output.code;
-    // });
-
-    // console.log('rollup.result: ', result);
-  
-    const { scenes } = this.state;
-    if (scenes.length == 0) {
-      scenes.push(<SceneA localPosition={[0, 0.6, 0]} />);
-      this.setState({ scenes });
-    } else if (scenes.length == 1) {
-      scenes.push(<SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />);
-      this.setState({ scenes });
-    }
+    RNFS.readFile(sceneBundlePath, 'utf8').then(contents => {
+      const evalOutput = eval(contents);
+      let MyScene = mxs;
+      const anchorPosition = [0, 0.2, 0];
+      this.addScene(<MyScene localPosition={anchorPosition} counter={0}/>);
+    });
   }
 
   renderScenes() {
