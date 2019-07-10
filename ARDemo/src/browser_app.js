@@ -27,7 +27,6 @@ class BrowserApp extends React.Component {
 
   onClick = () => {
     // const appPath = RNFS.DocumentDirectoryPath + '/app/bin/src/app.js';
-
     // const result = rollup.rollup({
     //   entry: appPath,
     //   plugins: [
@@ -44,27 +43,7 @@ class BrowserApp extends React.Component {
     // });
 
     // console.log('rollup.result: ', result);
-
-  //   return rollup.rollup({
-  //     entry: 'index.js',
-  //     plugins: [
-  //         rollupPluginMemory({
-  //             path: 'index.js',
-  //             contents: source
-  //         }),
-  //         rollupPluginBuble({
-  //             jsx: 'h',
-  //             objectAssign: 'Object.assign'
-  //         }),
-  //         rollupPluginEs3()
-  //     ]
-  // }).then( bundle => {
-  //     let { code, map } = bundle.generate({
-  //         format: 'cjs'   // amd, es6, iife, umd
-  //     });
-      
-  //     return code;
-  // });
+  
     let { scenes } = this.state;
     if (scenes.length == 0) {
       scenes.push(<SceneA localPosition={[0, 0.6, 0]} />);
