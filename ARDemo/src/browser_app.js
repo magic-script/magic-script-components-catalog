@@ -1,7 +1,6 @@
-// import rollup from 'rollup';
-// import virtual from 'rollup-plugin-virtual';
 import React from 'react';
-// var RNFS = require('react-native-fs');
+var babel = require('@babel/core');
+var RNFS = require('react-native-fs');
 
 
 import { Header, SceneA } from './sceneA/index.js';
@@ -26,6 +25,9 @@ class BrowserApp extends React.Component {
   }
 
   onClick = () => {
+    
+    const sceneBundlePath = RNFS.DocumentDirectoryPath + '/bundle.js';
+    // eval();
     // const appPath = RNFS.DocumentDirectoryPath + '/app/bin/src/app.js';
     // const result = rollup.rollup({
     //   entry: appPath,
@@ -44,7 +46,7 @@ class BrowserApp extends React.Component {
 
     // console.log('rollup.result: ', result);
   
-    let { scenes } = this.state;
+    const { scenes } = this.state;
     if (scenes.length == 0) {
       scenes.push(<SceneA localPosition={[0, 0.6, 0]} />);
       this.setState({ scenes });
