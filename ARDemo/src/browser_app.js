@@ -1,25 +1,15 @@
 import React from 'react';
-// var babel = require('@babel/core');
 var RNFS = require('react-native-fs');
-
-
-import { Header, SceneA } from './sceneA/index.js';
+import { SceneA } from './sceneA/index.js';
 import { SceneB } from './sceneB/index.js';
 
 class BrowserApp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.images = [
-      'resources/DemoPicture1.jpg',
-      'resources/DemoPicture2.jpg',
-      'resources/DemoPicture4.jpg',
-      'resources/DemoPicture5.jpg'
-    ];
-
     const scenes = [
-      // <SceneA localPosition={[0, 0.6, 0]} />,
-      // <SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />
+      <SceneA localPosition={[0, 0.6, 0]} />,
+      <SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />
     ]
     this.state = { scenes };
   }
@@ -31,7 +21,6 @@ class BrowserApp extends React.Component {
   }
 
   onClick = () => {
-    
     const sceneBundlePath = RNFS.DocumentDirectoryPath + '/bundle.js';
     RNFS.readFile(sceneBundlePath, 'utf8').then(contents => {
       const evalOutput = eval(contents);
