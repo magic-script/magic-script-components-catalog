@@ -8,8 +8,8 @@ class BrowserApp extends React.Component {
     super(props);
 
     const scenes = [
-      <SceneA localPosition={[0, 0.6, 0]} />,
-      <SceneB localPosition={[0, -0.2, 0]} localRotation={[0,0,0,1]} />
+      <SceneA localPosition={[0, 0.7, 0]} />,
+      <SceneB localPosition={[0, -0.7, 0]} localRotation={[0,0,0,1]} />
     ]
     this.state = { scenes };
   }
