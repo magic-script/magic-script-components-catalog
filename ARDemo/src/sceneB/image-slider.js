@@ -31,16 +31,15 @@ export default class ImageSlider extends React.Component {
 
     render() {
         return (
-            <view>
+            <view localPosition={this.props.localPosition}>
                 <text
-                    localPosition={[-0.07, 0.30, 0]}
-                    textSize={0.05}
+                    localPosition={[0, 0.30, 0]}
+                    textSize={0.07}
                 >{this.props.caption}</text>
 
                 <image
                     key={this.state.currentPosition}
                     filePath={this.state.items[this.state.currentPosition]}
-                    // localPosition={[-0.25,  0.25,  -0.25]}
                     width={0.75}
                     height={0.5}
                 ></image>
@@ -61,12 +60,6 @@ export default class ImageSlider extends React.Component {
                     textSize={0.035}
                     onClick={this.onNextClick}
                 >next</button>
-                <model
-                    localPosition={[ 0.0, -1.15, 0]}
-                    modelPath={'resources/GlassVase.glb'}
-                    // localScale={[0.01, 0.01, 0.01]}
-                    // modelPath={'resources/Owl/owl_body.obj'}
-                />
             </view>
         );
     }

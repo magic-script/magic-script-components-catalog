@@ -5,7 +5,7 @@ AppRegistry.registerComponent('ARDemo', () => RNApp);
 
 
 import React from 'react';
-import { ARKitScript } from 'react-native-magic-script';
-import MyApp from './src/app';
+import { ReactNativeMagicScript } from 'react-native-magic-script';
+import BrowserApp from './src/browser_app';
 
-ARKitScript.render(<MyApp />, { name: 'root' });
+ReactNativeMagicScript.render(<BrowserApp />, { name: 'root' });
