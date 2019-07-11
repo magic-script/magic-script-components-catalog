@@ -1,21 +1,22 @@
 import React from 'react';
 var RNFS = require('react-native-fs');
-import { SceneA } from './sceneA/index.js';
-import { SceneB } from './sceneB/index.js';
 import { APIClient } from './api';
+import { SceneA, SceneB } from './demo_scenes';
+import { SceneText } from './test_scenes';
 
 class BrowserApp extends React.Component {
   constructor(props) {
     super(props);
 
     const scenes = [
-      <SceneA localPosition={[0, 0.7, 0]} />,
-      <SceneB localPosition={[0, -0.7, 0]} localRotation={[0,0,0,1]} />
+      <SceneText localPosition={[0, 0.7, 0]} />
+      // <SceneA localPosition={[0, 0.7, 0]} />,
+      // <SceneB localPosition={[0, -0.7, 0]} localRotation={[0,0,0,1]} />
     ]
     this.state = { scenes, sceneOffset: 0.0 };
   }
 
-  addScene(scene) {
+  addScene = (scene) => {
     const { scenes, sceneOffset } = this.state;
     scenes.push(scene);
     const sceneWidth = 0.3;

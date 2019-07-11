@@ -1,16 +1,8 @@
 import React from 'react';
-import { StyleSheet, Switch, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ARView } from 'react-native-magic-script';
 
-export default class RNApp extends React.Component {
-  
-  state = { debugNodesValue: false }
-
-  onSwitchValueChange = () => {
-    const value = this.state.debugNodesValue ? false : true;
-    this.setState({ debugNodesValue: value });
-  }
-
+export default class ReactNativeApp extends React.Component {
   render() {
     return (
       <View style={styles.container}>
