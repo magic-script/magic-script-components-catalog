@@ -18,7 +18,7 @@ export default class SceneB extends React.Component {
                 localPosition={this.props.localPosition} 
                 items={this.images} 
                 initialPosition={0} 
-                caption={'Scene B'}
+                caption={'Gallery'}
             />
         );
     }

@@ -8,12 +8,24 @@ class BrowserApp extends React.Component {
   constructor(props) {
     super(props);
 
-    const scenes = [
-      <SceneText localPosition={[0, 0.7, 0]} />
-      // <SceneA localPosition={[0, 0.7, 0]} />,
-      // <SceneB localPosition={[0, -0.7, 0]} localRotation={[0,0,0,1]} />
+    this.scenes = [
+      <SceneText />,
+      <SceneA />,
+      <SceneB />
     ]
-    this.state = { scenes, sceneOffset: 0.0 };
+    this.state = { sceneIndex: 0 };
+  }
+
+  onNextScene = () => {
+    const { sceneIndex } = this.state;
+    const nextIndex = (sceneIndex + 1) % this.scenes.length;
+    this.setState({ sceneIndex: nextIndex });
+  }
+
+  onPreviousScene = () => {
+    const { sceneIndex } = this.state;
+    const prevIndex = (sceneIndex > 0) ? sceneIndex - 1 : this.scenes.length - 1;
+    this.setState({ sceneIndex: prevIndex });
   }
 
   addScene = (scene) => {
@@ -67,19 +79,17 @@ class BrowserApp extends React.Component {
   }
 
   render() {
+    const { sceneIndex } = this.state;
     return (
       <view name='main-view'>
-        <view>
-          {this.renderScenes()}
+        <view localPosition={[0, 1.3, 0]}>
+          <button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</button>
+          <button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</button>
         </view>
-        <button 
-            localPosition={[0, 1, 0]} 
-            width={0.25} 
-            height={0.10} 
-            roundness={0.25}
-            textSize={0.035}
-            onClick={this.onClick}
-        >Add scene</button>
+        <view>
+          {this.scenes[sceneIndex]}
+        </view>
+        {/* <button localPosition={[0, 1, 0]} width={0.25} height={0.10} roundness={0.25}textSize={0.035}onClick={this.onClick}>Add scene</button> */}
       </view>
     );
   }

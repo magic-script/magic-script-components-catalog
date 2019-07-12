@@ -95,10 +95,10 @@ class SceneText extends React.Component {
     render() {
         return (
             <view localPosition={this.props.localPosition}>
-                <view localPosition={[0,0.3,0]}>
+                <view localPosition={[0,1,0]}>
                     {this.renderLetters()}
                 </view>
-                <view localPosition={[0,-1.4,0]}>
+                <view localPosition={[0,-0.8,0]}>
                     {this.renderTexts()}
                 </view>
             </view>

@@ -6,8 +6,8 @@ export default class SceneA extends React.Component {
         return (
             <Header 
                 localPosition={this.props.localPosition} 
-                title={'Scene A'}
-                subtitle={'Dynamic scene.'} 
+                title={'"The Very Hungry Caterpillar"'}
+                subtitle={'by Eric Carle, $5.60'} 
             />
         );
     }
