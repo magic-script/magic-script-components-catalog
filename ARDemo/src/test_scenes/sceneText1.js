@@ -1,6 +1,18 @@
 import React from 'react';
 
-class SceneText extends React.Component {
+class SceneText1 extends React.Component {
+
+    state = { timeDiff: undefined }
+
+    componentWillMount() {
+        this.startTime = new Date();
+    }
+
+    componentDidMount() {
+        const endTime = new Date();
+        const timeDiff = (endTime - this.startTime) / 1000;
+        this.setState({ timeDiff });
+    }
 
     renderText(key, contents, textSize, textColor, localPosition) {
         return (<text
@@ -35,12 +47,24 @@ class SceneText extends React.Component {
         return this.lerpv4(c1, c2, y);
     }
 
+    renderTimeDiff() {
+        const { timeDiff } = this.state;
+        if (timeDiff === undefined) {
+            return null;
+        }
+
+        return (
+            <text localPosition={[0, 1.3, 0]} textColor={[1,1,1,0.8]} textSize={0.05}>{`${timeDiff}`}</text>
+        );
+    }
+
     renderLetters() {
-        const letters = [...'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.:_-!@#$%^&*()[]{}<>/\\~`'];
+        // const letters = [...'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę'];
+        const letters = [...'abcdefghijklmnopqrstuvwxyz'];
         const minTextSize = 0.01;
         const maxTextSize = 0.15;
-        const size = 0.15;
-        const columns = 8;
+        const size = 0.2;
+        const columns = 5;
         const rows = Math.ceil(letters.length / columns);
         const minX = -0.5 * size * (columns - 1);
         const minY = 0;
@@ -64,46 +88,16 @@ class SceneText extends React.Component {
         });
     }
 
-    renderTexts() {
-        const texts = [
-            'The quick brown fox jumps over the lazy dog.',
-            'With time and patience the mulberry leaf becomes a silk gown.',
-            'Man is a pupil, pain is his teacher.',
-            'A journey of a thousand miles begins with a single step.',
-            'A smile will gain you ten more years of life.',
-            'He who asks is a fool for five minutes, but he who does not ask remains a fool forever.',
-        ];
-        const textAlignments = ['center', /*'justify',*/ 'left', 'right'];
-        const size = 0.15;
-        return texts.map((text, index) => {
-            const y = -size * index;
-            const textAlignment = textAlignments[(index / 2) % textAlignments.length];
-            const wrap = (index >= (textAlignments.length / 2));
-            return (
-                <text 
-                    key={index} 
-                    localPosition={[0, y, 0]} 
-                    textAlignment={textAlignment}
-                    textColor={[1,1,1,0.8]} 
-                    textSize={0.08}
-                    wrap={wrap}
-                >{text}</text>
-            );
-        });
-    }
-
     render() {
         return (
             <view localPosition={this.props.localPosition}>
-                <view localPosition={[0,1,0]}>
+                {this.renderTimeDiff()}
+                <view localPosition={[0,0.5,0]}>
                     {this.renderLetters()}
-                </view>
-                <view localPosition={[0,-0.8,0]}>
-                    {this.renderTexts()}
                 </view>
             </view>
         );
     }
 }
 
-export { SceneText };
+export { SceneText1 };

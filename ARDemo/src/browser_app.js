@@ -2,18 +2,19 @@ import React from 'react';
 var RNFS = require('react-native-fs');
 import { APIClient } from './api';
 import { SceneA, SceneB } from './demo_scenes';
-import { SceneButton, SceneImage, SceneModel, SceneText, SceneTextEdit } from './test_scenes';
+import { SceneButton, SceneImage, SceneModel, SceneText1, SceneText2, SceneTextEdit } from './test_scenes';
 
 class BrowserApp extends React.Component {
   constructor(props) {
     super(props);
 
     this.scenes = [
-      <SceneText />,
-      <SceneTextEdit />,
-      <SceneImage />,
+      <SceneText1 />,
+      <SceneText2 />,
+      // <SceneTextEdit />,
+      // <SceneImage />,
       // <SceneButton />,
-      <SceneModel />,
+      // <SceneModel />,
       <SceneA />,
       <SceneB />
     ]

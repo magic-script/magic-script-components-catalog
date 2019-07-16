@@ -33,7 +33,7 @@ export default class ImageSlider extends React.Component {
         return (
             <view localPosition={this.props.localPosition}>
                 <text
-                    localPosition={[0, 0.30, 0]}
+                    localPosition={[-0.07, 0.30, 0]}
                     textSize={0.07}
                 >{this.props.caption}</text>
 
