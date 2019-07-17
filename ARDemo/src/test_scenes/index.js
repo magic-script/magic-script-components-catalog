@@ -1,5 +1,6 @@
 export * from './sceneButton';
 export * from './sceneImage';
+export * from './sceneImageRemote';
 export * from './sceneModel';
 export * from './sceneText1';
 export * from './sceneText2';

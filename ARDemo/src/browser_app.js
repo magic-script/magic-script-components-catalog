@@ -1,8 +1,8 @@
 import React from 'react';
-var RNFS = require('react-native-fs');
+const RNFS = require('react-native-fs');
 import { APIClient } from './api';
 import { SceneA, SceneB } from './demo_scenes';
-import { SceneButton, SceneImage, SceneModel, SceneText1, SceneText2, SceneTextEdit } from './test_scenes';
+import { SceneButton, SceneImage, SceneImageRemote, SceneModel, SceneText1, SceneText2, SceneTextEdit } from './test_scenes';
 
 class BrowserApp extends React.Component {
   constructor(props) {
@@ -12,11 +12,12 @@ class BrowserApp extends React.Component {
       <SceneText1 />,
       <SceneText2 />,
       // <SceneTextEdit />,
-      // <SceneImage />,
+      <SceneImage />,
+      <SceneImageRemote />,
       // <SceneButton />,
       // <SceneModel />,
-      <SceneA />,
-      <SceneB />
+      // <SceneA />,
+      // <SceneB />
     ]
     this.state = { sceneIndex: 0 };
   }
