@@ -34,12 +34,12 @@ class SceneText2 extends React.Component {
             'A smile will gain you ten more years of life.',
             'He who asks is a fool for five minutes, but he who does not ask remains a fool forever.',
         ];
-        const textAlignments = ['left', 'center', /*'justify',*/, 'right'];
-        const height = 0.35;
+        const textAlignments = ['left', 'center', 'right'];
+        const height = 0.3;
         return texts.map((text, index) => {
-            const y = 0.5 - height * index;
-            const textAlignment = textAlignments[(index / 2) % textAlignments.length];
-            const wrap = (index >= (textAlignments.length / 2));
+            const groupIndex = Math.floor(index / 2);
+            const y = 0.5 - height * index - groupIndex * 0.2;
+            const textAlignment = textAlignments[groupIndex % textAlignments.length];
             return (
                 <text 
                     key={index} 
@@ -48,7 +48,7 @@ class SceneText2 extends React.Component {
                     textColor={[1,1,1,0.8]} 
                     textSize={0.08}
                     wrap={true}
-                    boundsSize={[1.0,height]}
+                    boundsSize={[1.1,height]}
                 >{text}</text>
             );
         });
