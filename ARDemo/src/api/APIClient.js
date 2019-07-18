@@ -9,5 +9,25 @@ export const APIClient = {
         })
         .then((response) => onSuccess(response.data))
         .catch((error) => onError(error));
+    },
+
+    getJSON: (url) => {
+        return axios({
+            method: 'GET',
+            url,
+        })
+    },
+
+    getJSON2: (roomsListJsonUrl) => {
+        axios({
+            method: 'GET',
+            url: `${roomsListJsonUrl}`,
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => { 
+            console.error(error);
+        });
     }
 };
