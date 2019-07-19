@@ -35,6 +35,7 @@ export default class ImageSlider extends React.Component {
                 <text
                     localPosition={[-0.07, 0.30, 0]}
                     textSize={0.07}
+                    textAlignment={'left'}
                 >{this.props.caption}</text>
 
                 <image

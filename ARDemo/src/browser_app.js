@@ -2,7 +2,7 @@ import React from 'react';
 // import { MLXrClientSession } from 'react-native-magic-script';
 import { SceneUtils } from './utils/sceneUtils.js';
 import { SceneA, SceneB } from './demo_scenes';
-import { SceneButton, SceneImage, SceneImageRemote, SceneModel, SceneText1, SceneText2, SceneTextEdit } from './test_scenes';
+import { SceneButton, SceneImage, SceneImageRemote, SceneModel, SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit } from './test_scenes';
 import { APIClient } from './api/index.js';
 
 class BrowserApp extends React.Component {
@@ -10,32 +10,19 @@ class BrowserApp extends React.Component {
     super(props);
 
     this.scenes = [
-      <SceneText1 />,
-      <SceneText2 />,
+      <SceneTextLetters />,
+      <SceneTextCharacters />,
+      <SceneTextAlignment />,
+      <SceneTextMultiline />,
       // <SceneTextEdit />,
-      <SceneImage />,
-      <SceneImageRemote />,
+      // <SceneImage />,
+      // <SceneImageRemote />,
       // <SceneButton />,
       // <SceneModel />,
-      // <SceneA />,
-      // <SceneB />
+      <SceneA />,
+      <SceneB />
     ]
     this.state = { sceneIndex: 0 };
-
-    // console.log('MLXrClientSession: ', MLXrClientSession);
-    // MLXrClientSession.getLocalizationStatus().then(status => {
-    //   console.log('MLXrClientSession.getLocalizationStatus: ', status);
-    // });
-    // MLXrClientSession.getAllAnchors().then(anchors => {
-    //   console.log('MLXrClientSession.getAllAnchors: ', anchors);
-    // });
-  }
-
-  componentDidMount() {
-    this.onClick();
-    APIClient.getJSON2('https://facebook.github.io/react-native/movies.json')
-    // .then(response => console.log('[axios] response: ', response.data))
-    // .catch(error => console.log('[axios] error: ', error));
   }
 
   onNextScene = () => {
@@ -50,7 +37,7 @@ class BrowserApp extends React.Component {
     this.setState({ sceneIndex: prevIndex });
   }
 
-  onClick = () => {
+  downloadSampleScene() {
     SceneUtils.loadFromNetwork('bundle.js', false)
     .then(scene => {
       const MyScene = scene;

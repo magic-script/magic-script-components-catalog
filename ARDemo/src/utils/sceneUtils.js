@@ -5,6 +5,7 @@ const SceneUtils = {
     loadFromNetwork: (name, saveToDisk) => {
         return new Promise((resolve, reject) => {
             APIClient.fetchScene(name, (data) => {
+              console.log('fetchScene: ', data);
                 if (saveToDisk) {
                   const path = RNFS.DocumentDirectoryPath + '/' + name;
                   SceneUtils.saveSceneToFile(path, data);

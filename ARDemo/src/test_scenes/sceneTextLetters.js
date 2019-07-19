@@ -1,18 +1,6 @@
 import React from 'react';
 
-class SceneText1 extends React.Component {
-
-    state = { timeDiff: undefined }
-
-    componentWillMount() {
-        this.startTime = new Date();
-    }
-
-    componentDidMount() {
-        const endTime = new Date();
-        const timeDiff = (endTime - this.startTime) / 1000;
-        this.setState({ timeDiff });
-    }
+class SceneTextLetters extends React.Component {
 
     renderText(key, contents, textSize, textColor, localPosition) {
         return (<text
@@ -47,23 +35,12 @@ class SceneText1 extends React.Component {
         return this.lerpv4(c1, c2, y);
     }
 
-    renderTimeDiff() {
-        const { timeDiff } = this.state;
-        if (timeDiff === undefined) {
-            return null;
-        }
-
-        return (
-            <text localPosition={[0, 1.3, 0]} textColor={[1,1,1,0.8]} textSize={0.05}>{`${timeDiff}`}</text>
-        );
-    }
-
     renderLetters() {
         // const letters = [...'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę'];
-        const letters = [...'abcdefghijklmnopqrstuvwxyz'];
+        const letters = [...'abcdefghijklmnopqrstuvwxyz0123456789'];
         const minTextSize = 0.01;
         const maxTextSize = 0.15;
-        const size = 0.2;
+        const size = 0.25;
         const columns = 5;
         const rows = Math.ceil(letters.length / columns);
         const minX = -0.5 * size * (columns - 1);
@@ -91,8 +68,7 @@ class SceneText1 extends React.Component {
     render() {
         return (
             <view localPosition={this.props.localPosition}>
-                {this.renderTimeDiff()}
-                <view localPosition={[0,0.5,0]}>
+                <view localPosition={[0,0.75,0]}>
                     {this.renderLetters()}
                 </view>
             </view>
@@ -100,4 +76,4 @@ class SceneText1 extends React.Component {
     }
 }
 
-export { SceneText1 };
+export { SceneTextLetters };

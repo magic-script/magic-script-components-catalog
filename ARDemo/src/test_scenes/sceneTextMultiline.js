@@ -1,29 +1,6 @@
 import React from 'react';
 
-class SceneText2 extends React.Component {
-
-    state = { timeDiff: undefined }
-
-    componentWillMount() {
-        this.startTime = new Date();
-    }
-
-    componentDidMount() {
-        const endTime = new Date();
-        const timeDiff = (endTime - this.startTime) / 1000;
-        this.setState({ timeDiff });
-    }
-
-    renderTimeDiff() {
-        const { timeDiff } = this.state;
-        if (timeDiff === undefined) {
-            return null;
-        }
-
-        return (
-            <text localPosition={[0, 1.3, 0]} textColor={[1,1,1,0.8]} textSize={0.05}>{`${timeDiff}`}</text>
-        );
-    }
+class SceneTextMultiline extends React.Component {
 
     renderTexts() {
         const texts = [
@@ -57,7 +34,6 @@ class SceneText2 extends React.Component {
     render() {
         return (
             <view localPosition={this.props.localPosition}>
-                {this.renderTimeDiff()}
                 <view localPosition={[0,0.5,0]}>
                     {this.renderTexts()}
                 </view>
@@ -66,4 +42,4 @@ class SceneText2 extends React.Component {
     }
 }
 
-export { SceneText2 };
+export { SceneTextMultiline };
