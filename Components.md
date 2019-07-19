@@ -34,3 +34,22 @@ Order | Component | Lumin RT<br>native component | Lumin OS | iOS | Android
 30 | datePicker | UiDatePicker | :thumbsup: | 2md | 2.5md
 31 | portalIcon | UiPortalIcon | :thumbsup: | ??
 32 | circleConfirmation | UiCircleConfirmation | :thumbsup: | ??
+
+# What we can deliver by the end of July
+
+### Android (Darek)
+- textEdit (finish up)
+- gridLayout
+- toggle
+
+### iOS (Pawel)
+- textEdit
+- gridLayout
+- toggle
+
+# Priorities
+
+Nikolay prepared a document with a list of components most wanted by the developer:
+https://github.com/magic-script/react-native-magic-script/blob/master/PLAN.md
+
+
