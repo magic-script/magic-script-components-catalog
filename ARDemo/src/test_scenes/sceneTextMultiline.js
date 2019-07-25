@@ -24,8 +24,7 @@ class SceneTextMultiline extends React.Component {
                     textAlignment={textAlignment}
                     textColor={[1,1,1,0.8]} 
                     textSize={0.08}
-                    wrap={true}
-                    boundsSize={[1.1,height]}
+                    boundsSize={{ boundsSize: [1.0, 0.5], wrap: true }}
                 >{text}</text>
             );
         });
