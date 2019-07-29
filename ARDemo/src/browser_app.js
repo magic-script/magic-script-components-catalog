@@ -2,7 +2,13 @@ import React from 'react';
 // import { MLXrClientSession } from 'react-native-magic-script';
 import { SceneUtils } from './utils/sceneUtils.js';
 import { SceneA, SceneB } from './demo_scenes';
-import { SceneButton, SceneImage, SceneImageRemote, SceneModel, SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit } from './test_scenes';
+import { SceneButton, 
+  SceneGridLayout,
+  SceneImage, SceneImageRemote, 
+  SceneModel, 
+  SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
+  SceneToggle, 
+} from './test_scenes';
 import { APIClient } from './api/index.js';
 
 class BrowserApp extends React.Component {
@@ -10,17 +16,19 @@ class BrowserApp extends React.Component {
     super(props);
 
     this.scenes = [
-      <SceneTextLetters />,
-      <SceneTextCharacters />,
-      <SceneTextAlignment />,
-      <SceneTextMultiline />,
-      // <SceneTextEdit />,
-      // <SceneImage />,
-      // <SceneImageRemote />,
+      <SceneTextLetters localPosition={[0, 0.75, 0]}/>,
+      <SceneTextCharacters localPosition={[0, 0.75, 0]}/>,
+      <SceneTextAlignment localPosition={[-0.5, 0.5, 0]}/>,
+      <SceneTextMultiline localPosition={[-0.55, 0.5, 0]}/>,
+      <SceneTextEdit localPosition={[0.0, 0.5, 0]}/>,
+      <SceneImage localPosition={[0.0, 0.5, 0.0]}/>,
+      <SceneImageRemote localPosition={[0.0, 0.0, 0.0]}/>,
       // <SceneButton />,
-      // <SceneModel />,
-      <SceneA />,
-      <SceneB />
+      // <SceneModel localPosition={[0.0, 0.0, 0.0]}/>,
+      <SceneGridLayout localPosition={[-0.65, 0.75, 0.0]}/>,
+      // <SceneToggle localPosition={[0.0, 0.0, 0.0]}/>,
+      // <SceneA />,
+      // <SceneB />,
     ]
     this.state = { sceneIndex: 0 };
   }
