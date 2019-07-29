@@ -17,32 +17,12 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		440A7C2922D759AE00FAD76D /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4453EF0022D758A300C9E1FF /* libRNFS.a */; };
-		4410DEDD22B2992100A8522B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		4410DEDE22B2992100A8522B /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		4410DEDF22B2992100A8522B /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		4410DEE022B2992100A8522B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		4410DEE122B2992100A8522B /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
-		4410DEE222B2992100A8522B /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
-		4410DEE322B2992100A8522B /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
-		4410DEE422B2992100A8522B /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
-		4410DEE522B2992100A8522B /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
-		4410DEE622B2992100A8522B /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
-		4410DEE722B2992100A8522B /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		4410DEE822B2992100A8522B /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		4410DEE922B2992100A8522B /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		4493BED022B5B1600046BCE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC822B5B15F0046BCE3 /* main.m */; };
-		4493BED122B5B1600046BCE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC822B5B15F0046BCE3 /* main.m */; };
 		4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */; };
-		4493BED322B5B1600046BCE3 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */; };
 		4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
-		4493BED522B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
 		4493BED622B5B1600046BCE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */; };
-		4493BED722B5B1600046BCE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */; };
 		4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
-		4493BEDB22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
 		44FA561922B78C6C00B42251 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FA561822B78C5A00B42251 /* libRNMagicScript.a */; };
-		44FA561A22B78C7500B42251 /* libRNMagicScript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FA561822B78C5A00B42251 /* libRNMagicScript.a */; };
 		4CF7DB56F45E45E4B802E674 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A07D9D599C14A86BF7DBFA7 /* libRNFS.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -351,15 +331,14 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1A07D9D599C14A86BF7DBFA7 /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4410DEF122B2992100A8522B /* ARDemo Release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARDemo Release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4453EEFA22D758A200C9E1FF /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
+		44554D0222EED2C400E68062 /* mlxr_ios_client.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mlxr_ios_client.framework; path = "../node_modules/react-native-magic-script/ios/libraries/mlxr_ios_client.framework"; sourceTree = "<group>"; };
 		4493BEC622B5B15F0046BCE3 /* ARDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		4493BEC722B5B15F0046BCE3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4493BEC822B5B15F0046BCE3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyFile.swift; sourceTree = "<group>"; };
 		4493BECA22B5B15F0046BCE3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		4493BECD22B5B1600046BCE3 /* Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Release.plist"; sourceTree = "<group>"; };
 		4493BECE22B5B1600046BCE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4493BECF22B5B1600046BCE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44FA561322B78C5A00B42251 /* RNMagicScript.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMagicScript.xcodeproj; path = "../../../react-native-magic-script/ios/RNMagicScript.xcodeproj"; sourceTree = "<group>"; };
@@ -391,28 +370,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				4CF7DB56F45E45E4B802E674 /* libRNFS.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4410DEDB22B2992100A8522B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				44FA561A22B78C7500B42251 /* libRNMagicScript.a in Frameworks */,
-				4410DEDD22B2992100A8522B /* JavaScriptCore.framework in Frameworks */,
-				4410DEDE22B2992100A8522B /* libRCTBlob.a in Frameworks */,
-				4410DEDF22B2992100A8522B /* libRCTAnimation.a in Frameworks */,
-				4410DEE022B2992100A8522B /* libReact.a in Frameworks */,
-				4410DEE122B2992100A8522B /* libRCTActionSheet.a in Frameworks */,
-				4410DEE222B2992100A8522B /* libRCTGeolocation.a in Frameworks */,
-				4410DEE322B2992100A8522B /* libRCTImage.a in Frameworks */,
-				4410DEE422B2992100A8522B /* libRCTLinking.a in Frameworks */,
-				4410DEE522B2992100A8522B /* libRCTNetwork.a in Frameworks */,
-				4410DEE622B2992100A8522B /* libRCTSettings.a in Frameworks */,
-				4410DEE722B2992100A8522B /* libRCTText.a in Frameworks */,
-				4410DEE822B2992100A8522B /* libRCTVibration.a in Frameworks */,
-				4410DEE922B2992100A8522B /* libRCTWebSocket.a in Frameworks */,
-				440A7C2922D759AE00FAD76D /* libRNFS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +506,6 @@
 				4493BECE22B5B1600046BCE3 /* Images.xcassets */,
 				4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */,
 				4493BECF22B5B1600046BCE3 /* Info.plist */,
-				4493BECD22B5B1600046BCE3 /* Info-Release.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -614,6 +570,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				44554D0222EED2C400E68062 /* mlxr_ios_client.framework */,
 				4493BECB22B5B1600046BCE3 /* Resources */,
 				4493BEC522B5B15F0046BCE3 /* Sources */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -630,7 +587,6 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* ARDemo.app */,
-				4410DEF122B2992100A8522B /* ARDemo Release.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -647,9 +603,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* ARDemo Debug */ = {
+		13B07F861A680F5B00A75B9A /* ARDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo Debug" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo" */;
 			buildPhases = (
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -660,27 +616,9 @@
 			);
 			dependencies = (
 			);
-			name = "ARDemo Debug";
+			name = ARDemo;
 			productName = "Hello World";
 			productReference = 13B07F961A680F5B00A75B9A /* ARDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
-		4410DED622B2992100A8522B /* ARDemo Release */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4410DEEE22B2992100A8522B /* Build configuration list for PBXNativeTarget "ARDemo Release" */;
-			buildPhases = (
-				4410DED722B2992100A8522B /* Sources */,
-				4410DEDB22B2992100A8522B /* Frameworks */,
-				4410DEEA22B2992100A8522B /* Resources */,
-				4410DEED22B2992100A8522B /* Bundle React Native code and images */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ARDemo Release";
-			productName = "Hello World";
-			productReference = 4410DEF122B2992100A8522B /* ARDemo Release.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -695,9 +633,6 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = DEURTTZ5DW;
 						LastSwiftMigration = 1010;
-					};
-					4410DED622B2992100A8522B = {
-						DevelopmentTeam = DEURTTZ5DW;
 					};
 				};
 			};
@@ -773,8 +708,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ARDemo Debug */,
-				4410DED622B2992100A8522B /* ARDemo Release */,
+				13B07F861A680F5B00A75B9A /* ARDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -1079,33 +1013,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4410DEEA22B2992100A8522B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4493BEDB22B5B1600046BCE3 /* Images.xcassets in Resources */,
-				4493BED722B5B1600046BCE3 /* LaunchScreen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native code and images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		4410DEED22B2992100A8522B /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1129,16 +1040,6 @@
 				4493BED022B5B1600046BCE3 /* main.m in Sources */,
 				4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */,
 				4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4410DED722B2992100A8522B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4493BED122B5B1600046BCE3 /* main.m in Sources */,
-				4493BED322B5B1600046BCE3 /* EmptyFile.swift in Sources */,
-				4493BED522B5B1600046BCE3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1209,62 +1110,6 @@
 			};
 			name = Release;
 		};
-		4410DEEF22B2992100A8522B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = DEURTTZ5DW;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-fs/**",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info-Release.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nomtek.ARDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ARDemo-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Debug;
-		};
-		4410DEF022B2992100A8522B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DEURTTZ5DW;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-fs/**",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info-Release.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nomtek.ARDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ARDemo-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1296,6 +1141,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-magic-script/ios/libraries";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1349,6 +1195,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-magic-script/ios/libraries";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1369,20 +1216,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo Debug" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4410DEEE22B2992100A8522B /* Build configuration list for PBXNativeTarget "ARDemo Release" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4410DEEF22B2992100A8522B /* Debug */,
-				4410DEF022B2992100A8522B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -3,7 +3,7 @@
    LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
-      parallelizeBuildables = "YES"
+      parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
@@ -14,9 +14,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4410DED622B2992100A8522B"
-               BuildableName = "ARDemo Release.app"
-               BlueprintName = "ARDemo Release"
+               BlueprintIdentifier = "83CBBA2D1A601D0E00E9B192"
+               BuildableName = "libReact.a"
+               BlueprintName = "React"
+               ReferencedContainer = "container:../node_modules/react-native/React/React.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "ARDemo.app"
+               BlueprintName = "ARDemo"
+               ReferencedContainer = "container:ARDemo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "ARDemoTests.xctest"
+               BlueprintName = "ARDemoTests"
                ReferencedContainer = "container:ARDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,13 +56,23 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "ARDemoTests.xctest"
+               BlueprintName = "ARDemoTests"
+               ReferencedContainer = "container:ARDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4410DED622B2992100A8522B"
-            BuildableName = "ARDemo Release.app"
-            BlueprintName = "ARDemo Release"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "ARDemo.app"
+            BlueprintName = "ARDemo"
             ReferencedContainer = "container:ARDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -42,9 +80,9 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -55,9 +93,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4410DED622B2992100A8522B"
-            BuildableName = "ARDemo Release.app"
-            BlueprintName = "ARDemo Release"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "ARDemo.app"
+            BlueprintName = "ARDemo"
             ReferencedContainer = "container:ARDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +112,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4410DED622B2992100A8522B"
-            BuildableName = "ARDemo Release.app"
-            BlueprintName = "ARDemo Release"
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "ARDemo.app"
+            BlueprintName = "ARDemo"
             ReferencedContainer = "container:ARDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
