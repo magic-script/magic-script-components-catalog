@@ -26,7 +26,7 @@ class BrowserApp extends React.Component {
       // <SceneButton />,
       // <SceneModel localPosition={[0.0, 0.0, 0.0]}/>,
       <SceneGridLayout localPosition={[-0.65, 0.5, 0.0]}/>,
-      // <SceneToggle localPosition={[0.0, 0.0, 0.0]}/>,
+      <SceneToggle localPosition={[0.0, 0.0, 0.0]}/>,
       // <SceneA />,
       // <SceneB />,
     ]

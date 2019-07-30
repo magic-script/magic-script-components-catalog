@@ -17,6 +17,7 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		447C242322F0792200F9A8F6 /* RNMagicScriptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4453EE9022D62B2A00C9E1FF /* RNMagicScriptResources.bundle */; };
 		4493BED022B5B1600046BCE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC822B5B15F0046BCE3 /* main.m */; };
 		4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */; };
 		4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
@@ -1010,6 +1011,7 @@
 			files = (
 				4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */,
 				4493BED622B5B1600046BCE3 /* LaunchScreen.xib in Resources */,
+				447C242322F0792200F9A8F6 /* RNMagicScriptResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1028,7 +1030,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
