@@ -16,7 +16,7 @@ class SceneGridLayout extends React.Component {
       }
     }
 
-    return items.map((item, index) => <text textSize={(index === indexMidRow) ? 0.2 : 0.08}>{item}</text>);
+    return items.map((item, index) => <text key={index} textSize={(index === indexMidRow) ? 0.2 : 0.08}>{item}</text>);
   }
 
   render () {
