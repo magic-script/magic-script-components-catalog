@@ -8,6 +8,7 @@ import { SceneButton,
   SceneModel, 
   SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
   SceneToggle, 
+  GameTicTacToe,
 } from './test_scenes';
 import { APIClient } from './api/index.js';
 
@@ -20,15 +21,16 @@ class BrowserApp extends React.Component {
       <SceneTextCharacters localPosition={[0, 0.75, 0]}/>,
       <SceneTextAlignment localPosition={[0, 0.5, 0]}/>,
       <SceneTextMultiline localPosition={[0, 0.5, 0]}/>,
-      <SceneTextEdit localPosition={[0.0, 0.5, 0]}/>,
-      <SceneImage localPosition={[0.0, 0.5, 0.0]}/>,
-      <SceneImageRemote localPosition={[0.0, 0.0, 0.0]}/>,
+      <SceneTextEdit localPosition={[0, 0.5, 0]}/>,
+      <SceneImage localPosition={[0, 0.5, 0]}/>,
+      <SceneImageRemote localPosition={[0, 0, 0]}/>,
       // <SceneButton />,
-      // <SceneModel localPosition={[0.0, 0.0, 0.0]}/>,
-      <SceneGridLayout localPosition={[-0.65, 0.5, 0.0]}/>,
-      <SceneToggle localPosition={[0.0, 0.0, 0.0]}/>,
+      // <SceneModel localPosition={[0, 0, 0]}/>,
+      <SceneGridLayout localPosition={[0, 0.5, 0]}/>,
+      <SceneToggle localPosition={[0, 0, 0]}/>,
       // <SceneA />,
       // <SceneB />,
+      <GameTicTacToe />
     ]
     this.state = { sceneIndex: 0 };
   }

@@ -8,4 +8,5 @@ export * from './sceneTextCharacters';
 export * from './sceneTextLetters';
 export * from './sceneTextMultiline';
 export * from './sceneTextEdit';
+export * from './sceneTicTacToe';
 export * from './sceneToggle';
