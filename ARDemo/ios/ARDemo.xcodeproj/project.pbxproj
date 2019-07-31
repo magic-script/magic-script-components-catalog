@@ -18,6 +18,8 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		447C242322F0792200F9A8F6 /* RNMagicScriptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4453EE9022D62B2A00C9E1FF /* RNMagicScriptResources.bundle */; };
+		447C245C22F17D2300F9A8F6 /* mlxr_ios_client_internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447C243222F17D2300F9A8F6 /* mlxr_ios_client_internal.framework */; };
+		447C245D22F17D2300F9A8F6 /* mlxr_ios_client_internal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 447C243222F17D2300F9A8F6 /* mlxr_ios_client_internal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4493BED022B5B1600046BCE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC822B5B15F0046BCE3 /* main.m */; };
 		4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */; };
 		4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
@@ -320,6 +322,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		447C245E22F17D2300F9A8F6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				447C245D22F17D2300F9A8F6 /* mlxr_ios_client_internal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
@@ -333,7 +349,7 @@
 		1A07D9D599C14A86BF7DBFA7 /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4453EEFA22D758A200C9E1FF /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
-		44554D0222EED2C400E68062 /* mlxr_ios_client.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mlxr_ios_client.framework; path = "../node_modules/react-native-magic-script/ios/libraries/mlxr_ios_client.framework"; sourceTree = "<group>"; };
+		447C243222F17D2300F9A8F6 /* mlxr_ios_client_internal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = mlxr_ios_client_internal.framework; path = "../node_modules/react-native-magic-script/ios/libraries/mlxr_ios_client_internal.framework"; sourceTree = "<group>"; };
 		4493BEC622B5B15F0046BCE3 /* ARDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		4493BEC722B5B15F0046BCE3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4493BEC822B5B15F0046BCE3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -365,6 +381,7 @@
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				447C245C22F17D2300F9A8F6 /* mlxr_ios_client_internal.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
@@ -571,7 +588,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				44554D0222EED2C400E68062 /* mlxr_ios_client.framework */,
+				447C243222F17D2300F9A8F6 /* mlxr_ios_client_internal.framework */,
 				4493BECB22B5B1600046BCE3 /* Resources */,
 				4493BEC522B5B15F0046BCE3 /* Sources */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -612,6 +629,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				447C245E22F17D2300F9A8F6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
