@@ -32,7 +32,7 @@ class BrowserApp extends React.Component {
       // <SceneB />,
       <GameTicTacToe />
     ]
-    this.state = { sceneIndex: 0 };
+    this.state = { sceneIndex: 7 };
   }
 
   onNextScene = () => {
