@@ -1,3 +1,4 @@
+export * from './sceneAlignment';
 export * from './sceneButton';
 export * from './sceneGridLayout';
 export * from './sceneImage';

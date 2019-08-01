@@ -10,6 +10,7 @@ import { SceneButton,
   SceneToggle, 
   GameTicTacToe,
   SceneProgressBar,
+  SceneAlignment,
 } from './test_scenes';
 
 class BrowserApp extends React.Component {
@@ -31,9 +32,10 @@ class BrowserApp extends React.Component {
       <SceneProgressBar localPosition={[0, 0, 0]}/>,
       // <SceneA />,
       // <SceneB />,
-      <GameTicTacToe />
+      <GameTicTacToe />,
+      <SceneAlignment localPosition={[0, 0, 0]}/>,
     ]
-    this.state = { sceneIndex: 9 };
+    this.state = { sceneIndex: 11 };
   }
 
   onNextScene = () => {
