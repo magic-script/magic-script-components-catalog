@@ -9,8 +9,8 @@ import { SceneButton,
   SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
   SceneToggle, 
   GameTicTacToe,
+  SceneProgressBar,
 } from './test_scenes';
-import { APIClient } from './api/index.js';
 
 class BrowserApp extends React.Component {
   constructor(props) {
@@ -28,11 +28,12 @@ class BrowserApp extends React.Component {
       // <SceneModel localPosition={[0, 0, 0]}/>,
       <SceneGridLayout localPosition={[0, 0.5, 0]}/>,
       <SceneToggle localPosition={[0, 0, 0]}/>,
+      <SceneProgressBar localPosition={[0, 0, 0]}/>,
       // <SceneA />,
       // <SceneB />,
       <GameTicTacToe />
     ]
-    this.state = { sceneIndex: 7 };
+    this.state = { sceneIndex: 9 };
   }
 
   onNextScene = () => {

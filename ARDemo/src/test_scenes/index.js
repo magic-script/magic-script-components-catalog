@@ -3,6 +3,7 @@ export * from './sceneGridLayout';
 export * from './sceneImage';
 export * from './sceneImageRemote';
 export * from './sceneModel';
+export * from './sceneProgressBar';
 export * from './sceneTextAlignment';
 export * from './sceneTextCharacters';
 export * from './sceneTextLetters';
