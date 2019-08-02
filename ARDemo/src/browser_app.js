@@ -35,7 +35,7 @@ class BrowserApp extends React.Component {
       <GameTicTacToe />,
       <SceneAlignment localPosition={[0, 0, 0]}/>,
     ]
-    this.state = { sceneIndex: 11 };
+    this.state = { sceneIndex: 7 };
   }
 
   onNextScene = () => {

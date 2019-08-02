@@ -4,6 +4,7 @@ class SceneAlignment extends React.Component {
   state = { seconds: 0, minutes: 0, hours: 0 }
 
   componentDidMount() {
+    this.updateTime();
     this.handler = setInterval(this.updateTime, 1000);
   }
 
@@ -13,7 +14,6 @@ class SceneAlignment extends React.Component {
 
   updateTime = () => {
     const date = new Date();
-    console.log('date: ', date);
     const seconds = date.getSeconds();
     const minutes = date.getMinutes();
     const hours = date.getHours();
@@ -22,18 +22,18 @@ class SceneAlignment extends React.Component {
 
   renderItems(center, radius) {
     const items = [
-      { alignment: 'bottom-center', hour: '12' },
-      { alignment: 'bottom-left', hour: '1' },
-      { alignment: 'bottom-left', hour: '2' },
-      { alignment: 'center-left', hour: '3' },
-      { alignment: 'top-left', hour: '4' },
-      { alignment: 'top-left', hour: '5' },
-      { alignment: 'top-center', hour: '6' },
-      { alignment: 'top-right', hour: '7' },
-      { alignment: 'top-right', hour: '8' },
-      { alignment: 'center-right', hour: '9' },
-      { alignment: 'bottom-right', hour: '10' },
-      { alignment: 'bottom-right', hour: '11' },
+      { alignment: 'top-center', hour: '12' },
+      { alignment: 'top-right', hour: '1' },
+      { alignment: 'top-right', hour: '2' },
+      { alignment: 'center-right', hour: '3' },
+      { alignment: 'bottom-right', hour: '4' },
+      { alignment: 'bottom-right', hour: '5' },
+      { alignment: 'bottom-center', hour: '6' },
+      { alignment: 'bottom-left', hour: '7' },
+      { alignment: 'bottom-left', hour: '8' },
+      { alignment: 'center-left', hour: '9' },
+      { alignment: 'top-left', hour: '10' },
+      { alignment: 'top-left', hour: '11' },
     ];
 
     return items.map((item, index) => {
@@ -51,7 +51,7 @@ class SceneAlignment extends React.Component {
     });
   }
 
-  renderClockHand(center, length, angle) {
+  renderClockHand(center, length, width, angle) {
     const v = { x: 0, y: 0, z: -1 };
     const s = Math.sin(angle / 2);
     const quat = {
@@ -67,9 +67,9 @@ class SceneAlignment extends React.Component {
         localRotation={[quat.x, quat.y, quat.z, quat.w]}
       >
         <text 
-          localPosition={[0, 0.1 + length, 0]}  
-          localScale={[1,2,1]}
-          textSize={length}
+          alignment={'bottom-center'}
+          localScale={[width, length, 1]}
+          textSize={1}
         >|</text>
       </view>
       
@@ -79,7 +79,7 @@ class SceneAlignment extends React.Component {
   render () {
     const { seconds, minutes, hours } = this.state;
     const center = { x: 0, y: 0 };
-    const radius = 0.5;
+    const radius = 0.7;
     const angleSeconds = seconds * ((2 * Math.PI) / 60);
     const angleMinutes = minutes * ((2 * Math.PI) / 60);
     const angleHours = hours * ((2 * Math.PI) / 12);
@@ -90,12 +90,12 @@ class SceneAlignment extends React.Component {
           localPosition={[center.x, center.y, 0]}
           textSize={0.1}
           roundness={1}
-          width={2*radius}
-          height={2*radius}
+          width={2*radius + 0.1}
+          height={2*radius + 0.1}
         >{'Clock face'}</button>
-        {this.renderClockHand(center, 0.4 * radius, angleSeconds)}
-        {this.renderClockHand(center, 0.3 * radius, angleMinutes)}
-        {this.renderClockHand(center, 0.2 * radius, angleHours)}
+        {this.renderClockHand(center, 0.95 * radius, 0.1, angleSeconds)}
+        {this.renderClockHand(center, 0.75 * radius, 0.3, angleMinutes)}
+        {this.renderClockHand(center, 0.5 * radius, 0.4, angleHours)}
       </view>
     );
   }
