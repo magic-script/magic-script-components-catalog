@@ -5,6 +5,7 @@ import { SceneA, SceneB } from './demo_scenes';
 import { SceneButton, 
   SceneGridLayout,
   SceneImage, SceneImageRemote, 
+  SceneLine,
   SceneModel, 
   SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
   SceneToggle, 
@@ -34,8 +35,9 @@ class BrowserApp extends React.Component {
       // <SceneB />,
       <GameTicTacToe />,
       <SceneAlignment localPosition={[0, 0, 0]}/>,
+      <SceneLine localPosition={[0, 0, 0]}/>,
     ]
-    this.state = { sceneIndex: 7 };
+    this.state = { sceneIndex: 12 };
   }
 
   onNextScene = () => {
