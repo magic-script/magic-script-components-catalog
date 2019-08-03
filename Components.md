@@ -34,6 +34,7 @@ Order | Component | Lumin RT<br>native component | Lumin OS | iOS | Android
 30 | datePicker | UiDatePicker | :thumbsup: | 2md | 2.5md
 31 | portalIcon | UiPortalIcon | :thumbsup: | ??
 32 | circleConfirmation | UiCircleConfirmation | :thumbsup: | ??
+33 | line | LineNode | :thumbsup: | :thumbsup: | ?
 
 # What we can deliver by the end of July
 
