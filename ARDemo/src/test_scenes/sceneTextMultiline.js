@@ -19,11 +19,12 @@ class SceneTextMultiline extends React.Component {
       return (
         <text
           key={index}
+          alignment={'top-center'}
+          boundsSize={{ boundsSize: [1.1, height], wrap: true }}
           localPosition={[0, y, 0]}
           textAlignment={textAlignment}
           textColor={[1, 1, 1, 0.8]}
           textSize={0.08}
-          boundsSize={{ boundsSize: [1.1, height], wrap: true }}
         >{text}</text>
       );
     });
