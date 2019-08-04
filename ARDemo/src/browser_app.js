@@ -37,7 +37,7 @@ class BrowserApp extends React.Component {
       <SceneAlignment localPosition={[0, 0, 0]}/>,
       <SceneLine localPosition={[0, 0, 0]}/>,
     ]
-    this.state = { sceneIndex: 12 };
+    this.state = { sceneIndex: 6 };
   }
 
   onNextScene = () => {
