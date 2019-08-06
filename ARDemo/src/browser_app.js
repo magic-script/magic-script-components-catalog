@@ -13,6 +13,7 @@ import { SceneButton,
   SceneProgressBar,
   SceneAlignment,
 } from './test_scenes';
+import CalendarView from './calendar_scene/components/CalendarView';
 
 class BrowserApp extends React.Component {
   constructor(props) {
@@ -36,8 +37,9 @@ class BrowserApp extends React.Component {
       <GameTicTacToe />,
       <SceneAlignment localPosition={[0, 0, 0]}/>,
       <SceneLine localPosition={[0, 0, 0]}/>,
+      <CalendarView />
     ]
-    this.state = { sceneIndex: 6 };
+    this.state = { sceneIndex: 13 };
   }
 
   onNextScene = () => {
