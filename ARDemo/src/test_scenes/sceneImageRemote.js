@@ -1,6 +1,5 @@
 import React from 'react';
 const RNFS = require('react-native-fs');
-import { APIClient } from '../api';
 
 class SceneImageRemote extends React.Component {
 

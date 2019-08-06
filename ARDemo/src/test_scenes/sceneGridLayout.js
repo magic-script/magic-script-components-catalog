@@ -24,6 +24,7 @@ class SceneGridLayout extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <gridLayout
+          alignment={'center-center'}
           columns={columns}
           defaultItemAlignment={'center-center'}
           defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}

@@ -61,15 +61,6 @@ class BrowserApp extends React.Component {
     })
   }
 
-  renderScenes() {
-      const { scenes } = this.state;
-      return scenes.map((scene, index) => {
-        return (
-            <view key={index}>{scene}</view>
-        );
-      });
-  }
-
   render() {
     const { sceneIndex } = this.state;
     return (

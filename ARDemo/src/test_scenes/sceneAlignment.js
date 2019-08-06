@@ -87,6 +87,7 @@ class SceneAlignment extends React.Component {
       <view localPosition={this.props.localPosition}>
         {this.renderItems(center, radius)}
         <button
+          enabled={false}
           localPosition={[center.x, center.y, 0]}
           textSize={0.1}
           roundness={1}
