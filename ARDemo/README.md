@@ -40,11 +40,25 @@ In case of build problems do the following:
 - remove the `yarn.lock` file from the project directory,
 - give the `yarn` and `react-native run-android` commands
 
-or use the script (save as .bat file for Windows):
+or use the script:
+
+**For Windows (save as .bat file for Windows)**
 
     set projectDir=C:\Users\Darek\Documents\magicScript\magic-script-components-platform-android\ARDemo
     rd /s /q %projectDir%\node_modules\react-native-magic-script
     del /f %projectDir%\yarn.lock
     start cmd /k "cd /d %projectDir% & yarn & react-native run-android"
+
+**For macOS (save as .sh file, make sure the file is in ARDemo directory)**
+
+     #!/bin/bash
+     
+     projectDir=`pwd`
+     rm -rf "$projectDir/node_modules/react-native-magic-script"
+     rm "$projectDir/yarn.lock"
+     yarn
+     react-native run-android
+
+Or simply run from terminal while in ARDemo directory: **./runAndroid.sh** 
 
 *If the build still fails, remove the `build` directories from this project (`android/build` and `android/app/build`), as well as from the `react-native-magic-script/android`.
