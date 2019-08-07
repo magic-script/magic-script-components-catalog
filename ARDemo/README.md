@@ -59,4 +59,6 @@ or use the script:
      yarn
      react-native run-android
 
+Or simply run from terminal while in ARDemo directory: **./runAndroid.sh** 
+
 *If the build still fails, remove the `build` directories from this project (`android/build` and `android/app/build`), as well as from the `react-native-magic-script/android`.
