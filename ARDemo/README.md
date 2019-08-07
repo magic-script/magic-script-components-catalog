@@ -28,3 +28,23 @@ This is a test project used for testing and development of [`react-native-magic-
      - From the app folder run: `react-native start`.
 
 3. In the iOS simulator press `Cmd+R` to reload the app. For the device, you need to shake the device and select **Reload** to reload the app.
+
+## Running the demo app (Android)
+
+ Open a console and go to the project directory, then give the commands:
+- `yarn`
+- `react-native run-android`
+
+In case of build problems do the following:
+- remove the `react-native-magic-script` directory from `node_modules`,
+- remove the `yarn.lock` file from the project directory,
+- give the `yarn` and `react-native run-android` commands
+
+or use the script (save as .bat file for Windows):
+
+    set projectDir=C:\Users\Darek\Documents\magicScript\magic-script-components-platform-android\ARDemo
+    rd /s /q %projectDir%\node_modules\react-native-magic-script
+    del /f %projectDir%\yarn.lock
+    start cmd /k "cd /d %projectDir% & yarn & react-native run-android"
+
+*If the build still fails, remove the `build` directories from this project (`android/build` and `android/app/build`), as well as from the `react-native-magic-script/android`.
