@@ -9,7 +9,9 @@ import {
   TITLE_BG_COLOR_2
 } from "../config/Colors";
 
-export default class CalendarItem extends React.Component {
+import { SUMMARY_MAX_LENGTH } from '../config/Sizes.js';
+
+export default class CalendarItem extends React.PureComponent {
   formatTime(date) {
     let hrs = date.getHours() + 1;
     let min = date.getMinutes();
@@ -22,11 +24,25 @@ export default class CalendarItem extends React.Component {
     return `${hh}:${mm}${type}`;
   }
 
+  formatSummary(summary) {
+    if (summary === undefined) {
+      return 'no title';
+    }
+
+    if (summary.length > SUMMARY_MAX_LENGTH) {
+      return `${summary.substr(0, SUMMARY_MAX_LENGTH - 3)}...`;
+    }
+
+    return summary;
+  }
+
   render() {
     const { index, event } = this.props;
 
     const yPosition = 0.19 - index * 0.045;
-    const summary = event.summary === undefined ? "no title" : event.summary;
+    const summary = this.formatSummary(event.summary);
+
+
 
     const beginDate = new Date(event.start.dateTime);
     const endDate = new Date(event.end.dateTime);
@@ -39,7 +55,7 @@ export default class CalendarItem extends React.Component {
           color={TIME_BG_COLOR}
           localPosition={[-0.215, yPosition, -0.01]}
           width={0.2}
-          height={0.045}
+          height={0.044}
           useFrame={true}
         />
         <text
@@ -54,9 +70,9 @@ export default class CalendarItem extends React.Component {
         </text>
         <image
           color={index % 2 == 0 ? TITLE_BG_COLOR_1 : TITLE_BG_COLOR_2}
-          localPosition={[0.1, yPosition, -0.01]}
+          localPosition={[0.101, yPosition, -0.01]}
           width={0.43}
-          height={0.045}
+          height={0.044}
           useFrame={true}
         />
         <text

@@ -3,7 +3,8 @@ import React from "react";
 
 import { BASE_URL, CALENDAR, ROOM } from "../config/Client";
 import { PRISM_COLOR, TEXT_COLOR } from "../config/Colors";
-import { PRISM_X, PRISM_Y } from "../config/Sizes";
+import { PRISM_X, PRISM_Y, UPDATE_FREQUENCY } from "../config/Sizes";
+
 
 import CalendarItem from "./CalendarItem";
 
@@ -19,7 +20,10 @@ export default class CalendarView extends React.Component {
   }
 
   async componentDidMount() {
-    this.interval = setInterval(async () => await this.updateCalendar(), 3000);
+		await this.updateCalendar();
+		if (this.interval === undefined) {
+			this.interval = setInterval(async () => await this.updateCalendar(), UPDATE_FREQUENCY);
+		}
   }
 
   componentWillUnmount() {
@@ -74,19 +78,12 @@ export default class CalendarView extends React.Component {
     const calendarView = this.renderCalendarView(this.state.space);
     return (
       <view name="main-view">
-        <image
-          color={PRISM_COLOR}
-          localPosition={[0, 0, -0.03]}
-          width={PRISM_X}
-          height={PRISM_Y}
-          useFrame={true}
-        />
         <text
           textSize={0.05}
           textColor={TEXT_COLOR}
-          localPosition={[0, 0.32, 0]}
           width={PRISM_X}
           alignment={"top-center"}
+          localPosition={[0, 0.32, 0]}
         >
           {"Schedule for room"}
         </text>
