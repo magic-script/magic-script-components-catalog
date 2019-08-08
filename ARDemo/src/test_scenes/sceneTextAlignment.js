@@ -10,7 +10,7 @@ class SceneTextAlignment extends React.Component {
         <view key={index} localPosition={[0, y, 0]}>
           <text
             alignment={'top-center'}
-            boundsSize={{ boundsSize: [1.0, height], wrap: true }}
+            boundsSize={{ boundsSize: [1.0, height], wrap: false }}
             textAlignment={alignment}
             textColor={[1.0, 0.9, 0.9, 0.8]}
             textSize={0.08}
