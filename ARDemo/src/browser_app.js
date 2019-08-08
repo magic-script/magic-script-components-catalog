@@ -39,7 +39,7 @@ class BrowserApp extends React.Component {
       <SceneLine localPosition={[0, 0, 0]}/>,
       <CalendarView />
     ]
-    this.state = { sceneIndex: 13 };
+    this.state = { sceneIndex: 2 };
   }
 
   onNextScene = () => {
@@ -66,12 +66,12 @@ class BrowserApp extends React.Component {
   render() {
     const { sceneIndex } = this.state;
     return (
-      <view name='main-view'>
-        <view localPosition={[0, 1.3, 0]}>
+      <view name='main-view' alignment={'center-center'}>
+        <view alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</button>
           <button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</button>
         </view>
-        <view>
+        <view alignment={'center-center'}>
           {this.scenes[sceneIndex]}
         </view>
       </view>
