@@ -105,7 +105,7 @@ export class GameTicTacToe extends React.Component {
           />
         </view>
         <view name="game-info" localPosition={[0, 0.5, 0]}>
-          <text textSize={0.05} alignment="top-left">{status}</text>
+          <text textSize={0.05} alignment='top-left'>{status}</text>
           {/* <listView width={0.5} height={0.42} localPosition={[0, -0.08, 0]}>{moves}</listView> */}
           <gridLayout columns={1} width={0.5} height={0.42} localPosition={[0, -0.08, 0]}>{moves}</gridLayout>
         </view>
