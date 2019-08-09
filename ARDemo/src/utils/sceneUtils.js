@@ -5,7 +5,6 @@ const SceneUtils = {
     loadFromNetwork: (url, saveToDisk) => {
         return new Promise((resolve, reject) => {
             APIClient.fetchScene(url, (data) => {
-              console.log('fetchScene: ', data);
                 if (saveToDisk) {
                   const path = RNFS.DocumentDirectoryPath + '/bundle.js';
                   SceneUtils.saveSceneToFile(path, data);
