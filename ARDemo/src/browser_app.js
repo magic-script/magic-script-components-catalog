@@ -20,26 +20,26 @@ class BrowserApp extends React.Component {
     super(props);
 
     this.scenes = [
-      <SceneTextLetters localPosition={[0, 0.75, 0]}/>,
-      <SceneTextCharacters localPosition={[0, 0.75, 0]}/>,
-      <SceneTextAlignment localPosition={[0, 0.5, 0]}/>,
-      <SceneTextMultiline localPosition={[0, 0.5, 0]}/>,
-      <SceneTextEdit localPosition={[0, 0.5, 0]}/>,
-      <SceneImage localPosition={[0, 0.5, 0]}/>,
-      <SceneImageRemote localPosition={[0, 0, 0]}/>,
-      // <SceneButton />,
-      // <SceneModel localPosition={[0, 0, 0]}/>,
-      <SceneGridLayout localPosition={[0, 0.5, 0]}/>,
-      <SceneToggle localPosition={[0, 0, 0]}/>,
-      <SceneProgressBar localPosition={[0, 0, 0]}/>,
-      // <SceneA />,
-      // <SceneB />,
-      <GameTicTacToe />,
-      <SceneAlignment localPosition={[0, 0, 0]}/>,
-      <SceneLine localPosition={[0, 0, 0]}/>,
-      <CalendarView />
+      { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
+      { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
+      { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
+      { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
+      { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
+      // { name: 'Button', component: <SceneButton /> },
+      // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
+      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
+      { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
+      { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },
+      // { name: '', component: <SceneA /> },
+      // { name: '', component: <SceneB /> },
+      { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
+      { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
+      { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
+      { name: 'Calendar (local)', component: <CalendarView /> },
     ]
-    this.state = { sceneIndex: 2 };
+    this.state = { sceneIndex: 0 };
   }
 
   onNextScene = () => {
@@ -54,25 +54,18 @@ class BrowserApp extends React.Component {
     this.setState({ sceneIndex: prevIndex });
   }
 
-  downloadSampleScene() {
-    SceneUtils.loadFromNetwork('bundle.js', false)
-    .then(scene => {
-      const MyScene = scene;
-      const anchorPosition = [0, 0, 0];
-      this.scenes.push(<MyScene localPosition={anchorPosition} counter={0}/>);  
-    })
-  }
-
   render() {
     const { sceneIndex } = this.state;
+    const scene = this.scenes[sceneIndex];
     return (
       <view name='main-view' alignment={'center-center'}>
         <view alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</button>
+          <text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</text>
           <button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</button>
         </view>
         <view alignment={'center-center'}>
-          {this.scenes[sceneIndex]}
+          {scene.component}
         </view>
       </view>
     );
