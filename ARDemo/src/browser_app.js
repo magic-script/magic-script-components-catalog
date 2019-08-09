@@ -12,6 +12,7 @@ import { SceneButton,
   GameTicTacToe,
   SceneProgressBar,
   SceneAlignment,
+  SceneRemote,
 } from './test_scenes';
 import CalendarView from './calendar_scene/components/CalendarView';
 
@@ -38,6 +39,7 @@ class BrowserApp extends React.Component {
       { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (local)', component: <CalendarView /> },
+      { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
     this.state = { sceneIndex: 0 };
   }

@@ -6,6 +6,7 @@ export * from './sceneImageRemote';
 export * from './sceneLine';
 export * from './sceneModel';
 export * from './sceneProgressBar';
+export * from './sceneRemote';
 export * from './sceneTextAlignment';
 export * from './sceneTextCharacters';
 export * from './sceneTextLetters';

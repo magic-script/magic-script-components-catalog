@@ -31,14 +31,14 @@ class SceneImageRemote extends React.Component {
 				<image 
 					filePath={'https://homepages.cae.wisc.edu/~ece533/images/monarch.png'}
 					color={[0.3,0.7,0.5,1]}
-					localPosition={[0,0.7,0]}
+					localPosition={[0,0.7,0.01]}
 					width={frameSize}
 					height={frameSize}
 					useFrame
 				/>
 				<image 
 					filePath={'https://homepages.cae.wisc.edu/~ece533/images/airplane.png'}
-					localPosition={[-0.35,0,-0]}
+					localPosition={[-0.35,0,0]}
 					width={frameSize}
 					height={frameSize}
 					useFrame

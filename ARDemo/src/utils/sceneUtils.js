@@ -2,17 +2,17 @@ const RNFS = require('react-native-fs');
 import { APIClient } from '../api/APIClient';
 
 const SceneUtils = {
-    loadFromNetwork: (name, saveToDisk) => {
+    loadFromNetwork: (url, saveToDisk) => {
         return new Promise((resolve, reject) => {
-            APIClient.fetchScene(name, (data) => {
+            APIClient.fetchScene(url, (data) => {
               console.log('fetchScene: ', data);
                 if (saveToDisk) {
-                  const path = RNFS.DocumentDirectoryPath + '/' + name;
+                  const path = RNFS.DocumentDirectoryPath + '/bundle.js';
                   SceneUtils.saveSceneToFile(path, data);
                 }
           
                 eval(data);
-                let MyScene = mxs;
+                let MyScene = mxs_bundle;
                 resolve(MyScene);
               }, (error) => {
                 reject(error);
