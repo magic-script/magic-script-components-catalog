@@ -1,0 +1,6 @@
+module RNMagicScript {
+  umbrella header "RNMagicScript-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-magic-script/ios/bridge/ARView/RCTARView.h
