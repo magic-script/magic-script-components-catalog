@@ -16,13 +16,18 @@
     "tag": "master"
   },
   "source_files": "**/*.{h,m,swift}",
+  "resource_bundles": {
+    "RNMagicScriptResources": [
+      "**/*.{ttf,xcassets}"
+    ]
+  },
   "requires_arc": true,
   "dependencies": {
     "React": [
 
     ],
     "GLTFSceneKit": [
-      "0.1.3"
+
     ]
   }
 }

@@ -1,4 +1,4 @@
-platform :ios, '12.0'
+platform :ios, '11.0'
 
 # The target name is most likely the name of your project.
 target 'ARDemo' do
@@ -27,6 +27,7 @@ target 'ARDemo' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # AR
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
   pod 'RNMagicScript', :path => '../node_modules/react-native-magic-script/ios/RNMagicScript.podspec'
 
   # Third party deps podspec link
@@ -36,10 +37,22 @@ target 'ARDemo' do
   
 end
 
-# post_install do |installer|
-#   installer.pods_project.targets.each do |target|
-#     if target.name == "React"
-#       target.remove_from_project
-#     end
-#   end
-# end
+post_install do |installer|
+  if installer.pods_project.targets.map { |target| target.name }.include? "RNFS"
+      full_path = '../node_modules/react-native-fs/'
+      full_path_wildcard = '../node_modules/react-native-fs/*.m'
+      Dir.glob(full_path_wildcard) { |element| 
+        if element == full_path + 'RNFSManager.m'
+          replace(element, /^#import <React\/RCTImageLoader.h>/mi) do |match|
+            "#{match} \n#import <React/RCTGIFImageDecoder.h>"
+          end
+        end
+      }
+  end
+end
+
+
+def replace(filepath, regexp, *args, &block)
+  content = File.read(filepath).gsub(regexp, *args, &block)
+  File.open(filepath, 'wb') { |file| file.write(content) }
+end
