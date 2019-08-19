@@ -1,6 +1,16 @@
 import React from 'react';
 
 class SceneTextLetters extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { uppercase: false };
+    this.onToggleChanged = this.onToggleChanged.bind(this);
+  }
+
+  onToggleChanged = (event) => {
+    this.setState({ uppercase: event.On });
+  }
+
   renderText (key, contents, textSize, textColor, localPosition) {
     return (<text
       key={key}
@@ -34,9 +44,10 @@ class SceneTextLetters extends React.Component {
     return this.lerpv4(c1, c2, y);
   }
 
-  renderLetters () {
+  renderLetters (uppercase) {
     // const letters = [...'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789,.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę'];
-    const letters = [...'abcdefghijklmnopqrstuvwxyz0123456789'];
+    const string = '0123456789abcdefghijklmnopqrstuvwxyz';
+    const letters = uppercase ? [...string.toUpperCase()] : [...string];
     const minTextSize = 0.01;
     const maxTextSize = 0.15;
     const size = 0.25;
@@ -65,9 +76,11 @@ class SceneTextLetters extends React.Component {
   }
 
   render () {
+    const { uppercase } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
-        {this.renderLetters()}
+        {this.renderLetters(uppercase)}
+        <toggle localPosition={[0.6,-2,0]} alignment={'center-right'} height={0.1} textSize={0.08} on={uppercase} onToggleChanged={this.onToggleChanged}>Uppercase</toggle>
       </view>
     );
   }
