@@ -1,1 +1,0 @@
-../../../../../node_modules/react-native-magic-script/ios/RNMagicScript-Bridging-Header.h

@@ -1,6 +1,0 @@
-module Pods_ARDemo {
-  umbrella header "Pods-ARDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,1 +1,0 @@
-../../../Target Support Files/GLTFSceneKit/GLTFSceneKit-umbrella.h
