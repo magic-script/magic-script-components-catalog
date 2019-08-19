@@ -1,0 +1,58 @@
+platform :ios, '11.0'
+
+# The target name is most likely the name of your project.
+target 'ARDemo' do
+
+  # Your 'node_modules' directory is probably in the root of your project,
+  # but if not, adjust the `:path` accordingly
+  pod 'React', :path => '../node_modules/react-native', :modular_headers => true, :subspecs => [
+    'Core',
+    'CxxBridge', # Include this for RN >= 0.47
+    'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
+    # Add any other subspecs you want to use in your project
+    'RCTActionSheet',
+    'RCTBlob',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTLinkingIOS'
+  ]
+  # Explicitly include Yoga if you are using RN >= 0.42.0
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # AR
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'RNMagicScript', :path => '../node_modules/react-native-magic-script/ios/RNMagicScript.podspec'
+
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  
+end
+
+post_install do |installer|
+  if installer.pods_project.targets.map { |target| target.name }.include? "RNFS"
+      full_path = '../node_modules/react-native-fs/'
+      full_path_wildcard = '../node_modules/react-native-fs/*.m'
+      Dir.glob(full_path_wildcard) { |element| 
+        if element == full_path + 'RNFSManager.m'
+          replace(element, /^#import <React\/RCTImageLoader.h>/mi) do |match|
+            "#{match} \n#import <React/RCTGIFImageDecoder.h>"
+          end
+        end
+      }
+  end
+end
+
+
+def replace(filepath, regexp, *args, &block)
+  content = File.read(filepath).gsub(regexp, *args, &block)
+  File.open(filepath, 'wb') { |file| file.write(content) }
+end
