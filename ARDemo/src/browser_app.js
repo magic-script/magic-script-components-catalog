@@ -1,5 +1,5 @@
 import React from 'react';
-// import { MLXrClientSession } from 'react-native-magic-script';
+import { Button, Text, View } from 'react-native-magic-script';
 import { SceneUtils } from './utils/sceneUtils.js';
 import { SceneA, SceneB } from './demo_scenes';
 import { SceneButton, 
@@ -26,9 +26,9 @@ class BrowserApp extends React.Component {
       { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
       { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
+      { name: 'Buttons', component: <SceneButton /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
-      // { name: 'Button', component: <SceneButton /> },
       // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
@@ -41,7 +41,7 @@ class BrowserApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 0 };
+    this.state = { sceneIndex: 5 };
   }
 
   onNextScene = () => {
@@ -60,16 +60,16 @@ class BrowserApp extends React.Component {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
     return (
-      <view name='main-view' alignment={'center-center'}>
-        <view alignment={'center-center'} localPosition={[0, 1.3, 0]}>
-          <button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</button>
-          <text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</text>
-          <button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</button>
-        </view>
-        <view alignment={'center-center'}>
+      <View name='main-view' alignment={'center-center'}>
+        <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
+          <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
+          <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
+          <Button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
+        </View>
+        <View alignment={'center-center'}>
           {scene.component}
-        </view>
-      </view>
+        </View>
+      </View>
     );
   }
 }
