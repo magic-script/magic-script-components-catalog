@@ -8,7 +8,7 @@ class SceneRemote extends React.Component {
     super(props);
 
 		this.state = { scenes: [] };
-		this.onAddScene.bind(this);
+		this.onAddScene = this.onAddScene.bind(this);
 		this.offset = 0.0;
   }
 
