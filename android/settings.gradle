@@ -1,0 +1,7 @@
+rootProject.name = 'Catalog'
+include ':react-native-fs'
+project(':react-native-fs').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fs/android')
+include ':react-native-magic-script'
+project(':react-native-magic-script').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-magic-script/android')
+
+include ':app'
