@@ -1,4 +1,4 @@
-package com.ardemo;
+package com.catalog;
 
 import android.app.Application;
 
