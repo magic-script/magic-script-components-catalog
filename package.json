@@ -12,7 +12,7 @@
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-fs": "^2.14.1",
-    "react-native-magic-script": "../../react-native-magic-script"
+    "react-native-magic-script": "../react-native-magic-script"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

@@ -1,7 +1,7 @@
 platform :ios, '11.0'
 
 # The target name is most likely the name of your project.
-target 'ARDemo' do
+target 'Catalog' do
 
   # Your 'node_modules' directory is probably in the root of your project,
   # but if not, adjust the `:path` accordingly

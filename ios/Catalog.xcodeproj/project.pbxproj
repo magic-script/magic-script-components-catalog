@@ -12,12 +12,13 @@
 		4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
 		4493BED622B5B1600046BCE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */; };
 		4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
-		F6AC8712654EF3EF9CA627BC /* libPods-ARDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC87528D8FD5A8601FB2AE06 /* libPods-ARDemo.a */; };
+		FDD6633E6E9B99BD58599FBA /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA341224D962BD43D9448F6 /* libPods-Catalog.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* ARDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4493BEC622B5B15F0046BCE3 /* ARDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA341224D962BD43D9448F6 /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4493BEC622B5B15F0046BCE3 /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		4493BEC722B5B15F0046BCE3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4493BEC822B5B15F0046BCE3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyFile.swift; sourceTree = "<group>"; };
@@ -25,9 +26,8 @@
 		4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		4493BECE22B5B1600046BCE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4493BECF22B5B1600046BCE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C0B0D0CCFEAFB380B3D3F00 /* Pods-ARDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemo.debug.xcconfig"; path = "Target Support Files/Pods-ARDemo/Pods-ARDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		BC87528D8FD5A8601FB2AE06 /* libPods-ARDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3923E5C2044A57F1BAE0A87 /* Pods-ARDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDemo.release.xcconfig"; path = "Target Support Files/Pods-ARDemo/Pods-ARDemo.release.xcconfig"; sourceTree = "<group>"; };
+		8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
+		F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6AC8712654EF3EF9CA627BC /* libPods-ARDemo.a in Frameworks */,
+				FDD6633E6E9B99BD58599FBA /* libPods-Catalog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +45,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC87528D8FD5A8601FB2AE06 /* libPods-ARDemo.a */,
+				2CA341224D962BD43D9448F6 /* libPods-Catalog.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -53,8 +53,8 @@
 		40ED6D45635B52F311377653 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8C0B0D0CCFEAFB380B3D3F00 /* Pods-ARDemo.debug.xcconfig */,
-				F3923E5C2044A57F1BAE0A87 /* Pods-ARDemo.release.xcconfig */,
+				8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */,
+				F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -66,7 +66,7 @@
 				4493BECA22B5B15F0046BCE3 /* AppDelegate.m */,
 				4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */,
 				4493BEC822B5B15F0046BCE3 /* main.m */,
-				4493BEC622B5B15F0046BCE3 /* ARDemo-Bridging-Header.h */,
+				4493BEC622B5B15F0046BCE3 /* Catalog-Bridging-Header.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ARDemo.app */,
+				13B07F961A680F5B00A75B9A /* Catalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,9 +106,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* ARDemo */ = {
+		13B07F861A680F5B00A75B9A /* Catalog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Catalog" */;
 			buildPhases = (
 				258566C21BFB0EE022A1E2D8 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -121,9 +121,9 @@
 			);
 			dependencies = (
 			);
-			name = ARDemo;
+			name = Catalog;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* ARDemo.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,7 +141,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ARDemo" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Catalog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -154,7 +154,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ARDemo */,
+				13B07F861A680F5B00A75B9A /* Catalog */,
 			);
 		};
 /* End PBXProject section */
@@ -201,7 +201,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ARDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Catalog-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -214,7 +214,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ARDemo/Pods-ARDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Catalog/Pods-Catalog-resources.sh",
 				"${PODS_ROOT}/GLTFSceneKit/Source/Common/GLTFShaderModifierFragment_alphaCutoff.shader",
 				"${PODS_ROOT}/GLTFSceneKit/Source/Common/GLTFShaderModifierSurface.shader",
 				"${PODS_ROOT}/GLTFSceneKit/Source/Common/GLTFShaderModifierSurface_alphaModeBlend.shader",
@@ -237,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARDemo/Pods-ARDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Catalog/Pods-Catalog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -258,7 +258,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C0B0D0CCFEAFB380B3D3F00 /* Pods-ARDemo.debug.xcconfig */;
+			baseConfigurationReference = 8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -278,9 +278,9 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nomtek.ARDemo;
-				PRODUCT_NAME = ARDemo;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ARDemo-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = org.magicscript.catalog;
+				PRODUCT_NAME = Catalog;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Catalog-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -289,7 +289,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3923E5C2044A57F1BAE0A87 /* Pods-ARDemo.release.xcconfig */;
+			baseConfigurationReference = F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -308,9 +308,9 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nomtek.ARDemo;
-				PRODUCT_NAME = ARDemo;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ARDemo-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = org.magicscript.catalog;
+				PRODUCT_NAME = Catalog;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Catalog-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -422,7 +422,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ARDemo" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Catalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -431,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ARDemo" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Catalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
