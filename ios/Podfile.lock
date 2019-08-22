@@ -161,7 +161,7 @@ EXTERNAL SOURCES:
   RNFS:
     :path: "../node_modules/react-native-fs"
   RNMagicScript:
-    :path: "../node_modules/react-native-magic-script/ios/RNMagicScript.podspec"
+    :podspec: "../node_modules/react-native-magic-script/ios/RNMagicScript.podspec"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -192,6 +192,6 @@ SPEC CHECKSUMS:
   RNMagicScript: 32d7a8e565602d9f045efc4d3b1f7c7c83ba51a2
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 
-PODFILE CHECKSUM: 68bb742e75524bac2e0a88926e5d6c6f20fb62da
+PODFILE CHECKSUM: e088574814cb9cfa25a3bfc4167cb113b44b94f4
 
 COCOAPODS: 1.7.5

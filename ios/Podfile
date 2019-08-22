@@ -28,7 +28,13 @@ target 'Catalog' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-  pod 'RNMagicScript', :path => '../node_modules/react-native-magic-script/ios/RNMagicScript.podspec'
+  pod 'RNMagicScript', :podspec => '../node_modules/react-native-magic-script/ios/RNMagicScript.podspec'
+
+  use_native_modules!
+
+  target 'CatalogTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
 end
-
