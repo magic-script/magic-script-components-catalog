@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "preinstall": "./scripts/preinstall.sh",
     "postinstall": "./scripts/postinstall.sh",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "react": "^16.8.6",
+    "lomino-font": "../lomino-font",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
     "react-native": "^0.60.5",
     "react-native-fs": "^2.13.3",
     "react-native-magic-script": "git+https://github.com/magic-script/react-native-magic-script"
@@ -18,8 +21,8 @@
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
-    "eslint": "^6.1.0",
     "babel-jest": "^24.8.0",
+    "eslint": "^6.1.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.8.6"
