@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CatalogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CatalogTests.m */; };
+		058193EE1AD94F8D90B8EEB9 /* LominoUIApp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */; };
+		082AAFC9DC25464B89663628 /* LominoUIApp-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */; };
+		092D92F4D9E546E88F416D84 /* LominoUIApp-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* CatalogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CatalogTests.m */; };
+		27B4F03DFEA54BEB904AEB03 /* LominoUIApp-WideItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */; };
 		4B96F05631AC269A887FE275 /* libPods-CatalogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F22081FD86C703276869DFB8 /* libPods-CatalogTests.a */; };
+		55EA4497B3954F17AAD52C7D /* LominoUIApp-Wide.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */; };
+		5DD2883DF83B41178ABCB5A2 /* LominoUIApp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */; };
+		62BF3B02AAEE4689BCE54AB6 /* LominoUIApp-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */; };
+		760DA730F5FB4B1495796489 /* LominoUIApp-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */; };
 		7A07923A1B4A7471C8677CDF /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D5914A269CCB7D7580DC /* libPods-Catalog.a */; };
+		91733CC188844CD7912C4835 /* LominoUIApp-WideBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */; };
+		9AE477EA6A714E5B82D8F571 /* LominoUIApp-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */; };
 		C4AF725C230E9A1A0072E236 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF725B230E9A1A0072E236 /* EmptyFile.swift */; };
+		C5403F7EB08D4D6FA8BF1F6D /* LominoUIApp-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */; };
+		E68DC2EA69B04337A1A6B93F /* LominoUIApp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */; };
+		EA87EBB2C0A643DAB315A7B3 /* LominoUIApp-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */; };
+		F0A318E087444DC9B60A059A /* LominoUIApp-WideBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +38,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Catalog;
-		};
-		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Catalog-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,18 +53,30 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Catalog/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Catalog/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Catalog/main.m; sourceTree = "<group>"; };
+		13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Light.ttf"; path = "../assets/fonts/LominoUIApp-Light.ttf"; sourceTree = "<group>"; };
 		1869D8A9E15EE710BD64362B /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
+		18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Italic.ttf"; path = "../assets/fonts/LominoUIApp-Italic.ttf"; sourceTree = "<group>"; };
+		1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-MediumItalic.ttf"; path = "../assets/fonts/LominoUIApp-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1CFF969521518CD500E92637 /* Pods-CatalogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogTests.debug.xcconfig"; path = "Target Support Files/Pods-CatalogTests/Pods-CatalogTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* Catalog-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Catalog-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Catalog-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Catalog-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-BoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideItalic.ttf"; sourceTree = "<group>"; };
+		51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Medium.ttf"; path = "../assets/fonts/LominoUIApp-Medium.ttf"; sourceTree = "<group>"; };
 		61CC7726349C08A41E4350EC /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
-		C4AF725A230E9A1A0072E236 /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Wide.ttf"; path = "../assets/fonts/LominoUIApp-Wide.ttf"; sourceTree = "<group>"; };
+		945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideBoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideBoldItalic.ttf"; sourceTree = "<group>"; };
+		9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-ExtraBoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-LightItalic.ttf"; path = "../assets/fonts/LominoUIApp-LightItalic.ttf"; sourceTree = "<group>"; };
+		C4AF725A230E9A1A0072E236 /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Catalog-Bridging-Header.h"; path = "Catalog/Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4AF725B230E9A1A0072E236 /* EmptyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyFile.swift; path = Catalog/EmptyFile.swift; sourceTree = "<group>"; };
 		CDC78357F75329EB0ABF8B74 /* Pods-CatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogTests.release.xcconfig"; path = "Target Support Files/Pods-CatalogTests/Pods-CatalogTests.release.xcconfig"; sourceTree = "<group>"; };
+		D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-ExtraBold.ttf"; path = "../assets/fonts/LominoUIApp-ExtraBold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Bold.ttf"; path = "../assets/fonts/LominoUIApp-Bold.ttf"; sourceTree = "<group>"; };
 		F22081FD86C703276869DFB8 /* libPods-CatalogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CatalogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideBold.ttf"; path = "../assets/fonts/LominoUIApp-WideBold.ttf"; sourceTree = "<group>"; };
 		FD69D5914A269CCB7D7580DC /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Regular.ttf"; path = "../assets/fonts/LominoUIApp-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,20 +93,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A07923A1B4A7471C8677CDF /* libPods-Catalog.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E4781E0B4A5D006451C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48D1E0B4A5D006451C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +154,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		51B147C675CF47CB90EB6FAE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */,
+				4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */,
+				D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */,
+				9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */,
+				18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */,
+				13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */,
+				A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */,
+				51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */,
+				1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */,
+				FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */,
+				8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */,
+				FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */,
+				945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */,
+				4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +191,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				0432D6E24B14AECBF5C525EA /* Pods */,
+				51B147C675CF47CB90EB6FAE /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -180,8 +203,6 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Catalog.app */,
 				00E356EE1AD99517003FC87E /* CatalogTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* Catalog-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Catalog-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,50 +250,13 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* Catalog-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Catalog-tvOS" */;
-			buildPhases = (
-				FD10A7F122414F3F0027D42C /* Start Packager */,
-				2D02E4771E0B4A5D006451C7 /* Sources */,
-				2D02E4781E0B4A5D006451C7 /* Frameworks */,
-				2D02E4791E0B4A5D006451C7 /* Resources */,
-				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Catalog-tvOS";
-			productName = "Catalog-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* Catalog-tvOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		2D02E48F1E0B4A5D006451C7 /* Catalog-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Catalog-tvOSTests" */;
-			buildPhases = (
-				2D02E48C1E0B4A5D006451C7 /* Sources */,
-				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
-				2D02E48E1E0B4A5D006451C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
-			);
-			name = "Catalog-tvOSTests";
-			productName = "Catalog-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Catalog-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -281,15 +265,6 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1030;
-					};
-					2D02E47A1E0B4A5D006451C7 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					2D02E48F1E0B4A5D006451C7 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
 				};
 			};
@@ -309,8 +284,6 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Catalog */,
 				00E356ED1AD99517003FC87E /* CatalogTests */,
-				2D02E47A1E0B4A5D006451C7 /* Catalog-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Catalog-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,21 +302,20 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E4791E0B4A5D006451C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				058193EE1AD94F8D90B8EEB9 /* LominoUIApp-Bold.ttf in Resources */,
+				082AAFC9DC25464B89663628 /* LominoUIApp-BoldItalic.ttf in Resources */,
+				9AE477EA6A714E5B82D8F571 /* LominoUIApp-ExtraBold.ttf in Resources */,
+				C5403F7EB08D4D6FA8BF1F6D /* LominoUIApp-ExtraBoldItalic.ttf in Resources */,
+				62BF3B02AAEE4689BCE54AB6 /* LominoUIApp-Italic.ttf in Resources */,
+				092D92F4D9E546E88F416D84 /* LominoUIApp-Light.ttf in Resources */,
+				760DA730F5FB4B1495796489 /* LominoUIApp-LightItalic.ttf in Resources */,
+				5DD2883DF83B41178ABCB5A2 /* LominoUIApp-Medium.ttf in Resources */,
+				EA87EBB2C0A643DAB315A7B3 /* LominoUIApp-MediumItalic.ttf in Resources */,
+				E68DC2EA69B04337A1A6B93F /* LominoUIApp-Regular.ttf in Resources */,
+				55EA4497B3954F17AAD52C7D /* LominoUIApp-Wide.ttf in Resources */,
+				F0A318E087444DC9B60A059A /* LominoUIApp-WideBold.ttf in Resources */,
+				91733CC188844CD7912C4835 /* LominoUIApp-WideBoldItalic.ttf in Resources */,
+				27B4F03DFEA54BEB904AEB03 /* LominoUIApp-WideItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,20 +330,6 @@
 			inputPaths = (
 			);
 			name = "Bundle React Native code and images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,25 +431,6 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FD10A7F122414F3F0027D42C /* Start Packager */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Start Packager";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -513,23 +452,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D02E4771E0B4A5D006451C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
-				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48C1E0B4A5D006451C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DCD954D1E0B4F2C00145EB5 /* CatalogTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -537,11 +459,6 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Catalog */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Catalog-tvOS */;
-			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -620,7 +537,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Catalog;
-				SWIFT_OBJC_BRIDGING_HEADER = "Catalog-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Catalog/Catalog-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -643,115 +560,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Catalog;
-				SWIFT_OBJC_BRIDGING_HEADER = "Catalog-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Catalog/Catalog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		2D02E4971E0B4A5E006451C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Catalog-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Catalog-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
-			};
-			name = Debug;
-		};
-		2D02E4981E0B4A5E006451C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Catalog-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Catalog-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
-			};
-			name = Release;
-		};
-		2D02E4991E0B4A5E006451C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Catalog-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Catalog-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog-tvOS.app/Catalog-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
-			};
-			name = Debug;
-		};
-		2D02E49A1E0B4A5E006451C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Catalog-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Catalog-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog-tvOS.app/Catalog-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
 		};
@@ -871,24 +682,6 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Catalog-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D02E4971E0B4A5E006451C7 /* Debug */,
-				2D02E4981E0B4A5E006451C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Catalog-tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D02E4991E0B4A5E006451C7 /* Debug */,
-				2D02E49A1E0B4A5E006451C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
