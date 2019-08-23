@@ -14,6 +14,7 @@ class SceneButton extends React.Component {
 			height: 0.0,
 		};
 		this.state = this.default;
+		this.onButtonClick = this.onButtonClick.bind(this);
 	}
 
 	renderButton({
@@ -50,7 +51,7 @@ class SceneButton extends React.Component {
   render () {
     return (
       <view localPosition={this.props.localPosition}>
-				<GridLayout localPosition={[0,0.1,0]} columns={4} alignment={`bottom-center`}>
+				<GridLayout localPosition={[0,-0.2,0]} columns={4} alignment={'bottom-center'}>
 
 					{this.renderHeader('Text:')}
 					{this.renderButton({ title: 'short', onClick: this.onButtonClick({ title: 'CTA'})})}
@@ -88,7 +89,7 @@ class SceneButton extends React.Component {
 					{this.renderButton({ title: 'disable', onClick: this.onButtonClick({ enabled: false })})}
 					
 				</GridLayout>
-				<GridLayout localPosition={[0,-0.3,0]} alignment={`top-center`}>
+				<GridLayout localPosition={[0,-0.55,0]} alignment={'top-center'}>
 					{this.renderButton(this.state)}
 				</GridLayout>
       </view>
