@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "lomino-font": "../lomino-font",
+    "lomino-font": "git+https://github.com/magic-script/lomino-font",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-native": "^0.60.5",
