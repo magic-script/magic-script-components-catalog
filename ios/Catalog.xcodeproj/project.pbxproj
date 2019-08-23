@@ -7,88 +7,191 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4493BED022B5B1600046BCE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC822B5B15F0046BCE3 /* main.m */; };
-		4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */; };
-		4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4493BECA22B5B15F0046BCE3 /* AppDelegate.m */; };
-		4493BED622B5B1600046BCE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */; };
-		4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4493BECE22B5B1600046BCE3 /* Images.xcassets */; };
-		FDD6633E6E9B99BD58599FBA /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA341224D962BD43D9448F6 /* libPods-Catalog.a */; };
+		00E356F31AD99517003FC87E /* CatalogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CatalogTests.m */; };
+		058193EE1AD94F8D90B8EEB9 /* LominoUIApp-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */; };
+		082AAFC9DC25464B89663628 /* LominoUIApp-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */; };
+		092D92F4D9E546E88F416D84 /* LominoUIApp-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
+		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		27B4F03DFEA54BEB904AEB03 /* LominoUIApp-WideItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */; };
+		4B96F05631AC269A887FE275 /* libPods-CatalogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F22081FD86C703276869DFB8 /* libPods-CatalogTests.a */; };
+		55EA4497B3954F17AAD52C7D /* LominoUIApp-Wide.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */; };
+		5DD2883DF83B41178ABCB5A2 /* LominoUIApp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */; };
+		62BF3B02AAEE4689BCE54AB6 /* LominoUIApp-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */; };
+		760DA730F5FB4B1495796489 /* LominoUIApp-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */; };
+		7A07923A1B4A7471C8677CDF /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD69D5914A269CCB7D7580DC /* libPods-Catalog.a */; };
+		91733CC188844CD7912C4835 /* LominoUIApp-WideBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */; };
+		9AE477EA6A714E5B82D8F571 /* LominoUIApp-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */; };
+		C4AF725C230E9A1A0072E236 /* EmptyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AF725B230E9A1A0072E236 /* EmptyFile.swift */; };
+		C5403F7EB08D4D6FA8BF1F6D /* LominoUIApp-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */; };
+		E68DC2EA69B04337A1A6B93F /* LominoUIApp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */; };
+		EA87EBB2C0A643DAB315A7B3 /* LominoUIApp-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */; };
+		F0A318E087444DC9B60A059A /* LominoUIApp-WideBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Catalog;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* CatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* CatalogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatalogTests.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CA341224D962BD43D9448F6 /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4493BEC622B5B15F0046BCE3 /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
-		4493BEC722B5B15F0046BCE3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4493BEC822B5B15F0046BCE3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyFile.swift; sourceTree = "<group>"; };
-		4493BECA22B5B15F0046BCE3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		4493BECE22B5B1600046BCE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4493BECF22B5B1600046BCE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
-		F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Catalog/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Catalog/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Catalog/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Catalog/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Catalog/main.m; sourceTree = "<group>"; };
+		13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Light.ttf"; path = "../assets/fonts/LominoUIApp-Light.ttf"; sourceTree = "<group>"; };
+		1869D8A9E15EE710BD64362B /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
+		18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Italic.ttf"; path = "../assets/fonts/LominoUIApp-Italic.ttf"; sourceTree = "<group>"; };
+		1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-MediumItalic.ttf"; path = "../assets/fonts/LominoUIApp-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1CFF969521518CD500E92637 /* Pods-CatalogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogTests.debug.xcconfig"; path = "Target Support Files/Pods-CatalogTests/Pods-CatalogTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-BoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideItalic.ttf"; sourceTree = "<group>"; };
+		51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Medium.ttf"; path = "../assets/fonts/LominoUIApp-Medium.ttf"; sourceTree = "<group>"; };
+		61CC7726349C08A41E4350EC /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
+		8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Wide.ttf"; path = "../assets/fonts/LominoUIApp-Wide.ttf"; sourceTree = "<group>"; };
+		945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideBoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideBoldItalic.ttf"; sourceTree = "<group>"; };
+		9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-ExtraBoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-LightItalic.ttf"; path = "../assets/fonts/LominoUIApp-LightItalic.ttf"; sourceTree = "<group>"; };
+		C4AF725A230E9A1A0072E236 /* Catalog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Catalog-Bridging-Header.h"; path = "Catalog/Catalog-Bridging-Header.h"; sourceTree = "<group>"; };
+		C4AF725B230E9A1A0072E236 /* EmptyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyFile.swift; path = Catalog/EmptyFile.swift; sourceTree = "<group>"; };
+		CDC78357F75329EB0ABF8B74 /* Pods-CatalogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatalogTests.release.xcconfig"; path = "Target Support Files/Pods-CatalogTests/Pods-CatalogTests.release.xcconfig"; sourceTree = "<group>"; };
+		D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-ExtraBold.ttf"; path = "../assets/fonts/LominoUIApp-ExtraBold.ttf"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Bold.ttf"; path = "../assets/fonts/LominoUIApp-Bold.ttf"; sourceTree = "<group>"; };
+		F22081FD86C703276869DFB8 /* libPods-CatalogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CatalogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-WideBold.ttf"; path = "../assets/fonts/LominoUIApp-WideBold.ttf"; sourceTree = "<group>"; };
+		FD69D5914A269CCB7D7580DC /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "LominoUIApp-Regular.ttf"; path = "../assets/fonts/LominoUIApp-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B96F05631AC269A887FE275 /* libPods-CatalogTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDD6633E6E9B99BD58599FBA /* libPods-Catalog.a in Frameworks */,
+				7A07923A1B4A7471C8677CDF /* libPods-Catalog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+		00E356EF1AD99517003FC87E /* CatalogTests */ = {
 			isa = PBXGroup;
 			children = (
-				2CA341224D962BD43D9448F6 /* libPods-Catalog.a */,
+				00E356F21AD99517003FC87E /* CatalogTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			name = Frameworks;
+			path = CatalogTests;
 			sourceTree = "<group>";
 		};
-		40ED6D45635B52F311377653 /* Pods */ = {
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */,
-				F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */,
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0432D6E24B14AECBF5C525EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1869D8A9E15EE710BD64362B /* Pods-Catalog.debug.xcconfig */,
+				61CC7726349C08A41E4350EC /* Pods-Catalog.release.xcconfig */,
+				1CFF969521518CD500E92637 /* Pods-CatalogTests.debug.xcconfig */,
+				CDC78357F75329EB0ABF8B74 /* Pods-CatalogTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4493BEC522B5B15F0046BCE3 /* Sources */ = {
+		13B07FAE1A68108700A75B9A /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				4493BEC722B5B15F0046BCE3 /* AppDelegate.h */,
-				4493BECA22B5B15F0046BCE3 /* AppDelegate.m */,
-				4493BEC922B5B15F0046BCE3 /* EmptyFile.swift */,
-				4493BEC822B5B15F0046BCE3 /* main.m */,
-				4493BEC622B5B15F0046BCE3 /* Catalog-Bridging-Header.h */,
+				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				13B07FB71A68108700A75B9A /* main.m */,
+				C4AF725B230E9A1A0072E236 /* EmptyFile.swift */,
+				C4AF725A230E9A1A0072E236 /* Catalog-Bridging-Header.h */,
 			);
-			path = Sources;
+			name = Catalog;
 			sourceTree = "<group>";
 		};
-		4493BECB22B5B1600046BCE3 /* Resources */ = {
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4493BECE22B5B1600046BCE3 /* Images.xcassets */,
-				4493BECC22B5B1600046BCE3 /* LaunchScreen.xib */,
-				4493BECF22B5B1600046BCE3 /* Info.plist */,
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				FD69D5914A269CCB7D7580DC /* libPods-Catalog.a */,
+				F22081FD86C703276869DFB8 /* libPods-CatalogTests.a */,
 			);
-			path = Resources;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51B147C675CF47CB90EB6FAE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F1A72D07460A4ACFA758C73F /* LominoUIApp-Bold.ttf */,
+				4293B5697E1946BCBF6B14B5 /* LominoUIApp-BoldItalic.ttf */,
+				D57BE2A27C3E45459626050B /* LominoUIApp-ExtraBold.ttf */,
+				9AEE5F826CD84F6EB59B4CED /* LominoUIApp-ExtraBoldItalic.ttf */,
+				18A93B0A02F74F9AB60BFB7C /* LominoUIApp-Italic.ttf */,
+				13D052D9FE264332BC1D0883 /* LominoUIApp-Light.ttf */,
+				A35B5AAE90124728977D615E /* LominoUIApp-LightItalic.ttf */,
+				51385BA86AD24800BDAA893D /* LominoUIApp-Medium.ttf */,
+				1A5255566BBC47B4A125CB61 /* LominoUIApp-MediumItalic.ttf */,
+				FEDD20C91C1A4977B1BA4F59 /* LominoUIApp-Regular.ttf */,
+				8D441F03EE7F483C822360EA /* LominoUIApp-Wide.ttf */,
+				FD5BE045988E43CA97959401 /* LominoUIApp-WideBold.ttf */,
+				945AD582645846028D7E45A8 /* LominoUIApp-WideBoldItalic.ttf */,
+				4646FA96E1BA4F20B23F1507 /* LominoUIApp-WideItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				4493BECB22B5B1600046BCE3 /* Resources */,
-				4493BEC522B5B15F0046BCE3 /* Sources */,
+				13B07FAE1A68108700A75B9A /* Catalog */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* CatalogTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				40ED6D45635B52F311377653 /* Pods */,
+				0432D6E24B14AECBF5C525EA /* Pods */,
+				51B147C675CF47CB90EB6FAE /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -99,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Catalog.app */,
+				00E356EE1AD99517003FC87E /* CatalogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,23 +210,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* CatalogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CatalogTests" */;
+			buildPhases = (
+				BF4BA688FD37B541BEDD6361 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = CatalogTests;
+			productName = CatalogTests;
+			productReference = 00E356EE1AD99517003FC87E /* CatalogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		13B07F861A680F5B00A75B9A /* Catalog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Catalog" */;
 			buildPhases = (
-				258566C21BFB0EE022A1E2D8 /* [CP] Check Pods Manifest.lock */,
+				3C51968E3EC6DC44EE8086DE /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				730AF0FE450DC26A9F53F747 /* [CP] Copy Pods Resources */,
+				5355CA5C3DE18CC84F5010F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Catalog;
-			productName = "Hello World";
+			productName = Catalog;
 			productReference = 13B07F961A680F5B00A75B9A /* Catalog.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -132,20 +256,24 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = D2L5MHYLSX;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Catalog" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en;
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -155,17 +283,39 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Catalog */,
+				00E356ED1AD99517003FC87E /* CatalogTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4493BEDA22B5B1600046BCE3 /* Images.xcassets in Resources */,
-				4493BED622B5B1600046BCE3 /* LaunchScreen.xib in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				058193EE1AD94F8D90B8EEB9 /* LominoUIApp-Bold.ttf in Resources */,
+				082AAFC9DC25464B89663628 /* LominoUIApp-BoldItalic.ttf in Resources */,
+				9AE477EA6A714E5B82D8F571 /* LominoUIApp-ExtraBold.ttf in Resources */,
+				C5403F7EB08D4D6FA8BF1F6D /* LominoUIApp-ExtraBoldItalic.ttf in Resources */,
+				62BF3B02AAEE4689BCE54AB6 /* LominoUIApp-Italic.ttf in Resources */,
+				092D92F4D9E546E88F416D84 /* LominoUIApp-Light.ttf in Resources */,
+				760DA730F5FB4B1495796489 /* LominoUIApp-LightItalic.ttf in Resources */,
+				5DD2883DF83B41178ABCB5A2 /* LominoUIApp-Medium.ttf in Resources */,
+				EA87EBB2C0A643DAB315A7B3 /* LominoUIApp-MediumItalic.ttf in Resources */,
+				E68DC2EA69B04337A1A6B93F /* LominoUIApp-Regular.ttf in Resources */,
+				55EA4497B3954F17AAD52C7D /* LominoUIApp-Wide.ttf in Resources */,
+				F0A318E087444DC9B60A059A /* LominoUIApp-WideBold.ttf in Resources */,
+				91733CC188844CD7912C4835 /* LominoUIApp-WideBoldItalic.ttf in Resources */,
+				27B4F03DFEA54BEB904AEB03 /* LominoUIApp-WideItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,9 +334,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		258566C21BFB0EE022A1E2D8 /* [CP] Check Pods Manifest.lock */ = {
+		3C51968E3EC6DC44EE8086DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,7 +358,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		730AF0FE450DC26A9F53F747 /* [CP] Copy Pods Resources */ = {
+		5355CA5C3DE18CC84F5010F0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,78 +390,178 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Catalog/Pods-Catalog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BF4BA688FD37B541BEDD6361 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CatalogTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* CatalogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4493BED022B5B1600046BCE3 /* main.m in Sources */,
-				4493BED222B5B1600046BCE3 /* EmptyFile.swift in Sources */,
-				4493BED422B5B1600046BCE3 /* AppDelegate.m in Sources */,
+				C4AF725C230E9A1A0072E236 /* EmptyFile.swift in Sources */,
+				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Catalog */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B07FB21A68108700A75B9A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = Catalog;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		13B07F941A680F5B00A75B9A /* Debug */ = {
+		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C0B0D0CCFEAFB380B3D3F00 /* Pods-Catalog.debug.xcconfig */;
+			baseConfigurationReference = 1CFF969521518CD500E92637 /* Pods-CatalogTests.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = D2L5MHYLSX;
-				HEADER_SEARCH_PATHS = (
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
 					"$(inherited)",
-					"$(SRCROOT)/../../React/**",
-					"$(SRCROOT)/../react-native/React",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = CatalogTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.magicscript.catalog;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog.app/Catalog";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDC78357F75329EB0ABF8B74 /* Pods-CatalogTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = CatalogTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Catalog.app/Catalog";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1869D8A9E15EE710BD64362B /* Pods-Catalog.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				INFOPLIST_FILE = Catalog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Catalog;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Catalog-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Catalog/Catalog-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3923E5C2044A57F1BAE0A87 /* Pods-Catalog.release.xcconfig */;
+			baseConfigurationReference = 61CC7726349C08A41E4350EC /* Pods-Catalog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D2L5MHYLSX;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../../React/**",
-					"$(SRCROOT)/../react-native/React",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = Catalog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.magicscript.catalog;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Catalog;
-				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Catalog-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Catalog/Catalog-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -347,7 +597,6 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-magic-script/ios/libraries";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -363,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -401,7 +650,6 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-magic-script/ios/libraries";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -410,11 +658,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -422,6 +668,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CatalogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Catalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

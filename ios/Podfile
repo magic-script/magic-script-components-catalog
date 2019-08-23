@@ -30,5 +30,11 @@ target 'Catalog' do
   pod 'RNFS', :path => '../node_modules/react-native-fs'
   pod 'RNMagicScript', :path => '../node_modules/react-native-magic-script/ios/RNMagicScript.podspec'
 
-end
+  use_native_modules!
 
+  target 'CatalogTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

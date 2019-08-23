@@ -1,4 +1,4 @@
 #!/bin/sh
-cd ios
-pod install
-cd ..
+
+# install dependencies for iOS part
+cd ios && pod install && cd ..

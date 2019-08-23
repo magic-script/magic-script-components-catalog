@@ -55,5 +55,22 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LominoUIApp-Bold.ttf</string>
+		<string>LominoUIApp-BoldItalic.ttf</string>
+		<string>LominoUIApp-ExtraBold.ttf</string>
+		<string>LominoUIApp-ExtraBoldItalic.ttf</string>
+		<string>LominoUIApp-Italic.ttf</string>
+		<string>LominoUIApp-Light.ttf</string>
+		<string>LominoUIApp-LightItalic.ttf</string>
+		<string>LominoUIApp-Medium.ttf</string>
+		<string>LominoUIApp-MediumItalic.ttf</string>
+		<string>LominoUIApp-Regular.ttf</string>
+		<string>LominoUIApp-Wide.ttf</string>
+		<string>LominoUIApp-WideBold.ttf</string>
+		<string>LominoUIApp-WideBoldItalic.ttf</string>
+		<string>LominoUIApp-WideItalic.ttf</string>
+	</array>
 </dict>
 </plist>
