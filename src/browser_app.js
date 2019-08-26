@@ -7,7 +7,7 @@ import { SceneButton,
   SceneImage, SceneImageRemote, 
   SceneLine,
   SceneModel, 
-  SceneTextAlignment, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
+  SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
   SceneToggle, 
   GameTicTacToe,
   SceneProgressBar,
@@ -25,6 +25,7 @@ class BrowserApp extends React.Component {
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
       { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
       { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
+      { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
       { name: 'Buttons', component: <SceneButton /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
@@ -41,7 +42,7 @@ class BrowserApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 5 };
+    this.state = { sceneIndex: 4 };
   }
 
   onNextScene = () => {
