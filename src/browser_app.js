@@ -30,7 +30,7 @@ class BrowserApp extends React.Component {
       { name: 'Buttons', component: <SceneButton /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
-      // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
+      { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },

@@ -11,5 +11,4 @@ rm -fr yarn.lock
 echo "4. yarn.lock removed"
 echo "5. Installing..."
 yarn
-echo "... done"
 say -v Melina done
