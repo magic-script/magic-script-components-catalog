@@ -42,7 +42,7 @@ class BrowserApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 4 };
+    this.state = { sceneIndex: 9 };
   }
 
   onNextScene = () => {

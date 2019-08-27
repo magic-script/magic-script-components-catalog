@@ -5,7 +5,7 @@ class SceneModel extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <model
-          modelPath={'resources/GlassVase.glb'}
+          modelPath={require('../../resources/GlassVase.glb')}
           localScale={[2, 2, 2]}
           localPosition={[0, -0.5, 0]}
         />
