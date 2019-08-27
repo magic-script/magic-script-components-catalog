@@ -1,21 +1,20 @@
 import React from 'react';
 // import { Button, Text, View } from 'react-native-magic-script';
-// import { SceneUtils } from './utils/sceneUtils.js';
 // import { SceneA, SceneB } from './demo_scenes';
 import { 
-  // SceneButton, 
-  // SceneGridLayout,
-  SceneImage, //SceneImageRemote, 
-  // SceneLine,
+  SceneButton, 
+  SceneGridLayout,
+  SceneImage, SceneImageRemote, 
+  SceneLine,
   // SceneModel, 
   SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
-  // SceneToggle, 
-  // GameTicTacToe,
-  // SceneProgressBar,
-  // SceneAlignment,
+  SceneToggle, 
+  GameTicTacToe,
+  SceneProgressBar,
+  SceneAlignment,
   // SceneRemote,
 } from './test_scenes';
-// import CalendarView from './calendar_scene/components/CalendarView';
+import CalendarView from './calendar_scene/components/CalendarView';
 
 class BrowserApp extends React.Component {
   constructor(props) {
@@ -23,23 +22,23 @@ class BrowserApp extends React.Component {
 
     this.scenes = [
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
-      // { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
-      // { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
-      // { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
+      { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
+      { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
       // { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
-      // { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
       // { name: 'Buttons', component: <SceneButton /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
-      // { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
+      { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
       // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
-      // { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
-      // { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
+      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
+      { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
       // { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },
       // // { name: '', component: <SceneA /> },
       // // { name: '', component: <SceneB /> },
-      // { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
-      // { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
-      // { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
+      { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
+      { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
+      { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
       // { name: 'Calendar (local)', component: <CalendarView /> },
       // { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
