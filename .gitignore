@@ -24,6 +24,7 @@ DerivedData
 
 # Cocoapods
 Pods/
+Podfile.lock
 
 # Android/IntelliJ
 #
