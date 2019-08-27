@@ -1,4 +1,4 @@
-const RNFS = require('react-native-fs');
+// const RNFS = require('react-native-fs');
 import { APIClient } from '../api/APIClient';
 
 const SceneUtils = {
@@ -19,13 +19,13 @@ const SceneUtils = {
         });
     },
 
-    saveToFile: (path, contents) => {
-        return RNFS.writeFile(path, contents, 'utf8');
-    },
+    // saveToFile: (path, contents) => {
+    //     return RNFS.writeFile(path, contents, 'utf8');
+    // },
 
-    loadFromFile: (path) => {
-        return RNFS.readFile(path, 'utf8');
-    },
+    // loadFromFile: (path) => {
+    //     return RNFS.readFile(path, 'utf8');
+    // },
 };
 
 export { SceneUtils };

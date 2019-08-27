@@ -1,20 +1,25 @@
 import React from 'react';
 
 class SceneLine extends React.Component {
-	state = { points: [] }
+	constructor(props) {
+		super(props);
+		this.state = { points: [] }
+		this.increaseVertexCount = this.increaseVertexCount.bind(this);
+		this.decreaseVertexCount = this.decreaseVertexCount.bind(this);
+	}
 
 	componentDidMount() {
 		this.updatePoints(3);
 	}
 
-	increaseVertexCount = () => {
+	increaseVertexCount() {
 		const count = this.state.points.length / 2;
 		if (count < 20) {
 			this.updatePoints(count + 1);
 		}
 	}
 
-	decreaseVertexCount = () => {
+	decreaseVertexCount() {
 		const count = this.state.points.length / 2;
 		if (count > 3) {
 			this.updatePoints(count - 1);
@@ -37,19 +42,18 @@ class SceneLine extends React.Component {
 		this.setState({ points });
 	}
 	
-  render () {
-		const { points } = this.state;
+  render() {
+	const { points } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
         <line localPosition={[0, 0.4, 0]} points={points} color={[1, 1, 0.3, 1]}/>
-
-				<button localPosition={[0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.increaseVertexCount}>+</button>
-				<text 
-					alignment={'center-center'}
-					localPosition={[0, -0.15, 0]} 
-					textSize={0.1} 
-				>{`${points.length / 2} segments`}</text>
-				<button localPosition={[-0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.decreaseVertexCount}>-</button>
+			<button localPosition={[0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.increaseVertexCount}>+</button>
+			<text 
+				alignment={'center-center'}
+				localPosition={[0, -0.15, 0]} 
+				textSize={0.1} 
+			>{`${points.length / 2} segments`}</text>
+			<button localPosition={[-0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.decreaseVertexCount}>-</button>
       </view>
     );
   }

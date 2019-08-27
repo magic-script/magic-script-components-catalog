@@ -18,6 +18,9 @@ export default class CalendarView extends React.Component {
       space: undefined,
       counter: 0
     };
+
+    this.onInitialEventsClick = this.onInitialEventsClick.bind(this);
+    this.onMoreEventsClick = this.onMoreEventsClick.bind(this);
   }
 
   async componentDidMount() {
@@ -75,11 +78,11 @@ export default class CalendarView extends React.Component {
     return <view name="events-list">{calendarView}</view>;
   }
 
-  onInitialEventsClick = () => {
+  onInitialEventsClick() {
     this.updateCalendar(initialEventsUrl);
   }
 
-  onMoreEventsClick = () => {
+  onMoreEventsClick() {
     this.updateCalendar(allEventsUrl);
   }
 

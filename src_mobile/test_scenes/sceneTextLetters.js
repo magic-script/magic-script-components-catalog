@@ -7,7 +7,7 @@ class SceneTextLetters extends React.Component {
     this.onToggleChanged = this.onToggleChanged.bind(this);
   }
 
-  onToggleChanged = (event) => {
+  onToggleChanged(event) {
     this.setState({ uppercase: event.On });
   }
 
@@ -75,7 +75,7 @@ class SceneTextLetters extends React.Component {
     });
   }
 
-  render () {
+  render() {
     const { uppercase } = this.state;
     return (
       <view localPosition={this.props.localPosition}>

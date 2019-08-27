@@ -61,3 +61,7 @@ buck-out/
 
 # Yarn
 yarn.lock
+
+# magic-script
+bin/
+.out/

@@ -1,7 +1,12 @@
 import React from 'react';
 
 class SceneProgressBar extends React.Component {
-  state = { progressValue: 0 }
+
+  constructor(props) {
+    super(props);
+    this.state = { progressValue: 0 }
+    this.updateProgress = this.updateProgress.bind(this);
+  }
 
   componentDidMount() {
     this.updateProgress();
@@ -12,7 +17,7 @@ class SceneProgressBar extends React.Component {
     clearInterval(this.handler);
   }
 
-  updateProgress = () => {
+  updateProgress() {
     var { progressValue } = this.state;
     if (progressValue <= 100) {
       progressValue += 10;
@@ -22,7 +27,7 @@ class SceneProgressBar extends React.Component {
     this.setState({ progressValue });
   }
 
-  render () {
+  render() {
     const { progressValue } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
