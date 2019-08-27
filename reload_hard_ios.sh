@@ -1,14 +1,15 @@
 printf "\033c"
 
 rm -fr ~/Library/Developer/Xcode/DerivedData/*
-echo "DerivedData removed"
+echo "1. DerivedData removed"
 rm -fr node_modules
-echo "mode_modules removed"
+echo "2. node_modules removed"
 rm -fr ios/Pods
 rm -fr ios/Podfile.lock
-echo "Pods and Podfile.lock removed"
+echo "3. Pods and Podfile.lock removed"
 rm -fr yarn.lock
-echo "yarn.lock removed"
+echo "4. yarn.lock removed"
+echo "5. Installing..."
 yarn
-echo "yarn done"
+echo "... done"
 say -v Melina done
