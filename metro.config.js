@@ -5,6 +5,8 @@
  * @format
  */
 
+const defaultAssetExts = require("metro-config/src/defaults/defaults").assetExts; 
+ 
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -13,5 +15,14 @@ module.exports = {
         inlineRequires: false,
       },
     }),
+  },
+  
+  resolver: {
+    assetExts: [
+      ...defaultAssetExts,
+      // 3D Model formats
+      "glb",
+	  "obj"
+    ]
   },
 };
