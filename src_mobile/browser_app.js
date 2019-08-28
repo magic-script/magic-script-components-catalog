@@ -6,13 +6,13 @@ import {
   SceneGridLayout,
   SceneImage, SceneImageRemote, 
   SceneLine,
-  // SceneModel, 
+  SceneModel, 
   SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
   SceneToggle, 
   GameTicTacToe,
   SceneProgressBar,
   SceneAlignment,
-  // SceneRemote,
+  SceneRemote,
 } from './test_scenes';
 import CalendarView from './calendar_scene/components/CalendarView';
 
