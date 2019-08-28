@@ -61,3 +61,8 @@ buck-out/
 
 # Yarn
 yarn.lock
+
+# magic-script
+bin/
+.out/
+digest.sha512.signed

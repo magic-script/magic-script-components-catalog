@@ -36,14 +36,15 @@ export class SceneAlignmentUpdate extends React.Component {
       horizontalAligns: ['left', 'center', 'right'],
       renderLayout: false
     };
+    this.updateAlignemntClick = this.updateAlignemntClick.bind(this);
     this.onToggleChanged = this.onToggleChanged.bind(this);
   }
 
-	updateAlignemntClick = () => {
+	updateAlignemntClick() {
 		this.updateAlignment();
   }
   
-  onToggleChanged = (event) => {
+  onToggleChanged(event) {
     this.setState({ renderLayout: event.On });
   }
 
@@ -60,7 +61,7 @@ export class SceneAlignmentUpdate extends React.Component {
 		this.setState({ index, alignment });
   }
   
-  render () {
+  render() {
     return (
       <view>
         <text alignment={'bottom-center'} localPosition={[0, 0.2, 0]} textSize={0.05}>{this.state.alignment}</text>

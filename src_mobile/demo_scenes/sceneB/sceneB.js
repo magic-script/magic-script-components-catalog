@@ -5,10 +5,10 @@ export default class SceneB extends React.Component {
     constructor(props) {
         super(props);
         this.images = [
-            'resources/DemoPicture1.jpg',
-            'resources/DemoPicture2.jpg',
-            'resources/DemoPicture4.jpg',
-            'resources/DemoPicture5.jpg'
+            require('../../../resources/DemoPicture1.jpg'),
+            require('../../../resources/DemoPicture2.jpg'),
+            require('../../../resources/DemoPicture4.jpg'),
+            require('../../../resources/DemoPicture5.jpg')
         ];
     }
 

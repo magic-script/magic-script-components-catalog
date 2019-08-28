@@ -1,7 +1,12 @@
 import React from 'react';
 
 class SceneAlignment extends React.Component {
-  state = { seconds: 0, minutes: 0, hours: 0 }
+
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0, minutes: 0, hours: 0 };
+    this.updateTime = this.updateTime.bind(this);
+  }
 
   componentDidMount() {
     this.updateTime();
@@ -12,7 +17,7 @@ class SceneAlignment extends React.Component {
     clearInterval(this.handler);
   }
 
-  updateTime = () => {
+  updateTime() {
     const date = new Date();
     const seconds = date.getSeconds();
     const minutes = date.getMinutes();
@@ -76,7 +81,7 @@ class SceneAlignment extends React.Component {
     );
   }
 
-  render () {
+  render() {
     const { seconds, minutes, hours } = this.state;
     const center = { x: 0, y: 0 };
     const radius = 0.7;
