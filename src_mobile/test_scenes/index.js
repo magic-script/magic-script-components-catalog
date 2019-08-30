@@ -15,3 +15,4 @@ export * from './sceneTextEdit';
 export * from './sceneTicTacToe';
 export * from './sceneToggle';
 export * from './sceneAlignmentUpdate';
+export * from './sceneSpinner';

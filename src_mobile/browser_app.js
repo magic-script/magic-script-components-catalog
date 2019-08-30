@@ -1,18 +1,10 @@
 import React from 'react';
 // import { Button, Text, View } from 'react-native-magic-script';
 // import { SceneA, SceneB } from './demo_scenes';
-import { 
-  SceneButton, 
-  SceneGridLayout,
-  SceneImage, SceneImageRemote, 
-  SceneLine,
-  SceneModel, 
-  SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, SceneTextMultiline, SceneTextEdit,
-  SceneToggle, 
-  GameTicTacToe,
-  SceneProgressBar,
-  SceneAlignment,
-  SceneRemote,
+import { SceneButton, SceneGridLayout, SceneImage, SceneImageRemote, SceneLine, SceneModel, 
+  SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
+  SceneTextMultiline, SceneTextEdit,SceneToggle, GameTicTacToe, SceneProgressBar,
+  SceneAlignment, SceneRemote, SceneSpinner
 } from './test_scenes';
 import CalendarView from './calendar_scene/components/CalendarView';
 
@@ -33,6 +25,7 @@ class BrowserApp extends React.Component {
       // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
+      { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]}/> },
       // { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },
       // // { name: '', component: <SceneA /> },
       // // { name: '', component: <SceneB /> },
@@ -42,7 +35,7 @@ class BrowserApp extends React.Component {
       // { name: 'Calendar (local)', component: <CalendarView /> },
       // { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 0 };
+    this.state = { sceneIndex: 9 };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
   }
