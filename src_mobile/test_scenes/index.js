@@ -16,3 +16,4 @@ export * from './sceneTicTacToe';
 export * from './sceneToggle';
 export * from './sceneAlignmentUpdate';
 export * from './sceneSpinner';
+export * from './sceneVideo';

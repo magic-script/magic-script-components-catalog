@@ -4,7 +4,7 @@ import React from 'react';
 import { SceneButton, SceneGridLayout, SceneImage, SceneImageRemote, SceneLine, SceneModel, 
   SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
   SceneTextMultiline, SceneTextEdit,SceneToggle, GameTicTacToe, SceneProgressBar,
-  SceneAlignment, SceneRemote, SceneSpinner
+  SceneAlignment, SceneRemote, SceneSpinner, SceneVideo
 } from './test_scenes';
 import CalendarView from './calendar_scene/components/CalendarView';
 
@@ -22,6 +22,7 @@ class BrowserApp extends React.Component {
       // { name: 'Buttons', component: <SceneButton /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
+      // { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]}/> },
       // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
