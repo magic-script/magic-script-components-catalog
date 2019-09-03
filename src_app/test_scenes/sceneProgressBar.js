@@ -4,13 +4,13 @@ class SceneProgressBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { progressValue: 0 }
+    this.state = { value1: 0.0, value2: 0.0, value3: 0.0 }
     this.updateProgress = this.updateProgress.bind(this);
   }
 
   componentDidMount() {
     this.updateProgress();
-    this.handler = setInterval(this.updateProgress, 1000);
+    this.handler = setInterval(this.updateProgress, 100);
   }
 
   componentWillUnmount() {
@@ -18,28 +18,37 @@ class SceneProgressBar extends React.Component {
   }
 
   updateProgress() {
-    var { progressValue } = this.state;
-    if (progressValue <= 100) {
-      progressValue += 10;
-    } else {
-      progressValue = 0;
+    // print('input: ', input);
+    var { value1, value2, value3 } = this.state;
+    const interval = 0.1;
+    value1 = this.updateProgressValue(value1, interval, 10.0);
+    value2 = this.updateProgressValue(value2, interval, 3.0);
+    value3 = this.updateProgressValue(value3, interval, 1.0);
+    this.setState({ value1, value2, value3 });
+  }
+
+  updateProgressValue(value, interval, duration) {
+    value += interval / duration;
+    if (value > 1.0) {
+      value -= 1.0;
     }
-    this.setState({ progressValue });
+    return value;
   }
 
   render() {
-    const { progressValue } = this.state;
+    const { value1, value2, value3 } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
         <progressBar 
           alignment={'center-center'}
           localPosition={[0, 0.2, 0]} 
           value={0.33} min={0} max={1}
+          width={0.5}
         />
         <progressBar 
           alignment={'center-center'}
           localPosition={[0, 0.0, 0]} 
-          value={ progressValue / 100 }
+          value={value1}
           progressColor={{
             beginColor: [0.1, 0.5, 0.9, 1],
             endColor: [0.1, 0.9, 0.5, 1]
@@ -50,7 +59,7 @@ class SceneProgressBar extends React.Component {
         <progressBar 
           alignment={'center-center'}
           localPosition={[0, -0.1, 0]} 
-          value={0.0}
+          value={value2}
           progressColor={{
             beginColor: [0.1, 0.5, 0.9, 1],
             endColor: [0.1, 0.9, 0.5, 1]
@@ -61,7 +70,7 @@ class SceneProgressBar extends React.Component {
         <progressBar 
           alignment={'center-center'}
           localPosition={[0, -0.2, 0]} 
-          value={0.1}
+          value={value3}
           progressColor={{
             beginColor: [0.1, 0.5, 0.9, 1],
             endColor: [0.1, 0.9, 0.5, 1]
