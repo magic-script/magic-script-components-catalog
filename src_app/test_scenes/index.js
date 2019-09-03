@@ -2,6 +2,7 @@ export * from './sceneAlignment';
 export * from './sceneButton';
 export * from './sceneGridLayout';
 export * from './sceneImage';
+export * from './sceneImageSlider/scene';
 export * from './sceneImageRemote';
 export * from './sceneLine';
 export * from './sceneModel';

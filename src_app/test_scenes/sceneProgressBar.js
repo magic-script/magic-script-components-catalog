@@ -18,7 +18,6 @@ class SceneProgressBar extends React.Component {
   }
 
   updateProgress() {
-    // print('input: ', input);
     var { value1, value2, value3 } = this.state;
     const interval = 0.1;
     value1 = this.updateProgressValue(value1, interval, 10.0);
