@@ -24,8 +24,8 @@ class CatalogApp extends React.Component {
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]}/> },
-      // { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]}/> },
-      // { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
+      { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]}/> },
+      { name: 'Model 3D', component: <SceneModel localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]}/> },
@@ -36,7 +36,7 @@ class CatalogApp extends React.Component {
       // { name: 'Calendar (local)', component: <CalendarView /> },
       // { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 6 };
+    this.state = { sceneIndex: 10 };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
   }
