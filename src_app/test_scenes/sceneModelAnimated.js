@@ -6,9 +6,7 @@ class SceneModelAnimated extends React.Component {
       <view localPosition={this.props.localPosition}>
         <model
           modelPath={require('../../resources/hedra_anim.glb')}
-          animationPauseState={false}
-          animationPlaybackSpeed={1.0}
-          // importScale={1}
+          importScale={0.6}
         />
       </view>
     );

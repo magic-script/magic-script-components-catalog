@@ -5,9 +5,9 @@ import { SceneButton, SceneGridLayout,
   SceneLine, SceneModelStatic, SceneModelAnimated, 
   SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
   SceneTextMultiline, SceneTextEdit,SceneToggle, GameTicTacToe, SceneProgressBar,
-  SceneAlignment, SceneRemote, SceneSpinner, SceneVideo
+  SceneAlignment, SceneRemote, SceneSpinner, SceneVideo, 
+  CalendarView,
 } from './test_scenes';
-import CalendarView from './calendar_scene/components/CalendarView';
 
 class CatalogApp extends React.Component {
   constructor(props) {
@@ -34,10 +34,10 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
-      // { name: 'Calendar (local)', component: <CalendarView /> },
-      // { name: 'Calendar (remote)', component: <SceneRemote /> },
+      { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
+      { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 10 };
+    this.state = { sceneIndex: 20 };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
   }
