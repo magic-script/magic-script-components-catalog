@@ -6,11 +6,12 @@ class SceneProgressBar extends React.Component {
     super(props);
     this.state = { value1: 0.0, value2: 0.0, value3: 0.0 }
     this.updateProgress = this.updateProgress.bind(this);
+    this.interval = 0.01;
   }
 
   componentDidMount() {
     this.updateProgress();
-    this.handler = setInterval(this.updateProgress, 100);
+    this.handler = setInterval(this.updateProgress, this.interval * 1000);
   }
 
   componentWillUnmount() {
@@ -19,10 +20,9 @@ class SceneProgressBar extends React.Component {
 
   updateProgress() {
     var { value1, value2, value3 } = this.state;
-    const interval = 0.1;
-    value1 = this.updateProgressValue(value1, interval, 10.0);
-    value2 = this.updateProgressValue(value2, interval, 3.0);
-    value3 = this.updateProgressValue(value3, interval, 1.0);
+    value1 = this.updateProgressValue(value1, this.interval, 10.0);
+    value2 = this.updateProgressValue(value2, this.interval, 3.0);
+    value3 = this.updateProgressValue(value3, this.interval, 1.0);
     this.setState({ value1, value2, value3 });
   }
 
