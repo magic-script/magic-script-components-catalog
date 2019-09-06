@@ -2,9 +2,9 @@ import React from 'react';
 import { Button, Text, View } from './utils/components.js';
 import { SceneButton, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
-  SceneLine, SceneModelStatic, SceneModelAnimated, 
+  SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
   SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
-  SceneTextMultiline, SceneTextEdit,SceneToggle, GameTicTacToe, SceneProgressBar,
+  SceneTextMultiline, SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
   SceneAlignment, SceneRemote, SceneSpinner, SceneVideo, 
   CalendarView,
 } from './test_scenes';
@@ -27,6 +27,7 @@ class CatalogApp extends React.Component {
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]}/> },
       { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]}/> },
       { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]}/> },
+      { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]}/> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]}/> },
