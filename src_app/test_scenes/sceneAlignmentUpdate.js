@@ -10,7 +10,7 @@ class Content extends React.Component {
 
     if (renderLayout) {
       return ( 
-        <gridLayout alignment={align} itemAlignment={'center-center'} columns={2}>
+        <gridLayout alignment={align} defaultItemAlignment={'center-center'} columns={2}>
           <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
           <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
           <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>

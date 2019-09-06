@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageSlider from './image-slider.js';
 
-export default class SceneB extends React.Component {
+class SceneImageSlider extends React.Component {
     constructor(props) {
         super(props);
         this.images = [
@@ -23,3 +23,5 @@ export default class SceneB extends React.Component {
         );
     }
 }
+
+export { SceneImageSlider };
