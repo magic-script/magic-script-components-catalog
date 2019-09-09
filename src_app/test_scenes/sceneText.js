@@ -72,14 +72,16 @@ class SceneText extends React.Component {
       [0,0,0], [0,maxY,0]
     ];
 
-    if (boundsWidth > 0) {
-      points.push([boundsWidth, 0, 0]);
-      points.push([boundsWidth, maxY, 0]);
+    if (boundsHeight > 0) {
+      points.push([maxX, maxY, 0]);
     }
 
-    if (boundsHeight > 0) {
-      points.push([0, -boundsHeight, 0]);
-      points.push([maxX, -boundsHeight, 0]);
+    points.push([0,maxY,0]);
+    points.push([0,0,0]);
+    points.push([maxX,0,0]);
+
+    if (boundsWidth > 0) {
+      points.push([maxX, maxY, 0]);
     }
 
     if (points.length > 0) {
