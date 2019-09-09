@@ -3,8 +3,8 @@ import { Button, Text, View } from './utils/components.js';
 import { SceneButton, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
   SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
-  SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
-  SceneTextMultiline, SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
+  SceneText, SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
+  SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
   SceneAlignment, SceneRemote, SceneSpinner, SceneVideo, 
   CalendarView,
 } from './test_scenes';
@@ -17,7 +17,7 @@ class CatalogApp extends React.Component {
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
       { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
-      { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]}/> },
       { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
       { name: 'Buttons', component: <SceneButton localPosition={[0, 0, 0]}/> },
@@ -38,7 +38,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 0 };
+    this.state = { sceneIndex: 3 };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
   }

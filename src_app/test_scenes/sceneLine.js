@@ -47,13 +47,13 @@ class SceneLine extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <line localPosition={[0, 0.4, 0]} points={points} color={[1, 1, 0.3, 1]}/>
-			<button localPosition={[0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.increaseVertexCount}>+</button>
-			<text 
-				alignment={'center-center'}
-				localPosition={[0, -0.15, 0]} 
-				textSize={0.1} 
-			>{`${points.length / 2} segments`}</text>
-			<button localPosition={[-0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.decreaseVertexCount}>-</button>
+        <button localPosition={[0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.increaseVertexCount}>+</button>
+        <text 
+          alignment={'center-center'}
+          localPosition={[0, -0.15, 0]} 
+          textSize={0.1} 
+        >{`${points.length / 2} segments`}</text>
+        <button localPosition={[-0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.decreaseVertexCount}>-</button>
       </view>
     );
   }
