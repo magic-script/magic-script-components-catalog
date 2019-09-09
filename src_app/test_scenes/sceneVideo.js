@@ -12,30 +12,29 @@ class SceneVideo extends React.Component {
     super(props);
     this.state = { isLooping: false, action: VideoActions.pause, volume: 1.0 };
     this.onToggleChanged = this.onToggleChanged.bind(this);
-    this.onStartAction = this.onStartAction.bind(this);
-    this.onPauseAction = this.onPauseAction.bind(this);
-    this.onStopAction = this.onStopAction.bind(this);
+    this.onStartPauseClick = this.onStartPauseClick.bind(this);
+    this.onStopClick = this.onStopClick.bind(this);
   }
 
   onToggleChanged(event) {
     this.setState({ isLooping: event.On });
   }
 
-  onStartAction() {
-    this.setState({ action: VideoActions.start });
+  onStartPauseClick() {
+     if (this.state.action === VideoActions.start) {
+       this.setState({ action: VideoActions.pause });
+     } else {
+       this.setState({ action: VideoActions.start });
+     }
   }
 
-  onPauseAction() {
-    this.setState({ action: VideoActions.pause });
-  }
-
-  onStopAction() {
+  onStopClick() {
     this.setState({ action: VideoActions.stop });
   }
 
   createButtonWithAction(action, position) {
     const title = action[0].toUpperCase() + action.substring(1);
-    const onClickHandler = (action === VideoActions.start) ? this.onStartAction : ((action === VideoActions.pause) ? this.onPauseAction : this.onStopAction);
+    const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
     return (
       <button
         localPosition={position}
