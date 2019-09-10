@@ -41,24 +41,25 @@ class SceneText extends React.Component {
   onWrapTextToggle = (event) => { this.setState({ wrap: event.On }); }
 
   renderGUI() {
+    const textSize = 0.08;
+    const offset = 0.2;
     return (
       <view>
-        <button localPosition={[0, 0.1, 0]} onClick={this.onButtonClick_H0} textSize={0.08} alignment={'bottom-center'}>0</button>
-        <button localPosition={[0.25, 0.1, 0]} onClick={this.onButtonClick_H0_25} textSize={0.08} alignment={'bottom-center'}>0.25</button>
-        <button localPosition={[1, 0.1, 0]} onClick={this.onButtonClick_H1} textSize={0.08} alignment={'bottom-center'}>1</button>
+        <button localPosition={[0, offset, 0]} onClick={this.onButtonClick_H0} textSize={textSize}>0</button>
+        <button localPosition={[0.25, offset, 0]} onClick={this.onButtonClick_H0_25} textSize={textSize}>0.25</button>
+        <button localPosition={[1, offset, 0]} onClick={this.onButtonClick_H1} textSize={textSize}>1</button>
 
-        <button localPosition={[-0.1, 0, 0]} onClick={this.onButtonClick_V0} textSize={0.08} alignment={'center-right'}>0</button>
-        <button localPosition={[-0.1, -0.25, 0]} onClick={this.onButtonClick_V0_25} textSize={0.08} alignment={'center-right'}>0.25</button>
-        <button localPosition={[-0.1, -1, 0]} onClick={this.onButtonClick_V1} textSize={0.08} alignment={'center-right'}>1</button>
+        <button localPosition={[-offset, 0, 0]} onClick={this.onButtonClick_V0} textSize={textSize}>0</button>
+        <button localPosition={[-offset, -0.25, 0]} onClick={this.onButtonClick_V0_25} textSize={textSize}>0.25</button>
+        <button localPosition={[-offset, -1, 0]} onClick={this.onButtonClick_V1} textSize={textSize}>1</button>
 
-        <button localPosition={[0, -1.1, 0]} onClick={this.onButtonClick_TA_Left} textSize={0.08} alignment={'top-left'}>left</button>
-        <button localPosition={[0.5, -1.1, 0]} onClick={this.onButtonClick_TA_Center} textSize={0.08} alignment={'top-center'}>center</button>
-        <button localPosition={[0.5, -1.3, 0]} onClick={this.onButtonClick_TA_Justify} textSize={0.08} alignment={'top-center'}>justify</button>
-        <button localPosition={[1, -1.1, 0]} onClick={this.onButtonClick_TA_Right} textSize={0.08} alignment={'top-right'}>right</button>
+        <button localPosition={[0, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Left} textSize={textSize}>left</button>
+        <button localPosition={[0.5, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Center} textSize={textSize}>center</button>
+        <button localPosition={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} textSize={textSize}>justify</button>
+        <button localPosition={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} textSize={textSize}>right</button>
 
-        <toggle localPosition={[1, -1.5, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === Text.long} height={0.08} textSize={0.08} alignment={'top-right'}>Long text</toggle>
-        <toggle localPosition={[1, -1.7, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={0.08} textSize={0.08} alignment={'top-right'}>Wrap text</toggle>
-
+        <toggle localPosition={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === Text.long} height={textSize} textSize={textSize} alignment={'top-right'}>Long text</toggle>
+        <toggle localPosition={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} textSize={textSize} alignment={'top-right'}>Wrap text</toggle>
       </view>
     );
   }
