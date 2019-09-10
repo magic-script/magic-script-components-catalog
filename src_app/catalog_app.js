@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, Text, View } from './utils/components.js';
+import { Button, Text, Toggle, View } from './utils/components';
+import { Grid } from './utils/grid';
 import { SceneButton, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
   SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
-  SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
-  SceneTextMultiline, SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
+  SceneText, SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
+  SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
   SceneAlignment, SceneRemote, SceneSpinner, SceneVideo, 
   CalendarView,
 } from './test_scenes';
@@ -17,7 +18,7 @@ class CatalogApp extends React.Component {
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
       { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
-      { name: 'Text alignment (multiline)', component: <SceneTextMultiline localPosition={[0, 0.5, 0]}/> },
+      { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]}/> },
       { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
       { name: 'Buttons', component: <SceneButton localPosition={[0, 0, 0]}/> },
@@ -38,9 +39,10 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 0 };
+    this.state = { sceneIndex: 3, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
+    this.onDebug = this.onDebug.bind(this);
   }
 
   onNextScene() {
@@ -55,6 +57,16 @@ class CatalogApp extends React.Component {
     this.setState({ sceneIndex: prevIndex });
   }
 
+  onDebug() {
+    const debug = !this.state.debug;
+    this.setState({ debug });
+  }
+
+  renderGrid() {
+    const { debug } = this.state;
+    return debug ? <Grid/> : null;
+  }
+
   render() {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
@@ -64,8 +76,10 @@ class CatalogApp extends React.Component {
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
           <Button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
+          <Toggle localPosition={[ 0, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
         </View>
         <View alignment={'center-center'}>
+          {this.renderGrid()}
           {scene.component}
         </View>
       </View>

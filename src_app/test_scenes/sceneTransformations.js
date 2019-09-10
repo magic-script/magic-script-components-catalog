@@ -10,7 +10,8 @@ class SceneTransformations extends React.Component {
           localPosition={[0, 1, 0]}
           textSize={0.08}
           multiline={true}
-          alignment={'top-center'} 
+          alignment={'top-center'}
+          boundsSize={{ boundsSize: [1.0, 0.3], wrap: true }} 
          >
           Should display 2 identical boxes (same scale, rotation, horizontal position)
         </text> 
