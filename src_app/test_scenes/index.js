@@ -1,6 +1,7 @@
 export * from './sceneAlignment';
 export * from './sceneAlignmentUpdate';
 export * from './sceneButton';
+export * from './sceneButtonOutline';
 export * from './sceneCalendar/components/CalendarView';
 export * from './sceneGridLayout';
 export * from './sceneImage';

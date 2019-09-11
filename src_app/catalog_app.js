@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Text, Toggle, View } from './utils/components';
 import { Grid } from './utils/grid';
-import { SceneButton, SceneGridLayout, 
+import { SceneButton, SceneButtonOutline, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
   SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
   SceneText, SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
@@ -21,7 +21,8 @@ class CatalogApp extends React.Component {
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]}/> },
       { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
-      { name: 'Buttons', component: <SceneButton localPosition={[0, 0, 0]}/> },
+      { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]}/> },
+      { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]}/> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]}/> },
@@ -39,7 +40,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 3, debug: false };
+    this.state = { sceneIndex: 7, debug: true };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
