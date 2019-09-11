@@ -1,101 +1,83 @@
 import React from 'react';
-import { MathUtils } from '../utils/mathUtils';
+
+// the positioned content 
+class Content extends React.Component {
+  
+  render () {
+
+    const align = this.props.alignment;
+    const renderLayout = this.props.renderLayout;
+
+    if (renderLayout) {
+      return ( 
+        <gridLayout alignment={align} defaultItemAlignment={'center-center'} columns={2}>
+          <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
+          <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
+          <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>
+          <image width={0.1} height={0.1} color={[1,1,1,1]}/>
+        </gridLayout>
+      );
+    } else {
+      return (
+        <image alignment={align} width={0.2} height={0.2} color={[1,1,0.5,1]}/>
+      );
+    }
+  }
+
+}
 
 class SceneAlignment extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = { seconds: 0, minutes: 0, hours: 0 };
-    this.updateTime = this.updateTime.bind(this);
+    this.state = {
+      index: 0, 
+      alignment: 'top-left',
+      verticalAligns: ['top', 'center', 'bottom'],
+      horizontalAligns: ['left', 'center', 'right'],
+      renderLayout: false
+    };
+    this.updateAlignemntClick = this.updateAlignemntClick.bind(this);
+    this.onToggleChanged = this.onToggleChanged.bind(this);
   }
 
-  componentDidMount() {
-    this.updateTime();
-    this.handler = setInterval(this.updateTime, 1000);
+	updateAlignemntClick() {
+		this.updateAlignment();
+  }
+  
+  onToggleChanged(event) {
+    this.setState({ renderLayout: event.On });
   }
 
-  componentWillUnmount() {
-    clearInterval(this.handler);
+	updateAlignment() {
+    var index = this.state.index;
+    index++;
+    if (index > 8) {
+        index = 0;
+    }
+
+    const vertical = this.state.verticalAligns[Math.trunc(index / 3)];
+    const horizontal = this.state.horizontalAligns[index % 3];
+    const alignment = `${vertical}-${horizontal}`;
+		this.setState({ index, alignment });
   }
-
-  updateTime() {
-    const date = new Date();
-    const seconds = date.getSeconds();
-    const minutes = date.getMinutes();
-    const hours = date.getHours();
-    this.setState({ seconds, minutes, hours });
-  }
-
-  renderItems(center, radius) {
-    const items = [
-      { alignment: 'top-center', hour: '12' },
-      { alignment: 'top-right', hour: '1' },
-      { alignment: 'top-right', hour: '2' },
-      { alignment: 'center-right', hour: '3' },
-      { alignment: 'bottom-right', hour: '4' },
-      { alignment: 'bottom-right', hour: '5' },
-      { alignment: 'bottom-center', hour: '6' },
-      { alignment: 'bottom-left', hour: '7' },
-      { alignment: 'bottom-left', hour: '8' },
-      { alignment: 'center-left', hour: '9' },
-      { alignment: 'top-left', hour: '10' },
-      { alignment: 'top-left', hour: '11' },
-    ];
-
-    return items.map((item, index) => {
-      const angle = index * ((2 * Math.PI) / items.length);
-      const x = center.x + radius * Math.sin(angle);
-      const y = center.y + radius * Math.cos(angle);
-      return (
-        <text
-          key={index}
-          localPosition={[x, y, 0]}
-          alignment={item.alignment}
-          textSize={0.1}
-        >{item.hour}</text>
-      );
-    });
-  }
-
-  renderClockHand(center, length, width, angle) {
-    const quat = MathUtils.rotateBy(angle, [0, 0, -1])
-
-    return (
-      <view
-        localPosition={[center.x, center.y, 0]}
-        localRotation={quat}
-      >
-        <text 
-          alignment={'bottom-center'}
-          localScale={[width, length, 1]}
-          textSize={1}
-        >|</text>
-      </view>
-      
-    );
-  }
-
+  
   render() {
-    const { seconds, minutes, hours } = this.state;
-    const center = { x: 0, y: 0 };
-    const radius = 0.7;
-    const angleSeconds = seconds * ((2 * Math.PI) / 60);
-    const angleMinutes = minutes * ((2 * Math.PI) / 60);
-    const angleHours = hours * ((2 * Math.PI) / 12);
     return (
-      <view localPosition={this.props.localPosition}>
-        {this.renderItems(center, radius)}
-        <button
-          enabled={false}
-          localPosition={[center.x, center.y, 0]}
-          textSize={0.1}
-          roundness={1}
-          width={2*radius + 0.1}
-          height={2*radius + 0.1}
-        >{'Clock face'}</button>
-        {this.renderClockHand(center, 0.95 * radius, 0.1, angleSeconds)}
-        {this.renderClockHand(center, 0.75 * radius, 0.3, angleMinutes)}
-        {this.renderClockHand(center, 0.5 * radius, 0.4, angleHours)}
+      <view>
+        <text alignment={'bottom-center'} localPosition={[0, 0.2, 0]} textSize={0.05}>{this.state.alignment}</text>
+        
+        <Content alignment={this.state.alignment} renderLayout={this.state.renderLayout}/>
+
+        <button width={0.16} height={0.08} alignment={'top-center'} localPosition={[0, -0.22, 0]} onClick={this.updateAlignemntClick}>Update</button>
+        <toggle 
+            localPosition={[0,-0.35,0]}
+            alignment={'top-center'} 
+            height={0.05}
+            textSize={0.05} 
+            on={this.state.renderLayout} 
+            onToggleChanged={this.onToggleChanged}>
+              Layout mode
+         </toggle>
       </view>
     );
   }
