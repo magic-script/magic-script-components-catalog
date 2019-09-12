@@ -1,8 +1,8 @@
 export * from './sceneAlignment';
-export * from './sceneAlignmentUpdate';
 export * from './sceneButton';
 export * from './sceneButtonOutline';
 export * from './sceneCalendar/components/CalendarView';
+export * from './sceneClock';
 export * from './sceneGridLayout';
 export * from './sceneImage';
 export * from './sceneImageSlider/scene';
@@ -14,7 +14,6 @@ export * from './sceneProgressBar';
 export * from './sceneRemote';
 export * from './sceneSpinner';
 export * from './sceneText';
-export * from './sceneTextAlignment';
 export * from './sceneTextCharacters';
 export * from './sceneTextLetters';
 export * from './sceneTextEdit';

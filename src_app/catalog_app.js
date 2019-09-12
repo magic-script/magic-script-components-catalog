@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Text, Toggle, View } from './utils/components';
+import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import { SceneButton, SceneButtonOutline, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
   SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
-  SceneText, SceneTextAlignment, SceneAlignmentUpdate, SceneTextCharacters, SceneTextLetters, 
+  SceneText, SceneTextAlignment, SceneAlignment, SceneTextCharacters, SceneTextLetters, 
   SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
-  SceneAlignment, SceneRemote, SceneSpinner, SceneVideo, 
+  SceneClock, SceneRemote, SceneSpinner, SceneVideo, 
   CalendarView,
 } from './test_scenes';
 
@@ -17,9 +17,8 @@ class CatalogApp extends React.Component {
     this.scenes = [
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
-      { name: 'Text alignment', component: <SceneTextAlignment localPosition={[0, 0.5, 0]}/> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]}/> },
-      { name: 'Alignment update', component: <SceneAlignmentUpdate localPosition={[0, 0.5, 0]}/> },
+      { name: 'Alignment', component: <SceneAlignment localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]}/> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]}/> },
@@ -35,12 +34,12 @@ class CatalogApp extends React.Component {
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]}/> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
-      { name: 'Clock (alignment)', component: <SceneAlignment localPosition={[0, 0, 0]}/> },
+      { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]}/> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 7, debug: true };
+    this.state = { sceneIndex: 3, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);

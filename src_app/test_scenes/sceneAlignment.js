@@ -1,101 +1,103 @@
 import React from 'react';
-import { MathUtils } from '../utils/mathUtils';
+
+const Alignment = {
+  topLeft: 'top-left',
+  topCenter: 'top-center',
+  topRight: 'top-right',
+  centerLeft: 'center-left',
+  centerCenter: 'center-center',
+  centerRight: 'center-right',
+  bottomLeft: 'bottom-left',
+  bottomCenter: 'bottom-center',
+  bottomRight: 'bottom-right',
+};
 
 class SceneAlignment extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = { seconds: 0, minutes: 0, hours: 0 };
-    this.updateTime = this.updateTime.bind(this);
+    this.state = { alignment: Alignment.topLeft };
   }
 
-  componentDidMount() {
-    this.updateTime();
-    this.handler = setInterval(this.updateTime, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.handler);
-  }
-
-  updateTime() {
-    const date = new Date();
-    const seconds = date.getSeconds();
-    const minutes = date.getMinutes();
-    const hours = date.getHours();
-    this.setState({ seconds, minutes, hours });
-  }
-
-  renderItems(center, radius) {
-    const items = [
-      { alignment: 'top-center', hour: '12' },
-      { alignment: 'top-right', hour: '1' },
-      { alignment: 'top-right', hour: '2' },
-      { alignment: 'center-right', hour: '3' },
-      { alignment: 'bottom-right', hour: '4' },
-      { alignment: 'bottom-right', hour: '5' },
-      { alignment: 'bottom-center', hour: '6' },
-      { alignment: 'bottom-left', hour: '7' },
-      { alignment: 'bottom-left', hour: '8' },
-      { alignment: 'center-left', hour: '9' },
-      { alignment: 'top-left', hour: '10' },
-      { alignment: 'top-left', hour: '11' },
+	selectNextAlignment = () => {
+    const alignments = [
+      Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
+      Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
+      Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
     ];
 
-    return items.map((item, index) => {
-      const angle = index * ((2 * Math.PI) / items.length);
-      const x = center.x + radius * Math.sin(angle);
-      const y = center.y + radius * Math.cos(angle);
-      return (
-        <text
-          key={index}
-          localPosition={[x, y, 0]}
-          alignment={item.alignment}
-          textSize={0.1}
-        >{item.hour}</text>
-      );
-    });
+    const currentIndex = alignments.indexOf(this.state.alignment);
+    const nextIndex = (currentIndex + 1) % alignments.length;
+		this.setState({ alignment: alignments[nextIndex] });
   }
 
-  renderClockHand(center, length, width, angle) {
-    const quat = MathUtils.rotateBy(angle, [0, 0, -1])
+  renderGridLayout(alignment) {
+    return (<gridLayout alignment={alignment} defaultItemAlignment={'center-center'} columns={2}>
+      <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
+      <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
+      <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>
+      <image width={0.1} height={0.1} color={[1,1,1,1]}/>
+    </gridLayout>);
+  }
 
+  renderComponent(name, element, position, cellSize, index) {
+    const min = { x: -0.5 * cellSize, y: -0.5 * cellSize };
+    const max = { x: 0.5 * cellSize, y: 0.5 * cellSize };
+    const points = [ [min.x, min.y, 0], [min.x, max.y, 0], [max.x, max.y, 0], [max.x, min.y, 0], [min.x, min.y, 0] ];
     return (
-      <view
-        localPosition={[center.x, center.y, 0]}
-        localRotation={quat}
-      >
-        <text 
-          alignment={'bottom-center'}
-          localScale={[width, length, 1]}
-          textSize={1}
-        >|</text>
+      <view key={index} alignment={'center-center'} localPosition={position}>
+        {element}
+        <text alignment={'top-center'} localPosition={[0, min.y - 0.01, 0]} textSize={0.05}>{name}</text>
+        <line points={points} color={[1,1,0,1]}/>
+        <line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[1,1,0,0.5]}/>
+        <line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1,1,0,0.5]}/>
       </view>
-      
     );
   }
 
+  renderComponents() {
+    const { alignment } = this.state;
+    const columns = 3;
+    const itemSize = 0.2;
+    const cellSize = 2 * itemSize;
+    const cellSpace = 0.1;
+    const columnsWidth = (columns - 1) * (cellSize + cellSpace)
+    const minX = -0.5 * columnsWidth;
+    const maxY = 0.1;
+
+    const getPosition = (index) => {
+      const x = minX + (index % columns) * (cellSize + cellSpace);
+      const y = maxY - Math.floor(index / columns) * (cellSize + cellSpace);
+      return [x, y, 0];
+    }
+
+    const y1 = 0.577 * itemSize;
+    const y2 = -0.288 * itemSize;
+
+    const propsByType = {
+      button: { textSize: 0.05, text: 'Click', width: itemSize, height: 0.07, enabled: false },
+      image: { width: itemSize, height: itemSize, color: [1,0,0,1] },
+      line: { points: [[0,y1,0], [-0.5*itemSize,y2,0], [0.5*itemSize,y2,0], [0,y1,0]], color: [0,1,1,1] },
+      model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
+      progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
+      spinner: { size: [itemSize, itemSize], value: 0.5 }, 
+      text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
+      toggle: { height: 0.45 * itemSize, on: true, text: '', value: 0.75 }
+    };
+
+    const components = Object.keys(propsByType).map((key, index) => {
+      const element = React.createElement(key, { ...propsByType[key], alignment });
+      return this.renderComponent(key, element, getPosition(index), cellSize, index);
+    });
+
+    components.push(this.renderComponent('gridLayout', this.renderGridLayout(alignment), getPosition(components.length), cellSize, components.length));
+    return <view>{components}</view>;
+  }
+  
   render() {
-    const { seconds, minutes, hours } = this.state;
-    const center = { x: 0, y: 0 };
-    const radius = 0.7;
-    const angleSeconds = seconds * ((2 * Math.PI) / 60);
-    const angleMinutes = minutes * ((2 * Math.PI) / 60);
-    const angleHours = hours * ((2 * Math.PI) / 12);
     return (
       <view localPosition={this.props.localPosition}>
-        {this.renderItems(center, radius)}
-        <button
-          enabled={false}
-          localPosition={[center.x, center.y, 0]}
-          textSize={0.1}
-          roundness={1}
-          width={2*radius + 0.1}
-          height={2*radius + 0.1}
-        >{'Clock face'}</button>
-        {this.renderClockHand(center, 0.95 * radius, 0.1, angleSeconds)}
-        {this.renderClockHand(center, 0.75 * radius, 0.3, angleMinutes)}
-        {this.renderClockHand(center, 0.5 * radius, 0.4, angleHours)}
+        <button textSize={0.05} alignment={'top-center'} localPosition={[0, 0.5, 0]} onClick={this.selectNextAlignment}>Align</button>
+        {this.renderComponents()}
       </view>
     );
   }

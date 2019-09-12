@@ -1,7 +1,7 @@
 import 'magic-script-polyfills';
 import { process, require } from './global-scope.js'
 import React from 'react';
-import mxs from 'magic-script-components';
+import mxs from 'magic-script-components-lumin';
 
 import CatalogApp from '../src_app/catalog_app';
 

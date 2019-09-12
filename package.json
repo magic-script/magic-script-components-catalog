@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
-    "magic-script-components": "https://github.com/magic-script/magic-script-components",
+    "magic-script-components": "2.0.0",
+    "magic-script-components-lumin": "1.0.0",
     "magic-script-polyfills": "^2.4.2",
     "prop-types": "15.7.2",
     "react": "16.8.6",
