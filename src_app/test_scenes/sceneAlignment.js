@@ -90,26 +90,25 @@ class SceneAlignment extends React.Component {
     const minX = -0.5 * columnsWidth;
     const maxY = 0.1;
 
+    const getPosition = (index) => {
+      const x = minX + (index % columns) * (cellSize + cellSpace);
+      const y = maxY - Math.floor(index / columns) * (cellSize + cellSpace);
+      return [x, y, 0];
+    }
+
     const y1 = 0.577 * itemSize;
     const y2 = -0.288 * itemSize;
 
     const propsByType = {
       button: { textSize: 0.05, text: 'Click', width: itemSize, height: 0.07, enabled: false },
       image: { width: itemSize, height: itemSize, color: [1,0,0,1] },
-      text: { textSize: 0.05, text: 'Click', color: [0,1,0,1] }, 
       line: { points: [[0,y1,0], [-0.5*itemSize,y2,0], [0.5*itemSize,y2,0], [0,y1,0]], color: [0,1,1,1] },
       model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
-      spinner: { size: [itemSize, itemSize] }, 
+      spinner: { size: [itemSize, itemSize], value: 0.5 }, 
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
-      toggle: { height: 0.45 * itemSize}
+      toggle: { height: 0.45 * itemSize, on: true, text: '' }
     };
-
-    const getPosition = (index) => {
-      const x = minX + (index % columns) * (cellSize + cellSpace);
-      const y = maxY - Math.floor(index / columns) * (cellSize + cellSpace);
-      return [x, y, 0];
-    }
 
     const components = Object.keys(propsByType).map((key, index) => {
       const element = React.createElement(key, { ...propsByType[key], alignment });
@@ -117,11 +116,7 @@ class SceneAlignment extends React.Component {
     });
 
     components.push(this.renderComponent('gridLayout', this.renderGridLayout(alignment), getPosition(components.length), cellSize, components.length));
-    return (
-      <view>
-        {components}
-      </view>
-    );
+    return <view>{components}</view>;
   }
   
   render() {
