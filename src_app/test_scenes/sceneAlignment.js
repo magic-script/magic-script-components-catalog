@@ -12,32 +12,6 @@ const Alignment = {
   bottomRight: 'bottom-right',
 };
 
-// the positioned content 
-class Content extends React.Component {
-  
-  render () {
-
-    const align = this.props.alignment;
-    const renderLayout = this.props.renderLayout;
-
-    if (renderLayout) {
-      return ( 
-        <gridLayout alignment={align} defaultItemAlignment={'center-center'} columns={2}>
-          <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
-          <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
-          <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>
-          <image width={0.1} height={0.1} color={[1,1,1,1]}/>
-        </gridLayout>
-      );
-    } else {
-      return (
-        <image alignment={align} width={0.2} height={0.2} color={[1,1,0.5,1]}/>
-      );
-    }
-  }
-
-}
-
 class SceneAlignment extends React.Component {
   constructor(props) {
     super(props);
@@ -107,7 +81,7 @@ class SceneAlignment extends React.Component {
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
       spinner: { size: [itemSize, itemSize], value: 0.5 }, 
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
-      toggle: { height: 0.45 * itemSize, on: true, text: '' }
+      toggle: { height: 0.45 * itemSize, on: true, text: '', value: 0.75 }
     };
 
     const components = Object.keys(propsByType).map((key, index) => {
