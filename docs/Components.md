@@ -16,7 +16,7 @@ Order | Component | Lumin RT<br>native component | Lumin OS | iOS | Android
 12 | slider | UiSlider | :thumbsup: | 2md | 2md
 13 | progressBar | UiProgressBar | :thumbsup: | 1md | 1.5md
 14 | gridLayout | UiGridLayout | :thumbsup: | :thumbsup: | 2.5md
-15 | linearLayout | UiLinearLayout | :thumbsup: | 1md | 2md
+15 | linearLayout | UiLinearLayout | :thumbsup: | 1md | :thumbsup:
 16 | rectLayout | UiRectLayout | :thumbsup: | 1md | 1md
 17 | dropdownList | UiDropDownList | :thumbsup: | 2md | 2md
 18 | dropdownListItem | DropDownListItem | :thumbsup: | 3md | 2.5md

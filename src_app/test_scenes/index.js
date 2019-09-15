@@ -9,7 +9,6 @@ export * from './sceneImageSlider/scene';
 export * from './sceneImageRemote';
 export * from './sceneLine';
 export * from './sceneLinearLayout';
-export * from './sceneModel';
 export * from './sceneModelStatic';
 export * from './sceneModelAnimated';
 export * from './sceneProgressBar';

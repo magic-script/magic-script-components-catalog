@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 class SceneLinearLayout extends React.Component {
