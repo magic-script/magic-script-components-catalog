@@ -1,15 +1,14 @@
-//
 import React from "react";
 
-import { BASE_URL, CALENDAR, ROOM } from "../config/Client";
-import { PRISM_COLOR, TEXT_COLOR } from "../config/Colors";
-import { PRISM_X, PRISM_Y, UPDATE_FREQUENCY } from "../config/Sizes";
+import { TEXT_COLOR } from "../config/Colors";
+import { PRISM_X } from "../config/Sizes";
 import CalendarItem from "./CalendarItem";
 
+const ROOM = 'Mira';
 const initialEventsUrl = "https://firebasestorage.googleapis.com/v0/b/components-storage.appspot.com/o/events_initial.json?alt=media&token=c445d8a0-c4c4-4d7f-83b7-a42289bfd93a";
 const allEventsUrl = "https://firebasestorage.googleapis.com/v0/b/components-storage.appspot.com/o/events_all.json?alt=media&token=309a34e5-fa42-4c17-aa79-9400e0b01a2d";
 
-export default class CalendarView extends React.Component {
+class CalendarView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,13 +24,6 @@ export default class CalendarView extends React.Component {
 
   async componentDidMount() {
 		await this.updateCalendar(initialEventsUrl);
-		// if (this.interval === undefined) {
-		// 	this.interval = setInterval(async () => await this.updateCalendar(), UPDATE_FREQUENCY);
-		// }
-  }
-
-  componentWillUnmount() {
-    // clearInterval(this.interval);
   }
 
   async updateCalendar(url) {
@@ -139,3 +131,5 @@ export default class CalendarView extends React.Component {
     );
   }
 }
+
+export { CalendarView };

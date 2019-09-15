@@ -1,5 +1,5 @@
 import React from 'react';
-import { MagicScript } from './proxy';
-import BrowserApp from './src_mobile/browser_app';
+import { MagicScript } from './proxy_mobile';
+import CatalogApp from './src_app/catalog_app';
 
-MagicScript.registerApp('Catalog', <BrowserApp />, false);
+MagicScript.registerApp('Catalog', <CatalogApp />, false);

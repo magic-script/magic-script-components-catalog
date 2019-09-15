@@ -1,6 +1,7 @@
 import React from 'react';
+import { MathUtils } from '../utils/mathUtils';
 
-class SceneAlignment extends React.Component {
+class SceneClock extends React.Component {
 
   constructor(props) {
     super(props);
@@ -57,19 +58,12 @@ class SceneAlignment extends React.Component {
   }
 
   renderClockHand(center, length, width, angle) {
-    const v = { x: 0, y: 0, z: -1 };
-    const s = Math.sin(angle / 2);
-    const quat = {
-      x: v.x * s,
-      y: v.y * s,
-      z: v.z * s,
-      w: Math.cos(angle / 2),
-    };
+    const quat = MathUtils.rotateBy(angle, [0, 0, -1])
 
     return (
       <view
         localPosition={[center.x, center.y, 0]}
-        localRotation={[quat.x, quat.y, quat.z, quat.w]}
+        localRotation={quat}
       >
         <text 
           alignment={'bottom-center'}
@@ -107,4 +101,4 @@ class SceneAlignment extends React.Component {
   }
 }
 
-export { SceneAlignment };
+export { SceneClock };

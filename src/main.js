@@ -1,8 +1,8 @@
 import 'magic-script-polyfills';
 import { process, require } from './global-scope.js'
 import React from 'react';
-import mxs from 'magic-script-components';
+import mxs from 'magic-script-components-lumin';
 
-import BrowserApp from '../src_mobile/browser_app';
+import CatalogApp from '../src_app/catalog_app';
 
-mxs.bootstrap(<BrowserApp type='landscape' volumeSize={[1.0, 1.5, 0.5]} />);
+mxs.bootstrap(<CatalogApp type='landscape' volumeSize={[1.0, 1.5, 0.5]} />);

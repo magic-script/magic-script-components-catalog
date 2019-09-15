@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import { Button, GridLayout, Text } from 'react-native-magic-script';
 
 class SceneLinearLayout extends React.Component {
 
