@@ -29,7 +29,7 @@ class CatalogApp extends React.Component {
       { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]}/> },
       { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]}/> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]}/> },
-      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 0.5, 0]}/> },
+      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]}/> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]}/> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]}/> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]}/> },
@@ -39,7 +39,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 3, debug: false };
+    this.state = { sceneIndex: 14, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
@@ -76,7 +76,7 @@ class CatalogApp extends React.Component {
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
           <Button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
-          <Toggle localPosition={[ 0, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
+          <Toggle localPosition={[ 0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
         </View>
         <View alignment={'center-center'}>
           {this.renderGrid()}
