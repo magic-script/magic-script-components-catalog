@@ -4,7 +4,7 @@ import { Grid } from './utils/grid';
 import { SceneButton, SceneButtonOutline, SceneGridLayout, 
   SceneImage, SceneImageSlider, SceneImageRemote, 
   SceneLine, SceneModelStatic, SceneModelAnimated, SceneTransformations,
-  SceneText, SceneTextAlignment, SceneAlignment, SceneTextCharacters, SceneTextLetters, 
+  SceneText, SceneAlignment, SceneTextCharacters, SceneTextLetters, 
   SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
   SceneClock, SceneRemote, SceneSpinner, SceneVideo, 
   CalendarView,
@@ -39,7 +39,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 14, debug: false };
+    this.state = { sceneIndex: 16, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);

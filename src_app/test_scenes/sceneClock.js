@@ -84,7 +84,7 @@ class SceneClock extends React.Component {
     const angleHours = hours * ((2 * Math.PI) / 12);
     return (
       <view localPosition={this.props.localPosition}>
-        {this.renderItems(center, radius)}
+        {this.renderItems(center, 0.9 * radius)}
         <button
           enabled={false}
           localPosition={[center.x, center.y, 0]}
