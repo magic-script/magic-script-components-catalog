@@ -38,17 +38,17 @@ class SceneLinearLayout extends React.Component {
           <linearLayout
             defaultItemAlignment={'center-left'}
             defaultItemPadding={[0.07, 0, 0.07, 0]}>
-            {this.renderButton({ textSize: 0.1, title: 'jeden' })}
-            {this.renderButton({ textSize: 0.11, title: 'dwa' })}
-            {this.renderButton({ textSize: 0.12, title: 'trzy' })}
+            {this.renderButton({ textSize: 0.1, title: 'one' })}
+            {this.renderButton({ textSize: 0.11, title: 'two' })}
+            {this.renderButton({ textSize: 0.12, title: 'three' })}
           </linearLayout>
 
           <linearLayout
             defaultItemAlignment={'center-right'}
             defaultItemPadding={[0, 0.07, 0, 0.07]}>
-            {this.renderButton({ textSize: 0.1, title: 'one' })}
-            {this.renderButton({ textSize: 0.11, title: 'two' })}
-            {this.renderButton({ textSize: 0.12, title: 'three' })}
+            {this.renderButton({ textSize: 0.1, title: 'four' })}
+            {this.renderButton({ textSize: 0.11, title: 'five' })}
+            {this.renderButton({ textSize: 0.12, title: 'six' })}
           </linearLayout>
 
           <linearLayout
