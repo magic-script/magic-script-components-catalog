@@ -41,7 +41,7 @@ class SceneSpinner extends React.Component {
       <view localPosition={position}>
         <text textSize={0.08} alignment={'bottom-center'}>{title}</text>
         <spinner alignment={'top-center'} localPosition={[0, -0.15, 0]} height={0.1} size={[0.1, 0.1]} type={type} value={value1} determinate={determinate}/>
-        <spinner alignment={'top-center'} localPosition={[0, -0.5, 0]} height={0.4} size={[0.3, 0.3]} type={type} value={value2} determinate={determinate}/>
+        <spinner alignment={'top-center'} localPosition={[0, -0.5, 0]} height={0.3} size={[0.3, 0.3]} type={type} value={value2} determinate={determinate}/>
       </view>
     );
   }
