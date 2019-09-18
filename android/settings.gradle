@@ -2,7 +2,7 @@ rootProject.name = 'Catalog'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':react-native-fs'
 project(':react-native-fs').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fs/android')
-include ':react-native-magic-script'
-project(':react-native-magic-script').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-magic-script/android')
+include ':magic-script-components-react-native'
+project(':magic-script-components-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/magic-script-components-react-native/android')
 
 include ':app'

@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Button, GridLayout, Text } from 'react-native-magic-script';
+// import { Button, GridLayout, Text } from 'magic-script-components-react-native';
 
 class SceneButton extends React.Component {
 	constructor(props) {
