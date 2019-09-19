@@ -18,7 +18,7 @@
     "react": "16.8.6",
     "react-native": "^0.60.5",
     "react-native-fs": "^2.13.3",
-    "react-native-magic-script": "git+https://github.com/magic-script/react-native-magic-script"
+    "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

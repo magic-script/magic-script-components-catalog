@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
-import { ReactNativeMagicScript } from 'react-native-magic-script';
+import { ReactNativeMagicScript } from 'magic-script-components-react-native';
 import ReactNativeApp from '../react-native/ReactNativeApp';
 
 const MagicScript = {
