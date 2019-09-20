@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ARView } from 'react-native-magic-script';
+import { ARView } from 'magic-script-components-react-native';
 
 export default class ReactNativeApp extends React.Component {
   render() {
