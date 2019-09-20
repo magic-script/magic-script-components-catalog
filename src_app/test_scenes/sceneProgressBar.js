@@ -4,7 +4,7 @@ class SceneProgressBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { value1: 0.0, value2: 0.0, value3: 0.0 }
+    this.state = { value1: 0.0, value2: 0.0, value3: 0.0 };
     this.updateProgress = this.updateProgress.bind(this);
     this.interval = 0.01;
   }
