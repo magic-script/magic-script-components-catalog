@@ -1,13 +1,33 @@
 import React from 'react';
 import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
-import { SceneButton, SceneButtonOutline, SceneGridLayout, 
-  SceneImage, SceneImageSlider, SceneImageRemote, 
-  SceneLine, SceneLinearLayout, SceneModelStatic, SceneModelAnimated, SceneTransformations,
-  SceneText, SceneTextAlignment, SceneAlignment, SceneTextCharacters, SceneTextLetters, 
-  SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
-  SceneClock, SceneRemote, SceneSpinner, SceneVideo, 
+import {
   CalendarView,
+  SceneButton,
+  SceneButtonOutline,
+  SceneGridLayout,
+  SceneImage,
+  SceneImageSlider,
+  SceneImageRemote,
+  SceneLine,
+  SceneLinearLayout,
+  SceneModelStatic,
+  SceneModelAnimated,
+  SceneTransformations,
+  SceneClock,
+  SceneRemote,
+  SceneSpinner,
+  SceneVideo,
+  SceneScrollView,
+  SceneText,
+  SceneTextAlignment,
+  SceneAlignment,
+  SceneTextCharacters,
+  SceneTextLetters,
+  SceneTextEdit,
+  SceneToggle,
+  GameTicTacToe,
+  SceneProgressBar,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -15,12 +35,14 @@ class CatalogApp extends React.Component {
     super(props);
 
     this.scenes = [
+      { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
+
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]}/> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]}/> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]}/> },
       { name: 'Alignment', component: <SceneAlignment localPosition={[0, 0.5, 0]}/> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]}/> },
-      { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]}/> },
+      { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]}/> },
       // { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]}/> },
@@ -40,7 +62,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 14, debug: false };
+    this.state = { sceneIndex: 0, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
@@ -65,7 +87,7 @@ class CatalogApp extends React.Component {
 
   renderGrid() {
     const { debug } = this.state;
-    return debug ? <Grid/> : null;
+    return debug ? <Grid /> : null;
   }
 
   render() {
@@ -76,8 +98,8 @@ class CatalogApp extends React.Component {
         <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
-          <Button localPosition={[ 0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
-          <Toggle localPosition={[ 0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
+          <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
+          <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
         </View>
         <View alignment={'center-center'}>
           {this.renderGrid()}
