@@ -101,7 +101,7 @@ class CatalogApp extends React.Component {
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
           <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
-          <Image localPosition={[0, -1, -0.1]} width={3} height={8} color={[0, 0, 0, 1]} ></Image>
+          <Image localPosition={[0, -1, -0.5]} width={3} height={8} color={[0, 0, 0, 1]} ></Image>
         </View>
         <View alignment={'center-center'} localPosition={[viewPos.x, viewPos.y, viewPos.z]}>
           {this.renderGrid()}
