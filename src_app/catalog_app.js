@@ -18,6 +18,7 @@ import {
   SceneRemote,
   SceneSpinner,
   SceneVideo,
+  SceneScrollBar,
   SceneScrollView,
   SceneText,
   SceneTextAlignment,
@@ -35,6 +36,7 @@ class CatalogApp extends React.Component {
     super(props);
 
     this.scenes = [
+      { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
 
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]} /> },
