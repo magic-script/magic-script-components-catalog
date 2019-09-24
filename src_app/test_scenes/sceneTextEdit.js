@@ -1,17 +1,42 @@
 import React from 'react';
 
 class SceneTextEdit extends React.Component {
+
+  renderTextEdit({ y, hint, hintColor, title, text, multiline, password }) {
+    const width = 0.9;
+    const height = multiline ? 0.6 : 0.08;
+    return (
+      <view localPosition={[0, y, 0]}>
+        <text 
+          // debug={true} 
+          alignment={'bottom-center'} 
+          boundsSize={{ boundsSize: [width, 0], wrap: false }}
+          textColor={[1,1,1,1]}
+          textSize={0.08}
+        >{title}</text>
+        <line points={[[-0.5 * width, 0, 0], [0.5 * width, 0, 0]]} color={[1,1,1,0.75]}/>
+        <textEdit 
+          // debug={true} 
+          alignment={'top-center'} 
+          hint={hint} 
+          hintColor={hintColor} 
+          localPosition={[0, -0.05, 0]} 
+          multiline={multiline}
+          textSize={0.06} 
+          width={width} 
+          height={height} 
+          password={password}
+        >{text}</textEdit>
+      </view>
+    );
+  }
+
   render () {
     return (
       <view localPosition={this.props.localPosition}>
-        <text localPosition={[-0.3, 0.45, 0]} textSize={0.05}>Default</text>
-        <textEdit localPosition={[-0.3, 0.425, 0]} width={0.7} height={0.05} hint={'Placeholder'} text={' '}></textEdit>
-
-        <text localPosition={[-0.3, 0.25, 0]} textSize={0.05}>Password</text>
-        <textEdit localPosition={[-0.3, 0.225, 0]} width={0.7} height={0.05} password> </textEdit>
-
-        <text localPosition={[-0.3, 0.05, 0]} textSize={0.05}>Multiline</text>
-        <textEdit localPosition={[-0.3, 0.025, 0]} width={0.7} height={0.25} multiline>Multiline text edit</textEdit>
+        {this.renderTextEdit({ y: 0.45, hint: 'Placeholder', title: 'Default', text: '' })}
+        {this.renderTextEdit({ y: 0.05, hint: 'Password', title: 'Password', text: '', password: true })}
+        {this.renderTextEdit({ y: -0.3, hint: '', multiline: true, title: 'Multiline', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' })}
       </view>
     );
   }
