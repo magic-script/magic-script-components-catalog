@@ -18,7 +18,6 @@ class SceneVideoGrid extends React.Component {
     this.state = {
       isLooping: false,
       action: VideoActions.pause,
-      volume: 0.0
     };
     this.onStartPauseClick = this.onStartPauseClick.bind(this);
     this.onStopClick = this.onStopClick.bind(this);
@@ -83,6 +82,7 @@ class SceneVideoGrid extends React.Component {
     ];
     return (
       <video
+        key={videoPath}
         looping={true}
         width={resolution[0]}
         height={resolution[1]}
@@ -100,7 +100,6 @@ class SceneVideoGrid extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <gridLayout
-          debug={false}
           alignment={"top-center"}
           columns={2}
           rows={2}
