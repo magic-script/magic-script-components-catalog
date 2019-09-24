@@ -15,15 +15,10 @@ class SceneVideoGrid extends React.Component {
       "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4",
       require("../../resources/video_2.mp4")
     ];
-    this.state = {
-      isLooping: false,
-      action: VideoActions.pause,
-    };
-    this.onStartPauseClick = this.onStartPauseClick.bind(this);
-    this.onStopClick = this.onStopClick.bind(this);
+    this.state = { action: VideoActions.pause };
   }
 
-  onStartPauseClick() {
+  onStartPauseClick = () => {
     if (this.state.action === VideoActions.start) {
       this.setState({ action: VideoActions.pause });
     } else {
@@ -31,17 +26,15 @@ class SceneVideoGrid extends React.Component {
     }
   }
 
-  onStopClick() {
+  onStopClick = () => {
     this.setState({ action: VideoActions.stop });
   }
 
-  createButtonWithAction(action, position) {
+  createButtonWithAction(action) {
     const title = action[0].toUpperCase() + action.substring(1);
-    const onClickHandler =
-      action === VideoActions.stop ? this.onStopClick : this.onStartPauseClick;
+    const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
     return (
       <button
-        localPosition={position}
         textSize={0.1}
         width={0.3}
         height={0.12}
@@ -52,22 +45,22 @@ class SceneVideoGrid extends React.Component {
     );
   }
 
-  renderPlayOrPauseButton(position) {
+  renderPlayOrPauseButton() {
     const { action } = this.state;
     if (action === VideoActions.start) {
-      return this.createButtonWithAction(VideoActions.pause, position);
+      return this.createButtonWithAction(VideoActions.pause);
     } else {
-      return this.createButtonWithAction(VideoActions.start, position);
+      return this.createButtonWithAction(VideoActions.start);
     }
   }
 
-  renderStopButton(position) {
-    return this.createButtonWithAction(VideoActions.stop, position);
+  renderStopButton() {
+    return this.createButtonWithAction(VideoActions.stop);
   }
 
   renderVideoNodes() {
     let videoNodes = [];
-    for (videoPath of this.videoPaths) {
+    for (let videoPath of this.videoPaths) {
       videoNodes.push(this.renderVideoNode(videoPath));
     }
     return videoNodes;
@@ -75,7 +68,7 @@ class SceneVideoGrid extends React.Component {
 
   renderVideoNode(videoPath) {
     const resolution = [1920, 1080];
-    const widthInMeters = 1.2;
+    const widthInMeters = 0.8;
     const size = [
       widthInMeters,
       (resolution[1] * widthInMeters) / resolution[0]
@@ -108,8 +101,8 @@ class SceneVideoGrid extends React.Component {
           localPosition={[0, 1.0, 0]}
         >
           {this.renderVideoNodes()}
-          {this.renderPlayOrPauseButton([-0.19, -0.05, 0])}
-          {this.renderStopButton([0.19, -0.05, 0])}
+          {this.renderPlayOrPauseButton()}
+          {this.renderStopButton()}
         </gridLayout>
       </view>
     );

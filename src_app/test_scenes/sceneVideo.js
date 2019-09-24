@@ -26,20 +26,13 @@ class SceneVideo extends React.Component {
       volume: 1.0,
       videoPath: this.localVideoPaths[0]
     };
-    this.onToggleChanged = this.onToggleChanged.bind(this);
-    this.onStartPauseClick = this.onStartPauseClick.bind(this);
-    this.onStopClick = this.onStopClick.bind(this);
-    this.onVolumeDownClick = this.onVolumeDownClick.bind(this);
-    this.onVolumeUpClick = this.onVolumeUpClick.bind(this);
-    this.onToggleLocalMovie = this.onToggleLocalMovie.bind(this);
-    this.onToggleRemoteMovie = this.onToggleRemoteMovie.bind(this);
   }
 
-  onToggleChanged(event) {
+  onToggleChanged = (event) => {
     this.setState({ isLooping: event.On });
   }
 
-  onStartPauseClick() {
+  onStartPauseClick = () => {
     if (this.state.action === VideoActions.start) {
       this.setState({ action: VideoActions.pause });
     } else {
@@ -47,16 +40,16 @@ class SceneVideo extends React.Component {
     }
   }
 
-  onStopClick() {
+  onStopClick = () => {
     this.setState({ action: VideoActions.stop });
   }
 
-  onVolumeDownClick() {
+  onVolumeDownClick = () => {
     const volumeNew = (this.state.volume - 0.1).toPrecision(2);
     this.setState({ volume: Math.max(0, volumeNew) });
   }
 
-  onVolumeUpClick() {
+  onVolumeUpClick = () => {
     const volumeNew = (this.state.volume + 0.1).toPrecision(2);
     this.setState({ volume: Math.min(1.0, volumeNew) });
   }
@@ -124,13 +117,13 @@ class SceneVideo extends React.Component {
     );
   }
 
-  onToggleLocalMovie() {
+  onToggleLocalMovie = () => {
     const nextIndex = (this.currentLocalIndex + 1) % this.localVideoPaths.length;
     this.currentLocalIndex = nextIndex;
     this.setState({ videoPath: this.localVideoPaths[nextIndex] });
   }
 
-  onToggleRemoteMovie() {
+  onToggleRemoteMovie = () => {
     const nextIndex = (this.currentRemoteIndex + 1) % this.remoteVideoPaths.length;
     this.currentRemoteIndex = nextIndex;
     this.setState({ videoPath: this.remoteVideoPaths[nextIndex] });
