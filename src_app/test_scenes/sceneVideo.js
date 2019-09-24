@@ -1,21 +1,38 @@
-import React from 'react';
+import React from "react";
 
 const VideoActions = {
-  start: 'start',
-  pause: 'pause',
-  stop: 'stop'
-}
+  start: "start",
+  pause: "pause",
+  stop: "stop"
+};
 
 class SceneVideo extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = { isLooping: false, action: VideoActions.pause, volume: 1.0 };
+    this.localVideoPaths = [
+      require("../../resources/video.mp4"),
+      require("../../resources/video_1.mp4"),
+      require("../../resources/video_2.mp4")
+    ];
+    this.remoteVideoPaths = [
+      "https://sylvan.apple.com/Aerials/2x/Videos/LA_A005_C009_4K_SDR_HEVC.mov",
+      "https://sylvan.apple.com/Aerials/2x/Videos/DB_D011_C010_4K_HDR_HEVC.mov"
+    ];
+    this.currentLocalIndex = 0;
+    this.currentRemoteIndex = 0;
+    this.state = {
+      isLooping: false,
+      action: VideoActions.pause,
+      volume: 1.0,
+      videoPath: this.localVideoPaths[0]
+    };
     this.onToggleChanged = this.onToggleChanged.bind(this);
     this.onStartPauseClick = this.onStartPauseClick.bind(this);
     this.onStopClick = this.onStopClick.bind(this);
-    this.onVolumeDownClick = this.onVolumeDownClick.bind(this)
-    this.onVolumeUpClick = this.onVolumeUpClick.bind(this)
+    this.onVolumeDownClick = this.onVolumeDownClick.bind(this);
+    this.onVolumeUpClick = this.onVolumeUpClick.bind(this);
+    this.onToggleLocalMovie = this.onToggleLocalMovie.bind(this);
+    this.onToggleRemoteMovie = this.onToggleRemoteMovie.bind(this);
   }
 
   onToggleChanged(event) {
@@ -23,11 +40,11 @@ class SceneVideo extends React.Component {
   }
 
   onStartPauseClick() {
-     if (this.state.action === VideoActions.start) {
-       this.setState({ action: VideoActions.pause });
-     } else {
-       this.setState({ action: VideoActions.start });
-     }
+    if (this.state.action === VideoActions.start) {
+      this.setState({ action: VideoActions.pause });
+    } else {
+      this.setState({ action: VideoActions.start });
+    }
   }
 
   onStopClick() {
@@ -36,17 +53,18 @@ class SceneVideo extends React.Component {
 
   onVolumeDownClick() {
     const volumeNew = (this.state.volume - 0.1).toPrecision(2);
-    this.setState({volume: Math.max(0, volumeNew)});
+    this.setState({ volume: Math.max(0, volumeNew) });
   }
 
   onVolumeUpClick() {
     const volumeNew = (this.state.volume + 0.1).toPrecision(2);
-    this.setState({volume: Math.min(1.0, volumeNew)});
+    this.setState({ volume: Math.min(1.0, volumeNew) });
   }
 
   createButtonWithAction(action, position) {
     const title = action[0].toUpperCase() + action.substring(1);
-    const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
+    const onClickHandler =
+      action === VideoActions.stop ? this.onStopClick : this.onStartPauseClick;
     return (
       <button
         localPosition={position}
@@ -76,60 +94,115 @@ class SceneVideo extends React.Component {
   renderVolumeControls(position) {
     const volume = "Volume: " + this.state.volume;
     return (
-        <view localPosition={position}>
-          <button localPosition={[-0.35, 0, 0]} 
-                  textSize={0.1}
-                  width={0.1} 
-                  height={0.1}
-                  roundness={0} 
-                  onClick={this.onVolumeDownClick}>
-                    -
-          </button>
+      <view localPosition={position}>
+        <button
+          localPosition={[-0.35, 0, 0]}
+          textSize={0.1}
+          width={0.1}
+          height={0.1}
+          roundness={0}
+          onClick={this.onVolumeDownClick}
+        >
+          -
+        </button>
 
-          <text alignment={'center-center'} textSize={0.08}>{volume}</text>
+        <text alignment={"center-center"} textSize={0.08}>
+          {volume}
+        </text>
 
-          <button localPosition={[0.35, 0, 0]} 
-                  textSize={0.1}
-                  width={0.1} 
-                  height={0.1}
-                  roundness={0} 
-                  onClick={this.onVolumeUpClick}>
-                    +
-          </button>
-        </view>
-     );
+        <button
+          localPosition={[0.35, 0, 0]}
+          textSize={0.1}
+          width={0.1}
+          height={0.1}
+          roundness={0}
+          onClick={this.onVolumeUpClick}
+        >
+          +
+        </button>
+      </view>
+    );
+  }
+
+  onToggleLocalMovie() {
+    const nextIndex = (this.currentLocalIndex + 1) % this.localVideoPaths.length;
+    this.currentLocalIndex = nextIndex;
+    this.setState({ videoPath: this.localVideoPaths[nextIndex] });
+  }
+
+  onToggleRemoteMovie() {
+    const nextIndex = (this.currentRemoteIndex + 1) % this.remoteVideoPaths.length;
+    this.currentRemoteIndex = nextIndex;
+    this.setState({ videoPath: this.remoteVideoPaths[nextIndex] });
+  }
+
+  renderToggleLocalMovieButton(position) {
+    const title = "Toggle local movie";
+    const onClickHandler = this.onToggleLocalMovie;
+    return (
+      <button
+        localPosition={position}
+        textSize={0.075}
+        width={0.6}
+        height={0.12}
+        onClick={onClickHandler}
+      >
+        {title}
+      </button>
+    );
+  }
+
+  renderToggleRemoteMovieButton(position) {
+    const title = "Toggle remote movie";
+    const onClickHandler = this.onToggleRemoteMovie;
+    return (
+      <button
+        localPosition={position}
+        textSize={0.075}
+        width={0.7}
+        height={0.12}
+        onClick={onClickHandler}
+      >
+        {title}
+      </button>
+    );
   }
 
   render() {
-    const resolution = [1280, 720];
-    const widthInMeters = 0.8;
-    const size = [widthInMeters, (resolution[1] * widthInMeters) / resolution[0]];
+    const resolution = [1920, 1080];
+    const widthInMeters = 1.4;
+    const size = [
+      widthInMeters,
+      (resolution[1] * widthInMeters) / resolution[0]
+    ];
     return (
       <view localPosition={this.props.localPosition}>
-
         <video
-          localPosition={[0, 0.4, 0]}
+          localPosition={[0, 0.75, 0]}
           looping={this.state.isLooping}
           width={resolution[0]}
           height={resolution[1]}
           size={size}
           anchorPosition={[0.5 * size[0], 0.5 * size[1], 0]}
-          videoPath={require('../../resources/video.mp4')}
-          viewMode={'full-area'}
+          videoPath={this.state.videoPath}
+          viewMode={"full-area"}
           volume={this.state.volume}
           action={this.state.action}
         />
 
-        {this.renderVolumeControls([0, 0.08, 0])}
-        {this.renderPlayOrPauseButton([-0.2, -0.15, 0])}
-        {this.renderStopButton([0.2, -0.15, 0])}
-        
-        <toggle 
-          localPosition={[0.3, -0.4, 0]} 
-          height={0.1} 
-          textSize={0.08} 
-          on={this.state.isLooping} 
-          onToggleChanged={this.onToggleChanged}>
+        {this.renderVolumeControls([0, 0.15, 0])}
+        {this.renderPlayOrPauseButton([-0.19, -0.05, 0])}
+        {this.renderStopButton([0.19, -0.05, 0])}
+        {this.renderToggleLocalMovieButton([0.0, -0.22, 0])}
+        {this.renderToggleRemoteMovieButton([0.0, -0.38, 0])}
+
+        <toggle
+          localPosition={[0.2, -0.52, 0]}
+          height={0.1}
+          textSize={0.075}
+          on={this.state.isLooping}
+          onToggleChanged={this.onToggleChanged}
+        >
           Looping
         </toggle>
       </view>
