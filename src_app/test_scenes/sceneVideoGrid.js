@@ -11,8 +11,8 @@ class SceneVideoGrid extends React.Component {
     super(props);
     this.videoPaths = [
       require("../../resources/video_1.mp4"),
-      "https://sylvan.apple.com/Aerials/2x/Videos/LA_A005_C009_4K_SDR_HEVC.mov",
-      "https://sylvan.apple.com/Aerials/2x/Videos/DB_D011_C010_4K_HDR_HEVC.mov",
+      "http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4",
+      "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4",
       require("../../resources/video_2.mp4")
     ];
     this.state = {
