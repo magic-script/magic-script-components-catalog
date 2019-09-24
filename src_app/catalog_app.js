@@ -6,7 +6,7 @@ import { SceneButton, SceneButtonOutline, SceneGridLayout,
   SceneLine, SceneLinearLayout, SceneModelStatic, SceneModelAnimated, SceneTransformations,
   SceneText, SceneAlignment, SceneTextCharacters, SceneTextLetters, 
   SceneTextEdit, SceneToggle, GameTicTacToe, SceneProgressBar,
-  SceneClock, SceneRemote, SceneSpinner, SceneVideo, 
+  SceneClock, SceneRemote, SceneSpinner, SceneVideo, SceneVideoGrid,
   CalendarView,
 } from './test_scenes';
 
@@ -27,6 +27,7 @@ class CatalogApp extends React.Component {
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]}/> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]}/> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]}/> },
+      { name: 'VideoGrid', component: <SceneVideoGrid localPosition={[0, 0, 0]}/> },
       { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]}/> },
       { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]}/> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]}/> },
@@ -40,7 +41,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]}/> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 16, debug: false };
+    this.state = { sceneIndex: 10, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
