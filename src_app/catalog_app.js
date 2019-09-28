@@ -44,7 +44,7 @@ class CatalogApp extends React.Component {
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
       // { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
-      { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
+      // { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
