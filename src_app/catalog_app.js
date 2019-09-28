@@ -3,32 +3,33 @@ import { Button, Image, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   CalendarView,
+  GameTicTacToe,
+  SceneAlignment,
   SceneButton,
   SceneButtonOutline,
+  SceneClock,
   SceneGridLayout,
   SceneImage,
-  SceneImageSlider,
   SceneImageRemote,
+  SceneImageSlider,
   SceneLine,
   SceneLinearLayout,
-  SceneModelStatic,
   SceneModelAnimated,
-  SceneTransformations,
-  SceneClock,
+  SceneModelStatic,
+  SceneProgressBar,
   SceneRemote,
-  SceneSpinner,
-  SceneVideo,
   SceneScrollBar,
   SceneScrollView,
+  SceneSpinner,
   SceneText,
   SceneTextAlignment,
-  SceneAlignment,
   SceneTextCharacters,
-  SceneTextLetters,
   SceneTextEdit,
+  SceneTextLetters,
   SceneToggle,
-  GameTicTacToe,
-  SceneProgressBar,
+  SceneTransformations,
+  SceneVideo,
+  SceneVideoGrid,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -36,9 +37,6 @@ class CatalogApp extends React.Component {
     super(props);
 
     this.scenes = [
-      { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
-      { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
-
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]} /> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]} /> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]} /> },
@@ -47,10 +45,13 @@ class CatalogApp extends React.Component {
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
       // { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
+      { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
+      // { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
+      { name: 'VideoGrid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
       { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]} /> },
       { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
@@ -64,7 +65,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 0, debug: false };
+    this.state = { sceneIndex: 10, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
