@@ -1,0 +1,19 @@
+name: Actions iOS
+on: [push]
+jobs:
+  test:
+    name: Test
+    runs-on: macOS-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Node configuration
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Prepare env
+      run: |
+        yarn
+    - name: Build and test
+      run: |
+        react-native run-ios
