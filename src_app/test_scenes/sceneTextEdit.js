@@ -2,15 +2,15 @@ import React from 'react';
 
 class SceneTextEdit extends React.Component {
 
-  renderTextEdit({ y, hint, hintColor, title, text, multiline, password }) {
+  renderTextEdit({ y, hint='Placeholder', hintColor=[0.75,0.75,0.75,0.75], title='', text='', multiline=false, password=false }) {
     const width = 0.9;
     const height = multiline ? 0.6 : 0.08;
     return (
       <view localPosition={[0, y, 0]}>
         <text 
           // debug={true} 
-          alignment={'bottom-center'} 
-          boundsSize={{ boundsSize: [width, 0], wrap: false }}
+          alignment={'bottom-left'} 
+          localPosition={[-0.5 * width, 0, 0]}
           textColor={[1,1,1,1]}
           textSize={0.08}
         >{title}</text>
