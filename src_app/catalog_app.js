@@ -19,6 +19,7 @@ import {
   SceneProgressBar,
   SceneRemote,
   SceneScrollBar,
+  SceneScrollView,
   SceneSpinner,
   SceneText,
   SceneTextAlignment,
@@ -36,6 +37,8 @@ class CatalogApp extends React.Component {
     super(props);
 
     this.scenes = [
+      { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
+      { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]} /> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]} /> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]} /> },
@@ -63,7 +66,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 4, debug: false };
+    this.state = { sceneIndex: 0, debug: false };
     this.onNextScene = this.onNextScene.bind(this);
     this.onPreviousScene = this.onPreviousScene.bind(this);
     this.onDebug = this.onDebug.bind(this);
@@ -94,21 +97,42 @@ class CatalogApp extends React.Component {
   render() {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
+    const viewPos = { x: 0, y: -0.3, z: -2.3 };
     return (
       <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
-        <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
+        <View alignment={'center-center'} localPosition={[viewPos.x, viewPos.y + 1.3, viewPos.z]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
           <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
+          <Image localPosition={[0, -1, -0.5]} width={3} height={8} color={[0, 0, 0, 1]} ></Image>
         </View>
-        <View alignment={'center-center'}>
+        <View alignment={'center-center'} localPosition={[viewPos.x, viewPos.y, viewPos.z]}>
           {this.renderGrid()}
           {scene.component}
         </View>
       </View>
     );
   }
+
+  // render() {
+  //   const { sceneIndex } = this.state;
+  //   const scene = this.scenes[sceneIndex];
+  //   return (
+  //     <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
+  //       <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
+  //         <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
+  //         <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
+  //         <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
+  //         <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
+  //       </View>
+  //       <View alignment={'center-center'}>
+  //         {this.renderGrid()}
+  //         {scene.component}
+  //       </View>
+  //     </View>
+  //   );
+  // }
 }
 
 export default CatalogApp;
