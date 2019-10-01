@@ -13,6 +13,7 @@ export * from './sceneModelStatic';
 export * from './sceneModelAnimated';
 export * from './sceneProgressBar';
 export * from './sceneRemote';
+export * from './sceneScrollBar';
 export * from './sceneSpinner';
 export * from './sceneText';
 export * from './sceneTextCharacters';
