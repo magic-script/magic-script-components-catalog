@@ -70,18 +70,23 @@ class SceneAlignment extends React.Component {
       return [x, y, 0];
     }
 
-    const y1 = 0.577 * itemSize;
-    const y2 = -0.288 * itemSize;
+    const lineY1 = 0.577 * itemSize;
+    const lineY2 = -0.288 * itemSize;
+    const textEditContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+    const videoResolution = [1280, 720];
+    const videoSize = [itemSize, (videoResolution[1] * itemSize) / videoResolution[0]];
 
     const propsByType = {
       button: { textSize: 0.05, text: 'Click', width: itemSize, height: 0.07, enabled: false },
       image: { width: itemSize, height: itemSize, color: [1,0,0,1] },
-      line: { points: [[0,y1,0], [-0.5*itemSize,y2,0], [0.5*itemSize,y2,0], [0,y1,0]], color: [0,1,1,1] },
+      line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,1,1,1] },
       model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
       spinner: { size: [itemSize, itemSize], value: 0.5 }, 
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
-      toggle: { height: 0.45 * itemSize, on: true, text: '', value: 0.75 }
+      textEdit: { textSize: 0.02, text: textEditContent, enabled: false, multiline: true, scrolling: true, width: itemSize, height: itemSize },
+      toggle: { height: 0.45 * itemSize, on: true, text: '', value: 0.75 },
+      video: { looping: true, width: videoResolution[0], height: videoResolution[1], size: videoSize, anchorPosition: [0.5 * videoSize[0], 0.5 * videoSize[1], 0], videoPath: require('../../resources/video.mp4'), action: 'start', viewMode: 'full-area', volume: 0},      
     };
 
     const components = Object.keys(propsByType).map((key, index) => {
