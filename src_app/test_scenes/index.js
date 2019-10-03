@@ -15,6 +15,7 @@ export * from './sceneProgressBar';
 export * from './sceneRemote';
 export * from './sceneScrollBar';
 export * from './sceneSpinner';
+export * from './sceneSystemIcons';
 export * from './sceneText';
 export * from './sceneTextCharacters';
 export * from './sceneTextLetters';
