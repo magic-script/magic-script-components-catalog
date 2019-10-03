@@ -48,6 +48,10 @@ class SceneTextEdit extends React.Component {
       fontParams.allCaps = validProps.allCaps;
       delete validProps.allCaps;
     }
+    if (validProps.textSize !== undefined) {
+      fontParams.fontSize = validProps.textSize;
+      delete validProps.textSize;
+    }
     return (
       <view localPosition={[0, y, 0]}>
         <text 
