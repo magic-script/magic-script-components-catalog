@@ -20,8 +20,8 @@ import {
   SceneRemote,
   SceneScrollBar,
   SceneSpinner,
+  SceneSystemIcons,
   SceneText,
-  SceneTextAlignment,
   SceneTextCharacters,
   SceneTextEdit,
   SceneTextLetters,
@@ -38,6 +38,7 @@ class CatalogApp extends React.Component {
     this.scenes = [
       { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]} /> },
       { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]} /> },
+      { name: 'Icons', component: <SceneSystemIcons /> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]} /> },
       { name: 'Alignment', component: <SceneAlignment localPosition={[0, 0.5, 0]} /> },
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]} /> },
@@ -63,32 +64,29 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ]
-    this.state = { sceneIndex: 4, debug: false };
-    this.onNextScene = this.onNextScene.bind(this);
-    this.onPreviousScene = this.onPreviousScene.bind(this);
-    this.onDebug = this.onDebug.bind(this);
+    this.state = { sceneIndex: 2, showGrid: false };
   }
 
-  onNextScene() {
+  onNextScene = () => {
     const { sceneIndex } = this.state;
     const nextIndex = (sceneIndex + 1) % this.scenes.length;
     this.setState({ sceneIndex: nextIndex });
   }
 
-  onPreviousScene() {
+  onPreviousScene = () => {
     const { sceneIndex } = this.state;
     const prevIndex = (sceneIndex > 0) ? sceneIndex - 1 : this.scenes.length - 1;
     this.setState({ sceneIndex: prevIndex });
   }
 
-  onDebug() {
-    const debug = !this.state.debug;
-    this.setState({ debug });
+  onShowGridAction = () => {
+    const showGrid = !this.state.showGrid;
+    this.setState({ showGrid });
   }
 
   renderGrid() {
-    const { debug } = this.state;
-    return debug ? <Grid /> : null;
+    const { showGrid } = this.state;
+    return showGrid ? <Grid /> : null;
   }
 
   render() {
@@ -100,7 +98,7 @@ class CatalogApp extends React.Component {
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
-          <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.debug} onToggleChanged={this.onDebug} alignment={'bottom-center'}>grid</Toggle>
+          <Toggle localPosition={[0.13, 0.1, 0]} height={0.08} textSize={0.08} on={this.state.showGrid} onToggleChanged={this.onShowGridAction} alignment={'bottom-center'}>grid</Toggle>
         </View>
         <View alignment={'center-center'}>
           {this.renderGrid()}
