@@ -11,14 +11,15 @@
   },
   "dependencies": {
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
+    "lumin-system-icons": "git+https://github.com/magic-script/system-icons",
     "magic-script-components": "2.0.0",
-    "magic-script-components-lumin": "1.0.2",
+    "magic-script-components-lumin": "git+https://github.com/magic-script/magic-script-components-lumin",
+    "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native",
     "magic-script-polyfills": "^2.4.2",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-native": "^0.60.5",
-    "react-native-fs": "^2.13.3",
-    "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native"
+    "react-native-fs": "^2.13.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
