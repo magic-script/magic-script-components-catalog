@@ -5,30 +5,39 @@ class SceneScrollView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.default = {
-			title: 'Default', 
-			enabled: true, 
-			roundness: 0.5, 
-			textColor: [0.75,0.75,0.75,1],
-			textSize: 0.08,
 			width: 0.0,
 			height: 0.0,
+			offsetY: 0.4,
 		};
 		this.state = this.default;
-		this.onButtonClick = this.onButtonClick.bind(this);
+	}
+
+	renderBounds() {
+		const minX = -0.5
+		const maxX = 0.5
+		const minY = -0.5 + this.state.offsetY
+		const maxY = 0.5 + this.state.offsetY
+		var points = [
+			[minX, minY, 0],
+			[minX, maxY, 0],
+			[maxX, maxY, 0]
+		];
+
+		return <line points={points} color={[1, 1, 0.3, 1]} />;
 	}
 
 	renderButton({
-		title, 
-		enabled = true, 
-		roundness = 0.5, 
-		textColor = [1,1,1,1],
-		textSize = 0.08,
+		title,
+		enabled = true,
+		roundness = 0.0,
+		textColor = [0, 1, 0, 1],
+		textSize = 0.1,
 		width = 0.0,
 		height = 0.0,
-		onClick = () => {},
+		onClick = () => { },
 	}) {
 		return (
-			<scrollView
+			<button
 				enabled={enabled}
 				textColor={textColor}
 				textSize={textSize}
@@ -36,65 +45,56 @@ class SceneScrollView extends React.Component {
 				width={width}
 				height={height}
 				onClick={onClick}
-			>{title}</scrollView>
+			>{title}</button>
 		);
 	}
 
-	renderHeader(text) {
-		return <text textAlignment={'right'} textSize={0.09} boundsSize={{ boundsSize: [0.4, 0.1], wrap: true }}>{text}</text>;
+	layoutScene() {
+		return (
+			<linearLayout
+				orientation={'horizontal'}>
+				<linearLayout
+					defaultItemAlignment={'center-left'}
+					defaultItemPadding={[0.07, 0, 0.07, 0]}>
+					{this.renderButton({ textSize: 0.1, title: 'one' })}
+					{this.renderButton({ textSize: 0.11, title: 'two' })}
+					{this.renderButton({ textSize: 0.12, title: 'three' })}
+				</linearLayout>
+
+				<linearLayout
+					defaultItemAlignment={'center-right'}
+					defaultItemPadding={[0, 0.07, 0, 0.07]}>
+					{this.renderButton({ textSize: 0.1, title: 'four' })}
+					{this.renderButton({ textSize: 0.11, title: 'five' })}
+					{this.renderButton({ textSize: 0.12, title: 'six' })}
+				</linearLayout>
+
+				<linearLayout>
+					{this.renderButton({ textSize: 0.10, title: 'alpha' })}
+					{this.renderButton({ textSize: 0.11, title: 'beta' })}
+					{this.renderButton({ textSize: 0.12, title: 'gamma' })}
+					{this.renderButton({ textSize: 0.13, title: 'delta' })}
+					{this.renderButton({ textSize: 0.14, title: 'epsilon' })}
+					{this.renderButton({ textSize: 0.15, title: 'zeta' })}
+				</linearLayout>
+
+			</linearLayout>
+		)
 	}
 
-	onButtonClick(param) {
-		return () => { this.setState(param); };
+	render() {
+		return (
+			<view localPosition={this.props.localPosition}>
+				<scrollView
+					// width={1.07}
+					// height={1.07}
+					localPosition={[0, this.state.offsetY, 0]}>
+					{this.layoutScene()}
+				</scrollView>
+				{this.renderBounds()}
+			</view >
+		);
 	}
-
-  render () {
-    return (
-      <view localPosition={this.props.localPosition}>
-				<gridLayout localPosition={[0,-0.2,0]} columns={4} alignment={'bottom-center'}>
-
-					{this.renderHeader('Text:')}
-					{this.renderButton({ title: 'short', onClick: this.onButtonClick({ title: 'CTA'})})}
-					{this.renderButton({ title: 'mid', onClick: this.onButtonClick({ title: 'Custom button'})})}
-					{this.renderButton({ title: 'long', onClick: this.onButtonClick({ title: 'Lorem ipsum dolor sit amet'})})}
-
-					{this.renderHeader('Text size:')}
-					{this.renderButton({ title: '0.1', onClick: this.onButtonClick({ textSize: 0.1 })})}
-					{this.renderButton({ title: '0.2', onClick: this.onButtonClick({ textSize: 0.2 })})}
-					{this.renderButton({ title: '0.3', onClick: this.onButtonClick({ textSize: 0.3 })})}
-
-					{this.renderHeader('Color:')}
-					{this.renderButton({ title: 'red', textColor: [1,0,0,1], onClick: this.onButtonClick({ textColor: [1,0,0,1] })})}
-					{this.renderButton({ title: 'green', textColor: [0,1,0,1], onClick: this.onButtonClick({ textColor: [0,1,0,1] })})}
-					{this.renderButton({ title: 'cyan', textColor: [0,1,1,1], onClick: this.onButtonClick({ textColor: [0,1,1,1] })})}
-
-					{this.renderHeader('Roundness:')}
-					{this.renderButton({ title: '0.0', roundness: 0.0, onClick: this.onButtonClick({ roundness: 0.0 })})}
-					{this.renderButton({ title: '0.5', roundness: 0.3, onClick: this.onButtonClick({ roundness: 0.3 })})}
-					{this.renderButton({ title: '1.0', roundness: 1.0, onClick: this.onButtonClick({ roundness: 1.0 })})}
-
-					{this.renderHeader('Width:')}
-					{this.renderButton({ title: '0.2', onClick: this.onButtonClick({ width: 0.2 })})}
-					{this.renderButton({ title: '0.5', onClick: this.onButtonClick({ width: 0.5 })})}
-					{this.renderButton({ title: '1.0', onClick: this.onButtonClick({ width: 1.0 })})}
-
-					{this.renderHeader('Height:')}
-					{this.renderButton({ title: '0.1', onClick: this.onButtonClick({ height: 0.1 })})}
-					{this.renderButton({ title: '0.2', onClick: this.onButtonClick({ height: 0.2 })})}
-					{this.renderButton({ title: '0.5', onClick: this.onButtonClick({ height: 0.5 })})}
-
-					{this.renderHeader('Misc:')}
-					{this.renderButton({ title: 'default', onClick: this.onButtonClick(this.default)})}
-					{this.renderButton({ title: 'enable', onClick: this.onButtonClick({ enabled: true })})}
-					{this.renderButton({ title: 'disable', onClick: this.onButtonClick({ enabled: false })})}
-					
-				</gridLayout>
-				<gridLayout localPosition={[0,-0.55,0]} alignment={'top-center'}>
-					{this.renderButton(this.state)}
-				</gridLayout>
-      </view>
-    );
-  }
 }
 
 export { SceneScrollView };
