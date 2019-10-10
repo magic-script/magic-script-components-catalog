@@ -26,3 +26,4 @@ export * from './sceneToggle';
 export * from './sceneTransformations';
 export * from './sceneVideo';
 export * from './sceneVideoGrid';
+export * from './sceneSlider';

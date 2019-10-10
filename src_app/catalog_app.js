@@ -30,6 +30,7 @@ import {
   SceneTransformations,
   SceneVideo,
   SceneVideoGrid,
+  SceneSlider
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -60,6 +61,7 @@ class CatalogApp extends React.Component {
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0, 0]} /> },
+      // { name: 'Slider', component: <SceneSlider localPosition={[0, 0, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },

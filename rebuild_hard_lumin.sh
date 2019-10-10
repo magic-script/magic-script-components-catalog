@@ -5,6 +5,8 @@ rm -fr .out
 echo "2. removing bin..."
 rm -fr bin
 echo "3. building app..."
-magic-script build -i
+magic-script build
+magic-script install
+magic-script run
 
 say -v Melina done
