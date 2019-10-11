@@ -7,7 +7,7 @@ class SceneSystemIcons extends React.Component {
     this.state = {
       currentIconIndex: 0,
       showSystemIcons: true,
-      animateFast: true
+      animateFast: false
     };
     this.smallIconSize = 0.11;
   }
@@ -23,7 +23,7 @@ class SceneSystemIcons extends React.Component {
 
   reloadTimer() {
     clearInterval(this.handler);
-    const interval = this.state.animateFast ? 0.03 : 0.75;
+    const interval = this.state.animateFast ? 0.25 : 0.75;
     this.handler = setInterval(this.updateProgress, interval * 1000);
   }
 
@@ -50,7 +50,7 @@ class SceneSystemIcons extends React.Component {
     var icons = [];
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<image key={i} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
+      icons.push(<image key={i} width={this.smallIconSize} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
     }
     return icons;
   }
