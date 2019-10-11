@@ -243,6 +243,13 @@
 		D407C46B8C7C48A4913C7394 /* LominoUIApp-WideBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 174430AEF3D441928E7C0E13 /* LominoUIApp-WideBold.ttf */; };
 		F4C9A7AB02684582BC4D11E2 /* LominoUIApp-WideBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36B972727372410B8478213B /* LominoUIApp-WideBoldItalic.ttf */; };
 		D65F2017B78F47FEB14DBF31 /* LominoUIApp-WideItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC7FEBA5D78648069755BEC7 /* LominoUIApp-WideItalic.ttf */; };
+		B7698DF256F8410D87522F29 /* FlagChina.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C7BBF5765742A898F2137E /* FlagChina.png */; };
+		CB244B2252A24B509C67CCCD /* FlagFrance.png in Resources */ = {isa = PBXBuildFile; fileRef = FE98A53D5AD245D6B83117AB /* FlagFrance.png */; };
+		CE404109533D4A16B79012CA /* FlagGermany.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC3577ECF4D464C8B717536 /* FlagGermany.png */; };
+		BE21784A59B641A0A0D2329C /* FlagJapan.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4A6357D564F82978D1630 /* FlagJapan.png */; };
+		8B502CE4CC954C7CA681A77C /* FlagSouthKorea.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB21C2CCC554600AF85631A /* FlagSouthKorea.png */; };
+		7AAF51AC8F9B47B2A2AC1095 /* FlagUk.png in Resources */ = {isa = PBXBuildFile; fileRef = CE410584D353476287225686 /* FlagUk.png */; };
+		6DB07311642D42FEBAB27380 /* FlagUsa.png in Resources */ = {isa = PBXBuildFile; fileRef = 728FA70962F440DDAF12E37A /* FlagUsa.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -506,6 +513,13 @@
 		174430AEF3D441928E7C0E13 /* LominoUIApp-WideBold.ttf */ = {isa = PBXFileReference; name = "LominoUIApp-WideBold.ttf"; path = "../assets/fonts/LominoUIApp-WideBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		36B972727372410B8478213B /* LominoUIApp-WideBoldItalic.ttf */ = {isa = PBXFileReference; name = "LominoUIApp-WideBoldItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FC7FEBA5D78648069755BEC7 /* LominoUIApp-WideItalic.ttf */ = {isa = PBXFileReference; name = "LominoUIApp-WideItalic.ttf"; path = "../assets/fonts/LominoUIApp-WideItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6C7BBF5765742A898F2137E /* FlagChina.png */ = {isa = PBXFileReference; name = "FlagChina.png"; path = "../assets/lumin_system_icons/FlagChina.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FE98A53D5AD245D6B83117AB /* FlagFrance.png */ = {isa = PBXFileReference; name = "FlagFrance.png"; path = "../assets/lumin_system_icons/FlagFrance.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ADC3577ECF4D464C8B717536 /* FlagGermany.png */ = {isa = PBXFileReference; name = "FlagGermany.png"; path = "../assets/lumin_system_icons/FlagGermany.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		24E4A6357D564F82978D1630 /* FlagJapan.png */ = {isa = PBXFileReference; name = "FlagJapan.png"; path = "../assets/lumin_system_icons/FlagJapan.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EFB21C2CCC554600AF85631A /* FlagSouthKorea.png */ = {isa = PBXFileReference; name = "FlagSouthKorea.png"; path = "../assets/lumin_system_icons/FlagSouthKorea.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CE410584D353476287225686 /* FlagUk.png */ = {isa = PBXFileReference; name = "FlagUk.png"; path = "../assets/lumin_system_icons/FlagUk.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		728FA70962F440DDAF12E37A /* FlagUsa.png */ = {isa = PBXFileReference; name = "FlagUsa.png"; path = "../assets/lumin_system_icons/FlagUsa.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -815,6 +829,13 @@
 				174430AEF3D441928E7C0E13 /* LominoUIApp-WideBold.ttf */,
 				36B972727372410B8478213B /* LominoUIApp-WideBoldItalic.ttf */,
 				FC7FEBA5D78648069755BEC7 /* LominoUIApp-WideItalic.ttf */,
+				D6C7BBF5765742A898F2137E /* FlagChina.png */,
+				FE98A53D5AD245D6B83117AB /* FlagFrance.png */,
+				ADC3577ECF4D464C8B717536 /* FlagGermany.png */,
+				24E4A6357D564F82978D1630 /* FlagJapan.png */,
+				EFB21C2CCC554600AF85631A /* FlagSouthKorea.png */,
+				CE410584D353476287225686 /* FlagUk.png */,
+				728FA70962F440DDAF12E37A /* FlagUsa.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1174,6 +1195,13 @@
 				D407C46B8C7C48A4913C7394 /* LominoUIApp-WideBold.ttf in Resources */,
 				F4C9A7AB02684582BC4D11E2 /* LominoUIApp-WideBoldItalic.ttf in Resources */,
 				D65F2017B78F47FEB14DBF31 /* LominoUIApp-WideItalic.ttf in Resources */,
+				B7698DF256F8410D87522F29 /* FlagChina.png in Resources */,
+				CB244B2252A24B509C67CCCD /* FlagFrance.png in Resources */,
+				CE404109533D4A16B79012CA /* FlagGermany.png in Resources */,
+				BE21784A59B641A0A0D2329C /* FlagJapan.png in Resources */,
+				8B502CE4CC954C7CA681A77C /* FlagSouthKorea.png in Resources */,
+				7AAF51AC8F9B47B2A2AC1095 /* FlagUk.png in Resources */,
+				6DB07311642D42FEBAB27380 /* FlagUsa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

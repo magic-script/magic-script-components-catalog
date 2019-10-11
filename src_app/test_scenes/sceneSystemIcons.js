@@ -25,6 +25,7 @@ class SceneSystemIcons extends React.Component {
     clearInterval(this.handler);
     const interval = this.state.animateFast ? 0.25 : 0.75;
     this.handler = setInterval(this.updateProgress, interval * 1000);
+    this.counter = 0;
   }
 
   updateProgress = () => {
@@ -50,7 +51,8 @@ class SceneSystemIcons extends React.Component {
     var icons = [];
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<image key={i} width={this.smallIconSize} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
+      this.counter += 1;
+      icons.push(<image key={this.counter} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
     }
     return icons;
   }
@@ -70,7 +72,7 @@ class SceneSystemIcons extends React.Component {
     return (
       <view localPosition={position}>
         <text alignment={'center-right'} localPosition={[-0.2, 0, 0]} textSize={0.08}>{leftText}</text>
-        <toggle height={0.1} on={value} onToggleChanged={callback}/>
+        <toggle height={0.1} on={value} onToggleChanged={callback}>{' '}</toggle>
         <text alignment={'center-left'} localPosition={[0.2, 0, 0]} textSize={0.08}>{rightText}</text>
       </view> 
     );
@@ -80,9 +82,10 @@ class SceneSystemIcons extends React.Component {
     const { currentIconIndex, showSystemIcons, animateFast } = this.state;
     const icon = SystemIcons[currentIconIndex];
     const numberOfIcons = `${currentIconIndex}/${SystemIcons.length}`;
+    this.counter += 1;
     return (
       <view localPosition={[0, 1.0, 0]}>
-        <image alignment={'top-center'} height={0.5} icon={icon} useDefaultIcon={showSystemIcons} />
+        <image key={this.counter} alignment={'top-center'} height={0.5} icon={icon} useDefaultIcon={showSystemIcons} />
         <text alignment={'top-center'} localPosition={[0, -0.52, 0]} textSize={0.08}>{icon}</text>
         <text alignment={'top-right'} localPosition={[0.75, -0.52, 0]} textSize={0.08}>{numberOfIcons}</text>
         <gridLayout
@@ -99,11 +102,6 @@ class SceneSystemIcons extends React.Component {
         
         {this.renderOption([0, -1.4, 0], 'Default icons', 'Lumin icons', showSystemIcons, this.onShowDefaultIconsChanged)}
         {this.renderOption([0, -1.7, 0], 'Slow animation', 'Fast animation', animateFast, this.onAnimateFastChanged)}
-        {/* <view localPosition={[0, -1.4, 0]}>
-          <text alignment={'center-right'} localPosition={[-0.2, 0, 0]} textSize={0.08}>Default icons</text>
-          <toggle height={0.1} on={showSystemIcons} onToggleChanged={this.onShowDefaultIconsChanged}/>
-          <text alignment={'center-left'} localPosition={[0.2, 0, 0]} textSize={0.08}>Lumin icons</text>
-        </view>         */}
       </view>
     );
   }
