@@ -50,7 +50,7 @@ class SceneSystemIcons extends React.Component {
     var icons = [];
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<image key={i} width={this.smallIconSize} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
+      icons.push(<image key={i} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
     }
     return icons;
   }
