@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "magic-script-components";
 
 class SceneSlider extends React.Component {
   render() {
@@ -14,7 +13,7 @@ class SceneSlider extends React.Component {
           <text alignment={"center-center"} textSize={0.05} >
             Default slider
           </text>
-          <slider />
+          <slider width={1.0}/>
           <text alignment={"center-center"} textSize={0.05}>
             User configured sliders
           </text>
