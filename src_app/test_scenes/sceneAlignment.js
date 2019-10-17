@@ -39,16 +39,28 @@ class SceneAlignment extends React.Component {
     </gridLayout>);
   }
 
-  renderScrollView(alignment) {
-    return (<scrollView alignment={alignment} scrollBounds={{ min: [-0.2,-0.2,-0.1], max: [0.2,0.2,0.1]}}>
-      <scrollBar width={0.2} scrollBarVisibility={'always'}/>
-      <gridLayout defaultItemAlignment={'center-center'} columns={1} width={0.4} height={0.4}>
-        <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
-        <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
-        <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>
-        <image width={0.1} height={0.1} color={[1,1,1,1]}/>
-      </gridLayout>
-    </scrollView>);
+  renderScrollView(alignment, size) {
+    const aabb = { 
+      min: [-0.5 * size, -0.5 * size, -0.1], 
+      max: [0.5 * size, 0.5 * size, 0.1]
+    };
+    return (
+      <scrollView 
+        alignment={alignment} 
+        scrollBounds={aabb}
+        scrollBarVisibility={'always'} 
+        scrollDirection={'vertical'}
+      >
+        <image icon={'keyboard-capital'} height={2 * size} />
+        {/* <gridLayout defaultItemAlignment={'center-center'} columns={1} width={size} height={4 * size}>
+          <image width={size} height={size} color={[1,1,0.5,1]}/>
+          <image width={size} height={size} color={[1,0.5,1,1]}/>
+          <image width={size} height={size} color={[0.5,1,1,1]}/>
+          <image width={size} height={size} color={[1,1,1,1]}/>
+        </gridLayout> */}
+        <scrollBar orientation={'vertical'} width={size}/>
+      </scrollView>
+    );
   }
 
   renderComponent(name, element, position, cellSize, index) {
@@ -109,7 +121,7 @@ class SceneAlignment extends React.Component {
     });
 
     components.push(this.renderComponent('gridLayout', this.renderGridLayout(alignment), getPosition(components.length), cellSize, components.length));
-    components.push(this.renderComponent('scrollView', this.renderScrollView(alignment), getPosition(components.length), cellSize, components.length));
+    components.push(this.renderComponent('scrollView', this.renderScrollView(alignment, itemSize), getPosition(components.length), cellSize, components.length));
     return <view>{components}</view>;
   }
   
