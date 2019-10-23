@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, Toggle, View } from 'magic-script-components';
+import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   CalendarView,
@@ -30,7 +30,8 @@ import {
   SceneTransformations,
   SceneVideo,
   SceneVideoGrid,
-  SceneSlider
+  SceneSlider,
+  SceneDropdownList
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -67,6 +68,7 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
+      { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
     ]
     this.state = { sceneIndex: 8, showGrid: false };
   }
