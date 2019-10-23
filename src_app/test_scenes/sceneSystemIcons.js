@@ -10,6 +10,7 @@ class SceneSystemIcons extends React.Component {
       animateFast: false
     };
     this.smallIconSize = 0.11;
+    this.counter = 0;
   }
 
   componentDidMount() {
