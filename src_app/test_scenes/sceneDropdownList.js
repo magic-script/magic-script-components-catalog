@@ -16,12 +16,13 @@ class SceneDropdownList extends React.Component {
             text={"DropDownList"}
             onSelectionChanged={this.onSelectionChanged}
             localPosition={[0.0, 0.90, 0.0]}
+            debug={true} 
           >
-            <dropdownListItem text={"Item very long, long"} />
-            <dropdownListItem text={"Item long, long"} />
-            <dropdownListItem text={"Item long"} />
-            <dropdownListItem text={"Item"} />
-            <dropdownListItem text={"Item short"} />
+            <dropdownListItem label={"Item very long, long"} debug={true}/>
+            <dropdownListItem label={"Item long, long"} debug={true}/>
+            <dropdownListItem label={"Item long"} debug={true}/>
+            <dropdownListItem label={"Item"} debug={true}/>
+            <dropdownListItem label={"Item short"} debug={true}/>
           </dropdownList>
 
           <text alignment={"center-center"} textSize={0.05} localPosition={[0.0, 0.45, 0.0]}>
@@ -33,11 +34,11 @@ class SceneDropdownList extends React.Component {
             textSize={0.125}
             localPosition={[0.0, 0.30, 0.0]}
           >
-            <dropdownListItem text={"Item very long, long"} textSize={0.095} />
-            <dropdownListItem text={"Item long, long"} textSize={0.095} />
-            <dropdownListItem text={"Item long"} textSize={0.095} />
-            <dropdownListItem text={"Item"} textSize={0.095} />
-            <dropdownListItem text={"Item short"} textSize={0.095} />
+            <dropdownListItem label={"Item very long, long"} textSize={0.095} />
+            <dropdownListItem label={"Item long, long"} textSize={0.095} />
+            <dropdownListItem label={"Item long"} textSize={0.095} />
+            <dropdownListItem label={"Item"} textSize={0.095} />
+            <dropdownListItem label={"Item short"} textSize={0.095} />
           </dropdownList>
       </view>
     );
