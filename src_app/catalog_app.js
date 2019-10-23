@@ -68,7 +68,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 20, showGrid: false };
+    this.state = { sceneIndex: 2, showGrid: false };
   }
 
   onNextScene = () => {

@@ -6,11 +6,10 @@ class SceneSystemIcons extends React.Component {
     super(props);
     this.state = {
       currentIconIndex: 0,
-      showSystemIcons: true,
+      showLuminIcons: true,
       animateFast: false
     };
     this.smallIconSize = 0.11;
-    this.counter = 0;
   }
 
   componentDidMount() {
@@ -26,7 +25,6 @@ class SceneSystemIcons extends React.Component {
     clearInterval(this.handler);
     const interval = this.state.animateFast ? 0.25 : 0.75;
     this.handler = setInterval(this.updateProgress, interval * 1000);
-    this.counter = 0;
   }
 
   updateProgress = () => {
@@ -35,8 +33,8 @@ class SceneSystemIcons extends React.Component {
     this.setState({ currentIconIndex });
   }
 
-  onShowDefaultIconsChanged = (event) => {
-    this.setState({ showSystemIcons: event.On });
+  onShowLuminIconsChanged = (event) => {
+    this.setState({ showLuminIcons: event.On });
   }
 
   onAnimateFastChanged = (event) => {
@@ -44,16 +42,17 @@ class SceneSystemIcons extends React.Component {
   }
 
   renderIcons() {
-    const { currentIconIndex, showSystemIcons } = this.state;
+    const { currentIconIndex, showLuminIcons } = this.state;
     const iconsCount = 8;
     const startFromIndex = (currentIconIndex - Math.floor(iconsCount / 2)) % SystemIcons.length;
     const minIconIndex = (startFromIndex >= 0) ? startFromIndex : startFromIndex + SystemIcons.length;
     const maxIconIndex = minIconIndex + iconsCount;
     var icons = [];
+    var key = 0;
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      this.counter += 1;
-      icons.push(<image key={this.counter} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={showSystemIcons} />);
+      icons.push(<image key={key} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} />);
+      key += 1;
     }
     return icons;
   }
@@ -80,13 +79,12 @@ class SceneSystemIcons extends React.Component {
   }
 
   render () {
-    const { currentIconIndex, showSystemIcons, animateFast } = this.state;
+    const { currentIconIndex, showLuminIcons, animateFast } = this.state;
     const icon = SystemIcons[currentIconIndex];
-    const numberOfIcons = `${currentIconIndex}/${SystemIcons.length}`;
-    this.counter += 1;
+    const numberOfIcons = `${currentIconIndex + 1}/${SystemIcons.length}`;
     return (
       <view localPosition={[0, 1.0, 0]}>
-        <image key={this.counter} alignment={'top-center'} height={0.5} icon={icon} useDefaultIcon={showSystemIcons} />
+        <image alignment={'top-center'} height={0.5} icon={icon} useDefaultIcon={!showLuminIcons} />
         <text alignment={'top-center'} localPosition={[0, -0.52, 0]} textSize={0.08}>{icon}</text>
         <text alignment={'top-right'} localPosition={[0.75, -0.52, 0]} textSize={0.08}>{numberOfIcons}</text>
         <gridLayout
@@ -101,7 +99,7 @@ class SceneSystemIcons extends React.Component {
         {this.renderSquare(1.3 * this.smallIconSize)}
         {this.renderSquare(1.5 * this.smallIconSize)}
         
-        {this.renderOption([0, -1.4, 0], 'Default icons', 'Lumin icons', showSystemIcons, this.onShowDefaultIconsChanged)}
+        {this.renderOption([0, -1.4, 0], 'Default icons', 'Lumin icons', showLuminIcons, this.onShowLuminIconsChanged)}
         {this.renderOption([0, -1.7, 0], 'Slow animation', 'Fast animation', animateFast, this.onAnimateFastChanged)}
       </view>
     );
