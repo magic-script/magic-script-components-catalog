@@ -52,12 +52,12 @@ class SceneAlignment extends React.Component {
         scrollDirection={'vertical'}
       >
         <image icon={'keyboard-capital'} height={2 * size} />
-        {/* <gridLayout defaultItemAlignment={'center-center'} columns={1} width={size} height={4 * size}>
+        <gridLayout defaultItemAlignment={'center-center'} columns={1} width={size} height={4 * size}>
           <image width={size} height={size} color={[1,1,0.5,1]}/>
           <image width={size} height={size} color={[1,0.5,1,1]}/>
           <image width={size} height={size} color={[0.5,1,1,1]}/>
           <image width={size} height={size} color={[1,1,1,1]}/>
-        </gridLayout> */}
+        </gridLayout>
         <scrollBar orientation={'vertical'} width={size}/>
       </scrollView>
     );

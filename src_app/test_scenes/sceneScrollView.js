@@ -11,9 +11,6 @@ class SceneScrollView extends React.Component {
       <view localPosition={this.props.localPosition}>
         <scrollView scrollBounds={aabb} scrollBarVisibility={'always'} scrollDirection={'vertical'}>
           <scrollBar orientation={'vertical'} width={0.4} />
-          {/* <image width={2 * size.width} height={2 * size.height} color={[1,1,0.5,1]}/> */}
-          {/* <image icon={'keyboard-capital'} height={2 * size.height} /> */}
-
           <gridLayout defaultItemAlignment={'center-center'} columns={1}>
             <image width={size.width} height={size.height} color={[1,1,0.5,1]}/>
             <image width={size.width} height={size.height} color={[1,0.5,1,1]}/>
