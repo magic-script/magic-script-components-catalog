@@ -37,13 +37,13 @@ class SceneGridLayout extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
 
-        <view localPosition={[-0.4, 0, 0]} >
-            <text localPosition={[-0.4, 0, 0]} alignment={'center-left'} textSize={0.08}>Set size (by default wraps children)</text>
+        <view localPosition={[-0.5, 0, 0]} >
+            <text localPosition={[0, 0, 0]} alignment={'center-center'} textSize={0.08}>Set size:</text>
             <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChnaged}>1m width</toggle>
             <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChnaged}>1m height</toggle>
         </view>
 
-        <view localPosition={[0.4, 0, 0]} >
+        <view localPosition={[0.3, 0, 0]} >
           <text localPosition={[0, 0, 0]} textSize={0.08} alignment={'center-left'}>Set items padding:</text>
           <toggle localPosition={[0.4, -0.1, 0]} textSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</toggle>
           <toggle localPosition={[0.4, -0.2, 0]} textSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</toggle>
