@@ -5,7 +5,7 @@ class SceneGridLayout extends React.Component {
   constructor(props) {
     super(props);
     // The padding order is:  top, right, bottom, left
-    this.state = { padding: [0,0,0,0], alignment: 'center-center' };
+    this.state = {width: 0, height: 0, padding: [0,0,0,0], alignment: 'center-center' };
   }
 
   onTopToggleChanged = () => { this.togglePaddingAt(0); }
@@ -28,17 +28,27 @@ class SceneGridLayout extends React.Component {
   onBottomCenterButtonClick = () => { this.setState({ alignment: 'bottom-center' }); }
   onBottomRightButtonClick = () => { this.setState({ alignment: 'bottom-right' }); }
 
+  onWidthToogleChnaged = (event) => { this.setState({ width: event.On? 1 : 0 }); }
+  onHeightToogleChnaged = (event) => { this.setState({ height: event.On? 1 : 0 }); }
+
   render () {
-    const { padding, alignment } = this.state;
+    const { width, height, padding, alignment } = this.state;
     const columns = 3;
     return (
       <view localPosition={this.props.localPosition}>
-        <view>
-          <text localPosition={[0, 0, 0]} textSize={0.08} alignment={'bottom-center'}>Set items padding:</text>
+
+        <view localPosition={[-0.4, 0, 0]} >
+            <text localPosition={[-0.4, 0, 0]} alignment={'center-left'} textSize={0.08}>Set size (by default wraps children)</text>
+            <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChnaged}>1m width</toggle>
+            <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChnaged}>1m height</toggle>
+        </view>
+
+        <view localPosition={[0.4, 0, 0]} >
+          <text localPosition={[0, 0, 0]} textSize={0.08} alignment={'center-left'}>Set items padding:</text>
           <toggle localPosition={[0.4, -0.1, 0]} textSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</toggle>
-          <toggle localPosition={[0.4, -0.25, 0]} textSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</toggle>
-          <toggle localPosition={[0.4, -0.4, 0]} textSize={0.08} height={0.1} on={padding[2] > 0} onToggleChanged={this.onBottomToggleChanged}>bottom</toggle>
-          <toggle localPosition={[-0.3, -0.25, 0]} textSize={0.08} height={0.1} on={padding[3] > 0} onToggleChanged={this.onLeftToggleChanged}>left</toggle>
+          <toggle localPosition={[0.4, -0.2, 0]} textSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</toggle>
+          <toggle localPosition={[0.4, -0.3, 0]} textSize={0.08} height={0.1} on={padding[2] > 0} onToggleChanged={this.onBottomToggleChanged}>bottom</toggle>
+          <toggle localPosition={[0.4, -0.4, 0]} textSize={0.08} height={0.1} on={padding[3] > 0} onToggleChanged={this.onLeftToggleChanged}>left</toggle>
         </view>
 
          {/* 
@@ -49,11 +59,13 @@ class SceneGridLayout extends React.Component {
 
         <gridLayout
           debug={true}
+          width={width}
+          height={height}
           alignment={'top-center'}
           columns={columns}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}
-          localPosition={[0, -0.5, 0]}
+          localPosition={[0, -0.7, 0]}
         >
          
           <text debug={true} textSize={0.15}>Item 1</text>
@@ -76,7 +88,7 @@ class SceneGridLayout extends React.Component {
 
         </gridLayout>
 
-        <view localPosition={[0, -2.0, 0]}>
+        <view localPosition={[0, -2.2, 0]}>
           <text localPosition={[0, 0.05, 0]} textSize={0.08} alignment={'bottom-center'}>Set items alignment:</text>
           <button localPosition={[-0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopLeftButtonClick}>TL</button>
           <button localPosition={[ 0.0, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopCenterButtonClick}>TC</button>
