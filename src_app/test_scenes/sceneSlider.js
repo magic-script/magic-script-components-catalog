@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "magic-script-components";
 
 class SceneSlider extends React.Component {
   constructor(props) {
@@ -6,26 +7,16 @@ class SceneSlider extends React.Component {
 		this.state = { defaultSliderValue: 0.0, userDefinedSliderOneValue: 0.0, userDefinedSliderTwoValue: 0.0 }
 	}
 
-
   onDefaultSliderChanged = (event) => {
-    console.log(event)
-    var { defaultSliderValue } = this.state;
-    defaultSliderValue = event.value
-    this.setState({ defaultSliderValue });
+    this.setState({ defaultSliderValue: event.Value });
   }
 
   onUserDefinedSliderOneChanged = (event) => {
-    console.log(event)
-    var { userDefinedSliderOneValue } = this.state;
-    userDefinedSliderOneValue = event.value
-    this.setState({ userDefinedSliderOneValue });
+    this.setState({ userDefinedSliderOneValue: event.Value });
   }
 
   onUserDefinedSliderTwoChanged = (event) => {
-    console.log(event)
-    var { userDefinedSliderTwoValue } = this.state;
-    userDefinedSliderTwoValue = event.value
-    this.setState({ userDefinedSliderTwoValue });
+    this.setState({ userDefinedSliderTwoValue: event.Value });
   }
 
   render() {
@@ -42,7 +33,7 @@ class SceneSlider extends React.Component {
             Default slider
           </text>
           <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + defaultSliderValue.toPrecision(2)}/>
-          <slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1.0}/>
+          <slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
           <text alignment={"center-center"} textSize={0.075}>
             User configured sliders
           </text>
