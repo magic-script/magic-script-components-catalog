@@ -70,7 +70,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 8, showGrid: false };
+    this.state = { sceneIndex: 17, showGrid: false };
   }
 
   onNextScene = () => {
@@ -99,7 +99,7 @@ class CatalogApp extends React.Component {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
     return (
-      <View debug={true} name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
+      <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
         <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.10} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
           <Text localPosition={[0, 0.05, 0]} alignment={'top-center'} textAlignment={'center'} textSize={0.1} boundsSize={{ boundsSize: [0.7, 0.3], wrap: true }}>{scene.name}</Text>

@@ -5,7 +5,7 @@ class SceneGridLayout extends React.Component {
   constructor(props) {
     super(props);
     // The padding order is:  top, right, bottom, left
-    this.state = {width: 0, height: 0, padding: [0,0,0,0], alignment: 'center-center' };
+    this.state = { width: 0, height: 0, padding: [0,0,0,0], alignment: 'center-center' };
   }
 
   onTopToggleChanged = () => { this.togglePaddingAt(0); }
@@ -28,8 +28,8 @@ class SceneGridLayout extends React.Component {
   onBottomCenterButtonClick = () => { this.setState({ alignment: 'bottom-center' }); }
   onBottomRightButtonClick = () => { this.setState({ alignment: 'bottom-right' }); }
 
-  onWidthToogleChnaged = (event) => { this.setState({ width: event.On? 1 : 0 }); }
-  onHeightToogleChnaged = (event) => { this.setState({ height: event.On? 1 : 0 }); }
+  onWidthToogleChnaged = (event) => { this.setState({ width: event.On ? 1 : 0 }); }
+  onHeightToogleChnaged = (event) => { this.setState({ height: event.On ? 1 : 0 }); }
 
   render () {
     const { width, height, padding, alignment } = this.state;
