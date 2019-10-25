@@ -70,3 +70,4 @@ digest.sha512.signed
 # assets
 assets/fonts/
 assets/lumin_system_icons/
+android/app/src/main/assets/

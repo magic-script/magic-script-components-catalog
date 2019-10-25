@@ -117,8 +117,8 @@ class SceneScrollView extends React.Component {
 					<view name='scroll-view' >
 						<scrollView scrollBounds={aabb} scrollDirection={'debug'}>
 							{scene.component}
-							<scrollBar orientation={'vertical'} width={0.1} />
-							<scrollBar orientation={'horizontal'} height={0.1} />
+							<scrollBar orientation={'vertical'} width={0.02} />
+							<scrollBar orientation={'horizontal'} height={0.02} />
 						</scrollView>
 						{this.renderBounds()}
 					</view>
