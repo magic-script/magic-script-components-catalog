@@ -38,7 +38,7 @@ class SceneScrollView extends React.Component {
 		this.state = {
 			width: 1.0,
 			height: 1.2,
-			sceneIndex: 13
+			sceneIndex: 10
 		}
 
 		this.scenes = [
@@ -94,7 +94,9 @@ class SceneScrollView extends React.Component {
 		var points = [
 			[minX, minY, 0],
 			[minX, maxY, 0],
-			[maxX, maxY, 0]
+			[maxX, maxY, 0],
+			[maxX, minY, 0],
+			[minX, minY, 0]
 		];
 
 		return <line points={points} color={[1, 1, 0.3, 1]} />;
@@ -115,8 +117,8 @@ class SceneScrollView extends React.Component {
 					<view name='scroll-view' >
 						<scrollView scrollBounds={aabb} scrollDirection={'debug'}>
 							{scene.component}
-							<scrollBar orientation={'vertical'} width={0.02} />
-							{/* <scrollBar orientation={'horizontal'} height={0.02} /> */}
+							<scrollBar orientation={'vertical'} width={0.1} />
+							<scrollBar orientation={'horizontal'} height={0.1} />
 						</scrollView>
 						{this.renderBounds()}
 					</view>
