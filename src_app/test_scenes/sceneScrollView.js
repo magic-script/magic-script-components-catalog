@@ -1,22 +1,96 @@
 import React from 'react';
-// import { Button, GridLayout, Text } from 'magic-script-components-react-native';
+
+import {
+	CalendarView,
+	GameTicTacToe,
+	SceneAlignment,
+	SceneButton,
+	SceneButtonOutline,
+	SceneClock,
+	SceneGridLayout,
+	SceneImage,
+	SceneImageRemote,
+	SceneImageSlider,
+	SceneLine,
+	SceneLinearLayout,
+	SceneModelAnimated,
+	SceneModelStatic,
+	SceneProgressBar,
+	SceneRemote,
+	SceneScrollBar,
+	SceneSpinner,
+	SceneSystemIcons,
+	SceneText,
+	SceneTextCharacters,
+	SceneTextEdit,
+	SceneTextLetters,
+	SceneToggle,
+	SceneTransformations,
+	SceneVideo,
+	SceneVideoGrid,
+	SceneSlider
+} from './index.js';
 
 class SceneScrollView extends React.Component {
+
 	constructor(props) {
 		super(props);
-		this.default = {
-			width: 0.0,
-			height: 0.0,
-			offsetY: 0.4,
-		};
-		this.state = this.default;
+		this.state = {
+			width: 1.0,
+			height: 1.2,
+			sceneIndex: 13
+		}
+
+		this.scenes = [
+			// { name: 'ScrollView', component: <SceneScrollView /> },
+			{ name: 'ScrollBar', component: <SceneScrollBar /> },
+			{ name: 'Letters', component: <SceneTextLetters /> },
+			{ name: 'Characters', component: <SceneTextCharacters /> },
+			// { name: 'Icons', component: <SceneSystemIcons /> },
+			{ name: 'Text', component: <SceneText /> },
+			{ name: 'Alignment', component: <SceneAlignment /> },
+			{ name: 'Text edit', component: <SceneTextEdit /> },
+			{ name: 'Button\n(properties)', component: <SceneButton /> },
+			{ name: 'Button\n(outline)', component: <SceneButtonOutline /> },
+			{ name: 'Linear layout', component: <SceneLinearLayout /> },
+			{ name: 'Local images', component: <SceneImage /> },
+			{ name: 'Remote images', component: <SceneImageRemote /> },
+			{ name: 'Image slider', component: <SceneImageSlider /> },
+			// { name: 'Video', component: <SceneVideo /> },
+			// { name: 'VideoGrid', component: <SceneVideoGrid /> },
+			// { name: 'Model\n(static)', component: <SceneModelStatic /> },
+			// { name: 'Model\n(animated)', component: <SceneModelAnimated /> },
+			// { name: 'Transformations', component: <SceneTransformations /> },
+			{ name: 'Grid layout', component: <SceneGridLayout /> },
+			{ name: 'Toggle', component: <SceneToggle /> },
+			{ name: 'Spinner', component: <SceneSpinner /> },
+			{ name: 'Progress bar', component: <SceneProgressBar /> },
+			{ name: 'Slider', component: <SceneSlider /> },
+			{ name: 'Tic Tac Toe', component: <GameTicTacToe /> },
+			{ name: 'Clock', component: <SceneClock /> },
+			{ name: 'Line', component: <SceneLine /> },
+			{ name: 'Calendar (local)', component: <CalendarView /> },
+			{ name: 'Calendar (remote)', component: <SceneRemote /> }
+		]
+	}
+
+	onNextScene = () => {
+		const { sceneIndex } = this.state;
+		const nextIndex = (sceneIndex + 1) % this.scenes.length;
+		this.setState({ sceneIndex: nextIndex });
+	}
+
+	onPreviousScene = () => {
+		const { sceneIndex } = this.state;
+		const prevIndex = (sceneIndex > 0) ? sceneIndex - 1 : this.scenes.length - 1;
+		this.setState({ sceneIndex: prevIndex });
 	}
 
 	renderBounds() {
-		const minX = -0.5
-		const maxX = 0.5
-		const minY = -0.5 + this.state.offsetY
-		const maxY = 0.5 + this.state.offsetY
+		const minX = this.state.width / -2
+		const maxX = this.state.width / 2
+		const minY = this.state.height / -2
+		const maxY = this.state.height / 2
 		var points = [
 			[minX, minY, 0],
 			[minX, maxY, 0],
@@ -26,73 +100,32 @@ class SceneScrollView extends React.Component {
 		return <line points={points} color={[1, 1, 0.3, 1]} />;
 	}
 
-	renderButton({
-		title,
-		enabled = true,
-		roundness = 0.0,
-		textColor = [0, 1, 0, 1],
-		textSize = 0.1,
-		width = 0.0,
-		height = 0.0,
-		onClick = () => { },
-	}) {
-		return (
-			<button
-				enabled={enabled}
-				textColor={textColor}
-				textSize={textSize}
-				roundness={roundness}
-				width={width}
-				height={height}
-				onClick={onClick}
-			>{title}</button>
-		);
-	}
-
-	layoutScene() {
-		return (
-			<linearLayout
-				orientation={'horizontal'}>
-				<linearLayout
-					defaultItemAlignment={'center-left'}
-					defaultItemPadding={[0.07, 0, 0.07, 0]}>
-					{this.renderButton({ textSize: 0.1, title: 'one' })}
-					{this.renderButton({ textSize: 0.11, title: 'two' })}
-					{this.renderButton({ textSize: 0.12, title: 'three' })}
-				</linearLayout>
-
-				<linearLayout
-					defaultItemAlignment={'center-right'}
-					defaultItemPadding={[0, 0.07, 0, 0.07]}>
-					{this.renderButton({ textSize: 0.1, title: 'four' })}
-					{this.renderButton({ textSize: 0.11, title: 'five' })}
-					{this.renderButton({ textSize: 0.12, title: 'six' })}
-				</linearLayout>
-
-				<linearLayout>
-					{this.renderButton({ textSize: 0.10, title: 'alpha' })}
-					{this.renderButton({ textSize: 0.11, title: 'beta' })}
-					{this.renderButton({ textSize: 0.12, title: 'gamma' })}
-					{this.renderButton({ textSize: 0.13, title: 'delta' })}
-					{this.renderButton({ textSize: 0.14, title: 'epsilon' })}
-					{this.renderButton({ textSize: 0.15, title: 'zeta' })}
-				</linearLayout>
-
-			</linearLayout>
-		)
-	}
-
 	render() {
+		const { sceneIndex } = this.state;
+		const scene = this.scenes[sceneIndex];
+
+		const aabb = {
+			min: [-0.5 * this.state.width, -0.5 * this.state.height, -0.1],
+			max: [0.5 * this.state.width, 0.5 * this.state.height, 0.1],
+		};
+
 		return (
-			<view localPosition={this.props.localPosition}>
-				<scrollView
-					// width={1.07}
-					// height={1.07}
-					localPosition={[0, this.state.offsetY, 0]}>
-					{this.layoutScene()}
-				</scrollView>
-				{this.renderBounds()}
-			</view >
+			<view name='scroll-scene' alignment={'center-center'}>
+				<linearLayout alignment={'center-center'}>
+					<view name='scroll-view' >
+						<scrollView scrollBounds={aabb} scrollDirection={'debug'}>
+							{scene.component}
+							<scrollBar orientation={'vertical'} width={0.02} />
+							{/* <scrollBar orientation={'horizontal'} height={0.02} /> */}
+						</scrollView>
+						{this.renderBounds()}
+					</view>
+					<linearLayout orientation={'horizontal'} defaultItemPadding={[0.2, 0.1, 0, 0.1]}>
+						<button width={0.33} height={0.15} roundness={0} textSize={0.08} onClick={this.onPreviousScene}>Prev</button>
+						<button width={0.33} height={0.15} roundness={0} textSize={0.08} onClick={this.onNextScene}>Next</button>
+					</linearLayout>
+				</linearLayout>
+			</view>
 		);
 	}
 }
