@@ -16,7 +16,6 @@ class SceneDropdownList extends React.Component {
             text={"DropDownList"}
             onSelectionChanged={this.onSelectionChanged}
             localPosition={[0.0, 0.90, 0.0]}
-            debug={true} 
           >
             <dropdownListItem label={"Item very long, long"} debug={true}/>
             <dropdownListItem label={"Item long, long"} debug={true}/>
