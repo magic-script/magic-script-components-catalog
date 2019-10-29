@@ -30,7 +30,8 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneSlider,
-  SceneDropdownList
+  SceneDropdownList,
+  SceneWebView
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -67,6 +68,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
+      { name: 'WebView', component: <SceneWebView localPosition={[0,0.5,0]} /> },
     ]
     this.state = { sceneIndex: 8, showGrid: false };
   }
