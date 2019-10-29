@@ -3,7 +3,7 @@ import { DropdownList, DropdownListItem } from "magic-script-components";
 
 class SceneDropdownList extends React.Component {
   onSelectionChanged = event => {
-    console.log("Received evet: ", event);
+    console.log("Received event: ", event);
   };
 
   render() {
@@ -17,11 +17,11 @@ class SceneDropdownList extends React.Component {
             onSelectionChanged={this.onSelectionChanged}
             localPosition={[0.0, 0.90, 0.0]}
           >
-            <dropdownListItem label={"Item very long, long"} debug={true}/>
-            <dropdownListItem label={"Item long, long"} debug={true}/>
-            <dropdownListItem label={"Item long"} debug={true}/>
-            <dropdownListItem label={"Item"} debug={true}/>
-            <dropdownListItem label={"Item short"} debug={true}/>
+            <dropdownListItem label={"Item very long, long"} />
+            <dropdownListItem label={"Item long, long"} />
+            <dropdownListItem label={"Item long"} />
+            <dropdownListItem label={"Item"} />
+            <dropdownListItem label={"Item short"} />
           </dropdownList>
 
           <text alignment={"center-center"} textSize={0.05} localPosition={[0.0, 0.45, 0.0]}>
