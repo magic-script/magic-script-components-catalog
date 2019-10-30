@@ -20,7 +20,7 @@ class SceneTransformations extends React.Component {
           <model 
             modelPath={require('../../resources/BoxTextured.glb')}
             localPosition={[0, 0.2, -0.2]}
-            localRotation={[0.0, 0.30510157, 0.0, 0.9523198]}
+            localRotation={[0.0, 0.38268346, 0.0, 0.9238795]}
             localScale={[0.5, 0.5, 0.5]}
           />
         </view>
@@ -28,7 +28,7 @@ class SceneTransformations extends React.Component {
         <view localPosition={[0, -0.7, 0]}>
            <model 
             modelPath={require('../../resources/BoxTextured.glb')}
-            localTransform={[0.3535534, 0.0, -0.35355338, 0.0, 0.0, 0.5, 0.0, 0.0, 0.35355338, 0.0, 0.3535534, 0.0, 0.0, 0.2, -0.2, 1.0]}
+            localTransform={[0.3535534, 0.0, -0.35355334, 0.0, 0.0, 0.5, 0.0, 0.0, 0.35355334, 0.0, 0.3535534, 0.0, 0.0, 0.2, -0.2, 1.0]}
           />  
         </view>
       </view>

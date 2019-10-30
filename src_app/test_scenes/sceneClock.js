@@ -1,8 +1,7 @@
-import React from 'react';
-import { MathUtils } from '../utils/mathUtils';
+import React from "react";
+import { MathUtils } from "../utils/mathUtils";
 
 class SceneClock extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = { seconds: 0, minutes: 0, hours: 0 };
@@ -19,7 +18,17 @@ class SceneClock extends React.Component {
   }
 
   updateTime() {
-    const date = new Date();
+    const platformDate = new Date();
+    const nowUTC = Date.UTC(
+      platformDate.getUTCFullYear(),
+      platformDate.getUTCMonth(),
+      platformDate.getUTCDate(),
+      platformDate.getUTCHours(),
+      platformDate.getUTCMinutes(),
+      platformDate.getUTCSeconds()
+    );
+
+    const date = new Date(nowUTC);
     const seconds = date.getSeconds();
     const minutes = date.getMinutes();
     const hours = date.getHours();
@@ -28,18 +37,18 @@ class SceneClock extends React.Component {
 
   renderItems(center, radius) {
     const items = [
-      { alignment: 'top-center', hour: '12' },
-      { alignment: 'top-right', hour: '1' },
-      { alignment: 'top-right', hour: '2' },
-      { alignment: 'center-right', hour: '3' },
-      { alignment: 'bottom-right', hour: '4' },
-      { alignment: 'bottom-right', hour: '5' },
-      { alignment: 'bottom-center', hour: '6' },
-      { alignment: 'bottom-left', hour: '7' },
-      { alignment: 'bottom-left', hour: '8' },
-      { alignment: 'center-left', hour: '9' },
-      { alignment: 'top-left', hour: '10' },
-      { alignment: 'top-left', hour: '11' },
+      { alignment: "top-center", hour: "12" },
+      { alignment: "top-right", hour: "1" },
+      { alignment: "top-right", hour: "2" },
+      { alignment: "center-right", hour: "3" },
+      { alignment: "bottom-right", hour: "4" },
+      { alignment: "bottom-right", hour: "5" },
+      { alignment: "bottom-center", hour: "6" },
+      { alignment: "bottom-left", hour: "7" },
+      { alignment: "bottom-left", hour: "8" },
+      { alignment: "center-left", hour: "9" },
+      { alignment: "top-left", hour: "10" },
+      { alignment: "top-left", hour: "11" }
     ];
 
     return items.map((item, index) => {
@@ -52,26 +61,26 @@ class SceneClock extends React.Component {
           localPosition={[x, y, 0]}
           alignment={item.alignment}
           textSize={0.1}
-        >{item.hour}</text>
+        >
+          {item.hour}
+        </text>
       );
     });
   }
 
   renderClockHand(center, length, width, angle) {
-    const quat = MathUtils.rotateBy(angle, [0, 0, -1])
+    const quat = MathUtils.rotateBy(angle, [0, 0, -1]);
 
     return (
-      <view
-        localPosition={[center.x, center.y, 0]}
-        localRotation={quat}
-      >
-        <text 
-          alignment={'bottom-center'}
+      <view localPosition={[center.x, center.y, 0]} localRotation={quat}>
+        <text
+          alignment={"bottom-center"}
           localScale={[width, length, 1]}
           textSize={1}
-        >|</text>
+        >
+          |
+        </text>
       </view>
-      
     );
   }
 
@@ -90,9 +99,11 @@ class SceneClock extends React.Component {
           localPosition={[center.x, center.y, 0]}
           textSize={0.1}
           roundness={1}
-          width={2*radius + 0.1}
-          height={2*radius + 0.1}
-        >{'Clock face'}</button>
+          width={2 * radius + 0.1}
+          height={2 * radius + 0.1}
+        >
+          {"Clock face"}
+        </button>
         {this.renderClockHand(center, 0.95 * radius, 0.1, angleSeconds)}
         {this.renderClockHand(center, 0.75 * radius, 0.3, angleMinutes)}
         {this.renderClockHand(center, 0.5 * radius, 0.4, angleHours)}
