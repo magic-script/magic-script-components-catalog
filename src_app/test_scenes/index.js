@@ -28,3 +28,4 @@ export * from './sceneVideo';
 export * from './sceneVideoGrid';
 export * from './sceneSlider';
 export * from './sceneDropdownList';
+export * from './sceneDatePicker';
