@@ -2,51 +2,49 @@ import React from "react";
 
 class SceneDatePicker extends React.Component {
   onDateChanged = event => {
-    console.log("Received evet: ", event);
+    console.log("onDateChanged event received: ", event);
   };
 
   onDateConfirmed = event => {
-    console.log("Received evet: ", event);
+    console.log("onDateConfirmed event received: ", event);
   };
 
   render() {
     return (
       <view localPosition={this.props.localPosition}>
-        <gridLayout
-          alignment={"top-center"}
+        <linearLayout
+          localPosition={[0, 0.5, 0]}
+          alignment={"center-center"}
           columns={1}
-          defaultItemPadding={[0.15, 0, 0, 0]}
-          localPosition={[0.0, 1.0, 0.0]}
+          defaultItemAlignment={"center-center"}
+          defaultItemPadding={[0.07, 0, 0.07, 0]}
+          orientation={"vertical"}
         >
           <datePicker
             label={"Default date format (MM/DD/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
-            debug={true}
           />
 
-                    <datePicker
+          <datePicker
             label={"Custom date format (DD/MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"DD/MM/YYYY"}
-            debug={true}
           />
-                                        <datePicker
+          <datePicker
             label={"Custom date format (MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"MM/YYYY"}
-            debug={true}
           />
-                    <datePicker
+          <datePicker
             label={"Custom date format (DD/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"DD/YYYY"}
-            debug={true}
           />
-        </gridLayout>
+        </linearLayout>
       </view>
     );
   }
