@@ -32,7 +32,8 @@ import {
   SceneVideoGrid,
   SceneSlider,
   SceneDropdownList,
-  SceneDatePicker
+  SceneDatePicker,
+  SceneTimePicker
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -71,6 +72,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
       // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
+      // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
     ]
     this.state = { sceneIndex: 26, showGrid: false };
   }
