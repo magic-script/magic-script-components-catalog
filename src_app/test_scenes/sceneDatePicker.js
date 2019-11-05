@@ -2,10 +2,12 @@ import React from "react";
 
 class SceneDatePicker extends React.Component {
   onDateChanged = event => {
+    // event.Date, event.DateString
     console.log("onDateChanged event received: ", event);
   };
 
   onDateConfirmed = event => {
+    // event.Date, event.DateString
     console.log("onDateConfirmed event received: ", event);
   };
 
@@ -16,7 +18,7 @@ class SceneDatePicker extends React.Component {
           localPosition={[0, 0.5, 0]}
           alignment={"center-center"}
           columns={1}
-          defaultItemAlignment={"center-center"}
+          defaultItemAlignment={"center-left"}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
           orientation={"vertical"}
         >
