@@ -20,6 +20,6 @@ jobs:
     - name: Build and test
       run: |
         yarn global add react-native-cli
-        react-native run-ios --simulator "iPhone Xs"
+        react-native run-ios --simulator "iPhone 11 Pro"
 
 

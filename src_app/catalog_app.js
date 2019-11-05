@@ -19,6 +19,7 @@ import {
   SceneProgressBar,
   SceneRemote,
   SceneScrollBar,
+  SceneScrollView,
   SceneSpinner,
   SceneSystemIcons,
   SceneText,
@@ -31,7 +32,9 @@ import {
   SceneVideoGrid,
   SceneSlider,
   SceneDropdownList,
-  SceneWebView
+  SceneDatePicker,
+  SceneWebView,
+  SceneTimePicker
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -48,7 +51,8 @@ class CatalogApp extends React.Component {
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
       // { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
-      // { name: 'ScrollBar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
+      { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0.5, 0]} /> },
+      { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
@@ -68,9 +72,11 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
+      // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       { name: 'WebView', component: <SceneWebView localPosition={[0,0.5,0]} /> },
+      // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 8, showGrid: false };
+    this.state = { sceneIndex: 26, showGrid: false };
   }
 
   onNextScene = () => {
