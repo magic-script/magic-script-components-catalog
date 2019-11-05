@@ -30,3 +30,4 @@ export * from './sceneSlider';
 export * from './sceneDropdownList';
 export * from './sceneDatePicker';
 export * from './sceneTimePicker';
+export * from './sceneColorPicker';
