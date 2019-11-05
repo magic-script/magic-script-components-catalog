@@ -74,7 +74,7 @@ class CatalogApp extends React.Component {
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
       // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
-      { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
+      // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
     ]
     this.state = { sceneIndex: 26, showGrid: false };
   }

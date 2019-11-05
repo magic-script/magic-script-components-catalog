@@ -26,6 +26,18 @@ class SceneColorPicker extends React.Component {
         >
           <colorPicker
             startingColor={[0.75, 0.5, 0.25, 1]}
+            onColorChanged={this.onColorChanged}
+            onConfirm={this.onConfirm}
+            onCancel={this.onCancel}
+          />
+          <colorPicker
+            color={[0.95, 0.85, 0.75, 1]}
+            onColorChanged={this.onColorChanged}
+            onConfirm={this.onConfirm}
+            onCancel={this.onCancel}
+          />
+          <colorPicker
+            startingColor={[0.75, 0.5, 0.25, 1]}
             color={[0.95, 0.85, 0.75, 1]}
             onColorChanged={this.onColorChanged}
             onConfirm={this.onConfirm}
