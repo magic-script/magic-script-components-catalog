@@ -8,6 +8,7 @@ import {
   SceneButton,
   SceneButtonOutline,
   SceneClock,
+  SceneColorPicker,
   SceneDatePicker,
   SceneDropdownList,
   SceneGridLayout,
@@ -29,6 +30,7 @@ import {
   SceneTextCharacters,
   SceneTextEdit,
   SceneTextLetters,
+  SceneTimePicker,
   SceneToggle,
   SceneTransformations,
   SceneVideo,
@@ -72,6 +74,8 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
       // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
+      // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
+      // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
     ]
     this.state = { sceneIndex: 11, showGrid: false };
   }
