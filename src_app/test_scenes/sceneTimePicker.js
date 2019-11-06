@@ -2,10 +2,12 @@ import React from "react";
 
 class SceneTimePicker extends React.Component {
   onTimeChanged = event => {
+    // event.Time, event.TimeString
     console.log("onTimeChanged event received: ", event);
   };
 
   onTimeConfirmed = event => {
+    // event.Time, event.TimeString
     console.log("onTimeConfirmed event received: ", event);
   };
 
@@ -16,7 +18,7 @@ class SceneTimePicker extends React.Component {
           localPosition={[0, 0.5, 0]}
           alignment={"center-center"}
           columns={1}
-          defaultItemAlignment={"center-center"}
+          defaultItemAlignment={"center-left"}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
           orientation={"vertical"}
         >
@@ -25,7 +27,7 @@ class SceneTimePicker extends React.Component {
             onTimeChanged={this.onTimeChanged}
             onTimeConfirmed={this.onTimeConfirmed}
           />
-                    <timePicker
+          <timePicker
             label={"Custom time format (HH:MM p)"}
             timeFormat={"HH:MM p"}
             onTimeChanged={this.onTimeChanged}
