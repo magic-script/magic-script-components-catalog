@@ -39,6 +39,30 @@ class SceneAlignment extends React.Component {
     </gridLayout>);
   }
 
+  renderScrollView(alignment, size) {
+    const aabb = { 
+      min: [-0.5 * size, -0.5 * size, -0.1], 
+      max: [0.5 * size, 0.5 * size, 0.1]
+    };
+    return (
+      <scrollView 
+        alignment={alignment} 
+        scrollBounds={aabb}
+        scrollBarVisibility={'always'} 
+        scrollDirection={'vertical'}
+      >
+        <image icon={'keyboard-capital'} height={2 * size} />
+        <gridLayout defaultItemAlignment={'center-center'} columns={1} width={size} height={4 * size}>
+          <image width={size} height={size} color={[1,1,0.5,1]}/>
+          <image width={size} height={size} color={[1,0.5,1,1]}/>
+          <image width={size} height={size} color={[0.5,1,1,1]}/>
+          <image width={size} height={size} color={[1,1,1,1]}/>
+        </gridLayout>
+        <scrollBar orientation={'vertical'} width={size}/>
+      </scrollView>
+    );
+  }
+
   renderComponent(name, element, position, cellSize, index) {
     const min = { x: -0.5 * cellSize, y: -0.5 * cellSize };
     const max = { x: 0.5 * cellSize, y: 0.5 * cellSize };
@@ -56,7 +80,7 @@ class SceneAlignment extends React.Component {
 
   renderComponents() {
     const { alignment } = this.state;
-    const columns = 3;
+    const columns = 4;
     const itemSize = 0.2;
     const cellSize = 2 * itemSize;
     const cellSpace = 0.1;
@@ -82,6 +106,8 @@ class SceneAlignment extends React.Component {
       line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,1,1,1] },
       model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
+      scrollBar: { width: itemSize, height: 0.2 * itemSize, thumbPosition: 0.9 },
+      slider: { width: itemSize, height: 0.2 * itemSize, value: 0.3, enabled: false },
       spinner: { size: [itemSize, itemSize], value: 0.5 }, 
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
       textEdit: { textSize: 0.02, text: textEditContent, enabled: false, multiline: true, scrolling: true, width: itemSize, height: itemSize },
@@ -95,6 +121,7 @@ class SceneAlignment extends React.Component {
     });
 
     components.push(this.renderComponent('gridLayout', this.renderGridLayout(alignment), getPosition(components.length), cellSize, components.length));
+    components.push(this.renderComponent('scrollView', this.renderScrollView(alignment, itemSize), getPosition(components.length), cellSize, components.length));
     return <view>{components}</view>;
   }
   

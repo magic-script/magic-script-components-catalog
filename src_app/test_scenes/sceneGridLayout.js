@@ -5,7 +5,7 @@ class SceneGridLayout extends React.Component {
   constructor(props) {
     super(props);
     // The padding order is:  top, right, bottom, left
-    this.state = {width: 0, height: 0, padding: [0,0,0,0], alignment: 'center-center' };
+    this.state = { width: 0, height: 0, padding: [0,0,0,0], alignment: 'center-center' };
   }
 
   onTopToggleChanged = () => { this.togglePaddingAt(0); }
@@ -28,8 +28,8 @@ class SceneGridLayout extends React.Component {
   onBottomCenterButtonClick = () => { this.setState({ alignment: 'bottom-center' }); }
   onBottomRightButtonClick = () => { this.setState({ alignment: 'bottom-right' }); }
 
-  onWidthToogleChnaged = (event) => { this.setState({ width: event.On? 1 : 0 }); }
-  onHeightToogleChnaged = (event) => { this.setState({ height: event.On? 1 : 0 }); }
+  onWidthToogleChanged = (event) => { this.setState({ width: event.On ? 1 : 0 }); }
+  onHeightToogleChanged = (event) => { this.setState({ height: event.On ? 1 : 0 }); }
 
   render () {
     const { width, height, padding, alignment } = this.state;
@@ -39,8 +39,8 @@ class SceneGridLayout extends React.Component {
 
         <view localPosition={[-0.5, 0, 0]} >
             <text localPosition={[0, 0, 0]} alignment={'center-center'} textSize={0.08}>Set size:</text>
-            <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChnaged}>1m width</toggle>
-            <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChnaged}>1m height</toggle>
+            <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>1m width</toggle>
+            <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>1m height</toggle>
         </view>
 
         <view localPosition={[0.3, 0, 0]} >

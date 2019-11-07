@@ -1,5 +1,4 @@
 import React from "react";
-import { DropdownList, DropdownListItem } from "magic-script-components";
 
 class SceneDropdownList extends React.Component {
   onSelectionChanged = event => {

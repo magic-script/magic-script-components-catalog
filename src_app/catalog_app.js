@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, Toggle, View, DropdownList } from 'magic-script-components';
+import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   CalendarView,
@@ -8,6 +8,9 @@ import {
   SceneButton,
   SceneButtonOutline,
   SceneClock,
+  SceneColorPicker,
+  SceneDatePicker,
+  SceneDropdownList,
   SceneGridLayout,
   SceneImage,
   SceneImageRemote,
@@ -20,21 +23,18 @@ import {
   SceneRemote,
   SceneScrollBar,
   SceneScrollView,
+  SceneSlider,
   SceneSpinner,
   SceneSystemIcons,
   SceneText,
   SceneTextCharacters,
   SceneTextEdit,
   SceneTextLetters,
+  SceneTimePicker,
   SceneToggle,
   SceneTransformations,
   SceneVideo,
   SceneVideoGrid,
-  SceneSlider,
-  SceneDropdownList,
-  SceneDatePicker,
-  SceneTimePicker,
-  SceneColorPicker
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -50,9 +50,10 @@ class CatalogApp extends React.Component {
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]} /> },
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
-      // { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
-      { name: 'ScrollView', component: <SceneScrollView localPosition={[0, 0.5, 0]} /> },
+      { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
+      { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
+      { name: 'Scroll view', component: <SceneScrollView localPosition={[0, 1.0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
@@ -76,7 +77,7 @@ class CatalogApp extends React.Component {
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 26, showGrid: false };
+    this.state = { sceneIndex: 11, showGrid: false };
   }
 
   onNextScene = () => {
