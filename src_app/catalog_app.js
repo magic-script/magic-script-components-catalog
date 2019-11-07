@@ -53,7 +53,7 @@ class CatalogApp extends React.Component {
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
-      { name: 'Scroll view', component: <SceneScrollView localPosition={[0, 0, 0]} /> },
+      { name: 'Scroll view', component: <SceneScrollView localPosition={[0, 1.0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
