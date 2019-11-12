@@ -46,7 +46,7 @@ class SceneScrollView extends React.Component {
     const scrollBarLength = 1.25 * size;
     const scrollBarThickness = 0.04;
     const scrollBarPosition = isVertical ? [aabb.max[0] - 0.5 * scrollBarThickness, 0, 0] : [0, aabb.min[1] + 0.5 * scrollBarThickness, 0];
-    const alpha = 0.2;
+    const alpha = 1;
     return (
       <view localPosition={this.props.localPosition}>
         <toggle localPosition={[0.3, 0, 0]} height={0.08} textSize={0.08} on={isVertical} onToggleChanged={this.onOrientationChanged}>{'Vertical scroll'}</toggle>

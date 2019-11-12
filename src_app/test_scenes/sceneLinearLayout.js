@@ -31,7 +31,6 @@ class SceneLinearLayout extends React.Component {
         <linearLayout
           localPosition={[0, -0.2, 0]}
           alignment={'center-center'}
-          columns={3}
           defaultItemAlignment={'bottom-center'}
           orientation={'horizontal'}>
 
