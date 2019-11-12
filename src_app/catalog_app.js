@@ -17,6 +17,7 @@ import {
   SceneImageSlider,
   SceneLine,
   SceneLinearLayout,
+  SceneListView,
   SceneModelAnimated,
   SceneModelStatic,
   SceneProgressBar,
@@ -76,8 +77,9 @@ class CatalogApp extends React.Component {
       // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
+      { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 11, showGrid: false };
+    this.state = { sceneIndex: 29, showGrid: false };
   }
 
   onNextScene = () => {
