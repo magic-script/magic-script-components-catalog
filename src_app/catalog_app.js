@@ -16,6 +16,7 @@ import {
   SceneImageRemote,
   SceneImageSlider,
   SceneLine,
+  SceneRectLayout,
   SceneLinearLayout,
   SceneModelAnimated,
   SceneModelStatic,
@@ -50,6 +51,7 @@ class CatalogApp extends React.Component {
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]} /> },
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
+      { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
@@ -77,7 +79,7 @@ class CatalogApp extends React.Component {
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 11, showGrid: false };
+    this.state = { sceneIndex: 8, showGrid: false };
   }
 
   onNextScene = () => {
