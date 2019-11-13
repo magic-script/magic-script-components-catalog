@@ -9,6 +9,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
+  "author": "Magic Leap",
+  "license": "Apache-2.0",
   "dependencies": {
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
     "lumin-system-icons": "git+https://github.com/magic-script/system-icons",
