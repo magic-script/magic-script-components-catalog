@@ -32,3 +32,4 @@ export * from './sceneDatePicker';
 export * from './sceneTimePicker';
 export * from './sceneColorPicker';
 export * from './sceneListView';
+export * from './sceneDialog';
