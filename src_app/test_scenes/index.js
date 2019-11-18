@@ -1,4 +1,5 @@
 export * from './sceneAlignment';
+export * from './sceneAudio';
 export * from './sceneButton';
 export * from './sceneButtonOutline';
 export * from './sceneCalendar/components/CalendarView';

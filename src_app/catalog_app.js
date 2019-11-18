@@ -5,6 +5,7 @@ import {
   CalendarView,
   GameTicTacToe,
   SceneAlignment,
+  SceneAudio,
   SceneButton,
   SceneButtonOutline,
   SceneClock,
@@ -78,8 +79,9 @@ class CatalogApp extends React.Component {
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
       { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
+      { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 29, showGrid: false };
+    this.state = { sceneIndex: this.scenes.length - 1, showGrid: false };
   }
 
   onNextScene = () => {
