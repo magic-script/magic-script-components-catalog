@@ -5,11 +5,13 @@ import {
   CalendarView,
   GameTicTacToe,
   SceneAlignment,
+  SceneAudio,
   SceneButton,
   SceneButtonOutline,
   SceneClock,
   SceneColorPicker,
   SceneDatePicker,
+  SceneDialog,
   SceneDropdownList,
   SceneGridLayout,
   SceneImage,
@@ -36,7 +38,7 @@ import {
   SceneToggle,
   SceneTransformations,
   SceneVideo,
-  SceneVideoGrid,
+  SceneVideoGrid
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -70,18 +72,21 @@ class CatalogApp extends React.Component {
       // { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0.7, 0]} /> },
       { name: 'Slider', component: <SceneSlider localPosition={[0, 0, 0]} /> },
+      { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
+      { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
+      { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
+      { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
+      { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
+      // { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
+      // { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
-      { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
-      // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
-      // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
-      // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
-      { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
-    ]
-    this.state = { sceneIndex: 23, showGrid: false };
+    ];
+
+    this.state = { sceneIndex: this.scenes.length - 6, showGrid: false };
   }
 
   onNextScene = () => {
