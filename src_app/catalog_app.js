@@ -36,6 +36,7 @@ import {
   SceneTransformations,
   SceneVideo,
   SceneVideoGrid,
+  SceneDialog
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -77,9 +78,10 @@ class CatalogApp extends React.Component {
       // { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       // { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       // { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
-      { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
+      // { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
+      // { name: 'DialogView', component: <SceneDialog localPosition={[0, 0, 0]} /> },
     ]
-    this.state = { sceneIndex: 29, showGrid: false };
+    this.state = { sceneIndex: 28, showGrid: false };
   }
 
   onNextScene = () => {
