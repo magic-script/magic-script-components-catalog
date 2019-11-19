@@ -86,7 +86,7 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
       { name: 'Calendar (remote)', component: <SceneRemote /> },
-    ]
+    ];
 
     this.state = { sceneIndex: this.scenes.length - 6, showGrid: false };
   }
