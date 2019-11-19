@@ -13,6 +13,7 @@ export * from './sceneImage';
 export * from './sceneImageSlider/scene';
 export * from './sceneImageRemote';
 export * from './sceneLine';
+export * from './sceneRectLayout';
 export * from './sceneLinearLayout';
 export * from './sceneListView';
 export * from './sceneModelStatic';
