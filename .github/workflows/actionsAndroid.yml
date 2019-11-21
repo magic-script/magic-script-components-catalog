@@ -16,8 +16,8 @@ jobs:
         GITHUB_USER_PASSWORD: ${{ secrets.GITHUB_USER_PASSWORD }}
       run: |
         sed -i '' "s/git\+https\:\/\//https:\/\/$GITHUB_USER_PASSWORD@/g" package.json
-        yarn
+        npm install
     - name: Build and test
       run: |
-        yarn global add react-native-cli
+        npm install --global react-native-cli
         cd android && ./gradlew assembleDebug
