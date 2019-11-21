@@ -4,7 +4,7 @@ import { MathUtils } from '../utils/mathUtils';
 class SceneAudio extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { alarmSound: true, animate: true, bgSound: true, spatialSound: true, volume: 4, position: undefined, positionAngle: 0 };
+    this.state = { alarmSound: true, animate: true, bgSound: true, spatialSound: true, volume: 4, position: [0,0,0], positionAngle: 0 };
     this.interval = 0.01;
   }
 
@@ -48,12 +48,17 @@ class SceneAudio extends React.Component {
     const quat90 = MathUtils.rotateBy(0.5 * Math.PI, [0, 1, 0]);
     const quat180 = MathUtils.rotateBy(Math.PI, [0, 1, 0]);
     const quat270 = MathUtils.rotateBy(-0.5 * Math.PI, [0, 1, 0]);
+    const origin = [0,0,0];
+    const linkColor = [1,1,0.6,0.7];
     return (
-      <view localPosition={position}>
-        <image icon={'volume'} height={0.2} color={alarmColor}/>
-        <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat90}/>
-        <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat180}/>
-        <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat270}/>
+      <view>
+        <view localPosition={position}>
+          <image icon={'volume'} height={0.2} color={alarmColor}/>
+          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat90}/>
+          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat180}/>
+          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat270}/>
+        </view>
+        <line points={[origin, position]} color={linkColor} />
       </view>
     );
   }
@@ -69,7 +74,7 @@ class SceneAudio extends React.Component {
           action={'start'} 
           soundMute={!bgSound} 
           soundLooping={true} 
-          soundVolumeLinear={8} 
+          soundVolumeLinear={3} 
         />
         <audio 
           fileName={'http://wolo-usa.com/siren6.wav'} 
