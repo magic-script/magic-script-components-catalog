@@ -122,7 +122,6 @@ class SceneDialog extends React.Component {
             message={"Dialog message text"}
             confirmText={"Confirm"}
             cancelText={"Cancel"}
-            key={1}
           />
         )}
         {showDialogWithIcons && (
