@@ -1,18 +1,48 @@
-import React from 'react';
+import React from "react";
+import { ToggleGroup } from "magic-script-components";
 
 class SceneToggleGroup extends React.Component {
-  render () {
+  onUpdate = event => {
+    // event.Time, event.TimeString
+    console.log("onUpdate event received: ", event);
+  };
+
+  render() {
     return (
       <view localPosition={this.props.localPosition}>
-          <toggleGroup allowMultipleOn={false} allowAllOff={false} allTogglesOff={false}>
-            <linearLayout alignment={'center-center'}>
-              <toggle type={'radio'} alignment={'center-center'} on={false} height={0.15}>Element 1</toggle>
-              <toggle type={'radio'} alignment={'center-center'} on={false} height={0.15}>Element 2</toggle>
-              <toggle type={'radio'} alignment={'center-center'} on={true} height={0.15}>Element 3</toggle>
-            </linearLayout>
-          </toggleGroup>
+        <toggleGroup onUpdate={this.onUpdate}>
+          <toggle
+            alignment={"center-center"}
+            localPosition={[0, 0.4, 0]}
+            on={false}
+            textSize={0.1}
+            textColor={[1, 0, 0, 1]}
+            height={0.3}
+          >
+            Default 1
+          </toggle>
+          <toggle
+            alignment={"center-center"}
+            localPosition={[0, 0.4, 0]}
+            on={false}
+            textSize={0.1}
+            textColor={[1, 0, 0, 1]}
+            height={0.3}
+          >
+            Default 2
+          </toggle>
+          <toggle
+            alignment={"center-center"}
+            localPosition={[0, 0.4, 0]}
+            on={false}
+            textSize={0.1}
+            textColor={[1, 0, 0, 1]}
+            height={0.3}
+          >
+            Default 3
+          </toggle>
+        </toggleGroup>
       </view>
-
     );
   }
 }
