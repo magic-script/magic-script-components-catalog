@@ -71,7 +71,7 @@ class CatalogApp extends React.Component {
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]} /> },
-      // { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0, 0]} /> },
+      { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0.5, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0.7, 0]} /> },
       { name: 'Slider', component: <SceneSlider localPosition={[0, 0, 0]} /> },
       { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
@@ -88,7 +88,8 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    this.state = { sceneIndex: this.scenes.length - 6, showGrid: false };
+    this.state = { sceneIndex: this.scenes.length - 15, showGrid: false };
+    // this.state = { sceneIndex: 4, showGrid: false };
   }
 
   onNextScene = () => {
