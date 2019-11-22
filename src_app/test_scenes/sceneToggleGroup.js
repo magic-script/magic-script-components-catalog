@@ -10,7 +10,7 @@ class SceneToggleGroup extends React.Component {
   render() {
     return (
       <view localPosition={this.props.localPosition}>
-        <toggleGroup onUpdate={this.onUpdate}>
+        <toggleGroup onUpdate={this.onUpdate} allowMultipleOn={false} allowAllOff={false} allTogglesOff={false}>
           <toggle
             alignment={"center-center"}
             localPosition={[0, 0.4, 0]}
