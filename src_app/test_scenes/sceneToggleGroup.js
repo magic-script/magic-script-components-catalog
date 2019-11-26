@@ -10,37 +10,40 @@ class SceneToggleGroup extends React.Component {
   render() {
     return (
       <view localPosition={this.props.localPosition}>
-        <toggleGroup onUpdate={this.onUpdate} allowMultipleOn={false} allowAllOff={false} allTogglesOff={false}>
-          <toggle
-            alignment={"center-center"}
-            localPosition={[0, 0.4, 0]}
-            on={false}
-            textSize={0.1}
-            textColor={[1, 0, 0, 1]}
-            height={0.3}
-          >
-            Default 1
-          </toggle>
-          <toggle
-            alignment={"center-center"}
-            localPosition={[0, 0.4, 0]}
-            on={false}
-            textSize={0.1}
-            textColor={[1, 0, 0, 1]}
-            height={0.3}
-          >
-            Default 2
-          </toggle>
-          <toggle
-            alignment={"center-center"}
-            localPosition={[0, 0.4, 0]}
-            on={false}
-            textSize={0.1}
-            textColor={[1, 0, 0, 1]}
-            height={0.3}
-          >
-            Default 3
-          </toggle>
+        <toggleGroup
+          allowMultipleOn={false}
+          allowAllOff={true}
+          // allTogglesOff={true}
+        >
+          <linearLayout alignment={"center-center"}>
+            <toggle
+              type={"radio"}
+              alignment={"center-center"}
+              on={false}
+              height={0.15}
+              textSize={0.1}
+            >
+              Element 1
+            </toggle>
+            <toggle
+              type={"radio"}
+              alignment={"center-center"}
+              on={false}
+              height={0.15}
+              textSize={0.1}
+            >
+              Element 2
+            </toggle>
+            <toggle
+              type={"radio"}
+              alignment={"center-center"}
+              on={true}
+              height={0.15}
+              textSize={0.1}
+            >
+              Element 3
+            </toggle>
+          </linearLayout>
         </toggleGroup>
       </view>
     );
