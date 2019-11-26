@@ -37,6 +37,7 @@ import {
   SceneTextLetters,
   SceneTimePicker,
   SceneToggle,
+  SceneToggleGroup,
   SceneTransformations,
   SceneVideo,
   SceneVideoGrid
@@ -70,6 +71,7 @@ class CatalogApp extends React.Component {
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
+      // { name: 'Toggle group', component: <SceneToggleGroup localPosition={[0, 0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]} /> },
       { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0.5, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0.7, 0]} /> },

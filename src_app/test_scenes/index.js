@@ -33,6 +33,7 @@ export * from './sceneTextEdit';
 export * from './sceneTicTacToe';
 export * from './sceneTimePicker';
 export * from './sceneToggle';
+export * from './sceneToggleGroup';
 export * from './sceneTransformations';
 export * from './sceneVideo';
 export * from './sceneVideoGrid';
