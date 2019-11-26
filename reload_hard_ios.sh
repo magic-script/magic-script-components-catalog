@@ -23,8 +23,12 @@ rm -fr assets/fonts
 rm -fr assets/lumin_system_icons
 echo "7. Removing yarn.lock..."
 rm -fr yarn.lock
-echo "8. Installing..."
+echo "8. Renaming NOTICE file..."
+mv NOTICE NOTICE_tmp
+echo "9. Installing..."
 yarn
-echo "9. Linking..."
+echo "10. Linking..."
 react-native link
+echo "8. Reverting NOTICE file..."
+mv NOTICE_tmp NOTICE
 say -v Melina done
