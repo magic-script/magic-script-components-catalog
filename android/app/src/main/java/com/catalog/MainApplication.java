@@ -11,7 +11,6 @@ import com.rnfs.RNFSPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.reactlibrary.ArPackage;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
