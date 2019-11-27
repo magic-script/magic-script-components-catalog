@@ -21,29 +21,36 @@ class SceneWebView extends React.Component {
 
   render () {
     const { text, url } = this.state;
+    const width = 1.2;
     return (
-      <view localPosition={this.props.localPosition}>
+      <linearLayout 
+        alignment={'top-center'}
+        localPosition={this.props.localPosition}
+        orientation={'vertical'}
+        defaultItemAlignment={'center-right'}
+        defaultItemPadding={[0.03, 0, 0.03, 0]}
+      >
         <textEdit 
           hint={'Enter url...'}
-          localPosition={[0, 0.5, 0]} 
+          height={0.08}
           onTextChanged={this.onTextChanged}
           text={text}
           textColor={[1,1,1,0.75]}
-          textSize={0.08}
+          textSize={0.05}
+          width={width}
         />
         <button 
-          localPosition={[0.4, 0.5, 0]} 
+          height={0.1}
           onClick={this.onLoad}
           text={'Load'}
           textSize={0.08}
         />
         <webView 
           url={url} 
-          localPosition={[0, 0.4, 0]} 
-          height={0.7} 
-          width={1.0}
+          height={0.9} 
+          width={width}
         />
-      </view>
+      </linearLayout>
     );
   }
 }

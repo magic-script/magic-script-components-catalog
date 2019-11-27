@@ -84,7 +84,7 @@ class CatalogApp extends React.Component {
       { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
-      { name: 'Web view', component: <SceneWebView localPosition={[0, 0, 0]} /> },
+      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.7, 0]} /> },
       { name: 'Page view', component: <ScenePageView localPosition={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
@@ -93,7 +93,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    this.state = { sceneIndex: this.scenes.length - 17, showGrid: false };
+    this.state = { sceneIndex: this.scenes.length - 7, showGrid: false };
     // this.state = { sceneIndex: 4, showGrid: false };
   }
 
