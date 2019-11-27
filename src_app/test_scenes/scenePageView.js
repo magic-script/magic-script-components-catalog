@@ -20,28 +20,61 @@ class ScenePageView extends React.Component {
     this.setState({ selectedTab: index });
   }
 
+  renderTab = (item, index, pageWidth, tabHeight) => {
+    const w = pageWidth / this.colors.length;
+    const h = tabHeight;
+    const p = { x: -0.5 * w, y: -0.5 * h };
+    const f = 0.3 * h; // fold size
+    const points = [
+      [p.x, p.y, 0], 
+      [p.x, p.y + h - f, 0], 
+      [p.x + f, p.y + h, 0], 
+      [p.x + w, p.y + h, 0], 
+      [p.x + w, p.y, 0], 
+    ];
+    const a = (index === this.state.selectedTab) ? 1 : 0.5;
+    return (
+      <view>
+        <tab textColor={[1,1,1,a]} textSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
+        <line color={[1,1,1,1]} points={points} />
+      </view>
+    );
+  }
+
+  renderPage = (item, size) => {
+    return <image color={item.value} width={size.width} height={size.height} />;
+  }
+
   render () {
     const { selectedTab } = this.state;
     const pageSize = { width: 1.0, height: 0.8 };
+    const tabHeight = 0.13;
+    const pp = 0.02; // page padding
+    const outline = [
+      [0, 0, 0],
+      [0, pageSize.height, 0],
+      [pageSize.width, pageSize.height, 0],
+      [pageSize.width, 0, 0],
+      [0, 0, 0],
+    ];
     return (
       <view localPosition={this.props.localPosition}>
-        <linearLayout 
-          alignment={'bottom-center'}
-          defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
-          orientation={'horizontal'}
-        >
-          {this.colors.map(index, item => <tab textSize={0.08} onActivate={() => this.onTabSelect(index)}>{index}</tab>)}
+        <linearLayout alignment={'top-center'} orientation={'vertical'}>
+          <linearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={'horizontal'}>
+            {this.colors.map((item, index) => this.renderTab(item, index, pageSize.width, tabHeight))}
+          </linearLayout>
+          <pageView 
+            defaultPagePadding={[pp, pp, pp, pp]}
+            visiblePage={selectedTab}
+            width={pageSize.width}
+            height={pageSize.height}
+          >
+            {this.colors.map(item => this.renderPage(item, { width: pageSize.width - 2 * pp, height: pageSize.height - 2 * pp }))}
+          </pageView>
         </linearLayout>
-        <pageView 
-          alignment={'top-center'} 
-          visiblePage={selectedTab}
-        >
-          {this.colors.map(item => {
-            return <image color={item.value} width={pageSize.width} height={pageSize.height} />
-          })}
-        </pageView>
+        <line localPosition={[-0.5 * pageSize.width, -pageSize.height - tabHeight, 0]} color={[1,1,1,1]} points={outline} />
       </view>
-
+      
     );
   }
 }
