@@ -11,35 +11,39 @@ class SceneToggleGroup extends React.Component {
     };
   }
 
-  onToggleChanged_allowMultipleOn = event => {
+  onToggleHandler(event, param) {
     console.log("onChanged event received: ", event);
-    const allowMultipleOn = this.state.allowMultipleOn;
-    this.setState({ allowMultipleOn: !allowMultipleOn });
-  };
+    this.setState(param);
+  }
 
-  onToggleChanged_allowAllOff = event => {
-    console.log("onChanged event received: ", event);
-    const allowAllOff = this.state.allowAllOff;
-    this.setState({ allowAllOff: !allowAllOff });
-  };
-
-  onToggleChanged_innerLayout = event => {
-    console.log("onChanged event received: ", event);
-    const innerLayout = this.state.innerLayout;
-    this.setState({ innerLayout: !innerLayout });
-  };
-
-  onToggleChanged(param) {
-    return () => {
-      this.setState(param);
-    };
+  renderToggle({
+    onValue = false,
+    height = 0.05,
+    localPosition = [],
+    textSize = 0.05,
+    title = ""
+  }) {
+    return (
+      <toggle
+        type={"radio"}
+        on={onValue}
+        height={height}
+        localPosition={localPosition}
+        textSize={textSize}
+        onToggleChanged={event => {
+          console.log("onChanged event received: ", event);
+        }}
+      >
+        {title}
+      </toggle>
+    );
   }
 
   render() {
     const { allowMultipleOn, allowAllOff, innerLayout } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
-        <linearLayout orientation={"vertical"} alignment={"left-center"}>
+        <linearLayout orientation={"vertical"} alignment={"center-left"}>
           <linearLayout
             alignment={"center-center"}
             orientation={"horizontal"}
@@ -49,7 +53,11 @@ class SceneToggleGroup extends React.Component {
               on={allowMultipleOn}
               height={0.05}
               textSize={0.05}
-              onToggleChanged={this.onToggleChanged_allowMultipleOn}
+              onToggleChanged={e =>
+                this.onToggleHandler(e, {
+                  allowMultipleOn: !this.state.allowMultipleOn
+                })
+              }
             >
               allowMultipleOn
             </toggle>
@@ -57,7 +65,11 @@ class SceneToggleGroup extends React.Component {
               on={allowAllOff}
               height={0.05}
               textSize={0.05}
-              onToggleChanged={this.onToggleChanged_allowAllOff}
+              onToggleChanged={e =>
+                this.onToggleHandler(e, {
+                  allowAllOff: !this.state.allowAllOff
+                })
+              }
             >
               allowAllOff
             </toggle>
@@ -65,14 +77,20 @@ class SceneToggleGroup extends React.Component {
               on={innerLayout}
               height={0.05}
               textSize={0.05}
-              onToggleChanged={this.onToggleChanged_innerLayout}
+              onToggleChanged={e =>
+                this.onToggleHandler(e, {
+                  innerLayout: !this.state.innerLayout
+                })
+              }
             >
               innerLayout
             </toggle>
           </linearLayout>
           {innerLayout && (
-            <linearLayout alignment={"center-center"} >
-              <text textSize={0.06} textAlignment={"left"}>Toggles layouted "by linearLayout"</text>
+            <linearLayout alignment={"center-center"}>
+              <text textSize={0.06} textAlignment={"left"}>
+                Toggles layouted "by linearLayout"
+              </text>
               <toggleGroup
                 allowMultipleOn={allowMultipleOn}
                 allowAllOff={allowAllOff}
@@ -81,33 +99,21 @@ class SceneToggleGroup extends React.Component {
                   alignment={"center-center"}
                   orientation={"vertical"}
                 >
-                  <toggle
-                    type={"radio"}
-                    alignment={"center-center"}
-                    on={false}
-                    height={0.075}
-                    textSize={0.075}
-                  >
-                    Element 1
-                  </toggle>
-                  <toggle
-                    type={"radio"}
-                    alignment={"center-center"}
-                    on={false}
-                    height={0.075}
-                    textSize={0.075}
-                  >
-                    Element 2
-                  </toggle>
-                  <toggle
-                    type={"radio"}
-                    alignment={"center-center"}
-                    on={false}
-                    height={0.075}
-                    textSize={0.075}
-                  >
-                    Element 3
-                  </toggle>
+                  {this.renderToggle({
+                    title: "Element 1",
+                    textSize: 0.075,
+                    height: 0.075
+                  })}
+                  {this.renderToggle({
+                    title: "Element 2",
+                    textSize: 0.075,
+                    height: 0.075
+                  })}
+                  {this.renderToggle({
+                    title: "Element 3",
+                    textSize: 0.075,
+                    height: 0.075
+                  })}
                 </linearLayout>
               </toggleGroup>
             </linearLayout>
@@ -121,33 +127,24 @@ class SceneToggleGroup extends React.Component {
                 allowMultipleOn={allowMultipleOn}
                 allowAllOff={allowAllOff}
               >
-                <toggle
-                  type={"radio"}
-                  on={false}
-                  height={0.075}
-                  textSize={0.075}
-                  localPosition={[-0.125, -0.125, 0.0]}
-                >
-                  Item 1
-                </toggle>
-                <toggle
-                  type={"radio"}
-                  on={false}
-                  height={0.075}
-                  textSize={0.075}
-                  localPosition={[0, -0.25, 0.0]}
-                >
-                  Item 2
-                </toggle>
-                <toggle
-                  type={"radio"}
-                  on={false}
-                  height={0.075}
-                  textSize={0.075}
-                  localPosition={[0.125, -0.375, 0.0]}
-                >
-                  Item 3
-                </toggle>
+                {this.renderToggle({
+                  title: "Item 1",
+                  textSize: 0.075,
+                  height: 0.075,
+                  localPosition: [-0.125, -0.125, 0.0]
+                })}
+                {this.renderToggle({
+                  title: "Item 2",
+                  textSize: 0.075,
+                  height: 0.075,
+                  localPosition: [0, -0.25, 0.0]
+                })}
+                {this.renderToggle({
+                  title: "Item 3",
+                  textSize: 0.075,
+                  height: 0.075,
+                  localPosition: [0.125, -0.375, 0.0]
+                })}
               </toggleGroup>
             </linearLayout>
           )}
