@@ -18,12 +18,13 @@ import {
   SceneImageRemote,
   SceneImageSlider,
   SceneLine,
-  SceneRectLayout,
   SceneLinearLayout,
   SceneListView,
   SceneModelAnimated,
   SceneModelStatic,
+  ScenePageView,
   SceneProgressBar,
+  SceneRectLayout,
   SceneRemote,
   SceneScrollBar,
   SceneScrollView,
@@ -40,7 +41,8 @@ import {
   SceneToggleGroup,
   SceneTransformations,
   SceneVideo,
-  SceneVideoGrid
+  SceneVideoGrid,
+  SceneWebView,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -82,6 +84,8 @@ class CatalogApp extends React.Component {
       { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
+      { name: 'Web view', component: <SceneWebView localPosition={[0, 0, 0]} /> },
+      { name: 'Page view', component: <ScenePageView localPosition={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
