@@ -43,7 +43,7 @@ class SceneToggleGroup extends React.Component {
     const { allowMultipleOn, allowAllOff, innerLayout } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
-        <linearLayout orientation={"vertical"} alignment={"left-center"}>
+        <linearLayout orientation={"vertical"} alignment={"center-left"}>
           <linearLayout
             alignment={"center-center"}
             orientation={"horizontal"}
