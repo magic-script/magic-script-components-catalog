@@ -21,7 +21,7 @@ class SceneWebView extends React.Component {
 
   render () {
     const { text, url } = this.state;
-    const width = 1.2;
+    const web = { width: 1.2, height: 0.9 };
     return (
       <linearLayout 
         alignment={'top-center'}
@@ -37,7 +37,7 @@ class SceneWebView extends React.Component {
           text={text}
           textColor={[1,1,1,0.75]}
           textSize={0.05}
-          width={width}
+          width={web.width}
         />
         <button 
           height={0.1}
@@ -47,8 +47,8 @@ class SceneWebView extends React.Component {
         />
         <webView 
           url={url} 
-          height={0.9} 
-          width={width}
+          height={web.height} 
+          width={web.width}
         />
       </linearLayout>
     );
