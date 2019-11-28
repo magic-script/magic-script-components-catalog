@@ -83,7 +83,7 @@ class SceneToggleGroup extends React.Component {
           <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff} debug={true}>
             {this.renderRadio({ title: "Item 1", localPosition: [-0.125, -0.125, 0.0] })}
             {this.renderRadio({ title: "Item 2", localPosition: [0, -0.25, 0.0] })}
-            {this.renderRadio({ title: "Item 3", localPosition: [0.125, -0.375, 0.0] })}}
+            {this.renderRadio({ title: "Item 3", localPosition: [0.125, -0.375, 0.0] })}
           </toggleGroup>
         )}
       </linearLayout>
