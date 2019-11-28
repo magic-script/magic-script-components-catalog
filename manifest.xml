@@ -14,5 +14,6 @@
     </component>
     <uses-privilege ml:name="MagicScript"/>
     <uses-privilege ml:name="Internet"/>
+    <uses-privilege ml:name="WebView"/>
   </application>
 </manifest>
