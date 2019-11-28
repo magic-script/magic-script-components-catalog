@@ -114,6 +114,7 @@ class SceneAlignment extends React.Component {
       textEdit: { textSize: 0.02, text: textEditContent, enabled: false, multiline: true, scrolling: true, width: itemSize, height: itemSize },
       toggle: { height: 0.45 * itemSize, on: true, text: '', value: 0.75 },
       // video: { looping: true, width: videoResolution[0], height: videoResolution[1], size: videoSize, anchorPosition: [0.5 * videoSize[0], 0.5 * videoSize[1], 0], videoPath: require('../../resources/video.mp4'), action: 'start', viewMode: 'full-area', volume: 0},      
+      webView: { url: 'https://www.magicleap.com', height: itemSize, width: itemSize, enable: false },
     };
 
     const components = Object.keys(propsByType).map((key, index) => {

@@ -29,6 +29,6 @@ echo "9. Installing..."
 yarn
 echo "10. Linking..."
 react-native link
-echo "8. Reverting NOTICE file..."
+echo "11. Reverting NOTICE file..."
 mv NOTICE_tmp NOTICE
 say -v Melina done

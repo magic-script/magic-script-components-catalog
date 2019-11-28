@@ -18,12 +18,13 @@ import {
   SceneImageRemote,
   SceneImageSlider,
   SceneLine,
-  SceneRectLayout,
   SceneLinearLayout,
   SceneListView,
   SceneModelAnimated,
   SceneModelStatic,
+  ScenePageView,
   SceneProgressBar,
+  SceneRectLayout,
   SceneRemote,
   SceneScrollBar,
   SceneScrollView,
@@ -40,7 +41,8 @@ import {
   SceneToggleGroup,
   SceneTransformations,
   SceneVideo,
-  SceneVideoGrid
+  SceneVideoGrid,
+  SceneWebView,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -70,7 +72,7 @@ class CatalogApp extends React.Component {
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
-      { name: 'Toggle Group', component: <SceneToggleGroup localPosition={[-0.5, 1.0, 0]} /> },
+      { name: 'Toggle Group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]} /> },
       { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0.5, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0.7, 0]} /> },
@@ -82,6 +84,8 @@ class CatalogApp extends React.Component {
       { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
+      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.7, 0]} /> },
+      { name: 'Page view', component: <ScenePageView localPosition={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
@@ -89,7 +93,9 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    this.state = { sceneIndex: this.scenes.length - 17, showGrid: false };
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Toggle Group');
+    // const initialIndex = this.scenes.length - 6;
+    this.state = { sceneIndex: initialIndex, showGrid: false };
     // this.state = { sceneIndex: 4, showGrid: false };
   }
 
