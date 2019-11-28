@@ -15,18 +15,16 @@ class SceneToggleGroup extends React.Component {
     this.setState(param);
   }
 
-  renderToggle({ onValue = false, height = 0.05, localPosition = [0,0,0], textSize = 0.05, title = "" }) {
+  renderToggle({ title = '', localPosition = [0,0,0] }) {
     return (
       <toggle
         type={"radio"}
-        on={onValue}
-        height={height}
+        height={0.075}
         localPosition={localPosition}
-        textSize={textSize}
+        text={title}
+        textSize={0.075}
         onToggleChanged={ e => console.log("onChanged event received: ", e) }
-      >
-        {title}
-      </toggle>
+      />
     );
   }
 
@@ -34,7 +32,8 @@ class SceneToggleGroup extends React.Component {
     const { allowMultipleOn, allowAllOff, innerLayout } = this.state;
     return (
       <linearLayout
-        defaultItemPadding={[0.025, 0.025, 0.025, 0.025]}
+        defaultItemAlignment={'center-right'}
+        defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
         orientation={"vertical"}
       >
         <toggle
@@ -62,7 +61,7 @@ class SceneToggleGroup extends React.Component {
   renderPresentationPanel() {
     const { allowMultipleOn, allowAllOff, innerLayout } = this.state;
 
-    const title = innerLayout ? 'Toggles embedded in linearLayout' : 'Toggles embedded in linearLayout';
+    const title = innerLayout ? 'Toggles embedded in linearLayout' : 'Toggles embedded in group';
     return (
       <linearLayout 
         defaultItemAlignment={'center-left'}
@@ -77,17 +76,17 @@ class SceneToggleGroup extends React.Component {
               defaultItemPadding={[0.01, 0.0, 0.01, 0.01]}
               orientation={"vertical"}
             >
-              {this.renderToggle({ title: "Element 1", textSize: 0.075, height: 0.075 })}
-              {this.renderToggle({ title: "Element 2", textSize: 0.075, height: 0.075 })}
-              {this.renderToggle({ title: "Element 3", textSize: 0.075, height: 0.075 })}
+              {this.renderToggle({ title: "Element 1" })}
+              {this.renderToggle({ title: "Element 2" })}
+              {this.renderToggle({ title: "Element 3" })}
             </linearLayout>
           </toggleGroup>
         )}
         {!innerLayout && (
           <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff} debug={true}>
-            {this.renderToggle({ title: "Item 1", textSize: 0.075, height: 0.075, localPosition: [-0.125, -0.125, 0.0] })}
-            {this.renderToggle({ title: "Item 2", textSize: 0.075, height: 0.075, localPosition: [0, -0.25, 0.0] })}
-            {this.renderToggle({ title: "Item 3", textSize: 0.075, height: 0.075, localPosition: [0.125, -0.375, 0.0] })}}
+            {this.renderToggle({ title: "Item 1", localPosition: [-0.125, -0.125, 0.0] })}
+            {this.renderToggle({ title: "Item 2", localPosition: [0, -0.25, 0.0] })}
+            {this.renderToggle({ title: "Item 3", localPosition: [0.125, -0.375, 0.0] })}}
           </toggleGroup>
         )}
       </linearLayout>
