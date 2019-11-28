@@ -34,7 +34,7 @@ class ScenePageView extends React.Component {
     ];
     const a = (index === this.state.selectedTab) ? 1 : 0.5;
     return (
-      <view>
+      <view key={index}>
         <tab textColor={[1,1,1,a]} textSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
         <line color={[1,1,1,1]} points={points} />
       </view>
@@ -42,7 +42,7 @@ class ScenePageView extends React.Component {
   }
 
   renderPage = (item, size) => {
-    return <image color={item.value} width={size.width} height={size.height} />;
+    return <image key={item.name} color={item.value} width={size.width} height={size.height} />;
   }
 
   render () {
