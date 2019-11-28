@@ -15,15 +15,27 @@ class SceneToggleGroup extends React.Component {
     this.setState(param);
   }
 
-  renderToggle({ title = '', localPosition = [0,0,0] }) {
+  renderRadio({ title = '', localPosition = [0,0,0] }) {
     return (
       <toggle
-        type={"radio"}
         height={0.075}
         localPosition={localPosition}
         text={title}
         textSize={0.075}
+        type={'radio'}
         onToggleChanged={ e => console.log("onChanged event received: ", e) }
+      />
+    );
+  }
+
+  renderToggle({ title = '', on = false, onToggleChanged }) {
+    return (
+      <toggle
+        height={0.05}
+        on={on}
+        text={title}
+        textSize={0.05}
+        onToggleChanged={onToggleChanged}
       />
     );
   }
@@ -36,24 +48,9 @@ class SceneToggleGroup extends React.Component {
         defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
         orientation={"vertical"}
       >
-        <toggle
-          on={allowMultipleOn}
-          height={0.05}
-          textSize={0.05}
-          onToggleChanged={ e => this.onToggleHandler(e, { allowMultipleOn: !this.state.allowMultipleOn }) }
-        >Multiple On</toggle>
-        <toggle
-          on={allowAllOff}
-          height={0.05}
-          textSize={0.05}
-          onToggleChanged={ e => this.onToggleHandler(e, { allowAllOff: !this.state.allowAllOff }) }
-        >All Off</toggle>
-        <toggle
-          on={innerLayout}
-          height={0.05}
-          textSize={0.05}
-          onToggleChanged={ e => this.onToggleHandler(e, { innerLayout: !this.state.innerLayout }) }
-        >Use layout</toggle>
+        {this.renderToggle({ title: 'Multiple On', on: allowMultipleOn, onToggleChanged: (e) => this.onToggleHandler(e, { allowMultipleOn: !this.state.allowMultipleOn }) })}
+        {this.renderToggle({ title: 'All Off', on: allowAllOff, onToggleChanged: (e) => this.onToggleHandler(e, { allowAllOff: !this.state.allowAllOff }) })}
+        {this.renderToggle({ title: 'Use layout', on: innerLayout, onToggleChanged: (e) => this.onToggleHandler(e, { innerLayout: !this.state.innerLayout }) })}
       </linearLayout>
     );
   }
@@ -76,17 +73,17 @@ class SceneToggleGroup extends React.Component {
               defaultItemPadding={[0.01, 0.0, 0.01, 0.01]}
               orientation={"vertical"}
             >
-              {this.renderToggle({ title: "Element 1" })}
-              {this.renderToggle({ title: "Element 2" })}
-              {this.renderToggle({ title: "Element 3" })}
+              {this.renderRadio({ title: "Element 1" })}
+              {this.renderRadio({ title: "Element 2" })}
+              {this.renderRadio({ title: "Element 3" })}
             </linearLayout>
           </toggleGroup>
         )}
         {!innerLayout && (
           <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff} debug={true}>
-            {this.renderToggle({ title: "Item 1", localPosition: [-0.125, -0.125, 0.0] })}
-            {this.renderToggle({ title: "Item 2", localPosition: [0, -0.25, 0.0] })}
-            {this.renderToggle({ title: "Item 3", localPosition: [0.125, -0.375, 0.0] })}}
+            {this.renderRadio({ title: "Item 1", localPosition: [-0.125, -0.125, 0.0] })}
+            {this.renderRadio({ title: "Item 2", localPosition: [0, -0.25, 0.0] })}
+            {this.renderRadio({ title: "Item 3", localPosition: [0.125, -0.375, 0.0] })}}
           </toggleGroup>
         )}
       </linearLayout>
