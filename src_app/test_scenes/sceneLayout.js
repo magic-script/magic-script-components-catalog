@@ -34,7 +34,7 @@ class SceneLayout extends React.Component {
     const y2 = Math.min(y1, rect.top - 0.25 * (rect.top - rect.bottom));
     const layerMarkerLinePoints = [[0.4, 0, 0], [x1, -0.1, 0], [x2, y2, 0]];
     return (
-      <view>
+      <view key={'line'}>
         <line color={[1,1,1,0.35]} points={horizontalLinePoints} />
         <line color={[1,1,1,0.35]} points={layerMarkerLinePoints} />
       </view>
@@ -58,55 +58,62 @@ class SceneLayout extends React.Component {
     };
     return (
       <view localPosition={this.props.localPosition}>
-        <text  alignment={'bottom-left'} localPosition={[-0.5, 0.8, 0]} text={'• Standalone element:'} textSize={0.08} />
-        <view localPosition={[0, 0.65, 0]}>
-          {this.renderElement({})}
+        <view key={'standalone_element'} localPosition={[0, 0.8, 0]}>
+          <text  alignment={'bottom-left'} localPosition={[-0.5, 0, 0]} text={'• Standalone element:'} textSize={0.08} />
+          <view localPosition={[0, -0.15, 0]}>
+            {this.renderElement({})}
+          </view>
         </view>
         
-        <text alignment={'bottom-left'} localPosition={[-0.5, 0.4, 0]} text={'• Element in fixed rect layout:'} textSize={0.08} />
-        <rectLayout
-          alignment={'top-center'}
-          contentAlignment={'center-center'}
-          debug
-          localPosition={[0, 0.35, 0]}
-          padding={padding}
-        >
-          {this.renderElement({})}
-        </rectLayout>
+        <view key={'fixed_rect'} localPosition={[0, 0.4, 0]}>
+          <text alignment={'bottom-left'} localPosition={[-0.5, 0.0, 0]} text={'• Element in fixed rect layout:'} textSize={0.08} />
+          <rectLayout
+            alignment={'top-center'}
+            contentAlignment={'center-center'}
+            localPosition={[0, -0.05, 0]}
+            padding={padding}
+          >
+            {this.renderElement({})}
+          </rectLayout>
+        </view>
 
-        <text alignment={'bottom-left'} localPosition={[-0.5, 0.0, 0]} text={'• Element in resizable rect layout:'} textSize={0.08} />
-        <rectLayout
-          alignment={'top-center'}
-          contentAlignment={'center-center'}
-          debug
-          localPosition={[0, -0.05, 0]}
-          padding={padding}
-          height={height}
-          width={width}
-        >
-          {this.renderElement({})}
-        </rectLayout>
-        <rectLayout
-          alignment={'top-center'}
-          contentAlignment={'center-center'}
-          localPosition={[0, -0.05, 0]}
-          height={height}
-          width={width}
-        >
-          {this.renderElement({ roundness: 0, size: maxRectSize, text: '' })}
-        </rectLayout>
+        <view key={'resizable_rect'} localPosition={[0, 0.0, 0]}>
+          <text alignment={'bottom-left'} localPosition={[-0.5, 0.0, 0]} text={'• Element in resizable rect layout:'} textSize={0.08} />
+          <rectLayout
+            alignment={'top-center'}
+            contentAlignment={'center-center'}
+            debug
+            localPosition={[0, -0.05, 0]}
+            padding={padding}
+            height={height}
+            width={width}
+          >
+            {this.renderElement({})}
+          </rectLayout>
+          <rectLayout
+            alignment={'top-center'}
+            contentAlignment={'center-center'}
+            localPosition={[0, -0.05, 0]}
+            height={height}
+            width={width}
+          >
+            {this.renderElement({ roundness: 0, size: maxRectSize, text: '' })}
+          </rectLayout>
+        </view>
 
-        <text alignment={'bottom-left'} localPosition={[-0.5, -0.6, 0]} text={`Scale: ${scale.toPrecision(2)}`} textSize={0.08} />
-        <slider 
-          localPosition={[0, -0.7, 0]}
-          value={scale}
-          min={0.3}
-          max={2.0}
-          minLabel={"scale: "}
-          width={1.0}
-          height={0.06}
-          onSliderChanged={this.onScaleSliderChanged}
-        />
+        <view key={'fixed_rect'} localPosition={[0, -0.6, 0]}>
+          <text alignment={'bottom-left'} localPosition={[-0.5, 0, 0]} text={`Scale: ${scale.toPrecision(2)}`} textSize={0.08} />
+          <slider 
+            localPosition={[0, -0.1, 0]}
+            value={scale}
+            min={0.3}
+            max={2.0}
+            minLabel={"scale: "}
+            width={1.0}
+            height={0.06}
+            onSliderChanged={this.onScaleSliderChanged}
+          />
+        </view>
 
         {this.renderHintLine(rect)}
       </view>
