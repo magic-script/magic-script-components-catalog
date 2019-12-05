@@ -26,21 +26,6 @@ class SceneLayout extends React.Component {
     );
   }
 
-  renderHintLine(rect) {
-    const horizontalLinePoints = [[0.16, 0, 0], [0.5, 0, 0]];
-    const x2 = rect.right;
-    const x1 = Math.max(x2 + 0.04, 0.35);
-    const y1 = -0.1;
-    const y2 = Math.min(y1, rect.top - 0.25 * (rect.top - rect.bottom));
-    const layerMarkerLinePoints = [[0.4, 0, 0], [x1, -0.1, 0], [x2, y2, 0]];
-    return (
-      <view key={'line'}>
-        <line color={[1,1,1,0.35]} points={horizontalLinePoints} />
-        <line color={[1,1,1,0.35]} points={layerMarkerLinePoints} />
-      </view>
-    );
-  }
-
   render() {
     const { scale } = this.state;
     const padding = [0.02, 0.02, 0.02, 0.02]; // top, right, bottom, left
@@ -50,22 +35,16 @@ class SceneLayout extends React.Component {
     const height = ElementSize.height * scale + vPadding;
     const maxScale = 2.0;
     const maxRectSize = { width: maxScale * ElementSize.width + hPadding, height: maxScale * ElementSize.height + vPadding };
-    const rect = { 
-      left: -0.5 * width,
-      right: 0.5 * width,
-      top: -0.05, 
-      bottom: -0.05 - height
-    };
     return (
       <view localPosition={this.props.localPosition}>
-        <view key={'standalone_element'} localPosition={[0, 0.8, 0]}>
+        <view key={'standalone_element'} localPosition={[0, 0.9, 0]}>
           <text  alignment={'bottom-left'} localPosition={[-0.5, 0, 0]} text={'• Standalone element:'} textSize={0.08} />
           <view localPosition={[0, -0.15, 0]}>
             {this.renderElement({})}
           </view>
         </view>
         
-        <view key={'fixed_rect'} localPosition={[0, 0.4, 0]}>
+        <view key={'fixed_rect'} localPosition={[0, 0.5, 0]}>
           <text alignment={'bottom-left'} localPosition={[-0.5, 0.0, 0]} text={'• Element in fixed rect layout:'} textSize={0.08} />
           <rectLayout
             alignment={'top-center'}
@@ -77,12 +56,11 @@ class SceneLayout extends React.Component {
           </rectLayout>
         </view>
 
-        <view key={'resizable_rect'} localPosition={[0, 0.0, 0]}>
+        <view key={'resizable_rect'} localPosition={[0, 0.1, 0]}>
           <text alignment={'bottom-left'} localPosition={[-0.5, 0.0, 0]} text={'• Element in resizable rect layout:'} textSize={0.08} />
           <rectLayout
             alignment={'top-center'}
             contentAlignment={'center-center'}
-            debug
             localPosition={[0, -0.05, 0]}
             padding={padding}
             height={height}
@@ -101,8 +79,8 @@ class SceneLayout extends React.Component {
           </rectLayout>
         </view>
 
-        <view key={'fixed_rect'} localPosition={[0, -0.6, 0]}>
-          <text alignment={'bottom-left'} localPosition={[-0.5, 0, 0]} text={`Scale: ${scale.toPrecision(2)}`} textSize={0.08} />
+        <view key={'slider'} localPosition={[0, -0.6, 0]}>
+          <text alignment={'bottom-left'} localPosition={[-0.5, 0, 0]} text={`Scale: ${scale.toFixed(2)}`} textSize={0.08} />
           <slider 
             localPosition={[0, -0.1, 0]}
             value={scale}
@@ -114,8 +92,6 @@ class SceneLayout extends React.Component {
             onSliderChanged={this.onScaleSliderChanged}
           />
         </view>
-
-        {this.renderHintLine(rect)}
       </view>
     );
   }
