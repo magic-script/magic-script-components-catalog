@@ -93,10 +93,9 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Toggle Group');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'ListView');
     // const initialIndex = this.scenes.length - 6;
-    this.state = { sceneIndex: initialIndex + 9, showGrid: false };
-    // this.state = { sceneIndex: 4, showGrid: false };
+    this.state = { sceneIndex: initialIndex , showGrid: false };
   }
 
   onNextScene = () => {
