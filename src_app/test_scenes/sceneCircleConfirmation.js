@@ -41,7 +41,7 @@ class SceneCircleConfirmation extends React.Component {
 
         {!showDialog && (
           <circleConfirmation
-            height={0.2}
+            radius={0.2}
             onConfirmationUpdated={this.onConfirmationUpdated}
             onConfirmationCompleted={this.onConfirmationCompleted}
             key={key}
