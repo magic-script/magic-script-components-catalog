@@ -62,7 +62,6 @@ class SceneLayout extends React.Component {
             alignment={'top-center'}
             contentAlignment={'center-center'}
             localPosition={[0, -0.05, 0]}
-            padding={padding}
             height={height}
             width={width}
           >

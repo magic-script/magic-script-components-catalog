@@ -102,7 +102,7 @@ class SceneAlignment extends React.Component {
 
     const propsByType = {
       button: { textSize: 0.05, text: 'Click', width: itemSize, height: 0.07, enabled: false },
-      circleConfirmation: { height: itemSize, enabled: false },
+      circleConfirmation: { radius: itemSize / 2, enabled: false },
       image: { width: itemSize, height: itemSize, color: [1,0,0,1] },
       line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,1,1,1] },
       model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
