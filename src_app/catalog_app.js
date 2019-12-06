@@ -17,6 +17,7 @@ import {
   SceneImage,
   SceneImageRemote,
   SceneImageSlider,
+  SceneLayout,
   SceneLine,
   SceneLinearLayout,
   SceneListView,
@@ -58,19 +59,20 @@ class CatalogApp extends React.Component {
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]} /> },
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
+      { name: 'Layout size', component: <SceneLayout localPosition={[0, 0, 0]} /> },
       { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
+      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'Scroll view', component: <SceneScrollView localPosition={[0, 1.0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
-      { name: 'VideoGrid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
+      { name: 'Video grid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
       { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]} /> },
       { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
-      { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Toggle Group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner localPosition={[0, 0, 0]} /> },
@@ -93,7 +95,7 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'ListView');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Layout size');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex , showGrid: false };
   }
