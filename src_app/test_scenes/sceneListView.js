@@ -72,14 +72,12 @@ class SceneListView extends React.Component {
         <linearLayout
           localPosition={[0, 0.5, 0]}
           alignment={"center-center"}
-          debug
           defaultItemAlignment={"center-center"}
-          // defaultItemPadding={[0.07, 0, 0.07, 0]}
+          defaultItemPadding={[0.07, 0, 0.07, 0]}
           orientation={"vertical"}
         >
           <toggle
             alignment={"center-center"}
-            debug
             on={false}
             textSize={0.05}
             textColor={[1, 1, 1, 1]}
@@ -89,7 +87,6 @@ class SceneListView extends React.Component {
             List view orientation
           </toggle>
           <listView
-            debug
             orientation={listViewOrientation}
             defaultItemAlignment={"center-center"}
             defaultItemPadding={[0, 0.05, 0, 0.0]}

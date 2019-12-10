@@ -65,6 +65,7 @@ class CatalogApp extends React.Component {
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
       { name: 'Scroll view', component: <SceneScrollView localPosition={[0, 1.0, 0]} /> },
+      { name: 'List view', component: <SceneListView localPosition={[0, 0, 0]} /> },
       { name: 'Local images', component: <SceneImage localPosition={[0, 0.5, 0]} /> },
       { name: 'Remote images', component: <SceneImageRemote localPosition={[0, 0, 0]} /> },
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
@@ -83,7 +84,6 @@ class CatalogApp extends React.Component {
       { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
-      { name: 'ListView', component: <SceneListView localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
       { name: 'Web view', component: <SceneWebView localPosition={[0, 0.7, 0]} /> },
@@ -95,9 +95,9 @@ class CatalogApp extends React.Component {
       { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Layout size');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'List view');
     // const initialIndex = this.scenes.length - 6;
-    this.state = { sceneIndex: initialIndex , showGrid: false };
+    this.state = { sceneIndex: initialIndex, showGrid: false };
   }
 
   onNextScene = () => {
