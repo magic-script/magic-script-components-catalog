@@ -89,8 +89,8 @@ class SceneClock extends React.Component {
     const center = { x: 0, y: 0 };
     const radius = 0.7;
     const angleSeconds = seconds * ((2 * Math.PI) / 60);
-    const angleMinutes = minutes * ((2 * Math.PI) / 60);
-    const angleHours = hours * ((2 * Math.PI) / 12);
+    const angleMinutes = (minutes + seconds / 60) * ((2 * Math.PI) / 60);
+    const angleHours = (hours + minutes / 60) * ((2 * Math.PI) / 12);
     return (
       <view localPosition={this.props.localPosition}>
         {this.renderItems(center, 0.9 * radius)}
