@@ -26,7 +26,6 @@ import {
   ScenePageView,
   SceneProgressBar,
   SceneRectLayout,
-  SceneRemote,
   SceneScrollBar,
   SceneScrollView,
   SceneSlider,
@@ -91,11 +90,9 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
-      { name: 'Calendar (local)', component: <CalendarView localPosition={[0, 0, 0]} /> },
-      { name: 'Calendar (remote)', component: <SceneRemote /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Layout size');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Clock');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
