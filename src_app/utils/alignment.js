@@ -10,7 +10,21 @@ const Alignment = {
   bottomLeft: 'bottom-left',
   bottomCenter: 'bottom-center',
   bottomRight: 'bottom-right',
+  next: (alignment) => {
+    const index = AlignmentList.indexOf(alignment);
+    return AlignmentList[(index + 1) % AlignmentList.length];
+  },
+  prev: (alignment) => {
+    const index = AlignmentList.indexOf(alignment);
+    return AlignmentList[(index + AlignmentList.length - 1) % AlignmentList.length];
+  }
 };
+
+const AlignmentList = [
+  Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
+  Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
+  Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
+];
 
 class AlignmentGroup extends React.Component {
   static defaultProps = {
@@ -21,17 +35,17 @@ class AlignmentGroup extends React.Component {
   };
 
   onVerticalAlignmentChanged = (text) => {
-    const elements = alignment.split('-');
+    const elements = this.props.alignment.split('-');
     if (elements.length > 0) {
-      const newAlignment = `${elements[0]}-${text}`;
+      const newAlignment = `${text}-${elements[1]}`;
       this.props.onAlignmentChanged(newAlignment);
     }
   }
 
   onHorizontalAlignmentChanged = (text) => {
-    const elements = alignment.split('-');
+    const elements = this.props.alignment.split('-');
     if (elements.length > 1) {
-      const newAlignment = `${text}-${elements[1]}`;
+      const newAlignment = `${elements[0]}-${text}`;
       this.props.onAlignmentChanged(newAlignment);
     }
   }
@@ -61,26 +75,16 @@ class AlignmentGroup extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <text textSize={0.08}>{this.props.title}</text>
-        <gridLayout 
-          debug
-          alignment={'top-left'}
-          defaultItemPadding={[0, 0.05, 0, 0]}
-        >
+        <gridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
           <toggleGroup>
-            <linearLayout 
-              debug={true}
-              orientation={'vertical'}
-            >
+            <linearLayout orientation={'vertical'}>
               {this.renderRadio('top', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('center', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('bottom', verticalAlignment, this.onVerticalAlignmentChanged)}
             </linearLayout>
           </toggleGroup>
           <toggleGroup>
-            <linearLayout  
-              debug={true}
-              orientation={'vertical'}
-            >
+            <linearLayout orientation={'vertical'}>
               {this.renderRadio('left', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('center', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('right', horizontalAlignment, this.onHorizontalAlignmentChanged)}

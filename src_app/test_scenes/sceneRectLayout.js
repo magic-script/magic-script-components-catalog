@@ -1,64 +1,53 @@
 import React from 'react';
 import { Alignment, AlignmentGroup } from '../utils/alignment';
 
+const ContentSizes = [
+  { width: 0.25, height: 0.25 },
+  { width: 0.5, height: 0.25 },
+  { width: 0.25, height: 0.5 },
+];
+
 class SceneRectLayout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { alignment: Alignment.topLeft, contentAlignment: Alignment.topLeft, width: 0.25, height: 0.25 };
+    this.state = { alignment: Alignment.centerCenter, contentAlignment: Alignment.topRight, contentSizeIndex: 0, width: 0.25, height: 0.25 };
+    this.interval = 0.5;
   }
 
-  // selectNextContentAlignment = () => {
-  //   const alignments = [
-  //     Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
-  //     Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
-  //     Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
-  //   ];
+  componentDidMount() {
+    this.handler = setInterval(this.updateAlignment, this.interval * 1000);
+  }
 
-  //   const currentIndex = alignments.indexOf(this.state.contentAlignment);
-  //   const nextIndex = (currentIndex + 1) % alignments.length;
-  //   this.setState({ contentAlignment: alignments[nextIndex].toString() });
-  // }
+  componentWillUnmount() {
+    clearInterval(this.handler), this.handler = null;
+  }
 
-  // selectNextAlignment = () => {
-  //   const alignments = [
-  //     Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
-  //     Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
-  //     Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
-  //   ];
-
-  //   const currentIndex = alignments.indexOf(this.state.alignment);
-  //   const nextIndex = (currentIndex + 1) % alignments.length;
-  //   this.setState({ alignment: alignments[nextIndex].toString() });
-  // }
-
-  // selectNextSize = () => {
-  //   const widths  = [0.5, 1.5, 0.6];
-  //   const heights = [0.5, 0.6, 1.5];
-
-  //   const currentWidthIndex  = widths.indexOf(this.state.width)
-  //   const currentHeightIndex = heights.indexOf(this.state.height)
-
-  //   const nextWidthIndex  = (currentWidthIndex + 1) % widths.length
-  //   const nextHeightIndex = (currentHeightIndex + 1) % heights.length
-
-  //   this.setState({ width: widths[nextWidthIndex], height: heights[nextHeightIndex]})
-  // }
+  updateAlignment = () => {
+    this.setState({ contentAlignment: Alignment.next(this.state.contentAlignment) });
+  }
 
   onAlignmentChanged = (alignment) => {
+    clearInterval(this.handler), this.handler = null;
     this.setState({ alignment });
   }
 
-  onAContentAlignmentChanged = (alignment) => {
+  onContentAlignmentChanged = (alignment) => {
+    clearInterval(this.handler), this.handler = null;
     this.setState({ contentAlignment: alignment });
   }
 
-  renderButton({width, height}) {
+  onContentSizeChanged = (index) => {
+    this.setState({ contentSizeIndex: index });
+  }
+
+  renderButton(size) {
     return (
       <button
         localPosition={[0, 0, 0.01]}
-        width={width}
-        height={height}
+        width={size.width}
+        height={size.height}
         roundness={0.0}
+        textSize={0.08}
       >Button</button>
     );
   }
@@ -76,15 +65,29 @@ class SceneRectLayout extends React.Component {
     );
   }
 
-  render() {
-    const { contentAlignment, alignment, width, height } = this.state
+  renderRadio(index, selectedIndex, onChanged) {
+    const contentSize = ContentSizes[index];
+    const on = (index === selectedIndex);
+    return (
+      <toggle
+        height={0.075}
+        on={on}
+        text={`${contentSize.width} x ${contentSize.height} m`}
+        textSize={0.075}
+        type={'radio'}
+        onToggleChanged={() => onChanged(index)}
+      />
+    );
+  }
 
-    const rectPosition = [0, 0.5, 0]
-    const alignmentSectionPosition = [-0.5, -0.2, 0]
-    const contentAlignmentSectionPosition = [-0.5, -0.6, 0]
+  render() {
+    const { contentAlignment, alignment, contentSizeIndex, width, height } = this.state
+
+    const rectPosition = [0, 0.5, 0];
+    const alignmentSectionPosition = [-0.5, -0.2, 0];
+    const contentAlignmentSectionPosition = [-0.5, -0.6, 0];
+    const contentSizeSectionPosition = [-0.5, -1.0, 0];
     const rectSize = { width: 0.5, height: 0.5 };
-    const textRect = `Rect: alignment=${alignment} contentAlignment=${contentAlignment} width=${rectSize.width}, height=${rectSize.height}`
-    const textChild = `Content: width=${width} height=${height}`
 
     return (
       <view localPosition={this.props.localPosition}>
@@ -103,38 +106,36 @@ class SceneRectLayout extends React.Component {
           width={rectSize.width}
           height={rectSize.height}
         >
-          {this.renderButton({ width: width, height: height })}
+          {this.renderButton(ContentSizes[contentSizeIndex])}
         </rectLayout>
 
         {this.renderGrid(rectPosition, 1.0)}
 
-        {/* <linearLayout alignment={'top-center'} localPosition={[0, -0.5, 0.0]}>
-          <button
-            textSize={0.08}
-            roundness={0.0}
-            onClick={this.selectNextContentAlignment}>Change contentAlignment</button>
-          <button
-            textSize={0.08}
-            roundness={0.0}
-            onClick={this.selectNextAlignment}>Change rect alignment</button>
-          <button
-            textSize={0.08}
-            roundness={0.0}
-            onClick={this.selectNextSize}>Change content size</button>
-        </linearLayout> */}
-
         <AlignmentGroup 
-          alignment={'center-center'}
+          alignment={alignment}
           localPosition={alignmentSectionPosition}
           onAlignmentChanged={this.onAlignmentChanged}
           title={'Alignment:'}  
         />
         <AlignmentGroup 
-          alignment={'top-center'}
+          alignment={contentAlignment}
           localPosition={contentAlignmentSectionPosition}
           onAlignmentChanged={this.onContentAlignmentChanged}
           title={'Content alignment:'} 
         />
+
+        <view localPosition={contentSizeSectionPosition}>
+          <text textSize={0.08}>Content size:</text>
+          <gridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
+            <toggleGroup>
+              <linearLayout orientation={'vertical'}>
+                {this.renderRadio(0, contentSizeIndex, this.onContentSizeChanged)}
+                {this.renderRadio(1, contentSizeIndex, this.onContentSizeChanged)}
+                {this.renderRadio(2, contentSizeIndex, this.onContentSizeChanged)}
+              </linearLayout>
+            </toggleGroup>
+          </gridLayout>
+        </view>
       </view>
     )
   }
