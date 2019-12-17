@@ -1,16 +1,5 @@
 import React from 'react';
-
-const Alignment = {
-  topLeft: 'top-left',
-  topCenter: 'top-center',
-  topRight: 'top-right',
-  centerLeft: 'center-left',
-  centerCenter: 'center-center',
-  centerRight: 'center-right',
-  bottomLeft: 'bottom-left',
-  bottomCenter: 'bottom-center',
-  bottomRight: 'bottom-right',
-};
+import { Alignment } from '../utils/alignment';
 
 class SceneAlignment extends React.Component {
   constructor(props) {

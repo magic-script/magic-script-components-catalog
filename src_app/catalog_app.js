@@ -59,7 +59,7 @@ class CatalogApp extends React.Component {
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
       { name: 'Layout size', component: <SceneLayout localPosition={[0, 0, 0]} /> },
-      { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0, 0]} /> },
+      { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0.0, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
@@ -92,7 +92,7 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Clock');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
