@@ -59,7 +59,7 @@ class CatalogApp extends React.Component {
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
       { name: 'Layout size', component: <SceneLayout localPosition={[0, 0, 0]} /> },
-      { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0, 0]} /> },
+      { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0.0, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
       { name: 'Grid layout', component: <SceneGridLayout localPosition={[0, 1.0, 0]} /> },
       { name: 'Scroll bar', component: <SceneScrollBar localPosition={[0, 0, 0]} /> },
@@ -85,14 +85,14 @@ class CatalogApp extends React.Component {
       { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
-      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.7, 0]} /> },
+      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.8, 0]} /> },
       { name: 'Page view', component: <ScenePageView localPosition={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Clock');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
