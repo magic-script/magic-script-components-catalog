@@ -85,14 +85,14 @@ class CatalogApp extends React.Component {
       { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio localPosition={[0, 0, 0]} /> },
       { name: 'Dialog', component: <SceneDialog localPosition={[0, 0, 0]} /> },
-      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.7, 0]} /> },
+      { name: 'Web view', component: <SceneWebView localPosition={[0, 0.8, 0]} /> },
       { name: 'Page view', component: <ScenePageView localPosition={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
