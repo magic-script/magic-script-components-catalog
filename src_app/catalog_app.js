@@ -94,18 +94,9 @@ class CatalogApp extends React.Component {
       { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
-    // const initialIndex = this.scenes.length - 6;
-=======
+    // const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
     // const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
     const initialIndex = this.scenes.length -1;
->>>>>>> Stashed changes
-=======
-    // const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
-    const initialIndex = this.scenes.length -1;
->>>>>>> Stashed changes
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
 
