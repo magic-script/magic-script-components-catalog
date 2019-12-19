@@ -43,6 +43,7 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
+  SceneFilePicker,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -90,10 +91,21 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
+      { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
     // const initialIndex = this.scenes.length - 6;
+=======
+    // const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
+    const initialIndex = this.scenes.length -1;
+>>>>>>> Stashed changes
+=======
+    // const initialIndex = this.scenes.findIndex((item) => item.name == 'Rect layout');
+    const initialIndex = this.scenes.length -1;
+>>>>>>> Stashed changes
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
 
