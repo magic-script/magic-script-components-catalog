@@ -61,10 +61,9 @@ class SceneToggleGroup extends React.Component {
       >
         <text text={title} textAlignment={'left'} textSize={0.06} />
         {innerLayout && (
-          <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff} debug={true}>
+          <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
             <linearLayout 
               alignment={'center-center'} 
-              debug={true}
               defaultItemPadding={[0.01, 0.0, 0.01, 0.01]}
               orientation={'vertical'}
             >
@@ -75,7 +74,7 @@ class SceneToggleGroup extends React.Component {
           </toggleGroup>
         )}
         {!innerLayout && (
-          <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff} debug={true}>
+          <toggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
             {this.renderRadio({ title: 'Item 1', localPosition: [-0.125, -0.125, 0.0] })}
             {this.renderRadio({ title: 'Item 2', localPosition: [0, -0.25, 0.0] })}
             {this.renderRadio({ title: 'Item 3', localPosition: [0.125, -0.375, 0.0] })}
@@ -93,7 +92,6 @@ class SceneToggleGroup extends React.Component {
           defaultItemAlignment={'center-right'}
           defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
           orientation={'vertical'} 
-          debug={true}
         >
           {this.renderSettingsPanel()}
           {this.renderPresentationPanel()}
