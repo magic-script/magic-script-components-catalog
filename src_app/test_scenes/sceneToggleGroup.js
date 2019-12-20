@@ -18,7 +18,7 @@ class SceneToggleGroup extends React.Component {
         text={title}
         textSize={0.075}
         type={'radio'}
-        onToggleChanged={e => console.log('onToggleChanged event received: ', e)}
+        onToggleChanged={(e) => console.log(`${title}.onToggleChanged event received: ${e.On}`)}
       />
     );
   }
