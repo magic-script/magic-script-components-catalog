@@ -38,3 +38,4 @@ export * from './sceneTransformations';
 export * from './sceneVideo';
 export * from './sceneVideoGrid';
 export * from './sceneWebView';
+export * from './sceneFilePicker'
