@@ -43,6 +43,7 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
+  SceneFilePicker,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -90,6 +91,7 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
+      // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
     const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
