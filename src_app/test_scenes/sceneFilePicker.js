@@ -16,7 +16,7 @@ class SceneFilePicker extends React.Component {
     };
 
     onAudioSelected = event => {
-        this.setState({ fileName: event.filePath })
+        this.setState({ audio: event.filePath })
     };
 
     onMute = event => {
