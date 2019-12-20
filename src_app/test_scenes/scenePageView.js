@@ -59,7 +59,7 @@ class ScenePageView extends React.Component {
     ];
     return (
       <view localPosition={this.props.localPosition}>
-        <linearLayout alignment={'top-center'} orientation={'vertical'}>
+        <linearLayout defaultItemAlignment={'top-center'} alignment={'top-center'} orientation={'vertical'}>
           <linearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={'horizontal'}>
             {this.colors.map((item, index) => this.renderTab(item, index, pageSize.width, tabHeight))}
           </linearLayout>
