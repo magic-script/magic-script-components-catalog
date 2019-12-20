@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
-  CalendarView,
   GameTicTacToe,
   SceneAlignment,
   SceneAudio,
@@ -92,7 +91,7 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Web view');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Toggle Group');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
