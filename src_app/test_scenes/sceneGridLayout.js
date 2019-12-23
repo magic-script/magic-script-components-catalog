@@ -9,25 +9,10 @@ class SceneGridLayout extends React.Component {
     this.state = { width: 0, height: 0, padding: [0,0,0,0], alignment: Alignment.centerCenter };
   }
 
-  onPaddingChanged = (padding) => { 
-    this.setState({ padding }); 
-  }
-  // onTopToggleChanged = () => { this.togglePaddingAt(0); }
-  // onRightToggleChanged = () => { this.togglePaddingAt(1); }
-  // onBottomToggleChanged = () => { this.togglePaddingAt(2); }
-  // onLeftToggleChanged = () => { this.togglePaddingAt(3); }
-  // togglePaddingAt(index) {
-  //   var values = [...this.state.padding];
-  //   values[index] = Math.abs(values[index] - 0.04);
-  //   this.setState({ padding: values });
-  // }
-
-  onWidthToogleChanged = (event) => { this.setState({ width: event.On ? 1 : 0 }); }
-  onHeightToogleChanged = (event) => { this.setState({ height: event.On ? 1 : 0 }); }
-
-  onItemsAlignmentChanged = (alignment) => {
-    this.setState({ alignment });
-  }
+  onItemsAlignmentChanged = (alignment) => this.setState({ alignment });
+  onPaddingChanged = (padding) => this.setState({ padding });  
+  onWidthToogleChanged = (event) => this.setState({ width: event.On ? 1 : 0 });
+  onHeightToogleChanged = (event) => this.setState({ height: event.On ? 1 : 0 });
 
   render () {
     const { width, height, padding, alignment } = this.state;
