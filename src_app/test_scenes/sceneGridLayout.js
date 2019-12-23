@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alignment, AlignmentGroup } from '../utils/alignment';
+import { PaddingGroup } from '../utils/padding';
 
 class SceneGridLayout extends React.Component {
   constructor(props) {
@@ -8,15 +9,18 @@ class SceneGridLayout extends React.Component {
     this.state = { width: 0, height: 0, padding: [0,0,0,0], alignment: Alignment.centerCenter };
   }
 
-  onTopToggleChanged = () => { this.togglePaddingAt(0); }
-  onRightToggleChanged = () => { this.togglePaddingAt(1); }
-  onBottomToggleChanged = () => { this.togglePaddingAt(2); }
-  onLeftToggleChanged = () => { this.togglePaddingAt(3); }
-  togglePaddingAt(index) {
-    var values = [...this.state.padding];
-    values[index] = Math.abs(values[index] - 0.04);
-    this.setState({ padding: values });
+  onPaddingChanged = (padding) => { 
+    this.setState({ padding }); 
   }
+  // onTopToggleChanged = () => { this.togglePaddingAt(0); }
+  // onRightToggleChanged = () => { this.togglePaddingAt(1); }
+  // onBottomToggleChanged = () => { this.togglePaddingAt(2); }
+  // onLeftToggleChanged = () => { this.togglePaddingAt(3); }
+  // togglePaddingAt(index) {
+  //   var values = [...this.state.padding];
+  //   values[index] = Math.abs(values[index] - 0.04);
+  //   this.setState({ padding: values });
+  // }
 
   onWidthToogleChanged = (event) => { this.setState({ width: event.On ? 1 : 0 }); }
   onHeightToogleChanged = (event) => { this.setState({ height: event.On ? 1 : 0 }); }
@@ -31,18 +35,29 @@ class SceneGridLayout extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
 
-        <view localPosition={[-0.5, 0, 0]} >
-            <text localPosition={[0, 0, 0]} alignment={'center-center'} textSize={0.08}>Set size:</text>
-            <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>1m width</toggle>
-            <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>1m height</toggle>
-        </view>
+        <view localPosition={[0, -0.1, 0]}>
+          <AlignmentGroup 
+            alignment={alignment}
+            localPosition={[-0.7, 0, 0]}
+            onAlignmentChanged={this.onItemsAlignmentChanged}
+            title={'Set items alignment:'} 
+          />
 
-        <view localPosition={[0.3, 0, 0]} >
-          <text localPosition={[0, 0, 0]} textSize={0.08} alignment={'center-left'}>Set items padding:</text>
-          <toggle localPosition={[0.4, -0.1, 0]} textSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</toggle>
-          <toggle localPosition={[0.4, -0.2, 0]} textSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</toggle>
-          <toggle localPosition={[0.4, -0.3, 0]} textSize={0.08} height={0.1} on={padding[2] > 0} onToggleChanged={this.onBottomToggleChanged}>bottom</toggle>
-          <toggle localPosition={[0.4, -0.4, 0]} textSize={0.08} height={0.1} on={padding[3] > 0} onToggleChanged={this.onLeftToggleChanged}>left</toggle>
+          <PaddingGroup 
+            values={[0.04, 0.04, 0.04, 0.04]}
+            localPosition={[0.1, 0, 0]}
+            onPaddingChanged={this.onPaddingChanged}
+            title={'Set items padding:'} 
+          />
+
+          <view localPosition={[0, -0.4, 0]} >
+            <text localPosition={[0, 0, 0]} alignment={'center-center'} textSize={0.075}>Set size:</text>
+            <toggle type={'checkbox'} localPosition={[-0.1, -0.1, 0]} textSize={0.075} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>width: 1m</toggle>
+            <toggle type={'checkbox'} localPosition={[-0.1, -0.2, 0]} textSize={0.075} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>height: 1m</toggle>
+          </view>
+
+          <line color={[1,1,1,1]} points={[[0, 0.1, 0], [0, -0.3, 0]]} />
+          <line color={[1,1,1,1]} points={[[-0.7, -0.3, 0], [0.7, -0.3, 0]]} />
         </view>
 
          {/* 
@@ -59,7 +74,7 @@ class SceneGridLayout extends React.Component {
           columns={columns}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}
-          localPosition={[0, -0.7, 0]}
+          localPosition={[0, -0.9, 0]}
         >
          
           <text debug textSize={0.15}>Item 1</text>
@@ -81,13 +96,6 @@ class SceneGridLayout extends React.Component {
           </gridLayout>
 
         </gridLayout>
-
-        <AlignmentGroup 
-          alignment={alignment}
-          localPosition={[-0.5, -2.2, 0]}
-          onAlignmentChanged={this.onItemsAlignmentChanged}
-          title={'Set items alignment:'} 
-        />        
       </view>
     );
   }
