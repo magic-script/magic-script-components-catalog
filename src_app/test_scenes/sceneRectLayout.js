@@ -10,7 +10,7 @@ const ContentSizes = [
 class SceneRectLayout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { alignment: Alignment.centerCenter, contentAlignment: Alignment.topRight, contentSizeIndex: 0, width: 0.25, height: 0.25 };
+    this.state = { alignment: Alignment.centerCenter, contentAlignment: Alignment.topRight, contentSizeIndex: 0 };
     this.interval = 0.5;
   }
 
@@ -19,20 +19,21 @@ class SceneRectLayout extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.handler), this.handler = null;
+    clearInterval(this.handler);
   }
 
   updateAlignment = () => {
+    console.log('next: ', Alignment.next(this.state.contentAlignment));
     this.setState({ contentAlignment: Alignment.next(this.state.contentAlignment) });
   }
 
   onAlignmentChanged = (alignment) => {
-    clearInterval(this.handler), this.handler = null;
+    console.log('onAlignmentChanged');
     this.setState({ alignment });
   }
 
   onContentAlignmentChanged = (alignment) => {
-    clearInterval(this.handler), this.handler = null;
+    console.log('onContentAlignmentChanged');
     this.setState({ contentAlignment: alignment });
   }
 
@@ -43,6 +44,7 @@ class SceneRectLayout extends React.Component {
   renderButton(size) {
     return (
       <button
+        key={`${size.width}x${size.height}`}
         localPosition={[0, 0, 0.01]}
         width={size.width}
         height={size.height}
@@ -81,7 +83,7 @@ class SceneRectLayout extends React.Component {
   }
 
   render() {
-    const { contentAlignment, alignment, contentSizeIndex, width, height } = this.state
+    const { contentAlignment, alignment, contentSizeIndex } = this.state
 
     const rectPosition = [0, 0.5, 0];
     const alignmentSectionPosition = [-0.5, -0.2, 0];
@@ -93,7 +95,7 @@ class SceneRectLayout extends React.Component {
       <view localPosition={this.props.localPosition}>
         <image 
           alignment={alignment} 
-          color={[0.25, 1, 0.50, 0.8]}
+          color={[0.1, 0.25, 0.50, 0.8]}
           localPosition={rectPosition} 
           useFrame={true}
           width={rectSize.width}

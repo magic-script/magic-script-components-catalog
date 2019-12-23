@@ -59,7 +59,11 @@ class AlignmentGroup extends React.Component {
         text={title}
         textSize={0.075}
         type={'radio'}
-        onToggleChanged={() => onChanged(title)}
+        onToggleChanged={(e) => { 
+          if (e.On) { 
+            onChanged(title); 
+          }
+        }}
       />
     );
   }
