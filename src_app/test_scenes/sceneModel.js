@@ -25,16 +25,16 @@ class SceneModel extends React.Component {
           <text textSize={0.08}>Animated</text>
 
           <text textSize={0.08}>.obj</text>
-          <model modelPath={require('../../resources/models/static.obj')} localScale={[0.05, 0.05, 0.05]} />
+          <model debug modelPath={require('../../resources/models/static.obj')} localScale={[0.1, 0.1, 0.1]} />
           <text textSize={0.08}>Not supported</text>
 
           <text textSize={0.08}>.gltf</text>
-          <model modelPath={require('../../resources/models/static.gltf')} localScale={[0.05, 0.05, 0.05]} />
-          <model modelPath={require('../../resources/models/animated.gltf')} localScale={[0.05, 0.05, 0.05]} />
+          <model debug modelPath={require('../../resources/models/static.gltf')} localScale={[0.1, 0.1, 0.1]} />
+          <model debug modelPath={require('../../resources/models/animated.gltf')} localScale={[0.1, 0.1, 0.1]} />
 
           <text textSize={0.08}>.glb</text>
-          <model modelPath={require('../../resources/models/static.glb')} localScale={[0.15, 0.15, 0.15]} />
-          <model modelPath={require('../../resources/models/animated.glb')} localScale={[0.005, 0.005, 0.005]} />
+          <model debug modelPath={require('../../resources/models/static.glb')} localScale={[0.15, 0.15, 0.15]} />
+          <model debug modelPath={require('../../resources/models/animated.glb')} localScale={[0.1, 0.1, 0.1]} />
         </gridLayout>
         
       </view>
