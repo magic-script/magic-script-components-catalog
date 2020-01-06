@@ -36,6 +36,7 @@ class SceneAlignment extends React.Component {
     return (
       <scrollView 
         alignment={alignment} 
+        enabled={false}
         scrollBounds={aabb}
         scrollBarVisibility={'always'} 
         scrollDirection={'vertical'}
@@ -47,7 +48,7 @@ class SceneAlignment extends React.Component {
           <image width={size} height={size} color={[0.5,1,1,1]}/>
           <image width={size} height={size} color={[1,1,1,1]}/>
         </gridLayout>
-        <scrollBar orientation={'vertical'} width={size}/>
+        <scrollBar orientation={'vertical'} width={size} localPosition={[0.5 * size, 0, 0]}/>
       </scrollView>
     );
   }
