@@ -109,9 +109,9 @@ class CatalogApp extends React.Component {
   }
 
   onSceneSelected = event => {
-    if (event.selectedItems.length > 0) {
-      const index = event.selectedItems[0];
-      this.setState({ sceneIndex: index });
+    if (event.SelectedItems.length > 0) {
+      const item = event.SelectedItems[0];
+      this.setState({ sceneIndex: item.id });
     }
   }
 
@@ -126,7 +126,7 @@ class CatalogApp extends React.Component {
   }
 
   renderDropdownItems() {
-    return this.scenes.map((scene, index) => <DropdownListItem key={index} label={scene.name}/>)
+    return this.scenes.map((scene, index) => <DropdownListItem key={index} id={index} label={scene.name}/>)
   }
 
   render() {
@@ -136,7 +136,7 @@ class CatalogApp extends React.Component {
       <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
         <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
-          <DropdownList alignment={'top-center'} height={0.15} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
+          <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
             {this.renderDropdownItems()}
           </DropdownList>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
