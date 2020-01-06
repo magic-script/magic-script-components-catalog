@@ -7,6 +7,7 @@ import {
   SceneAudio,
   SceneButton,
   SceneButtonOutline,
+  SceneCircleConfirmation,
   SceneClock,
   SceneColorPicker,
   SceneDatePicker,
@@ -29,12 +30,10 @@ import {
   SceneScrollView,
   SceneSlider,
   SceneSpinner,
-  SceneCircleConfirmation,
   SceneSystemIcons,
   SceneText,
   SceneTextCharacters,
   SceneTextEdit,
-  SceneTextLetters,
   SceneTimePicker,
   SceneToggle,
   SceneToggleGroup,
@@ -50,8 +49,7 @@ class CatalogApp extends React.Component {
     super(props);
 
     this.scenes = [
-      { name: 'Letters', component: <SceneTextLetters localPosition={[0, 0.75, 0]} /> },
-      { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0.75, 0]} /> },
+      { name: 'Characters', component: <SceneTextCharacters localPosition={[0, 0, 0]} /> },
       { name: 'Icons', component: <SceneSystemIcons /> },
       { name: 'Text', component: <SceneText localPosition={[0, 0.5, 0]} /> },
       { name: 'Alignment', component: <SceneAlignment localPosition={[0, 0.5, 0]} /> },
@@ -93,7 +91,7 @@ class CatalogApp extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Toggle group');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
