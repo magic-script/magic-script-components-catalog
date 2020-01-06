@@ -20,7 +20,7 @@ class SceneModel extends React.Component {
           width={1}
           height={1}
         >
-          <text textSize={0.08}></text>
+          <text textSize={0.08}>#</text>
           <text textSize={0.08}>Static</text>
           <text textSize={0.08}>Animated</text>
 
