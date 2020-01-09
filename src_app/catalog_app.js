@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
@@ -106,6 +107,34 @@ class CatalogApp extends React.Component {
     const { sceneIndex } = this.state;
     const prevIndex = (sceneIndex > 0) ? sceneIndex - 1 : this.scenes.length - 1;
     this.setState({ sceneIndex: prevIndex });
+  }
+
+  componentDidMount() {
+    if (Platform.OS === 'android') {
+      Linking.getInitialURL().then(url => {
+        this.navigate(url);
+      }).catch(err => {
+        console.warn('An error occurred', err);
+      });
+    } else {
+      Linking.addEventListener('url', this.handleOpenIOSURL);
+    }
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenIOSURL);
+  }
+
+  handleOpenIOSURL = (event) => {
+    this.navigate(event.url)
+  }
+
+  navigate = (url) => {
+    if (url != null) {
+      const route = url.replace(/.*?:\/\//g, '');
+      const id = route.match(/\/([^\/]+)\/?$/)[1];
+      this.setState({ sceneIndex: parseInt(id) })
+    }
   }
 
   onShowGridAction = () => {
