@@ -23,7 +23,8 @@ module.exports = {
       // 3D Model formats
       "glb",
 	    "obj",
-	    "gltf"
+      "gltf",
+      "sfb"
     ]
   },
 };
