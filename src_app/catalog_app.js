@@ -77,7 +77,7 @@ class CatalogApp extends React.Component {
       { name: 'Circle confirmation', component: <SceneCircleConfirmation localPosition={[0, 0.5, 0]} /> },
       { name: 'Progress bar', component: <SceneProgressBar localPosition={[0, 0.7, 0]} /> },
       { name: 'Slider', component: <SceneSlider localPosition={[0, 0, 0]} /> },
-      { name: 'DropdownList', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
+      { name: 'Dropdown list', component: <SceneDropdownList localPosition={[0, 0, 0]} /> },
       { name: 'DatePicker', component: <SceneDatePicker localPosition={[0, 0, 0]} /> },
       { name: 'TimePicker', component: <SceneTimePicker localPosition={[0, 0, 0]} /> },
       { name: 'ColorPicker', component: <SceneColorPicker localPosition={[0, 0, 0]} /> },
@@ -91,7 +91,7 @@ class CatalogApp extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Dropdown list');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
@@ -126,7 +126,7 @@ class CatalogApp extends React.Component {
   }
 
   renderDropdownItems() {
-    return this.scenes.map((scene, index) => <DropdownListItem key={index} id={index} label={scene.name}/>)
+    return this.scenes.map((scene, index) => <DropdownListItem key={index} id={index} label={scene.name.replace(/\n/g, ' ')}/>)
   }
 
   render() {
