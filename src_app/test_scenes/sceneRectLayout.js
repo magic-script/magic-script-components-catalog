@@ -23,17 +23,14 @@ class SceneRectLayout extends React.Component {
   }
 
   updateAlignment = () => {
-    console.log('next: ', Alignment.next(this.state.contentAlignment));
     this.setState({ contentAlignment: Alignment.next(this.state.contentAlignment) });
   }
 
   onAlignmentChanged = (alignment) => {
-    console.log('onAlignmentChanged');
     this.setState({ alignment });
   }
 
   onContentAlignmentChanged = (alignment) => {
-    console.log('onContentAlignmentChanged');
     this.setState({ contentAlignment: alignment });
   }
 
