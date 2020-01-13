@@ -91,7 +91,7 @@ class CatalogApp extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Dropdown list');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
     // const initialIndex = this.scenes.length - 6;
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
