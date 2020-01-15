@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Linking } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native';
 import { ARView } from 'magic-script-components-react-native';
 import { setInitialDeeplink } from '../../global/globalVariables'
