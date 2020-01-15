@@ -48,7 +48,7 @@ class SceneAlignment extends React.Component {
           <image width={size} height={size} color={[128,255,255,1]}/>
           <image width={size} height={size} color={[255,255,255,1]}/>
         </gridLayout>
-        <scrollBar orientation={'vertical'} width={size} localPosition={[0.5 * size, 0, 0]}/>
+        <scrollBar orientation={'vertical'} length={size} localPosition={[0.5 * size, 0, 0]}/>
       </scrollView>
     );
   }
@@ -93,11 +93,11 @@ class SceneAlignment extends React.Component {
     const propsByType = {
       button: { textSize: 0.05, text: 'Click', width: itemSize, height: 0.07, enabled: false },
       circleConfirmation: { radius: 0.5 * itemSize, enabled: false },
-      image: { width: itemSize, height: itemSize, color: [1,0,0,1] },
+      image: { width: itemSize, height: itemSize, color: 'red' },
       line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,255,255,1] },
       model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
-      scrollBar: { width: itemSize, height: 0.2 * itemSize, thumbPosition: 0.9 },
+      scrollBar: { length: itemSize, thickness: 0.2 * itemSize, thumbPosition: 0.9 },
       slider: { width: itemSize, height: 0.2 * itemSize, value: 0.3, enabled: false },
       spinner: { size: [itemSize, itemSize], value: 0.5 }, 
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },

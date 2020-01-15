@@ -59,7 +59,7 @@ class SceneScrollView extends React.Component {
           scrollDirection={direction}
           scrollValue={scrollValue}
         >
-          <scrollBar localPosition={scrollBarPosition} orientation={orientation} width={scrollBarLength} height={scrollBarThickness} />
+          <scrollBar localPosition={scrollBarPosition} orientation={orientation} length={scrollBarLength} thickness={scrollBarThickness} />
           <linearLayout alignment={alignment} defaultItemAlignment={'center-center'} orientation={orientation}>
             <image width={size} height={size} color={[255,255,128,alpha]}/>
             <image width={size} height={size} color={[255,128,255,alpha]}/>
