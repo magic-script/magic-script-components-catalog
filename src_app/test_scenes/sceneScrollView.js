@@ -61,14 +61,14 @@ class SceneScrollView extends React.Component {
         >
           <scrollBar localPosition={scrollBarPosition} orientation={orientation} width={scrollBarLength} height={scrollBarThickness} />
           <linearLayout alignment={alignment} defaultItemAlignment={'center-center'} orientation={orientation}>
-            <image width={size} height={size} color={[1,1,0.5,alpha]}/>
-            <image width={size} height={size} color={[1,0.5,1,alpha]}/>
-            <image width={size} height={size} color={[0.5,1,1,alpha]}/>
-            <image width={size} height={size} color={[1,0.5,0.5,alpha]}/>
-            <image width={size} height={size} color={[0.5,0.5,1,alpha]}/>
-            <image width={size} height={size} color={[0.5,1,0.5,alpha]}/>
-            <image width={size} height={size} color={[0.75,.75,0.75,alpha]}/>
-            <image width={size} height={size} color={[1,1,1,alpha]}/>
+            <image width={size} height={size} color={[255,255,128,alpha]}/>
+            <image width={size} height={size} color={[255,128,255,alpha]}/>
+            <image width={size} height={size} color={[128,255,255,alpha]}/>
+            <image width={size} height={size} color={[255,128,128,alpha]}/>
+            <image width={size} height={size} color={[128,128,255,alpha]}/>
+            <image width={size} height={size} color={[128,255,128,alpha]}/>
+            <image width={size} height={size} color={[192,192,192,alpha]}/>
+            <image width={size} height={size} color={[255,255,255,alpha]}/>
           </linearLayout>
         </scrollView>
 

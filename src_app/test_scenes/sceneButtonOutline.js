@@ -12,7 +12,7 @@ class SceneButtonOutline extends React.Component {
           key={`button_${i}`}
           enabled={false}
           textSize={textSize} 
-          textColor={[1,1,1,0]}
+          textColor={[255,255,255,0]}
         >{`${i}`}</button>
       );
     }

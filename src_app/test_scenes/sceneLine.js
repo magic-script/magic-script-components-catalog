@@ -42,10 +42,10 @@ class SceneLine extends React.Component {
 	}
 	
   render() {
-	const { points } = this.state;
+	  const { points } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
-        <line localPosition={[0, 0.4, 0]} points={points} color={[1, 1, 0.3, 1]}/>
+        <line localPosition={[0, 0.4, 0]} points={points} color={[255, 255, 76, 1]}/>
         <button localPosition={[0.3, -0.35, 0]} width={0.3} height={0.15} textSize={0.1} onClick={this.increaseVertexCount}>+</button>
         <text 
           alignment={'center-center'}

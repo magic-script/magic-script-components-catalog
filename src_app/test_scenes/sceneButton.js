@@ -8,7 +8,7 @@ class SceneButton extends React.Component {
 			title: 'Default', 
 			enabled: true, 
 			roundness: 0.5, 
-			textColor: [0.75,0.75,0.75,1],
+			textColor: [192,192,192,1],
 			textSize: 0.08,
 			width: 0.0,
 			height: 0.0,
@@ -21,7 +21,7 @@ class SceneButton extends React.Component {
 		title, 
 		enabled = true, 
 		roundness = 0.5, 
-		textColor = [1,1,1,1],
+		textColor = [255,255,255,1],
 		textSize = 0.08,
 		width = 0.0,
 		height = 0.0,
@@ -64,9 +64,9 @@ class SceneButton extends React.Component {
 					{this.renderButton({ title: '0.3', onClick: this.onButtonClick({ textSize: 0.3 })})}
 
 					{this.renderHeader('Color:')}
-					{this.renderButton({ title: 'red', textColor: [1,0,0,1], onClick: this.onButtonClick({ textColor: [1,0,0,1] })})}
-					{this.renderButton({ title: 'green', textColor: [0,1,0,1], onClick: this.onButtonClick({ textColor: [0,1,0,1] })})}
-					{this.renderButton({ title: 'cyan', textColor: [0,1,1,1], onClick: this.onButtonClick({ textColor: [0,1,1,1] })})}
+					{this.renderButton({ title: 'red', textColor: 'red', onClick: this.onButtonClick({ textColor: 'red' })})}
+					{this.renderButton({ title: 'green', textColor: 'green', onClick: this.onButtonClick({ textColor: 'green' })})}
+					{this.renderButton({ title: 'cyan', textColor: 'cyan', onClick: this.onButtonClick({ textColor: 'cyan' })})}
 
 					{this.renderHeader('Roundness:')}
 					{this.renderButton({ title: '0.0', roundness: 0.0, onClick: this.onButtonClick({ roundness: 0.0 })})}
