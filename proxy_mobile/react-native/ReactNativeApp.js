@@ -1,25 +1,30 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Linking } from 'react-native';
 import { Button } from 'react-native';
 import { ARView } from 'magic-script-components-react-native';
+import { setInitialDeeplink } from '../../global/globalVariables'
 
 export default class ReactNativeApp extends React.Component {
-  
+
   constructor(props) {
     super(props);
-    this.state = { planeDetection: true} ;
+    this.state = { planeDetection: true };
+    
+    if(props.initialUrl != null) {
+      setInitialDeeplink(props.initialUrl);
+    }
   }
 
   onPlaneDetectionChanged = () => {
     const planeDetection = !this.state.planeDetection
-    this.setState({planeDetection: planeDetection})
+    this.setState({ planeDetection: planeDetection })
   }
 
   render() {
     const { planeDetection } = this.state;
     return (
       <View style={styles.container}>
-        <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} />
+          <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} />
         <Button title="Plane detection" onPress={this.onPlaneDetectionChanged} />
       </View>
     );

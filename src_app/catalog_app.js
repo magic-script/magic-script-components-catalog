@@ -1,5 +1,4 @@
 import React from 'react';
-import { Linking } from 'react-native';
 import { Button, Text, Toggle, View } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
@@ -45,7 +44,11 @@ import {
   SceneFilePicker,
 } from './test_scenes';
 
+import { registerOnDeeplinkSet } from "../global/globalVariables"
+
+
 class CatalogApp extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -91,10 +94,18 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
+    
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
+      this.state = { sceneIndex: initialIndex, showGrid: false };
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
-    // const initialIndex = this.scenes.length - 6;
-    this.state = { sceneIndex: initialIndex, showGrid: false };
+      registerOnDeeplinkSet((deeplink) => {
+        if (deeplink != null) {
+          const route = deeplink.replace(/.*?:\/\//g, '');
+          const id = route.match(/\/([^\/]+)\/?$/)[1];
+          initialIndex = parseInt(id)
+          this.setState({ sceneIndex: initialIndex });
+        }      
+      })
   }
 
   onNextScene = () => {
@@ -107,34 +118,6 @@ class CatalogApp extends React.Component {
     const { sceneIndex } = this.state;
     const prevIndex = (sceneIndex > 0) ? sceneIndex - 1 : this.scenes.length - 1;
     this.setState({ sceneIndex: prevIndex });
-  }
-
-  componentDidMount() {
-    if (Platform.OS === 'android') {
-      Linking.getInitialURL().then(url => {
-        this.navigate(url);
-      }).catch(err => {
-        console.warn('An error occurred', err);
-      });
-    } else {
-      Linking.addEventListener('url', this.handleOpenIOSURL);
-    }
-  }
-
-  componentWillUnmount() {
-    Linking.removeEventListener('url', this.handleOpenIOSURL);
-  }
-
-  handleOpenIOSURL = (event) => {
-    this.navigate(event.url)
-  }
-
-  navigate = (url) => {
-    if (url != null) {
-      const route = url.replace(/.*?:\/\//g, '');
-      const id = route.match(/\/([^\/]+)\/?$/)[1];
-      this.setState({ sceneIndex: parseInt(id) })
-    }
   }
 
   onShowGridAction = () => {
