@@ -31,12 +31,12 @@ class SceneSlider extends React.Component {
           <text alignment={"center-center"} textSize={0.075} >
             Default slider
           </text>
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + defaultSliderValue.toPrecision(2)}/>
+          <text alignment={"center-center"} textSize={0.05} textColor={[192,128,64,1]} text={"Current value: " + defaultSliderValue.toPrecision(2)}/>
           <slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
           <text alignment={"center-center"} textSize={0.075}>
             User configured sliders
           </text>
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderOneValue.toPrecision(2)}/>
+          <text alignment={"center-center"} textSize={0.05} textColor={[192,128,64,1]} text={"Current value: " + userDefinedSliderOneValue.toPrecision(2)}/>
           <slider
             value={userDefinedSliderOneValue}
             min={0}
@@ -47,7 +47,7 @@ class SceneSlider extends React.Component {
             height={0.06}
             onSliderChanged={this.onUserDefinedSliderOneChanged}
           />
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderTwoValue.toPrecision(2)}/>
+          <text alignment={"center-center"} textSize={0.05} textColor={[192,128,64,1]} text={"Current value: " + userDefinedSliderTwoValue.toPrecision(2)}/>
           <slider
             value={userDefinedSliderTwoValue}
             min={0}
