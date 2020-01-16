@@ -63,9 +63,9 @@ buck-out/
 yarn.lock
 
 # magic-script
-bin/
-.out/
-digest.sha512.signed
+lumin/bin/
+lumin/.out/
+lumin/digest.sha512.signed
 
 # assets
 assets/fonts/

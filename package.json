@@ -1,51 +1,7 @@
 {
-  "name": "catalog",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "preinstall": "./scripts/preinstall.sh",
-    "postinstall": "./scripts/postinstall.sh",
-    "build": "rollup -c",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "author": "Magic Leap",
-  "license": "Apache-2.0",
   "dependencies": {
+    "magic-script-components": "2.0.2",
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
-    "lumin-system-icons": "git+https://github.com/magic-script/system-icons",
-    "magic-script-components": "git+https://github.com/magic-script/magic-script-components",
-    "magic-script-components-lumin": "git+https://github.com/magic-script/magic-script-components-lumin",
-    "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native",
-    "magic-script-polyfills": "^2.7.1",
-    "prop-types": "15.7.2",
-    "react": "16.8.6",
-    "react-native": "^0.60.5",
-    "react-native-fs": "2.14.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/runtime": "^7.4.5",
-    "babel-jest": "^24.8.0",
-    "eslint-config-semistandard": "^13.0.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "jest": "^24.8.0",
-    "magic-script-typings": "1.4.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "react-test-renderer": "16.8.3",
-    "rollup": "^1.1.2",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "semistandard": "^13.0.1"
-  },
-  "jest": {
-    "preset": "react-native"
+    "lumin-system-icons": "git+https://github.com/magic-script/system-icons"
   }
 }
