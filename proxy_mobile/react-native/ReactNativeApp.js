@@ -11,8 +11,8 @@ export default class ReactNativeApp extends React.Component {
   }
 
   onPlaneDetectionChanged = () => {
-    const planeDetection = !this.state.planeDetection
-    this.setState({planeDetection: planeDetection})
+    const { planeDetection } = this.state;
+    this.setState({ planeDetection: !planeDetection })
   }
 
   render() {

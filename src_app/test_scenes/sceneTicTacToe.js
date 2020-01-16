@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Square(props) {
-  const color = props.value === 'X' ? [1, 0.1, 0.1, 1] : [0.1, 0.1, 1, 1];
+  const color = props.value === 'X' ? [255, 26, 26, 1] : [26, 26, 255, 1];
   return (
     <button width={0.15} height={0.15} textColor={color} roundness={0.1} onClick={props.onClick}>
       {props.value || ''}
@@ -106,8 +106,7 @@ export class GameTicTacToe extends React.Component {
         </view>
         <view name="game-info" localPosition={[0, 0.5, 0]}>
           <text textSize={0.05} alignment='top-left'>{status}</text>
-          {/* <listView width={0.5} height={0.42} localPosition={[0, -0.08, 0]}>{moves}</listView> */}
-          <gridLayout columns={1} width={0.5} height={0.42} localPosition={[0, -0.08, 0]}>{moves}</gridLayout>
+          <linearLayout defaultItemAlignment={'top-center'} localPosition={[0, -0.08, 0]}>{moves}</linearLayout>
         </view>
       </view>
     );

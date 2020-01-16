@@ -24,6 +24,7 @@ module.exports = {
       "glb",
       "gltf",
       "obj",
+      "sfb"
     ]
   },
 };

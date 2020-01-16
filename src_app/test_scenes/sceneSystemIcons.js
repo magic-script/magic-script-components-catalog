@@ -61,7 +61,7 @@ class SceneSystemIcons extends React.Component {
     const s = 0.5 * length;
     return (
       <line 
-        color={[1,1,0,1]}
+        color={'yellow'}
         localPosition={[0, -1, 0]} 
         points={[[-s, s, 0], [s, s, 0], [s, -s, 0], [-s, -s, 0], [-s, s, 0] ]}
       />

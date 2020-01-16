@@ -27,7 +27,6 @@ export * from './sceneSpinner';
 export * from './sceneSystemIcons';
 export * from './sceneText';
 export * from './sceneTextCharacters';
-export * from './sceneTextLetters';
 export * from './sceneTextEdit';
 export * from './sceneTicTacToe';
 export * from './sceneTimePicker';

@@ -1,70 +1,75 @@
 import React from 'react';
+import { MathUtils } from '../utils/mathUtils';
 
 class SceneTextCharacters extends React.Component {
-  renderText (key, contents, textSize, textColor, localPosition) {
-    return (
-      <text
-        key={key}
-        localPosition={localPosition}
-        textColor={textColor}
-        textSize={textSize}
-      >{contents}</text>
-    );
+  static defaultProps = {
+    columns: 5,
+    localPosition: [0, 0, 0],
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = { uppercase: false, specialCharacters: false };
   }
 
-  lerpv4 (v1, v2, t) {
-    if (t === undefined) { t = 0; }
-
-    const x = v1[0] + t * (v2[0] - v1[0]);
-    const y = v1[1] + t * (v2[1] - v1[1]);
-    const z = v1[2] + t * (v2[2] - v1[2]);
-    const w = v1[3] + t * (v2[3] - v1[3]);
-
-    return [x, y, z, w];
+  onUppercaseChanged = event => {
+    this.setState({ uppercase: event.On });
   }
 
-  getColor (x, y) {
-    const d = 0.1;
-    const colors = [
-      [d, 1, 1, 1],
-      [1, d, 1, 1],
-      [1, 1, d, 1],
-      [1, 1, 1, 1]
-    ];
-    const c1 = this.lerpv4(colors[0], colors[1], x);
-    const c2 = this.lerpv4(colors[2], colors[3], x);
-    return this.lerpv4(c1, c2, y);
+  onContentChanged = event => {
+    this.setState({ specialCharacters: event.On });
   }
 
-  renderLetters () {
-    const letters = [...',.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę'];
-    const size = 0.25;
-    const columns = 5;
-    const rows = Math.ceil(letters.length / columns);
-    const minX = -0.5 * size * (columns - 1);
-    const minY = 0;
+  renderCharacters () {
+    const { uppercase, specialCharacters } = this.state;
+    const string = specialCharacters ? ',.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę' : '0123456789abcdefghijklmnopqrstuvwxyz';
+    const characters = uppercase ? [...string.toUpperCase()] : [...string];
+    const minTextSize = specialCharacters ? 0.2 : 0.05;
+    const maxTextSize = 0.2;
+    const columns = this.props.columns;
+    const rows = Math.ceil(characters.length / columns);
+    const textSizeFactor = (maxTextSize - minTextSize) / characters.length;
 
-    return letters.map((char, index) => {
+    return characters.map((char, index) => {
+      const textSize = minTextSize + textSizeFactor * index;
       const column = index % columns;
       const row = Math.floor(index / columns);
-      const x = minX + size * column;
-      const y = minY - size * row;
-      const textColor = this.getColor(column / (columns - 1), row / (rows - 1));
-      return (
-        <text
-          key={index}
-          localPosition={[x, y, 0]}
-          textColor={textColor}
-          textSize={0.15}
-        >{char}</text>
-      );
+      const textColor = MathUtils.getGridColor(column / (columns - 1), row / (rows - 1));
+      return <text key={index} textColor={textColor} textSize={textSize}>{char}</text>;
     });
   }
 
-  render () {
+  render() {
+    const { uppercase, specialCharacters } = this.state;
     return (
       <view localPosition={this.props.localPosition}>
-        {this.renderLetters()}
+        <gridLayout 
+          alignment={'top-center'} 
+          defaultItemAlignment={'center-center'}
+          columns={this.props.columns} 
+          localPosition={[0, 1, 0]}
+          width={1.2} 
+          height={1.7}
+        >
+          {this.renderCharacters()}
+        </gridLayout>
+        
+        <toggle 
+          alignment={'center-right'}
+          localPosition={[0.5, -0.9, 0]}  
+          height={0.1} 
+          on={specialCharacters} 
+          onToggleChanged={this.onContentChanged}
+          textSize={0.08} 
+        >Special characters</toggle>
+        <toggle 
+          alignment={'center-right'}
+          localPosition={[0.5, -1.1, 0]}  
+          height={0.1} 
+          on={uppercase} 
+          onToggleChanged={this.onUppercaseChanged}
+          textSize={0.08} 
+        >Uppercase</toggle>
       </view>
     );
   }

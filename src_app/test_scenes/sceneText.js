@@ -86,7 +86,7 @@ class SceneText extends React.Component {
     }
 
     if (points.length > 0) {
-      return <line points={points} color={[1, 1, 0.3, 1]} />;
+      return <line points={points} color={[255, 255, 76, 1]} />;
     }
 
     return null;
@@ -98,7 +98,7 @@ class SceneText extends React.Component {
       alignment={'top-left'}
       boundsSize={{ boundsSize: [boundsWidth, boundsHeight], wrap }}
       textAlignment={textAlignment}
-      textColor={[1, 1, 1, 0.8]}
+      textColor={[255, 255, 255, 0.8]}
       textSize={0.08}
     >{text}</text>
   }

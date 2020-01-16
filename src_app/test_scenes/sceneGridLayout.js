@@ -41,8 +41,8 @@ class SceneGridLayout extends React.Component {
             <toggle type={'checkbox'} localPosition={[-0.1, -0.2, 0]} textSize={0.075} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>height: 1m</toggle>
           </view>
 
-          <line color={[1,1,1,1]} points={[[0, 0.1, 0], [0, -0.3, 0]]} />
-          <line color={[1,1,1,1]} points={[[-0.7, -0.3, 0], [0.7, -0.3, 0]]} />
+          <line color={[255,255,255,1]} points={[[0, 0.1, 0], [0, -0.3, 0]]} />
+          <line color={[255,255,255,1]} points={[[-0.7, -0.3, 0], [0.7, -0.3, 0]]} />
         </view>
 
          {/* 
@@ -63,21 +63,21 @@ class SceneGridLayout extends React.Component {
         >
          
           <text debug textSize={0.15}>Item 1</text>
-          <text debug textSize={0.15} alignment={'bottom-right'} textColor={[1,0,0,1]}>Lorem ipsum dolor</text>
+          <text debug textSize={0.15} alignment={'bottom-right'} textColor={[255,0,0,1]}>Lorem ipsum dolor</text>
           <text debug textSize={0.3} localScale={[0.5, 0.5, 1]}>Item 3</text>
           <button debug width={1} height={0.4} localScale={[0.3, 0.3, 1]}>Scaled</button>
           <model debug alignment={'center-left'} localScale={[0.2, 0.2, 0.2]} modelPath={require('../../resources/models/static.glb')} />
-          <image debug width={0.5} height={0.4} alignment={'bottom-left'} localScale={[0.5, 0.5, 0.5]} color={[0,0,1,1]}/>
-          <image debug width={0.25} height={0.2} color={[0,1,0,1]}/>
-          <textEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[1,0,0,1]} multiline/>
+          <image debug width={0.5} height={0.4} alignment={'bottom-left'} localScale={[0.5, 0.5, 0.5]} color={[0,0,255,1]}/>
+          <image debug width={0.25} height={0.2} color={[0,255,0,1]}/>
+          <textEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[255,0,0,1]} multiline/>
           <spinner debug height={0.15} localPosition={[0.5, 0, 0]}/>
           <slider debug width={0.4} height={0.08} />
           <toggle debug textSize={0.08} height={0.15}>Toggle</toggle>
           <gridLayout debug defaultItemAlignment={'center-center'} columns={2}>
-              <image width={0.1} height={0.1} color={[1,1,0.5,1]}/>
-              <image width={0.1} height={0.1} color={[1,0.5,1,1]}/>
-              <image width={0.1} height={0.1} color={[0.5,1,1,1]}/>
-              <image width={0.1} height={0.1} color={[1,1,1,1]}/>
+              <image width={0.1} height={0.1} color={[255,255,128,1]}/>
+              <image width={0.1} height={0.1} color={[255,128,255,1]}/>
+              <image width={0.1} height={0.1} color={[128,255,255,1]}/>
+              <image width={0.1} height={0.1} color={[255,255,255,1]}/>
           </gridLayout>
 
         </gridLayout>

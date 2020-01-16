@@ -35,9 +35,9 @@ class SceneLinearLayout extends React.Component {
   onHeightToogleChanged = (event) => { this.setState({ height: event.On ? 1 : 0 }); }
 
   renderItem(color) {
-      return (
-        <image debug={true} width={0.6} height={0.3} color={color}/>
-      );
+    return (
+      <image debug={true} width={0.6} height={0.3} color={color}/>
+    );
   }
 
   render () {
@@ -72,11 +72,11 @@ class SceneLinearLayout extends React.Component {
           defaultItemPadding={padding}
           localPosition={[0, -0.3, 0]}
         >
-            {this.renderItem([0,0,1,1])}
-            {this.renderItem([0,1,0,1])}
-            {this.renderItem([0,1,1,1])}
-            {this.renderItem([1,0,0,1])}
-            {this.renderItem([1,0,1,1])}
+            {this.renderItem('blue')}
+            {this.renderItem('green')}
+            {this.renderItem('cyan')}
+            {this.renderItem('red')}
+            {this.renderItem('magenta')}
           
         </linearLayout>
 
