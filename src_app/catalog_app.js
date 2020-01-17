@@ -103,7 +103,7 @@ class CatalogApp extends React.Component {
         if (deeplink != null) {
           const route = deeplink.replace(/.*?:\/\//g, '');
           const id = route.match(/\/([^\/]+)\/?$/)[1];
-          initialIndex = parseInt(id)
+          let initialIndex = parseInt(id)
           this.setState({ sceneIndex: initialIndex });
         }      
       })
