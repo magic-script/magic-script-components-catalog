@@ -57,7 +57,7 @@ class SceneTextEdit extends React.Component {
         <text 
           alignment={'bottom-left'} 
           localPosition={[-0.5 * width, 0.02, 0]}
-          textColor={[1,1,1,1]}
+          textColor={[255,255,255,1]}
           textSize={0.05}
         >{title}</text>
         <textEdit {...validProps} alignment={'top-center'} fontParameters={fontParams} />
@@ -68,8 +68,8 @@ class SceneTextEdit extends React.Component {
   render () {
     return (
       <view localPosition={this.props.localPosition}>
-        {this.renderTextEdit(0.45, 'Username', { hint: 'Username', text: this.state.username, textAlignment: 'center', textColor: [0,1,0,1], textSize: 0.05, weight: 'bold', style: 'normal' })}
-        {this.renderTextEdit(0.25, 'Password', { hint: 'Password', text: this.state.password, hintColor: [1,0,0,1], textAlignment: 'center', textSize: 0.05, password: true })}
+        {this.renderTextEdit(0.45, 'Username', { hint: 'Username', text: this.state.username, textAlignment: 'center', textColor: [0,255,0,1], textSize: 0.05, weight: 'bold', style: 'normal' })}
+        {this.renderTextEdit(0.25, 'Password', { hint: 'Password', text: this.state.password, hintColor: [255,0,0,1], textAlignment: 'center', textSize: 0.05, password: true })}
         {this.renderTextEdit(0.05, 'E-mail', { text: this.state.email, textEntry: 'email', textSize: 0.05 })}
         {this.renderTextEdit(-0.15, 'Phone number', { text: this.state.phone, textEntry: 'numeric', textSize: 0.05, charLimit: 15, charSpacing: 0.1 })}
         {this.renderTextEdit(-0.35, 'Additional info', { hint: '*optional', text: this.state.info, textPadding: [0.03, 0.03, 0.03, 0.03], textSize: 0.05, lineSpacing: 1.2, multiline: true, scrolling: true, weight: 'light', style: 'italic', allCaps: true })}

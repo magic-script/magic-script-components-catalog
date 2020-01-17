@@ -13,8 +13,8 @@ class SceneToggle extends React.Component {
           localPosition={[0, 0.4, 0]}
           on={false}
           textSize={0.1}
-          textColor={[1, 0, 0, 1]}
-          height={0.3}
+          textColor={[255,0,0,1]}
+          height={0.2}
           onToggleChanged={this.onChanged}
         >
           Default
@@ -25,8 +25,8 @@ class SceneToggle extends React.Component {
           localPosition={[0, 0.0, 0]}
           textSize={0.1}
           on={true}
-          textColor={[0, 1, 0, 1]}
-          height={0.3}
+          textColor={[0,255,0,1]}
+          height={0.2}
           onToggleChanged={this.onChanged}
         >
           Checkbox
@@ -37,8 +37,8 @@ class SceneToggle extends React.Component {
           localPosition={[0, -0.4, 0]}
           textSize={0.1}
           on={false}
-          textColor={[1, 1, 0, 1]}
-          height={0.3}
+          textColor={[255,255,0,1]}
+          height={0.2}
           onToggleChanged={this.onChanged}
         >
           Radio
