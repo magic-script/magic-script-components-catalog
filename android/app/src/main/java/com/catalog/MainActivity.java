@@ -27,8 +27,6 @@ public class MainActivity extends ReactActivity {
 
             @Override
             protected Bundle getLaunchOptions() {
-                Log.d("REACT_MAIN", "getLaunchOptions");
-
                 Intent intent = getIntent();
                 Bundle initialProperties = new Bundle();
 
