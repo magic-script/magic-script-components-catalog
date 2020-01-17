@@ -10,7 +10,7 @@ export default class ReactNativeApp extends React.Component {
     super(props);
     this.state = { planeDetection: true };
     
-    if(props.initialUrl != null) {
+    if(props.initialUrl !== null) {
       setInitialDeeplink(props.initialUrl);
     }
   }

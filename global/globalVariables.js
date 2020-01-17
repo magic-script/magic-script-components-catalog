@@ -1,4 +1,4 @@
-export var initialDeeplink = undefined
+var initialDeeplink = undefined
 
 deeplinkSet = () => undefined
 
@@ -8,7 +8,7 @@ export function registerOnDeeplinkSet(onDeeplinkSet) {
 
 export function setInitialDeeplink(deeplink) {
     initialDeeplink = deeplink
-    if (deeplinkSet != undefined) {
+    if (deeplinkSet !== undefined) {
         deeplinkSet(deeplink)
     }
 }
