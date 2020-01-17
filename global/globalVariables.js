@@ -8,7 +8,7 @@ export function registerOnDeeplinkSet(onDeeplinkSet) {
 
 export function setInitialDeeplink(deeplink) {
     initialDeeplink = deeplink
-    if (deeplinkSet !== undefined) {
+    if (deeplinkSet && deeplink) {
         deeplinkSet(deeplink)
     }
 }

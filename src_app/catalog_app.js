@@ -100,12 +100,10 @@ class CatalogApp extends React.Component {
 
       registerOnDeeplinkSet((deeplink) => {
         //deeplink example [catalog://scene/7]
-        if (deeplink != null) {
-          const route = deeplink.replace(/.*?:\/\//g, '');
-          const id = route.match(/\/([^\/]+)\/?$/)[1];
-          let initialIndex = parseInt(id)
-          this.setState({ sceneIndex: initialIndex });
-        }      
+        const route = deeplink.replace(/.*?:\/\//g, '');
+        const id = route.match(/\/([^\/]+)\/?$/)[1];
+        let initialIndex = parseInt(id)
+        this.setState({ sceneIndex: initialIndex }); 
       })
   }
 
