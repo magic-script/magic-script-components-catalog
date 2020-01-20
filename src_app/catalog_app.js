@@ -93,8 +93,7 @@ class CatalogApp extends React.Component {
 
     const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
     // const initialIndex = this.scenes.length - 6;
-    console.log('Platform: ', Platform.OS);
-    console.log('Platform - Version: ', Platform.Version);
+    console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
 
