@@ -56,7 +56,7 @@ class SceneSpinner extends React.Component {
 
         {this.renderSpinner('', [-0.3, 0.1, 0], 'sprite-animation', value1, value2)}
         {this.renderSpinner('', [ 0.3, 0.1, 0], 'particle-package', value1, value2)}
-        <line color={[255,255,255,1]} points={[[-0.5, 0.2, 0], [0.5, 0.2, 0]]}/>
+        <line color={'white'} points={[[-0.5, 0.2, 0], [0.5, 0.2, 0]]}/>
 
         <text localPosition={[0.6, 0.9, 0]} localRotation={quat} textSize={0.08} alignment={'bottom-left'}>indeterminate</text>
         <text localPosition={[0.6, 0.0, 0]} localRotation={quat} textSize={0.08} alignment={'bottom-left'}>determinate</text>

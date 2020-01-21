@@ -15,7 +15,7 @@ class SceneDialog extends React.Component {
     title,
     enabled = true,
     roundness = 0.5,
-    textColor = [255, 255, 255, 1],
+    textColor = [1, 1, 1, 1],
     textSize = 0.08,
     width = 0.0,
     height = 0.0,

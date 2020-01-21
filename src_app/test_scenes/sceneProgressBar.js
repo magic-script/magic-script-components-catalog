@@ -49,8 +49,8 @@ class SceneProgressBar extends React.Component {
           localPosition={[0, 0, 0]} 
           value={value1}
           progressColor={{
-            beginColor: [25,128,230,1],
-            endColor: [25,230,128,1]
+            beginColor: [0.1,0.5,0.9,1],
+            endColor: [0.1,0.9,0.5,1]
           }}
           width={0.75}
           height={0.05}
@@ -60,8 +60,8 @@ class SceneProgressBar extends React.Component {
           localPosition={[0, -0.1, 0]} 
           value={value2}
           progressColor={{
-            beginColor: [25,128,230,1],
-            endColor: [25,230,128,1]
+            beginColor: [0.1,0.5,0.9,1],
+            endColor: [0.1,0.9,0.5,1]
           }}
           width={0.75}
           height={0.05}
@@ -71,8 +71,8 @@ class SceneProgressBar extends React.Component {
           localPosition={[0, -0.2, 0]} 
           value={value3}
           progressColor={{
-            beginColor: [25,128,230,1],
-            endColor: [25,230,128,1]
+            beginColor: [0.1,0.5,0.9,1],
+            endColor: [0.1,0.9,0.5,1]
           }}
           width={0.75}
           height={0.05}
@@ -82,8 +82,8 @@ class SceneProgressBar extends React.Component {
           localPosition={[0, -0.4, 0]} 
           value={0.9} min={-10} max={10}
           progressColor={{
-            beginColor: [255, 25, 25, 1],
-            endColor: [255, 25, 25,1]
+            beginColor: [1, 0.1, 0.1, 1],
+            endColor: [1, 0.1, 0.1,1]
           }}
           width={1}
           height={0.1}

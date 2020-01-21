@@ -18,7 +18,7 @@ class SceneLayout extends React.Component {
       <button
         enabled={false}
         roundness={roundness}
-				textColor={[0,255,0,1]}
+				textColor={[0,1,0,1]}
 				textSize={0.08}
 				width={size.width}
 				height={size.height}

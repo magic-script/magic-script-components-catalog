@@ -35,7 +35,7 @@ class SceneWebView extends React.Component {
           height={0.08}
           onTextChanged={this.onTextChanged}
           text={text}
-          textColor={[255,255,255,0.75]}
+          textColor={[1,1,1,0.75]}
           textSize={0.05}
           width={web.width}
         />
