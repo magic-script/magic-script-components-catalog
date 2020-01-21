@@ -57,9 +57,9 @@ class SceneRectLayout extends React.Component {
     const points = [ [min.x, min.y, 0], [min.x, max.y, 0], [max.x, max.y, 0], [max.x, min.y, 0], [min.x, min.y, 0] ];
     return (
       <view alignment={'center-center'} localPosition={position}>
-        <line points={points} color={[255,255,0,1]}/>
-        <line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[255,255,0,0.5]}/>
-        <line points={[[0, min.y, 0], [0, max.y, 0]]} color={[255,255,0,0.5]}/>
+        <line points={points} color={[1,1,0,1]}/>
+        <line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[1,1,0,0.5]}/>
+        <line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1,1,0,0.5]}/>
       </view>
     );
   }
@@ -92,7 +92,7 @@ class SceneRectLayout extends React.Component {
       <view localPosition={this.props.localPosition}>
         <image 
           alignment={alignment} 
-          color={[26, 64, 128, 0.8]}
+          color={[0.1, 0.25, 0.5, 0.8]}
           localPosition={rectPosition} 
           useFrame={true}
           width={rectSize.width}

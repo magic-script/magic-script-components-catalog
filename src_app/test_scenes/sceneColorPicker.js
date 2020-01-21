@@ -28,20 +28,20 @@ class SceneColorPicker extends React.Component {
           orientation={"vertical"}
         >
           <colorPicker
-            startingColor={[192, 128, 64, 1]}
+            startingColor={[0.75, 0.5, 0.25, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}
           />
           <colorPicker
-            color={[243, 218, 192, 1]}
+            color={[0.95, 0.85, 0.75, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}
           />
           <colorPicker
-            startingColor={[192, 128, 64, 1]}
-            color={[243, 218, 192, 1]}
+            startingColor={[0.75, 0.5, 0.25, 1]}
+            color={[0.95, 0.85, 0.75, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}

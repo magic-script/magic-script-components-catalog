@@ -25,7 +25,7 @@ class SceneListView extends React.Component {
     var items = [];
     for (var i = 0; i < 5; ++i) {
       items.push(
-        <listViewItem backgroundColor={[255, 230, 0, 1]} key={i}>
+        <listViewItem backgroundColor={[1, 0.9, 0, 1]} key={i}>
           <linearLayout
             alignment={"center-center"}
             columns={1}
@@ -36,7 +36,7 @@ class SceneListView extends React.Component {
             <image filePath={this.resources[i]} width={0.5} height={0.5} />
             <text
               alignment={"center-center"}
-              textColor={[0, 0, 0, 1]}
+              textColor={'black'}
               textSize={0.08}
             >
               {"Item no. " + i}
@@ -80,7 +80,7 @@ class SceneListView extends React.Component {
             alignment={"center-center"}
             on={false}
             textSize={0.05}
-            textColor={[255, 255, 255, 1]}
+            textColor={'white'}
             height={0.075}
             onToggleChanged={this.toggleListViewOrientation}
           >
