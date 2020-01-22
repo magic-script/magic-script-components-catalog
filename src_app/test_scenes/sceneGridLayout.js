@@ -23,7 +23,7 @@ class SceneGridLayout extends React.Component {
         <view localPosition={[0, -0.1, 0]}>
           <AlignmentGroup 
             alignment={alignment}
-            localPosition={[-0.7, 0, 0]}
+            localPosition={[-0.75, 0, 0]}
             onAlignmentChanged={this.onItemsAlignmentChanged}
             title={'Set items alignment:'} 
           />
@@ -41,8 +41,8 @@ class SceneGridLayout extends React.Component {
             <toggle type={'checkbox'} localPosition={[-0.1, -0.2, 0]} textSize={0.075} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>height: 1m</toggle>
           </view>
 
-          <line color={[1,1,1,1]} points={[[0, 0.1, 0], [0, -0.3, 0]]} />
-          <line color={[1,1,1,1]} points={[[-0.7, -0.3, 0], [0.7, -0.3, 0]]} />
+          <line color={[1,1,1,1]} points={[[0.05, 0.1, 0], [0.05, -0.3, 0]]} />
+          <line color={[1,1,1,1]} points={[[-0.75, -0.3, 0], [0.8, -0.3, 0]]} />
         </view>
 
          {/* 
