@@ -1,18 +1,17 @@
 import React from 'react';
-import { LinearLayout } from 'magic-script-components';
 
 class ScenePageView extends React.Component {
   constructor(props) {
     super(props);
     this.state = { selectedTab: 0 };
     this.colors = [
-      { name: 'red', value: [255,0,0,1] },
-      { name: 'green', value: [0,255,0,1] },
-      { name: 'blue', value: [0,0,255,1] },
-      { name: 'magenta', value: [255,0,255,1] },
-      { name: 'cyan', value: [0,255,255,1] },
-      { name: 'orange', value: [255,128,0,1] },
-      { name: 'gray', value: [128,128,128,1] },
+      { name: 'red', value: [1,0,0,1] },
+      { name: 'green', value: [0,1,0,1] },
+      { name: 'blue', value: [0,0,1,1] },
+      { name: 'magenta', value: [1,0,1,1] },
+      { name: 'cyan', value: [0,1,1,1] },
+      { name: 'orange', value: [1,0.5,0,1] },
+      { name: 'gray', value: [0.5,0.5,0.5,1] },
     ];
   }
 
@@ -35,8 +34,8 @@ class ScenePageView extends React.Component {
     const a = (index === this.state.selectedTab) ? 1 : 0.5;
     return (
       <view key={index}>
-        <tab textColor={[255,255,255,a]} textSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
-        <line color={[255,255,255,1]} points={points} />
+        <tab textColor={[1,1,1,a]} textSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
+        <line color={[1,1,1,1]} points={points} />
       </view>
     );
   }
