@@ -5,7 +5,7 @@ import { Platform } from 'magic-script-components';
 
 const MagicScript = {
     registerApp: (name, appComponent, debug = false) => {
-        Platform.setNativeModule(new PlatformInformation());
+        Platform.setPlatformInformation(new PlatformInformation());
         AppRegistry.registerComponent(name, () => ReactNativeApp);
         ReactNativeMagicScript.render(appComponent, { name: 'root' }, null, debug);
     }

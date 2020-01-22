@@ -6,5 +6,5 @@ import { Platform } from 'magic-script-components';
 
 import CatalogApp from '../src_app/catalog_app';
 
-Platform.setNativeModule(new mxs.PlatformInformation());
+Platform.setPlatformInformation(new mxs.PlatformInformation());
 mxs.bootstrap(<CatalogApp type='landscape' volumeSize={[1.0, 1.5, 0.5]} />);
