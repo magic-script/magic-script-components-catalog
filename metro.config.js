@@ -21,10 +21,7 @@ module.exports = {
     assetExts: [
       ...defaultAssetExts,
       // 3D Model formats
-      "glb",
-      "gltf",
-      "obj",
-      "sfb"
+      "glb"
     ]
   },
 };
