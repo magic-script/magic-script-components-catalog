@@ -13,6 +13,7 @@ import {
   SceneDatePicker,
   SceneDialog,
   SceneDropdownList,
+  SceneFilePicker,
   SceneGridLayout,
   SceneImage,
   SceneImageRemote,
@@ -21,8 +22,7 @@ import {
   SceneLine,
   SceneLinearLayout,
   SceneListView,
-  SceneModelAnimated,
-  SceneModelStatic,
+  SceneModel,
   ScenePageView,
   SceneProgressBar,
   SceneRectLayout,
@@ -41,7 +41,6 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
-  SceneFilePicker,
 } from './test_scenes';
 
 import { registerOnDeeplinkSet } from "../global/globalVariables"
@@ -72,8 +71,7 @@ class CatalogApp extends React.Component {
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
       { name: 'Video grid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
-      { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]} /> },
-      { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]} /> },
+      { name: 'Models', component: <SceneModel localPosition={[0, 0, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Toggle group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
@@ -95,7 +93,7 @@ class CatalogApp extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
     
-      const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
       this.state = { sceneIndex: initialIndex, showGrid: false };
       console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
 
