@@ -49,7 +49,7 @@ class SceneAudio extends React.Component {
     const quat180 = MathUtils.rotateBy(Math.PI, [0, 1, 0]);
     const quat270 = MathUtils.rotateBy(-0.5 * Math.PI, [0, 1, 0]);
     const origin = [0,0,0];
-    const linkColor = [255,255,153,0.7];
+    const linkColor = [1,1,0.6,0.7];
     return (
       <view>
         <view localPosition={position}>
@@ -65,7 +65,7 @@ class SceneAudio extends React.Component {
 
   render () {
     const { animate, alarmSound, bgSound, position, spatialSound, volume } = this.state;
-    const alarmColor = [255, 102, 102, 1];
+    const alarmColor = [1, 0.4, 0.4, 1];
     const alarmPosition = spatialSound ? position : [0, 0, 0];
     return (
       <view localPosition={this.props.localPosition}>

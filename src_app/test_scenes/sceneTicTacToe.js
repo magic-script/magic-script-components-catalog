@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Square(props) {
-  const color = props.value === 'X' ? [255, 26, 26, 1] : [26, 26, 255, 1];
+  const color = props.value === 'X' ? [1, 0.1, 0.1, 1] : [0.1, 0.1, 1, 1];
   return (
     <button width={0.15} height={0.15} textColor={color} roundness={0.1} onClick={props.onClick}>
       {props.value || ''}

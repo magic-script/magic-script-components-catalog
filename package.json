@@ -14,7 +14,7 @@
   "dependencies": {
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
     "lumin-system-icons": "git+https://github.com/magic-script/system-icons",
-    "magic-script-components": "2.0.2",
+    "magic-script-components": "git+https://github.com/magic-script/magic-script-components",
     "magic-script-components-lumin": "git+https://github.com/magic-script/magic-script-components-lumin",
     "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native",
     "magic-script-polyfills": "^2.7.1",
