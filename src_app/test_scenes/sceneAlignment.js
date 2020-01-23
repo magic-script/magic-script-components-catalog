@@ -95,7 +95,7 @@ class SceneAlignment extends React.Component {
       circleConfirmation: { radius: 0.5 * itemSize, enabled: false },
       image: { width: itemSize, height: itemSize, color: 'red' },
       line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,1,1,1] },
-      model: { modelPath: require('../../resources/BoxTextured.glb'), localScale: [0.2, 0.2, 0.2] }, 
+      model: { modelPath: require('../../resources/models/static.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
       scrollBar: { length: itemSize, thickness: 0.2 * itemSize, thumbPosition: 0.9 },
       slider: { width: itemSize, height: 0.2 * itemSize, value: 0.3, enabled: false },
