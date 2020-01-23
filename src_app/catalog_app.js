@@ -43,7 +43,11 @@ import {
   SceneWebView,
 } from './test_scenes';
 
+import { registerOnDeeplinkSet } from "../global/globalVariables"
+
+
 class CatalogApp extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -88,10 +92,18 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
+    
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
+      this.state = { sceneIndex: initialIndex, showGrid: false };
+      console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
-    this.state = { sceneIndex: initialIndex, showGrid: false };
-    console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
+      registerOnDeeplinkSet((deeplink) => {
+        //deeplink example [catalog://scene/7]
+        const route = deeplink.replace(/.*?:\/\//g, '');
+        const id = route.match(/\/([^\/]+)\/?$/)[1];
+        let initialIndex = parseInt(id)
+        this.setState({ sceneIndex: initialIndex }); 
+      })
   }
 
   onNextScene = () => {
