@@ -4,7 +4,7 @@ import { PageView } from 'magic-script-components';
 class SceneItemsPadding extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { width: 0, height: 0 };
+        this.state = { width: 0, height: 0, pageIndex: 0 };
     }
 
     renderItem(color) {
@@ -13,8 +13,12 @@ class SceneItemsPadding extends React.Component {
         );
     }
 
+    onSwitchHandler = eventData => {
+        this.setState({ pageIndex: eventData.On ? 1 : 0 });
+    };
+
     render() {
-        const { width, height } = this.state;
+        const { width, height, pageIndex } = this.state;
 
         return (
             <view localPosition={[0, 1, 0]}>
@@ -73,12 +77,29 @@ class SceneItemsPadding extends React.Component {
                     </gridLayout>
                 </view>
 
-                <view localPosition={[0, 1, 0]} >
+                <view localPosition={[1, 0, 0]} >
                     <text
                         textColor={'white'}
                         textSize={0.08}
                     >PageView</text>
-                    // TODO
+                    <toggle
+                        localPosition={[0, -0.1, 0]}
+                        text="Switch Page"
+                        onToggleChanged={this.onSwitchHandler}
+                    />
+                    <pageView
+                        localPosition={[0, -0.15, 0]}
+                        width={1}
+                        height={1}
+                        visiblePage={pageIndex}
+                        itemPadding={[
+                            // The padding order is:  top, right, bottom, left
+                            { index: 0, padding: [0.2, 0.2, 0, 0] },
+                            { index: 1, padding: [0.0, 0.0, 0.2, 0.2] }
+                        ]}>
+                        {this.renderItem('blue')}
+                        {this.renderItem('green')}
+                    </pageView>
                 </view>
             </view>
         );

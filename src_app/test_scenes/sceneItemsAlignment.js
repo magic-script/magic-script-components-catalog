@@ -5,7 +5,7 @@ import { Alignment } from '../utils/alignment';
 class SceneItemsAlignment extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { width: 1, height: 2 };
+        this.state = { width: 1, height: 2, pageIndex: 0 };
     }
 
     renderItem(color) {
@@ -14,8 +14,12 @@ class SceneItemsAlignment extends React.Component {
         );
     }
 
+    onSwitchHandler = eventData => {
+        this.setState({ pageIndex: eventData.On ? 1 : 0 });
+    };
+
     render() {
-        const { width, height } = this.state;
+        const { width, height, pageIndex } = this.state;
 
         return (
             <view localPosition={[0, 1, 0]}>
@@ -29,7 +33,7 @@ class SceneItemsAlignment extends React.Component {
                         width={width}
                         height={height}
                         defaultItemAlignment={Alignment.centerCenter}
-                        defaultItemPadding={[0.5, 0.5, 0.5, 0.5]}
+                        defaultItemPadding={[0.1, 0.1, 0.1, 0.1]}
                         itemAlignment={[
                             { index: 0, alignment: Alignment.topLeft },
                             { index: 1, alignment: Alignment.bottomCenter },
@@ -74,12 +78,29 @@ class SceneItemsAlignment extends React.Component {
                     </gridLayout>
                 </view>
 
-                <view localPosition={[0, 1, 0]} >
+                <view localPosition={[1, 0, 0]} >
                     <text
                         textColor={'white'}
                         textSize={0.08}
                     >PageView</text>
-                    // TODO
+                    <toggle
+                        localPosition={[0, -0.1, 0]}
+                        text="Switch Page"
+                        onToggleChanged={this.onSwitchHandler}
+                    />
+                    <pageView
+                        localPosition={[0, -0.15, 0]}
+                        width={1.5}
+                        height={2}
+                        visiblePage={pageIndex}
+                        itemAlignment={[
+                            // The padding order is:  top, right, bottom, left
+                            { index: 0, alignment: Alignment.topLeft },
+                            { index: 1, alignment: Alignment.bottomCenter }
+                        ]}>
+                        {this.renderItem('blue')}
+                        {this.renderItem('green')}
+                    </pageView>
                 </view>
             </view>
         );
