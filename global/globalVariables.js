@@ -1,6 +1,6 @@
 var initialDeeplink = undefined
 
-deeplinkSet = () => undefined
+export var deeplinkSet = () => undefined
 
 export function registerOnDeeplinkSet(onDeeplinkSet) {
     deeplinkSet = onDeeplinkSet
