@@ -146,9 +146,9 @@ class CatalogApp extends React.Component {
       <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
         <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
-          {/* <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
+          <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
             {this.renderDropdownItems()}
-          </DropdownList> */}
+          </DropdownList>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
           <Toggle localPosition={[0.13, 0.15, 0]} height={0.08} textSize={0.08} on={this.state.showGrid} onToggleChanged={this.onShowGridAction} alignment={'bottom-center'}>grid</Toggle>
         </View>
