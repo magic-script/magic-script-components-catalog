@@ -62,10 +62,10 @@ class SceneItemsPadding extends React.Component {
                         defaultItemPadding={[0.1, 0.1, 0.1, 0.1]}
                         itemPadding={[
                             // The padding order is:  top, right, bottom, left
-                            { index: 0, padding: [0, 0, 0, 0] },
-                            { index: 1, padding: [0.01, 0, 0.02, 0] },
-                            { index: 2, padding: [0.04, 0, 0.04, 0] },
-                            { index: 3, padding: [0.08, 0, 0.08, 0] },
+                            { column: 0, row: 0, padding: [0, 0, 0, 0] },
+                            { column: 0, row: 1, padding: [0.01, 0, 0.02, 0] },
+                            { column: 1, row: 0, padding: [0.04, 0, 0.04, 0] },
+                            { column: 1, row: 1, padding: [0.08, 0, 0.08, 0] },
                         ]}
                     >
                         {this.renderItem('blue')}

@@ -60,13 +60,13 @@ class SceneItemsAlignment extends React.Component {
                         width={width}
                         height={height}
                         columns={1}
-                        defaultItemAlignment={Alignment.topRight}
+                        defaultItemAlignment={Alignment.centerCenter}
                         defaultItemPadding={[0.1, 0.1, 0.1, 0.1]}
                         itemAlignment={[
-                            { index: 0, alignment: Alignment.topLeft },
-                            { index: 1, alignment: Alignment.bottomCenter },
-                            { index: 2, alignment: Alignment.bottomLeft },
-                            { index: 3, alignment: Alignment.topRight },
+                            { column: 0, row: 0, alignment: Alignment.topLeft },
+                            { column: 0, row: 1, alignment: Alignment.bottomCenter },
+                            { column: 0, row: 2, alignment: Alignment.bottomLeft },
+                            { column: 0, row: 3, alignment: Alignment.topRight },
                         ]}
                     >
                         {this.renderItem('blue')}

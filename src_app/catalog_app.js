@@ -41,7 +41,6 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
-  SceneFilePicker,
   SceneItemsPadding,
   SceneItemsAlignment
 } from './test_scenes';
