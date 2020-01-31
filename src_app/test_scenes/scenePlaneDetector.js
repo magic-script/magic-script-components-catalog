@@ -4,7 +4,7 @@ import { PlaneDetector } from "magic-script-components";
 class ScenePlaneDetector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { points: {} };
+    this.state = { planes: {} };
   }
 
   componentDidMount() {
@@ -28,42 +28,51 @@ class ScenePlaneDetector extends React.Component {
 
   onPlaneDetected = event => {
     console.log("onPlaneDetected", event);
-    // const { points } = this.state;
-    // points[event.id] = event.vertices;
-    // this.setState({ points: points });
+    const { planes } = this.state;
+    planes[event.id] = event;
+    this.setState({ planes: planes });
   };
 
   onPlaneUpdated = event => {
     console.log("onPlaneUpdated", event);
-    // const { points } = this.state;
-    // points[event.id] = event.vertices;
-    // this.setState({ points: points });
+    const { planes } = this.state;
+    planes[event.id] = event;
+    this.setState({ planes: planes });
   };
 
   onPlaneRemoved = event => {
-    // console.log("onPlaneRemoved", event);
+    console.log("onPlaneRemoved", event);
+    const { planes } = this.state;
+    if (event.id in planes) {
+      delete planes[event.id];
+    }
+    this.setState({ planes: planes });
   };
 
   onPlaneTapped = event => {
-    // console.log("onPlaneTapped", event);
+    console.log("onPlaneTapped", event);
   };
 
-  renderLine(points) {
-    return <line points={points} color={"green"} />;
+  renderLine(key, points) {
+    return <line points={points} color={"green"} key={key}/>;
   }
 
   renderLines() {
     var lines = [];
-    const { points } = this.state;
-    for (var key in points) {
-      lines.push(this.renderLine(points[key]));
+    var index = 0;
+    const { planes } = this.state;
+    for (var key in planes) {
+      lines.push(this.renderLine(index, planes[key].vertices));
+      index++;
     }
     return lines;
   }
 
   render() {
+    const { planes } = this.state;
+    console.log("BUKA", Object.keys(planes).length);
     return (
-      <view localPosition={this.props.localPosition}>{this.renderLines()}</view>
+      <view>{this.renderLines()}</view>
     );
   }
 }
