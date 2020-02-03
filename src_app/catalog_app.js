@@ -41,6 +41,8 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
+  SceneItemsPadding,
+  SceneItemsAlignment
 } from './test_scenes';
 
 import { registerOnDeeplinkSet } from "../global/globalVariables"
@@ -90,6 +92,8 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
+      { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
+      { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
     ];
     
