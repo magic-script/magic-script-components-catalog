@@ -8,16 +8,15 @@ class ScenePlaneDetector extends React.Component {
   }
 
   componentDidMount() {
-    this.planeDetector = PlaneDetector.instance();
-    this.planeDetector.addOnPlaneDetectedObserver(this, this.onPlaneDetected);
-    this.planeDetector.addOnPlaneUpdatedObserver(this, this.onPlaneUpdated);
-    this.planeDetector.addOnPlaneRemovedObserver(this, this.onPlaneRemoved);
-    this.planeDetector.addOnPlaneTappedObserver(this, this.onPlaneTapped);
-    this.planeDetector.startDetecting({
+    PlaneDetector.addOnPlaneDetectedObserver(this, this.onPlaneDetected);
+    PlaneDetector.addOnPlaneUpdatedObserver(this, this.onPlaneUpdated);
+    PlaneDetector.addOnPlaneRemovedObserver(this, this.onPlaneRemoved);
+    PlaneDetector.addOnPlaneTappedObserver(this, this.onPlaneTapped);
+    PlaneDetector.startDetecting({
       planeType: ["horizontal", "vertical"]
     });
 
-    this.planeDetector.getAllPlanes({}, (error, result) => {
+    PlaneDetector.getAllPlanes({}, (error, result) => {
       if (error) {
         console.log("getAllPlanes - error", result);
       } else {
@@ -70,7 +69,7 @@ class ScenePlaneDetector extends React.Component {
 
   render() {
     const { planes } = this.state;
-    console.log("BUKA", Object.keys(planes).length);
+    console.log("Number of planes", Object.keys(planes).length);
     return (
       <view>{this.renderLines()}</view>
     );
