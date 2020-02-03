@@ -19,7 +19,7 @@ export default class ReactNativeApp extends React.Component {
     const { planeDetection } = this.state;
     return (
       <View style={styles.container}>
-        <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} />
+        <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} showLayoutBounds={false}/>
         <Button title="Plane detection" onPress={this.onPlaneDetectionChanged} />
       </View>
     );
