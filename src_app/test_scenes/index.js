@@ -12,7 +12,7 @@ export * from './sceneFilePicker';
 export * from './sceneGridLayout';
 export * from './sceneImage';
 export * from './sceneImageRemote';
-export * from './sceneImageSlider/scene';
+export * from './sceneImageSlider';
 export * from './sceneItemsAlignment';
 export * from './sceneItemsPadding';
 export * from './sceneLayout';
