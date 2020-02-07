@@ -13,7 +13,8 @@ class ScenePlaneDetector extends React.Component {
     PlaneDetector.addOnPlaneRemovedObserver(this, this.onPlaneRemoved);
     PlaneDetector.addOnPlaneTappedObserver(this, this.onPlaneTapped);
     PlaneDetector.startDetecting({
-      planeType: ["horizontal", "vertical"]
+      planeType: ["horizontal", "vertical"],
+      debug: true
     });
 
     PlaneDetector.getAllPlanes({}, (error, result) => {
@@ -53,7 +54,7 @@ class ScenePlaneDetector extends React.Component {
   };
 
   renderLine(key, points) {
-    return <line points={points} color={"green"} key={key}/>;
+    return <line points={points} color={"yellow"} key={key}/>;
   }
 
   renderLines() {
@@ -71,7 +72,7 @@ class ScenePlaneDetector extends React.Component {
     const { planes } = this.state;
     console.log("Number of planes", Object.keys(planes).length);
     return (
-      <view>{this.renderLines()}</view>
+      <view localScale={[2,2,2]}>{this.renderLines()}</view>
     );
   }
 }

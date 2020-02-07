@@ -13,7 +13,7 @@ export * from './sceneGridLayout';
 export * from './sceneImage';
 export * from './sceneImageRemote';
 export * from './sceneImageSlider/scene';
-export * from './sceneItemsAlignment'
+export * from './sceneItemsAlignment';
 export * from './sceneItemsPadding';
 export * from './sceneLayout';
 export * from './sceneLine';

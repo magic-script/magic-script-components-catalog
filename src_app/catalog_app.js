@@ -14,7 +14,6 @@ import {
   SceneDialog,
   SceneDropdownList,
   SceneFilePicker,
-  SceneFilePicker,
   SceneGridLayout,
   SceneImage,
   SceneImageRemote,
