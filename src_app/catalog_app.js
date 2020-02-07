@@ -18,12 +18,15 @@ import {
   SceneImage,
   SceneImageRemote,
   SceneImageSlider,
+  SceneItemsAlignment,
+  SceneItemsPadding,
   SceneLayout,
   SceneLine,
   SceneLinearLayout,
   SceneListView,
   SceneModel,
   ScenePageView,
+  ScenePlaneDetector,
   SceneProgressBar,
   SceneRectLayout,
   SceneScrollBar,
@@ -41,8 +44,6 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
-  SceneItemsPadding,
-  SceneItemsAlignment
 } from './test_scenes';
 
 import { registerOnDeeplinkSet } from "../global/globalVariables"
@@ -95,6 +96,8 @@ class CatalogApp extends React.Component {
       { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
+      // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
+
     ];
     
       const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
