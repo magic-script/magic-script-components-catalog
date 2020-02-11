@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, Toggle, View, DropdownList, DropdownListItem } from 'magic-script-components';
+import { Button, Toggle, View, DropdownList, DropdownListItem } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
@@ -17,12 +17,13 @@ import {
   SceneImage,
   SceneImageRemote,
   SceneImageSlider,
+  SceneItemsAlignment,
+  SceneItemsPadding,
   SceneLayout,
   SceneLine,
   SceneLinearLayout,
   SceneListView,
-  SceneModelAnimated,
-  SceneModelStatic,
+  SceneModel,
   ScenePageView,
   SceneProgressBar,
   SceneRectLayout,
@@ -41,7 +42,6 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
-  SceneFilePicker,
 } from './test_scenes';
 
 class CatalogApp extends React.Component {
@@ -69,8 +69,7 @@ class CatalogApp extends React.Component {
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
       { name: 'Video grid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
-      { name: 'Model\n(static)', component: <SceneModelStatic localPosition={[0, 0, 0]} /> },
-      { name: 'Model\n(animated)', component: <SceneModelAnimated localPosition={[0, 0, 0]} /> },
+      { name: 'Models', component: <SceneModel localPosition={[0, 0, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Toggle group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
@@ -89,12 +88,13 @@ class CatalogApp extends React.Component {
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock localPosition={[0, 0, 0]} /> },
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
-      // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
+      { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
+      { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
     ];
-
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
-    // const initialIndex = this.scenes.length - 6;
-    this.state = { sceneIndex: initialIndex, showGrid: false };
+    
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Text');
+      this.state = { sceneIndex: initialIndex, showGrid: false };
+      // console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
   }
 
   onNextScene = () => {
@@ -137,9 +137,9 @@ class CatalogApp extends React.Component {
       <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
         <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
           <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
-          {/* <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
+          <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
             {this.renderDropdownItems()}
-          </DropdownList> */}
+          </DropdownList>
           <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
           <Toggle localPosition={[0.13, 0.15, 0]} height={0.08} textSize={0.08} on={this.state.showGrid} onToggleChanged={this.onShowGridAction} alignment={'bottom-center'}>grid</Toggle>
         </View>

@@ -66,7 +66,7 @@ class SceneGridLayout extends React.Component {
           <text debug textSize={0.15} alignment={'bottom-right'} textColor={[1,0,0,1]}>Lorem ipsum dolor</text>
           <text debug textSize={0.3} localScale={[0.5, 0.5, 1]}>Item 3</text>
           <button debug width={1} height={0.4} localScale={[0.3, 0.3, 1]}>Scaled</button>
-          <model debug alignment={'center-left'} localScale={[0.2, 0.2, 0.2]} modelPath={require('../../resources/BoxTextured.glb')} />
+          <model debug alignment={'center-left'} localScale={[0.2, 0.2, 0.2]} modelPath={require('../../resources/models/static.glb')} />
           <image debug width={0.5} height={0.4} alignment={'bottom-left'} localScale={[0.5, 0.5, 0.5]} color={[0,0,1,1]}/>
           <image debug width={0.25} height={0.2} color={[0,1,0,1]}/>
           <textEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[1,0,0,1]} multiline/>
