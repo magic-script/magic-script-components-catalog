@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "./scripts/pretest.sh && jest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
