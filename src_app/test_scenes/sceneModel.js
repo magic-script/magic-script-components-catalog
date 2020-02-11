@@ -6,7 +6,7 @@ class SceneModel extends React.Component {
     const isAnimatedGlbSupported = (Platform.OS !== 'android');
     
     if (isAnimatedGlbSupported) {
-      return <model modelPath={require('../../resources/models/animated.glb')} localPosition={position} localScale={[0.2, 0.2, 0.2]} />;
+      return <model modelPath={require('../../resources/models/animated.glb')} animation={{ name: 'All Animations' }} localPosition={position} localScale={[0.2, 0.2, 0.2]} />;
     } else {
       return <text 
         alignment={'center-center'} 
