@@ -44,7 +44,8 @@ import {
   SceneFilePicker,
 } from './test_scenes';
 
-class MyApp extends React.Component {
+class CatalogApp extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -151,4 +152,4 @@ class MyApp extends React.Component {
   }
 }
 
-export default MyApp;
+export default CatalogApp;
