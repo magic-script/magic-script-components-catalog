@@ -1,7 +1,5 @@
 {
   "scripts": {
-    "preinstall": "./scripts/preinstall.sh",
-    "postinstall": "./scripts/postinstall.sh",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
@@ -20,7 +18,7 @@
     "magic-script-polyfills": "2.4.2",
     "react": "16.8.3",
     "react-native": "0.60.5",
-    "magic-script-components-react-native": "git+https://github.com/magic-script/magic-script-components-react-native"
+    "magic-script-components-react-native": "1.0.3"
   },
   "jest": {
     "preset": "react-native"

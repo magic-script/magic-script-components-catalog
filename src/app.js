@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, Toggle, View, DropdownList, DropdownListItem, Platform } from 'magic-script-components';
+import { Button, Text, Toggle, View, DropdownList, DropdownListItem } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
@@ -93,7 +93,6 @@ class MyApp extends React.Component {
 
     const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
     // const initialIndex = this.scenes.length - 6;
-    console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
     this.state = { sceneIndex: initialIndex, showGrid: false };
   }
 

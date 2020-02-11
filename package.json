@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "magic-script-components": "git+https://github.com/magic-script/magic-script-components",
+    "magic-script-components": "2.0.2",
     "lomino-font": "git+https://github.com/magic-script/lomino-font",
     "lumin-system-icons": "git+https://github.com/magic-script/system-icons"
   }
