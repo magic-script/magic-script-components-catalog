@@ -40,7 +40,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 package-lock.json
-yarn.lock
 
 # BUCK
 buck-out/
@@ -72,7 +71,7 @@ lumin/digest.sha512.signed
 # assets
 assets/fonts/
 assets/lumin_system_icons/
-android/app/src/main/assets/
 
 # reactnative
 reactnative/bin
+reactnative/android/app/src/main/assets/
