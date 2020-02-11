@@ -71,4 +71,7 @@ lumin/digest.sha512.signed
 # assets
 assets/fonts/
 assets/lumin_system_icons/
+
+# reactnative
+reactnative/bin
 reactnative/android/app/src/main/assets/
