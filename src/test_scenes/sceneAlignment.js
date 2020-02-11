@@ -41,13 +41,13 @@ class SceneAlignment extends React.Component {
         scrollBarVisibility={'always'} 
         scrollDirection={'vertical'}
       >
-        <linearLayout defaultItemAlignment={'center-center'} width={size} height={4 * size}>
-          <image width={size} height={size} color={[1,1,0.5,1]}/>
-          <image width={size} height={size} color={[1,0.5,1,1]}/>
-          <image width={size} height={size} color={[0.5,1,1,1]}/>
-          <image width={size} height={size} color={[1,1,1,1]}/>
-        </linearLayout>
         <scrollBar orientation={'vertical'} length={size} localPosition={[0.5 * size, 0, 0]}/>
+        <linearLayout defaultItemAlignment={'center-center'} >
+          <image width={size} height={0.66*size} color={[1,1,0.5,1]} />
+          <image width={size} height={0.66*size} color={[1,0.5,1,1]} />
+          <image width={size} height={0.66*size} color={[0.5,1,1,1]} />
+          <image width={size} height={0.66*size} color={[1,1,1,1]} />
+        </linearLayout>
       </scrollView>
     );
   }

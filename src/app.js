@@ -92,7 +92,7 @@ class CatalogApp extends React.Component {
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
     ];
     
-      const initialIndex = this.scenes.findIndex((item) => item.name == 'Text');
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
       this.state = { sceneIndex: initialIndex, showGrid: false };
       // console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
   }
