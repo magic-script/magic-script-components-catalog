@@ -69,7 +69,7 @@ class CatalogApp extends React.Component {
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
       { name: 'Video grid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
-      { name: 'Models', component: <SceneModel localPosition={[0, 0, 0]} /> },
+      { name: 'Models', component: <SceneModel localPosition={[0, 0.3, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Toggle group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
