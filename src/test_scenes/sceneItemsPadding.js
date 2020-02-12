@@ -92,7 +92,7 @@ class SceneItemsPadding extends React.Component {
                         width={1}
                         height={1}
                         visiblePage={pageIndex}
-                        itemPadding={[
+                        pagePadding={[
                             // The padding order is:  top, right, bottom, left
                             { index: 0, padding: [0.2, 0.2, 0, 0] },
                             { index: 1, padding: [0.0, 0.0, 0.2, 0.2] }

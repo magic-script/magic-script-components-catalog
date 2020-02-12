@@ -93,8 +93,7 @@ class SceneItemsAlignment extends React.Component {
                         width={1.5}
                         height={2}
                         visiblePage={pageIndex}
-                        itemAlignment={[
-                            // The padding order is:  top, right, bottom, left
+                        pageAlignment={[
                             { index: 0, alignment: Alignment.topLeft },
                             { index: 1, alignment: Alignment.bottomCenter }
                         ]}>
