@@ -39,6 +39,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # BUCK
 buck-out/
@@ -63,11 +64,14 @@ buck-out/
 yarn.lock
 
 # magic-script
-bin/
-.out/
-digest.sha512.signed
+lumin/bin/
+lumin/.out/
+lumin/digest.sha512.signed
 
 # assets
 assets/fonts/
 assets/lumin_system_icons/
-android/app/src/main/assets/
+
+# reactnative
+reactnative/bin
+reactnative/android/app/src/main/assets/

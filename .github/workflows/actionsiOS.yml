@@ -17,9 +17,10 @@ jobs:
       run: |
         sed -i '' "s/git\+https\:\/\//https:\/\/$GITHUB_USER_PASSWORD@/g" package.json
         npm install
+        cd reactnative && npm install && npm run testscript
     - name: Build and test
       run: |
         npm install --global react-native-cli
-        react-native run-ios --simulator "iPhone 11 Pro"
+        cd reactnative && react-native run-ios --simulator "iPhone 11 Pro"
 
 
