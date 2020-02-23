@@ -24,7 +24,8 @@ module.exports = {
     path.resolve(__dirname, 'node_modules'),
     path.resolve(__dirname, '../node_modules'),
     path.resolve(__dirname, '../resources'),
-    path.resolve(__dirname, '../assets')
+    path.resolve(__dirname, '../assets'),
+    path.resolve(__dirname, '../global')
   ],
   resolver: {
     assetExts: [

@@ -1,9 +1,12 @@
 import { AppRegistry } from 'react-native';
-import { ReactNativeMagicScript } from 'magic-script-components-react-native';
+import { ReactNativeMagicScript, PlatformInformation, NativePlaneDetector } from 'magic-script-components-react-native';
 import ReactNativeApp from '../react-native/ReactNativeApp';
+import { Platform, PlaneDetector } from 'magic-script-components';
 
 const MagicScript = {
     registerApp: (name, appComponent, debug = false) => {
+        Platform.setPlatformInformation(new PlatformInformation());
+        PlaneDetector.setNativePlaneDetector(new NativePlaneDetector());
         AppRegistry.registerComponent(name, () => ReactNativeApp);
         ReactNativeMagicScript.render(appComponent, { name: 'root' }, null, debug);
     }

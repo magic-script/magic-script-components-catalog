@@ -1,9 +1,9 @@
 import React from 'react';
-// import { Platform } from 'magic-script-components';
+import { Platform } from 'magic-script-components';
 
 class SceneModel extends React.Component {
   renderAnimatedModel(position) {
-    const isAnimatedGlbSupported = true;//(Platform.OS !== 'android');
+    const isAnimatedGlbSupported = (Platform.OS !== 'android');
     
     if (isAnimatedGlbSupported) {
       return <model modelPath={require('../../resources/models/animated.glb')} animation={{ name: 'All Animations' }} localPosition={position} localScale={[0.2, 0.2, 0.2]} />;

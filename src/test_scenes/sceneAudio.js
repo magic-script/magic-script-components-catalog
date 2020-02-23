@@ -83,7 +83,7 @@ class SceneAudio extends React.Component {
           soundMute={!alarmSound}
           soundVolumeLinear={volume} 
           spatialSoundEnable={spatialSound} 
-          spatialSoundPosition={[{ channel: 0, channelPosition: alarmPosition }]}
+          spatialSoundPosition={{ 'channel': 0, channelPosition: alarmPosition }}
         />
         <toggle 
           localPosition={[0.4, 0.9, 0]} 

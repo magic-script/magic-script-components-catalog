@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Toggle, View, DropdownList, DropdownListItem } from 'magic-script-components';
+import { Button, Text, Toggle, View, DropdownList, DropdownListItem, Platform } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
@@ -13,6 +13,7 @@ import {
   SceneDatePicker,
   SceneDialog,
   SceneDropdownList,
+  SceneFilePicker,
   SceneGridLayout,
   SceneImage,
   SceneImageRemote,
@@ -25,6 +26,7 @@ import {
   SceneListView,
   SceneModel,
   ScenePageView,
+  ScenePlaneDetector,
   SceneProgressBar,
   SceneRectLayout,
   SceneScrollBar,
@@ -43,6 +45,9 @@ import {
   SceneVideoGrid,
   SceneWebView,
 } from './test_scenes';
+
+import { registerOnDeeplinkSet } from "../global/globalVariables"
+
 
 class CatalogApp extends React.Component {
 
@@ -69,7 +74,7 @@ class CatalogApp extends React.Component {
       { name: 'Image slider', component: <SceneImageSlider localPosition={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo localPosition={[0, 0, 0]} /> },
       { name: 'Video grid', component: <SceneVideoGrid localPosition={[0, 0, 0]} /> },
-      { name: 'Models', component: <SceneModel localPosition={[0, 0.3, 0]} /> },
+      { name: 'Models', component: <SceneModel localPosition={[0, 0, 0]} /> },
       { name: 'Transformations', component: <SceneTransformations localPosition={[0, 0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle localPosition={[0, 0, 0]} /> },
       { name: 'Toggle group', component: <SceneToggleGroup localPosition={[0, 1.0, 0]} /> },
@@ -90,11 +95,22 @@ class CatalogApp extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
+      // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
+      // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
+
     ];
     
-      const initialIndex = this.scenes.findIndex((item) => item.name == 'Characters');
+      const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
       this.state = { sceneIndex: initialIndex, showGrid: false };
-      // console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
+      console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
+
+      registerOnDeeplinkSet((deeplink) => {
+        //deeplink example [catalog://scene/7]
+        const route = deeplink.replace(/.*?:\/\//g, '');
+        const id = route.match(/\/([^\/]+)\/?$/)[1];
+        let initialIndex = parseInt(id)
+        this.setState({ sceneIndex: initialIndex }); 
+      })
   }
 
   onNextScene = () => {
