@@ -95,7 +95,7 @@ class SceneAlignment extends React.Component {
       circleConfirmation: { radius: 0.5 * itemSize, enabled: false },
       image: { width: itemSize, height: itemSize, color: 'red' },
       line: { points: [[0, lineY1, 0], [-0.5 * itemSize, lineY2, 0], [0.5 * itemSize, lineY2, 0], [0, lineY1, 0]], color: [0,1,1,1] },
-      model: { modelPath: require('../../resources/models/static.glb'), localScale: [0.2, 0.2, 0.2] }, 
+      model: { modelPath: require('../../assets/resources/models/static.glb'), localScale: [0.2, 0.2, 0.2] }, 
       progressBar: { width: itemSize, height: 0.2 * itemSize, value: 0.66 },
       scrollBar: { length: itemSize, thickness: 0.2 * itemSize, thumbPosition: 0.9 },
       slider: { width: itemSize, height: 0.2 * itemSize, value: 0.3, enabled: false },
@@ -103,7 +103,7 @@ class SceneAlignment extends React.Component {
       text: { textSize: 0.048, text: 'A B C D E F G H I J K L M N O P Q R S T U W X Y Z', boundsSize: { boundsSize: [itemSize, itemSize], wrap: true } },
       textEdit: { textSize: 0.02, text: textEditContent, enabled: false, multiline: true, scrolling: true, width: itemSize, height: itemSize },
       toggle: { height: 0.25 * itemSize, on: true, text: 'foo', textSize: 0.07 },
-      // video: { looping: true, width: videoResolution[0], height: videoResolution[1], size: videoSize, anchorPosition: [0.5 * videoSize[0], 0.5 * videoSize[1], 0], videoPath: require('../../resources/video.mp4'), action: 'start', viewMode: 'full-area', volume: 0},      
+      // video: { looping: true, width: videoResolution[0], height: videoResolution[1], size: videoSize, anchorPosition: [0.5 * videoSize[0], 0.5 * videoSize[1], 0], videoPath: require('../../assets/resources/video.mp4'), action: 'start', viewMode: 'full-area', volume: 0},      
       webView: { url: 'https://www.magicleap.com', height: itemSize, width: itemSize, enable: false },
     };
 
