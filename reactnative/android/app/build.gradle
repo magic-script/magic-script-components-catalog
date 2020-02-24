@@ -190,7 +190,6 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-fs')
     implementation project(':magic-script-components-react-native') // defined in settings.gradle
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
