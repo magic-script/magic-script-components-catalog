@@ -12,12 +12,10 @@ jobs:
       with:
         node-version: '12.x'
     - name: Prepare env
-      env:
-        GITHUB_USER_PASSWORD: ${{ secrets.GITHUB_USER_PASSWORD }}
       run: |
-        sed -i '' "s/git\+https\:\/\//https:\/\/$GITHUB_USER_PASSWORD@/g" package.json
         npm install
+        cd reactnative && npm install
     - name: Build and test
       run: |
         npm install --global react-native-cli
-        cd android && ./gradlew assembleDebug
+        cd reactnative/android && ./gradlew assembleDebug
