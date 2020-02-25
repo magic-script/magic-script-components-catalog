@@ -96,6 +96,7 @@ class SceneDialog extends React.Component {
               message={"Dialog message text"}
               confirmText={"Confirm"}
               cancelText={"Cancel"}
+              buttonType={"text"}
             />
           )}
           {showDialogWithIcons && (
@@ -108,6 +109,7 @@ class SceneDialog extends React.Component {
               confirmIcon={"thumbs-up"}
               cancelText={"NO"}
               cancelIcon={"thumbs-down"}
+              buttonType={"text-with-icon"}
             />
           )}
           {showDialogLongText && (
@@ -120,6 +122,7 @@ class SceneDialog extends React.Component {
               confirmIcon={"check"}
               cancelText={"Cancel"}
               cancelIcon={"close"}
+              buttonType={"icon-with-label"}
               scrolling={true}
             />
           )}
@@ -129,6 +132,9 @@ class SceneDialog extends React.Component {
               title={"Auto dismiss"}
               message={"This dialog will expire in 3 seconds."}
               type={"timed"}
+              confirmIcon={"thumbs-up"}
+              cancelIcon={"thumbs-down"}
+              buttonType={"icon"}
               expireTime={3.0}
             />
           )}
