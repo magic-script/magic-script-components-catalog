@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform, View } from 'magic-script-components';
 import { MainPrism } from './mainPrism';
 
 function Scene(props) {
