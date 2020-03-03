@@ -12,8 +12,6 @@ class SceneButtonType extends React.Component {
 				<LinearLayout localPosition={[0, 0.75, 0]}>
 					<Button text='text' height={0.15} />
 					<Button iconType='clock' text='text' height={0.15} />
-					{/* labelSide has no effect for text-with-icon button type */}
-					{/* the 'icon-with-text' type is not supported */}
 					<Button type='text-with-icon' labelSide='right' iconType='clock' text='text' height={0.15} />
 					<Button type='icon-with-label' labelSide='top' iconType='clock' text='top' height={0.15} />
 					<Button type='icon-with-label' labelSide='right' iconType='clock' text='right' height={0.15} />
