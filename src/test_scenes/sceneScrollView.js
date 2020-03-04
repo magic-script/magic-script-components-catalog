@@ -9,16 +9,15 @@ class SceneScrollView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isVertical: true, alignment: 'center-center', scrollValue: 0 };
+    this.state = { isVertical: true, alignment: 'center-center'};
   }
 
   onOrientationChanged = event => {
-    this.setState({ isVertical: event.On, scrollValue: 0 });
+    this.setState({ isVertical: event.On });
   }
 
   onScrollChanged = event => {
     console.log('onScrollChanged: ', event.ScrollValue);
-    this.setState({ scrollValue: event.ScrollValue });
   }
 
   onTopLeftButtonClick = () => { this.setState({ alignment: 'top-left' }); }
@@ -32,7 +31,7 @@ class SceneScrollView extends React.Component {
   onBottomRightButtonClick = () => { this.setState({ alignment: 'bottom-right' }); }
 
   render() {
-    const { isVertical, alignment, scrollValue } = this.state;
+    const { isVertical, alignment } = this.state;
     const size = 1.0;
     const orientation = isVertical ? Orientation.vertical : Orientation.horizontal;
     const direction = orientation;
@@ -57,7 +56,7 @@ class SceneScrollView extends React.Component {
           scrollBarVisibility={'auto'} 
           scrollBounds={aabb} 
           scrollDirection={direction}
-          scrollValue={scrollValue}
+          scrollValue={0}
         >
           <scrollBar localPosition={scrollBarPosition} orientation={orientation} length={scrollBarLength} thickness={scrollBarThickness} />
           <linearLayout alignment={alignment} defaultItemAlignment={'center-center'} orientation={orientation}>
