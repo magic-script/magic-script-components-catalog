@@ -8,4 +8,4 @@ cd lumin/.out/app
 mxs bin/index.js
 cd ../../../
 
-say -v Melina 'build done'
+say -v Melina 'lumin simulator build done'
