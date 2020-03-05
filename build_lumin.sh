@@ -1,7 +1,7 @@
 printf "\033c"
 
-echo "1. building app..."
+echo "building app..."
 magic-script build -i
 magic-script run
 
-say -v Melina 'build done'
+say -v Melina 'lumin build done'
