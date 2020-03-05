@@ -4,9 +4,12 @@
 import "magic-script-polyfills";
 import process from "./global-scope.js";
 import React from "react";
+import { Platform, PlaneDetector } from 'magic-script-components';
 import mxs from "magic-script-components-lumin";
 
 // Load main app logic from the app class.
 import CatalogApp from './app';
 
+Platform.setPlatformInformation(new mxs.PlatformInformation());
+PlaneDetector.setNativePlaneDetector(new mxs.NativePlaneDetector());
 mxs.bootstrap(<CatalogApp type='landscape' volumeSize={[1.0, 1.5, 0.5]} />);
