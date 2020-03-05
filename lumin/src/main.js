@@ -11,4 +11,5 @@ import mxs from "magic-script-components-lumin";
 import CatalogApp from './app';
 
 Platform.setPlatformInformation(new mxs.PlatformInformation());
+PlaneDetector.setNativePlaneDetector(new mxs.NativePlaneDetector());
 mxs.bootstrap(<CatalogApp type='landscape' volumeSize={[1.0, 1.5, 0.5]} />);
