@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, Toggle, View, DropdownList, DropdownListItem, Platform } from 'magic-script-components';
+import { Button, Toggle, View, DropdownList, DropdownListItem, Platform } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
@@ -48,6 +48,20 @@ import {
 
 import { registerOnDeeplinkSet } from "../global/globalVariables"
 
+function Scene(props) {
+  // return (<scene {...props} />);
+  if (Platform.OS == "Lumin") {
+    return React.createElement("view", props);
+  }
+  return React.createElement("scene", props);
+}
+function Prism(props) {
+  // return (<prism {...props} />);
+  if (Platform.OS == "Lumin") {
+    return React.createElement("view", props);
+  }
+  return React.createElement("prism", props);
+}
 
 class CatalogApp extends React.Component {
 
@@ -148,22 +162,66 @@ class CatalogApp extends React.Component {
 
   render() {
     const { sceneIndex } = this.state;
-    const scene = this.scenes[sceneIndex];
+    const testScene = this.scenes[sceneIndex];
+
     return (
-      <View name='main-view' alignment={'center-center'} localScale={[0.5, 0.5, 0.5]}>
-        <View alignment={'center-center'} localPosition={[0, 1.3, 0]}>
-          <Button localPosition={[-0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
-          <DropdownList alignment={'top-center'} height={0.15} listMaxHeight={1} localPosition={[0, 0, 0]} onSelectionChanged={this.onSceneSelected} text={scene.name} textSize={0.05}>
-            {this.renderDropdownItems()}
-          </DropdownList>
-          <Button localPosition={[0.5, 0, 0]} width={0.25} height={0.1} roundness={1} textSize={0.05} onClick={this.onNextScene}>Next</Button>
-          <Toggle localPosition={[0.13, 0.15, 0]} height={0.08} textSize={0.08} on={this.state.showGrid} onToggleChanged={this.onShowGridAction} alignment={'bottom-center'}>grid</Toggle>
-        </View>
-        <View alignment={'center-center'}>
-          {this.renderGrid()}
-          {scene.component}
-        </View>
-      </View>
+      <Scene>
+        <Prism size={[1.0, 1.5, 0.75]} debug>
+          <View
+            name="main-view"
+            alignment={"center-center"}
+            localScale={[0.5, 0.5, 0.5]}
+          >
+            <View alignment={"center-center"} localPosition={[0, 1.3, 0]}>
+              <Button
+                localPosition={[-0.5, 0, 0]}
+                width={0.25}
+                height={0.1}
+                roundness={1}
+                textSize={0.05}
+                onClick={this.onPreviousScene}
+              >
+                Prev
+              </Button>
+              <DropdownList
+                alignment={"top-center"}
+                height={0.15}
+                listMaxHeight={1}
+                localPosition={[0, 0, 0]}
+                onSelectionChanged={this.onSceneSelected}
+                text={testScene.name}
+                textSize={0.05}
+              >
+                {this.renderDropdownItems()}
+              </DropdownList>
+              <Button
+                localPosition={[0.5, 0, 0]}
+                width={0.25}
+                height={0.1}
+                roundness={1}
+                textSize={0.05}
+                onClick={this.onNextScene}
+              >
+                Next
+              </Button>
+              <Toggle
+                localPosition={[0.13, 0.15, 0]}
+                height={0.08}
+                textSize={0.08}
+                on={this.state.showGrid}
+                onToggleChanged={this.onShowGridAction}
+                alignment={"bottom-center"}
+              >
+                grid
+              </Toggle>
+            </View>
+            <View alignment={"center-center"}>
+              {this.renderGrid()}
+              {testScene.component}
+            </View>
+          </View>
+        </Prism>
+      </Scene>
     );
   }
 }
