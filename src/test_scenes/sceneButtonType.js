@@ -1,14 +1,10 @@
 import React from 'react';
-import { LinearLayout, Button } from 'magic-script-components';
+import { LinearLayout, Button, View } from 'magic-script-components';
 
 class SceneButtonType extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
-			<view localPosition={this.props.localPosition}>
+			<View localPosition={this.props.localPosition}>
 				<LinearLayout localPosition={[0, 0.75, 0]}>
 					<Button text='text' height={0.15} />
 					<Button iconType='clock' text='text' height={0.15} />
@@ -20,7 +16,7 @@ class SceneButtonType extends React.Component {
 					<Button type='icon' labelSide='left' iconType='clock' text='text' height={0.15} />
 					<Button type='text' labelSide='left' iconType='clock' text='text' height={0.15} />
 				</LinearLayout>
-			</view>
+			</View>
 		);
 	}
 }
