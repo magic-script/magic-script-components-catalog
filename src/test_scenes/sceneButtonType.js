@@ -5,7 +5,11 @@ class SceneButtonType extends React.Component {
 	render() {
 		return (
 			<View localPosition={this.props.localPosition}>
-				<LinearLayout localPosition={[0, 0.75, 0]}>
+        <LinearLayout 
+          alignment={'top-center'} 
+          defaultItemAlignment={'center-center'}
+          localPosition={[0, 0.75, 0]} 
+        >
 					<Button text='text' height={0.15} />
 					<Button iconType='clock' text='text' height={0.15} />
 					<Button type='text-with-icon' labelSide='right' iconType='clock' text='text' height={0.15} />
