@@ -50,8 +50,7 @@ import {
 import { registerOnDeeplinkSet } from "../global/globalVariables";
 
 function Prism(props) {
-  const name = (Platform.OS == 'Lumin') ? 'view' : 'prism';
-  return React.createElement(name, props);
+  return React.createElement('prism', props);
 }
 
 class MainPrism extends React.Component {
