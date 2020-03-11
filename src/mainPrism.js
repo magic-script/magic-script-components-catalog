@@ -7,6 +7,7 @@ import {
   SceneAudio,
   SceneButton,
   SceneButtonOutline,
+  SceneButtonType,
   SceneCircleConfirmation,
   SceneClock,
   SceneColorPicker,
@@ -49,8 +50,7 @@ import {
 import { registerOnDeeplinkSet } from "../global/globalVariables";
 
 function Prism(props) {
-  const name = (Platform.OS == 'Lumin') ? 'view' : 'prism';
-  return React.createElement(name, props);
+  return React.createElement('prism', props);
 }
 
 class MainPrism extends React.Component {
@@ -65,6 +65,7 @@ class MainPrism extends React.Component {
       { name: 'Text edit', component: <SceneTextEdit localPosition={[0, 0.5, 0]} /> },
       { name: 'Button\n(properties)', component: <SceneButton localPosition={[0, 0, 0]} /> },
       { name: 'Button\n(outline)', component: <SceneButtonOutline localPosition={[0, 0, 0]} /> },
+      { name: 'Button Type', component: <SceneButtonType localPosition={[0, 0, 0]} /> },
       { name: 'Layout size', component: <SceneLayout localPosition={[0, 0, 0]} /> },
       { name: 'Rect layout', component: <SceneRectLayout localPosition={[0, 0.0, 0]} /> },
       { name: 'Linear layout', component: <SceneLinearLayout localPosition={[0, 0.5, 0]} /> },
@@ -100,10 +101,9 @@ class MainPrism extends React.Component {
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
-
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Models');
+    const initialIndex = this.scenes.findIndex((item) => item.name == 'Button Type');
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
 
