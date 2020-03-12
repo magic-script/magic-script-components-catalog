@@ -1,9 +1,6 @@
 import React from 'react';
+import { Scene } from 'magic-script-components';
 import { MainPrism } from './mainPrism';
-
-function Scene(props) {
-  return React.createElement('scene', props);
-}
 
 class CatalogApp extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, DropdownList, DropdownListItem, Toggle, View, Platform } from 'magic-script-components';
+import { Button, DropdownList, DropdownListItem, Toggle, View, Platform, Prism } from 'magic-script-components';
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
@@ -48,10 +48,6 @@ import {
 } from './test_scenes';
 
 import { registerOnDeeplinkSet } from "../global/globalVariables";
-
-function Prism(props) {
-  return React.createElement('prism', props);
-}
 
 class MainPrism extends React.Component {
   constructor(props) {
