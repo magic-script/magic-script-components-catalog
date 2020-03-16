@@ -6,21 +6,27 @@ class CatalogApp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { prisms: [] };
+    this.state = { prisms: [], totalIndex: 0 };
   }
 
-  onPrismAction = (createPrismFunc) => {
-    if (createPrismFunc !== undefined) {
-      let prisms = this.state.prisms;
-      const index = prisms.length;
-      const prism = createPrismFunc(`Prism ${index}`, index);
+  onPrismAction = (input) => {
+    console.log('onPrismAction: ', input);
+    if (typeof input === 'function') {
+      // create new prism
+      const createPrismFunc = input;
+      let { prisms, totalIndex } = this.state;
+      const prism = createPrismFunc(`Prism ${totalIndex}`, totalIndex);
       prisms.push(prism);
-      this.setState({ prisms });
+      this.setState({ prisms, totalIndex: totalIndex + 1 });
+      console.log('onPrismAction.add: ', prisms.length);
     } else {
       let prisms = this.state.prisms;
       if (prisms.length > 0) {
-        prisms.pop();
+        // delete prism: either with given key (stored in input) or the last one
+        const key = (typeof input === 'number') ? input : prisms[prisms.length - 1].key;
+        prisms = prisms.filter(prism => prism.key !== key);
         this.setState({ prisms });
+        console.log('onPrismAction.remove: ', prisms.length);
       }
     }
   }

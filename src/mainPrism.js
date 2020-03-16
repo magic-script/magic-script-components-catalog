@@ -151,7 +151,7 @@ class MainPrism extends React.Component {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
     return (
-      <Prism size={this.props.size} debug>
+      <Prism size={this.props.size}>
         <View
           name="main-view"
           alignment={"center-center"}

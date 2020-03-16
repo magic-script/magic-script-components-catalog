@@ -1,27 +1,39 @@
 import React from 'react';
-import { Button, Text, View } from 'magic-script-components';
+import { Button, Text, Prism, View } from 'magic-script-components';
 
 class SceneMultiPrism extends React.Component {
 
   onAddPrism = () => {
     const createPrismFunc = (text, index) => {
-      console.log('createPrismFunc.index: ', index);
-      const columns = 4;
-      const origin = { x: -0.5, y: 0.5 };
-      const size = { width: 0.2, height: 0.2 }
-      const gap = 0.05
-      const x = origin.x + (index % columns) * (size.width + gap);
-      const y = origin.y - Math.floor(index / columns) * (size.height + gap);
-      console.log(`createPrismFunc: ${x}, ${y} `);
+      const columns = 2;
+      const rows = 2;
+      const origin = { x: 0.75, y: 0.5, z: 0 };
+      const size = { width: 0.2, height: 0.2, depth: 0.1 };
+      const gap = 0.05;
+      const idx = { 
+        column: index % columns, 
+        row: Math.floor((index % (columns * rows)) / columns), 
+        layer: Math.floor(index / (columns * rows))
+      };
+      const x = origin.x + idx.column * (size.width + gap);
+      const y = origin.y - idx.row * (size.height + gap);
+      const z = origin.z - idx.layer * (size.depth + gap);
       return (
-        <prism key={index} size={[size.width, size.height, 0.1]} position={[x, y, -0.3]}>
-          <Text
+        <Prism 
+          key={index} 
+          onDestroy={() => this.props.onPrismAction(index)}
+          position={[x, y, z]} 
+          size={[size.width, size.height, size.depth]} 
+          debug
+        >
+          <Button
             alignment={'center-center'}
+            onClick={() => this.props.onPrismAction(index)}
             textAlignment={'center'} 
             text={text}
             textSize={0.03}
           />
-        </prism>
+        </Prism>
       );
     }
       
