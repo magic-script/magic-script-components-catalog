@@ -10,7 +10,6 @@ class CatalogApp extends React.Component {
   }
 
   onPrismAction = (input) => {
-    console.log('onPrismAction: ', input);
     if (typeof input === 'function') {
       // create new prism
       const createPrismFunc = input;
@@ -18,7 +17,6 @@ class CatalogApp extends React.Component {
       const prism = createPrismFunc(`Prism ${totalIndex}`, totalIndex);
       prisms.push(prism);
       this.setState({ prisms, totalIndex: totalIndex + 1 });
-      console.log('onPrismAction.add: ', prisms.length);
     } else {
       let prisms = this.state.prisms;
       if (prisms.length > 0) {
@@ -26,7 +24,6 @@ class CatalogApp extends React.Component {
         const key = (typeof input === 'number') ? input : prisms[prisms.length - 1].key;
         prisms = prisms.filter(prism => prism.key !== key);
         this.setState({ prisms });
-        console.log('onPrismAction.remove: ', prisms.length);
       }
     }
   }
