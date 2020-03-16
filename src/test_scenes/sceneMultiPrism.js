@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, Prism, View } from 'magic-script-components';
+import { Button, Prism, View } from 'magic-script-components';
 
 class SceneMultiPrism extends React.Component {
 
