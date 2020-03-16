@@ -5,8 +5,8 @@ class SceneMultiPrism extends React.Component {
 
   onAddPrism = () => {
     const createPrismFunc = (text, index) => {
-      const columns = 2;
-      const rows = 2;
+      const columns = 3;
+      const rows = 4;
       const origin = { x: 0.75, y: 0.5, z: 0 };
       const size = { width: 0.2, height: 0.2, depth: 0.1 };
       const gap = 0.05;
