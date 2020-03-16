@@ -26,6 +26,7 @@ import {
   SceneLinearLayout,
   SceneListView,
   SceneModel,
+  SceneMultiPrism,
   ScenePageView,
   ScenePlaneDetector,
   SceneProgressBar,
@@ -95,6 +96,7 @@ class MainPrism extends React.Component {
       { name: 'Line', component: <SceneLine localPosition={[0, 0, 0]} /> },
       { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
+      { name: 'Multiple Prisms', component: <SceneMultiPrism localPosition={[0, 0, 0]} onPrismAction={this.props.onPrismAction} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
     ];
@@ -149,7 +151,7 @@ class MainPrism extends React.Component {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
     return (
-      <Prism size={this.props.size} debug>
+      <Prism size={this.props.size}>
         <View
           name="main-view"
           alignment={"center-center"}

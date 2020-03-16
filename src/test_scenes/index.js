@@ -20,6 +20,7 @@ export * from './sceneLine';
 export * from './sceneLinearLayout';
 export * from './sceneListView';
 export * from './sceneModel';
+export * from './sceneMultiPrism';
 export * from './scenePageView';
 export * from './scenePlaneDetector';
 export * from './sceneProgressBar';
