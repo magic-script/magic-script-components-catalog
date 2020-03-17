@@ -3,7 +3,7 @@ import React from "react";
 class SceneSlider extends React.Component {
   constructor(props) {
 		super(props);
-		this.state = { defaultSliderValue: 0.0, userDefinedSliderOneValue: 0.0, userDefinedSliderTwoValue: 0.0 }
+		this.state = { defaultSliderValue: 0.0, userDefinedSliderOneValue: 7.5, userDefinedSliderTwoValue: 0.0 }
 	}
 
   onDefaultSliderChanged = (event) => {
@@ -39,7 +39,7 @@ class SceneSlider extends React.Component {
           <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderOneValue.toPrecision(2)}/>
           <slider
             value={userDefinedSliderOneValue}
-            min={0}
+            min={5}
             max={10}
             minLabel={"-"}
             maxLabel={"+"}
