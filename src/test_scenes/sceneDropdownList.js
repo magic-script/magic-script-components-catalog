@@ -59,7 +59,7 @@ class SceneDropdownList extends React.Component {
             textSize={0.125}
             localPosition={[0.0, 0.05, 0.0]}
             maxCharacterLimit={15}
-            maxHeight={0.5}
+            listMaxHeight={0.5}
             multiSelect={true}
           >
             {words.map((word, index) => <dropdownListItem key={index} id={index} label={word} />)}
