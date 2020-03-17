@@ -101,7 +101,7 @@ class MainPrism extends React.Component {
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == 'Button Type');
+    const initialIndex = this.scenes.findIndex((item) => item.name == props.sceneName);
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
 
@@ -150,8 +150,9 @@ class MainPrism extends React.Component {
   render() {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
+    
     return (
-      <Prism size={this.props.size}>
+      <Prism size={this.props.size} position={this.props.position}>
         <View
           name="main-view"
           alignment={"center-center"}
@@ -209,6 +210,8 @@ class MainPrism extends React.Component {
 
 MainPrism.defaultProps = {
   size: [1.0, 1.0, 0.5],
+  position: [0, 0, 0],
+  sceneName: 'Characters'
 }
 
 export { MainPrism };
