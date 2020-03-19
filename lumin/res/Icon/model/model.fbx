@@ -28,21 +28,21 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "N:\Projects\MagicScript\Export\Lumin_icon_lp.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "N:\Projects\MagicScript\Export\Lumin_icon_lp.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "Lumin_icon_lp.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "Lumin_icon_lp.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2020"
 			P: "Original|DateTime_GMT", "DateTime", "", "", "06/03/2020 17:40:26.005"
-			P: "Original|FileName", "KString", "", "", "N:\Projects\MagicScript\Export\Lumin_icon_lp.fbx"
+			P: "Original|FileName", "KString", "", "", "Lumin_icon_lp.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2020"
 			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "06/03/2020 17:40:26.005"
-			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\patus\Documents\3ds Max 2020"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "N:\Projects\MagicScript\3ds max\Lumin_icon_3D_001max.max"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "3ds Max 2020"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "Lumin_icon_3D_001max.max"
 		}
 	}
 }
