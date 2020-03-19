@@ -11,27 +11,32 @@ class CatalogApp extends React.Component {
 
   onPrismAction = (input) => {
     if (typeof input === 'function') {
-      // create new prism
       const createPrismFunc = input;
-      let { prisms, totalIndex } = this.state;
-      const prism = createPrismFunc(`Prism ${totalIndex}`, totalIndex);
-      prisms.push(prism);
-      this.setState({ prisms, totalIndex: totalIndex + 1 });
+      this.setState(state => {
+        // create new prism
+        let { prisms, totalIndex } = state;
+        const prism = createPrismFunc(`Prism ${totalIndex}`, totalIndex);
+        prisms.push(prism);
+        return { prisms, totalIndex: totalIndex + 1 };
+      });
     } else {
-      let prisms = this.state.prisms;
-      if (prisms.length > 0) {
+      this.setState(state => {
+        if (state.prisms.length === 0) {
+          return {};
+        }
+
         // delete prism: either with given key (stored in input) or the last one
-        const key = (typeof input === 'number') ? input : prisms[prisms.length - 1].key;
-        prisms = prisms.filter(prism => prism.key !== key);
-        this.setState({ prisms });
-      }
+        const key = (typeof input === 'number') ? `${input}` : state.prisms[state.prisms.length - 1].key;
+        const prisms = state.prisms.filter(prism => prism.key !== key);
+        return { prisms, totalIndex: (prisms.length === 0) ? 0 : state.totalIndex };
+      });
     }
   }
 
   render() {
     return (
       <Scene>
-        <MainPrism sceneName='Local images' size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+        <MainPrism sceneName={'Multiple Prisms'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
       </Scene>
     );
