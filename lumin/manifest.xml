@@ -3,7 +3,8 @@
           ml:version_name="0.0.1"
           ml:version_code="1">
   <application ml:visible_name="Catalog"
-               ml:sdk_version="1.0">
+               ml:sdk_version="0.24.0"
+               ml:min_api_level="8">
     <component ml:name=".universe"
                ml:visible_name="Catalog"
                ml:binary_name="bin/index.js"
