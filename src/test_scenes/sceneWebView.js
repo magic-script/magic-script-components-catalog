@@ -13,30 +13,32 @@ class SceneWebView extends React.Component {
   }
 
   onTextChanged = event => {
-    this.setState({ text: event.text });
+    console.log('onTextChanged.event: ', event)
+    this.setState({ text: event.Text });
   }
 
   onLoad = () => {
     this.setState({ url: this.state.text });
   }
 
-  onOpenUrl = async () => {
+  onOpenUrl = () => {
     const url = this.state.text;
     Platform.canOpenUrl(url)
     .then(() => Platform.openUrl(url))
-    .catch(e => this.setState({ error: e.message }));
+    .catch(e => {
+      this.setState({ error: e.message });
+    });
   }
 
   onDialogConfirmed = () => {
     this.setState({ error: undefined });
   }
 
-  render () {
-    const { text, url, error } = this.state;
+  renderWebView() {
+    const { text, url } = this.state;
     const web = { width: 1.0, height: 0.75 };
     return (
-      <View localPosition={this.props.localPosition}>
-        <LinearLayout 
+      <LinearLayout 
           alignment={'top-center'}
           orientation={'vertical'}
           defaultItemAlignment={'center-center'}
@@ -61,15 +63,24 @@ class SceneWebView extends React.Component {
           <WebView url={url} height={web.height} width={web.width} />
           <Button height={0.1} onClick={this.onOpenUrl} text={'Open in browser'} textSize={0.08} />
         </LinearLayout>
+    );
+  }
+
+  render() {
+    const { error } = this.state;
+    return (
+      <View localPosition={this.props.localPosition}>
+        {!error && this.renderWebView()}
         {error && (
           <Dialog
+            confirmText={'Ok'}
+            localScale={[2,2,2]}
+            message={error}
             onDialogConfirmed={this.onDialogConfirmed}
             title={'Cannot open url'}
-            message={error}
-            confirmText={'Ok'}
+            type={'single-action'}
           />
         )}
-        
       </View>
     );
   }
