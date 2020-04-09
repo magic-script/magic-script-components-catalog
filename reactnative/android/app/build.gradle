@@ -193,6 +193,7 @@ dependencies {
     implementation project(':magic-script-components-react-native') // defined in settings.gradle
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+	debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermesvm/android/";
