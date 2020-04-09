@@ -16,8 +16,9 @@ export default class ReactNativeApp extends React.Component {
 
       <NavigationContainer>
          <Stack.Navigator>
-            <Stack.Screen name="Page1" component={Page1} options={{title: 'Welcome'}}/>
-            <Stack.Screen name="Page2" component={Page2} />
+            <Stack.Screen name="PageCamera" component={PageCamera} options={{title: 'Welcome'}}/>
+            <Stack.Screen name="PageMiddle" component={PageMiddle} />
+            <Stack.Screen name="PageAR" component={PageAR} />
          </Stack.Navigator>
       </NavigationContainer>
 
@@ -25,40 +26,11 @@ export default class ReactNativeApp extends React.Component {
   }
 }
 
-class Page1 extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { planeDetection: false };
-    
-    setInitialDeeplink(props.initialUrl);
-  }
-
-  onPlaneDetectionChanged = () => {
-    const { planeDetection } = this.state;
-    this.setState({ planeDetection: !planeDetection })
-  }
-
-   render() {
-
-      const { planeDetection } = this.state;
-      const navigation = this.props.navigation
-
-      return (
-        <View style={styles.container}>
-          <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} />
-          <View style={styles.containerHorizontal}>
-              <Text>Plane detection</Text>
-              <Switch value={planeDetection} onValueChange={this.onPlaneDetectionChanged}/>    
-          </View>
-          <Button title="Go to Page2" onPress={() => navigation.navigate('Page2')}/>
-        </View>
-      );
-   }
-}
-
-class Page2 extends PureComponent {
+class PageCamera extends PureComponent {
   render() {
+
+    const navigation = this.props.navigation
+
      return(
       <View style={styles.cameraContainer}>
       <RNCamera
@@ -80,6 +52,7 @@ class Page2 extends PureComponent {
         <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
           <Text style={{ fontSize: 14 }}> SNAP </Text>
         </TouchableOpacity>
+        <Button title="Next page" onPress={() => navigation.navigate('PageMiddle')}/>
       </View>
     </View>
      );
@@ -95,6 +68,48 @@ class Page2 extends PureComponent {
 
 }
 
+class PageMiddle extends React.Component {
+  render() {
+    const navigation = this.props.navigation
+     return(
+      <View style={styles.container}>
+           <Text>Middle page</Text> 
+           <Button title="Next page" onPress={() => navigation.navigate('PageAR')}/>
+      </View>
+     );
+  }
+}
+
+
+class PageAR extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { planeDetection: false };
+    
+    setInitialDeeplink(props.initialUrl);
+  }
+
+  onPlaneDetectionChanged = () => {
+    const { planeDetection } = this.state;
+    this.setState({ planeDetection: !planeDetection })
+  }
+
+   render() {
+
+      const { planeDetection } = this.state;
+    
+      return (
+        <View style={styles.container}>
+          <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={false} />
+          <View style={styles.containerHorizontal}>
+              <Text>Plane detection</Text>
+              <Switch value={planeDetection} onValueChange={this.onPlaneDetectionChanged}/>    
+          </View>
+        </View>
+      );
+   }
+}
 
 const styles = StyleSheet.create({
   container: {
