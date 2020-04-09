@@ -27,35 +27,57 @@ export default class ReactNativeApp extends React.Component {
 }
 
 class PageCamera extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = { focusedScreen: false };
+  }
+
+  componentDidMount() {
+    const navigation  = this.props.navigation;
+    navigation.addListener('focus', () =>
+      this.setState({ focusedScreen: true })
+    );
+    navigation.addListener('blur', () =>
+      this.setState({ focusedScreen: false })
+    );
+  }
+
   render() {
 
     const navigation = this.props.navigation
+    const focusedScreen = this.state.focusedScreen;
 
-     return(
-      <View style={styles.cameraContainer}>
-      <RNCamera
-        ref={ref => {
-          this.camera = ref;
-        }}
-        captureAudio={false}
-        style={styles.preview}
-        type={RNCamera.Constants.Type.back}
-        flashMode={RNCamera.Constants.FlashMode.on}
-        androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-      />
-      <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-        <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
-          <Text style={{ fontSize: 14 }}> SNAP </Text>
-        </TouchableOpacity>
-        <Button title="Next page" onPress={() => navigation.navigate('PageMiddle')}/>
-      </View>
-    </View>
-     );
+     if (focusedScreen){
+        return (
+          <View style={styles.cameraContainer}>
+            <RNCamera
+              ref={ref => {
+                this.camera = ref;
+              }}
+              captureAudio={false}
+              style={styles.preview}
+              type={RNCamera.Constants.Type.back}
+              flashMode={RNCamera.Constants.FlashMode.on}
+              androidCameraPermissionOptions={{
+                title: 'Permission to use camera',
+                message: 'We need your permission to use your camera',
+                buttonPositive: 'Ok',
+                buttonNegative: 'Cancel',
+              }}
+            />
+    
+            <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
+              <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
+                <Text style={{ fontSize: 14 }}> SNAP </Text>
+              </TouchableOpacity>
+              <Button title="Next page" onPress={() => navigation.navigate('PageMiddle')}/>
+            </View>
+        </View>
+        );
+     } else {
+        return <View />;
+     }
   }
 
   takePicture = async () => {
@@ -101,7 +123,7 @@ class PageAR extends React.Component {
     
       return (
         <View style={styles.container}>
-          <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={false} />
+          <ARView style={styles.arView} planeDetection={planeDetection} rendersContinuously={true} />
           <View style={styles.containerHorizontal}>
               <Text>Plane detection</Text>
               <Switch value={planeDetection} onValueChange={this.onPlaneDetectionChanged}/>    
