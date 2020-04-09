@@ -21,6 +21,7 @@
     "magic-script-components-react-native": "../../magic-script-components-react-native",
     "react": "16.8.3",
     "react-native": "0.60.5",
+    "react-native-camera": "^3.22.1",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
