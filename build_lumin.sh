@@ -1,6 +1,9 @@
 printf "\033c"
 
-echo "building app..."
+echo "1. Terminating app..."
+mldb terminate -f org.magicscript.catalog
+
+echo "\n2. Building app..."
 magic-script build -i
 magic-script run
 
