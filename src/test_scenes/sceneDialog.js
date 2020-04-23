@@ -23,8 +23,34 @@ class SceneDialog extends React.Component {
     this.state = {
       showDialog: false,
       dialogTypeIndex: 3,
-      buttonTypeIndex: 3
+      buttonTypeIndex: 3,
+      noActionTimeLeft: 0
     };
+    this.interval = 1.0;
+    this.handler = undefined;
+  }
+
+  componentWillUnmount() {
+    if (this.handler !== undefined) {
+      clearInterval(this.handler);
+    }
+  }
+
+  startTimer() {
+    this.setState({ noActionTimeLeft: 5 });
+    this.handler = setInterval(this.updateTimer, this.interval * 1000);
+  }
+
+  updateTimer = () => {
+    const timeLeft = this.state.noActionTimeLeft - 1;
+    console.log('timeLeft: ', timeLeft);
+    if (timeLeft > 0) {
+      this.setState({ noActionTimeLeft: timeLeft });
+    } else {
+      this.setState({ noActionTimeLeft: 0, showDialog: false });
+      clearInterval(this.handler);
+      this.handler = undefined;
+    }
   }
 
   renderDialogTypeRadio(index, selectedIndex, onChanged) {
@@ -57,50 +83,27 @@ class SceneDialog extends React.Component {
     );
   }
 
-  renderButton({
-    title,
-    enabled = true,
-    roundness = 0.5,
-    textColor = [1, 1, 1, 1],
-    textSize = 0.08,
-    width = 0.0,
-    height = 0.0,
-    onClick = () => { }
-  }) {
-    return (
-      <Button
-        enabled={enabled}
-        textColor={textColor}
-        textSize={textSize}
-        roundness={roundness}
-        width={width}
-        height={height}
-        onClick={onClick}
-      >
-        {title}
-      </Button>
-    );
+  onButtonClick = () => {
+    const { dialogTypeIndex } = this.state;
+    this.setState({ showDialog: true });
+    if (dialogTypeIndex === 1) {
+      this.startTimer();
+    }
   }
 
-  onButtonClick(param) {
-    return () => {
-      this.setState(param);
-    };
-  }
-
-  onDialogConfirmed_normal = event => {
+  onDialogConfirmed = event => {
     console.log("onDialogConfirmed event received: ", event);
     this.setState({ showDialog: false });
   };
 
-  onDialogCanceled_normal = event => {
+  onDialogCanceled = event => {
     console.log("onDialogCanceled event received: ", event);
     this.setState({ showDialog: false });
   };
 
   onDialogTimeExpired = event => {
     console.log("onDialogTimeExpired event received: ", event);
-    this.setState({ showDialogTimeExpire: false });
+    this.setState({ showDialog: false });
   };
 
   onDialogTypeChanged = (index) => {
@@ -115,7 +118,8 @@ class SceneDialog extends React.Component {
     const {
       showDialog,
       dialogTypeIndex,
-      buttonTypeIndex
+      buttonTypeIndex,
+      noActionTimeLeft
     } = this.state;
     const showButtons = !showDialog;
 
@@ -128,12 +132,21 @@ class SceneDialog extends React.Component {
 
     return (
       <View localPosition={this.props.localPosition}>
+        {showDialog && noActionTimeLeft > 0 && (
+          <Text 
+            alignment={'center-center'}
+            boundsSize={{ boundsSize: [0.7, 0], wrap: true }}
+            localPosition={[0, 0.8, 0]} 
+            textColor={[1,1,1,0.1]} 
+            textSize={0.08}>{`This dialog will be closed in ${noActionTimeLeft} sec.`}</Text>
+        )}
 
         <View localScale={[2, 2, 2]} localPosition={[0, 0.3, 0.2]}>
           {showDialog && (
             <Dialog
-              onDialogConfirmed={this.onDialogConfirmed_normal}
-              onDialogCanceled={this.onDialogCanceled_normal}
+              onDialogConfirmed={this.onDialogConfirmed}
+              onDialogCanceled={this.onDialogCanceled}
+              onDialogTimeExpired={this.onDialogTimeExpired}
               title={"Dialog title text"}
               message={LoremIpsum}
               {...confirmText}
@@ -155,10 +168,11 @@ class SceneDialog extends React.Component {
             localPosition={[0, 0.3, 0]}
             orientation={"vertical"}
           >
-            {this.renderButton({
-              title: "Show dialog (short text)",
-              onClick: this.onButtonClick({ showDialog: true })
-            })}
+            <Button
+              textSize={0.08}
+              roundness={0.5}
+              onClick={this.onButtonClick}
+            >Show dialog (short text)</Button>
 
             <LinearLayout orientation="horizontal">
               <ToggleGroup>
