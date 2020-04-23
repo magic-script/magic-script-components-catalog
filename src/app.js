@@ -36,7 +36,7 @@ class CatalogApp extends React.Component {
   render() {
     return (
       <Scene>
-        <MainPrism sceneName={'Web view'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+        <MainPrism sceneName={'Dialog'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
       </Scene>
     );

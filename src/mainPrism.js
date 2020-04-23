@@ -152,7 +152,7 @@ class MainPrism extends React.Component {
     const scene = this.scenes[sceneIndex];
     
     return (
-      <Prism size={this.props.size} position={this.props.position}>
+      <Prism size={this.props.size}>
         <View
           name="main-view"
           alignment={"center-center"}
@@ -210,7 +210,6 @@ class MainPrism extends React.Component {
 
 MainPrism.defaultProps = {
   size: [1.0, 1.0, 0.5],
-  position: [0, 0, 0],
   sceneName: 'Characters'
 }
 
