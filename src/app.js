@@ -33,10 +33,14 @@ class CatalogApp extends React.Component {
     }
   }
 
+  onAppStart = (event) => {
+      console.log("onAppStart", event);
+  };
+
   render() {
     return (
-      <Scene>
-        <MainPrism sceneName={'Dialog'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+      <Scene onAppStart={this.onAppStart}>
+        <MainPrism sceneName={'Events'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
       </Scene>
     );
