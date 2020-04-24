@@ -16,17 +16,21 @@ class SceneEvents extends React.Component {
        onUpdate: false,
        onEnabled: false,
        onDisabled: false,
-       onDelete: false
+       onDelete: false,
+
+       enabled: true,
+       deleted: false
     };
   }
 
-  renderTextEdit() {
+  renderNode() {
      return ( 
       <TextEdit
           width={0.5} 
           height={0.2} 
           multiline={true}
           text={"Interactive node"}
+          enabled={this.state.enabled}
           onActivate={()=>{this.setState({onActivate: true})}}
           onClick={()=>{this.setState({onClick: true})}}
           onPress={()=>{this.setState({onPress: true})}}
@@ -49,9 +53,16 @@ class SceneEvents extends React.Component {
   }
 
   render () {
+
+   const enabled = this.state.enabled
+
     return (
       <LinearLayout alignment={'top-center'} >
-        {this.renderTextEdit()}
+        <Toggle text={"Enabled"} on={enabled} onToggleChanged={()=> {this.setState({enabled: !enabled})}}/>
+        <Button text={"Delete"} onClick={()=>{this.setState({deleted: true})}}/>
+
+        { this.state.deleted ? null : this.renderNode() }
+
         {this.renderCheckbox("onActivate", this.state.onActivate)}
         {this.renderCheckbox("onClick", this.state.onClick)}
         {this.renderCheckbox("onPress", this.state.onPress)}
