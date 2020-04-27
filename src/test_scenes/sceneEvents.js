@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinearLayout, Text, TextEdit, Toggle, Button  } from 'magic-script-components';
+import { LinearLayout, Text, TextEdit, Toggle, Button, RectLayout  } from 'magic-script-components';
 
 class SceneEvents extends React.Component {
 
@@ -48,20 +48,32 @@ class SceneEvents extends React.Component {
 
   renderCheckbox(text, on) {
       return (
-        <Toggle text={text} type="checkbox" on={on} enabled={false}/>
+        <Toggle height={0.04} text={text} type="checkbox" on={on} enabled={false}/>
       )
+  }
+
+  onEnableToggleChanged = event => {
+    this.setState({enabled: !this.state.enabled});
+  }
+
+  onDeleteToggleChanged = event => {
+    this.setState({deleted: !this.state.deleted});
   }
 
   render () {
 
    const enabled = this.state.enabled
+   const deleted = this.state.deleted
 
     return (
-      <LinearLayout alignment={'top-center'} >
-        <Toggle text={"Enabled"} on={enabled} onToggleChanged={()=> {this.setState({enabled: !enabled})}}/>
-        <Button text={"Delete"} onClick={()=>{this.setState({deleted: true})}}/>
+      <LinearLayout alignment={'top-center'} localPosition={[0, 1, 0]}>
 
-        { this.state.deleted ? null : this.renderNode() }
+        <RectLayout width={0.5} height={0.4} contentAlignment={'center-center'}>
+           { this.state.deleted ? null : this.renderNode() }
+        </RectLayout>
+
+        <Toggle height={0.05} text={"Enabled"} on={enabled} onToggleChanged={this.onEnableToggleChanged}/>
+        <Toggle height={0.05} text={"Deleted"} on={deleted} onToggleChanged={this.onDeleteToggleChanged}/>
 
         {this.renderCheckbox("onActivate", this.state.onActivate)}
         {this.renderCheckbox("onClick", this.state.onClick)}
