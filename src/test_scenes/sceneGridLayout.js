@@ -80,7 +80,7 @@ class SceneGridLayout extends React.Component {
           <GridLayout debug defaultItemAlignment={'center-center'} columns={2} skipInvisibleItems={true}>
             <Image width={0.1} height={0.1} color={[1, 1, 0.5, 1]} />
             <Image width={0.1} height={0.1} color={invisibleItemColor} visible={false} />
-            <Image width={0.1} height={0.1} color={[1.0, 0.4, 0.4, 1]} />
+            <Image width={0.1} height={0.1} color={[1, 0.4, 0.4, 1]} />
             <Image width={0.1} height={0.1} color={[0.5, 1, 1, 1]} />
             <Image width={0.1} height={0.1} color={[1, 1, 1, 1]} />
           </GridLayout>
