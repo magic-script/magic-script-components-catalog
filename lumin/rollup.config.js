@@ -1,29 +1,25 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import includePaths from 'rollup-plugin-includepaths';
-
-let includePathOptions = {
-  include: {},
-  paths: ['./src', '../src'],
-  external: []
-};
-
+import copy from 'rollup-plugin-copy';
 const common = {
   plugins: [
-    includePaths(includePathOptions),
+    copy({
+      targets: [{ src: '../src', dest: '.' }],
+      hook: 'first'
+    }),
     babel({
       exclude: 'node_modules/**'
     }),
     resolve({
       customResolveOptions: {
         moduleDirectory: '../node_modules'
-      }
+      },
+      dedupe: ['react']
     }),
     commonjs()
   ]
 };
-
 export default [
   // Build for MagicScript on LuminOS
   {
@@ -46,7 +42,7 @@ export default [
       globals: {
         'react': 'React'
       },
-      file: './bin/bundle.js',
+      file: 'bin/bundle.js',
       format: 'iife',
       name: '_'
     }

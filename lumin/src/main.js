@@ -8,7 +8,7 @@ import { Platform, PlaneDetector } from 'magic-script-components';
 import mxs from "magic-script-components-lumin";
 
 // Load main app logic from the app class.
-import CatalogApp from './app';
+import CatalogApp from '../../src/app';
 
 Platform.setPlatformInformation(new mxs.PlatformInformation());
 Platform.setLinking(new mxs.NativeLinking());
