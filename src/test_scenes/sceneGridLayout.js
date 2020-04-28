@@ -18,6 +18,7 @@ class SceneGridLayout extends React.Component {
   render() {
     const { width, height, padding, alignment } = this.state;
     const columns = 3;
+    const invisibleItemColor = '#FF69B4';
     return (
       <View localPosition={this.props.localPosition}>
 
@@ -64,7 +65,7 @@ class SceneGridLayout extends React.Component {
           skipInvisibleItems={true}
         >
           <Text debug textSize={0.15}>Item 1</Text>
-          <Text debug textSize={0.15} visible={false}>Item Invisible</Text>
+          <Text debug textColor={invisibleItemColor} textSize={0.15} visible={false}>Item Invisible</Text>
           <Text debug textSize={0.15} alignment={'bottom-right'} textColor={[1, 0, 0, 1]}>Lorem ipsum dolor</Text>
           <Text debug textSize={0.3} localScale={[0.5, 0.5, 1]}>Item 3</Text>
           <Button debug width={1} height={0.4} localScale={[0.3, 0.3, 1]}>Scaled</Button>
@@ -74,11 +75,11 @@ class SceneGridLayout extends React.Component {
           <TextEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[1, 0, 0, 1]} multiline />
           <Spinner debug height={0.15} localPosition={[0.5, 0, 0]} />
           <Slider debug width={0.4} height={0.08} />
-          <Slider debug width={0.5} height={0.2} visible={false} />
           <Toggle debug textSize={0.08} height={0.15}>Toggle</Toggle>
+          <Toggle debug textColor={invisibleItemColor} textSize={0.08} height={0.15} visible={false}>Toggle Invisible</Toggle>
           <GridLayout debug defaultItemAlignment={'center-center'} columns={2} skipInvisibleItems={true}>
             <Image width={0.1} height={0.1} color={[1, 1, 0.5, 1]} />
-            <Image width={0.1} height={0.1} color={[0.6, 0.6, 0.6, 1]} visible={false} />
+            <Image width={0.1} height={0.1} color={invisibleItemColor} visible={false} />
             <Image width={0.1} height={0.1} color={[1, 0.5, 1, 1]} />
             <Image width={0.1} height={0.1} color={[0.5, 1, 1, 1]} />
             <Image width={0.1} height={0.1} color={[1, 1, 1, 1]} />
