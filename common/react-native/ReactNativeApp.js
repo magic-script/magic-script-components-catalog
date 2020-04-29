@@ -1,15 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Switch, Text } from 'react-native';
 import { ARView } from 'magic-script-components-react-native';
-import { setInitialDeeplink } from '../../global/globalVariables'
 
 export default class ReactNativeApp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { planeDetection: false };
-    
-    setInitialDeeplink(props.initialUrl);
+    this.state = { planeDetection: false };    
   }
 
   onPlaneDetectionChanged = () => {
