@@ -49,8 +49,6 @@ import {
   SceneWebView,
 } from './test_scenes';
 
-import { registerOnDeeplinkSet } from "../global/globalVariables";
-
 class MainPrism extends React.Component {
   constructor(props) {
     super(props);
@@ -103,17 +101,9 @@ class MainPrism extends React.Component {
       { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == props.sceneName);
+    const initialIndex = (props.sceneIndex !== undefined) ? props.sceneIndex : this.scenes.findIndex((item) => item.name == props.sceneName);
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
-
-    registerOnDeeplinkSet((deeplink) => {
-      //deeplink example [catalog://scene/7]
-      const route = deeplink.replace(/.*?:\/\//g, '');
-      const id = route.match(/\/([^\/]+)\/?$/)[1];
-      let initialIndex = parseInt(id)
-      this.setState({ sceneIndex: initialIndex });
-    })
   }
 
   onNextScene = () => {
@@ -166,7 +156,7 @@ class MainPrism extends React.Component {
               width={0.25}
               height={0.1}
               roundness={1}
-              text={'Prev'}
+              text={sceneIndex}
               textSize={0.05}
               onClick={this.onPreviousScene}
             />

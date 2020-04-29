@@ -1,12 +1,12 @@
 import React from 'react';
-import { Scene } from 'magic-script-components';
+import { Scene, Prism } from 'magic-script-components';
 import { MainPrism } from './mainPrism';
 
 class CatalogApp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { prisms: [], totalIndex: 0 };
+    this.state = { prisms: [], totalIndex: 0, sceneIndex: undefined };
   }
 
   onPrismAction = (input) => {
@@ -33,11 +33,26 @@ class CatalogApp extends React.Component {
     }
   }
 
+  onAppStart = event => {
+    console.log("onAppStart", event);
+    //deeplink example [catalog://scene/7]
+    // const route = event.uri.replace(/.*?:\/\//g, '');
+    const id = "5"; //.match(/\/([^\/]+)\/?$/)[1];
+    const sceneIndex = parseInt(id);
+    this.setState({ sceneIndex });
+  }
+
   render() {
+    const { sceneIndex } = this.state;
     return (
-      <Scene>
-        <MainPrism sceneName={'Hit test'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+      <Scene onAppStart={this.onAppStart}>
+        <MainPrism sceneName={'Dialog'} sceneIndex={sceneIndex} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
+        <Prism size={[1.0, 1.0, 1.0]} position={[0.75, 0.0, 0.0]}>
+          <text alignment={"center-center"} textSize={0.075} >
+            {sceneIndex}
+          </text>
+        </Prism>
       </Scene>
     );
   }
