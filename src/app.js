@@ -6,7 +6,8 @@ class CatalogApp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { prisms: [], totalIndex: 0, sceneIndex: undefined };
+    this.state = { prisms: [], totalIndex: 0 };
+    this.mainPrismRef = null;
   }
 
   onPrismAction = (input) => {
@@ -34,25 +35,21 @@ class CatalogApp extends React.Component {
   }
 
   onAppStart = event => {
-    console.log("onAppStart", event);
-    //deeplink example [catalog://scene/7]
-    // const route = event.uri.replace(/.*?:\/\//g, '');
-    const id = "5"; //.match(/\/([^\/]+)\/?$/)[1];
-    const sceneIndex = parseInt(id);
-    this.setState({ sceneIndex });
+    console.log('onAppStart', event);
+    const uri = event.uri;
+    if (this.mainPrismRef !== null && uri !== undefined && uri.length > 0) {
+      // deeplink example [catalog://scene/7]
+      const id = uri.split('scene/').pop()
+      const index = parseInt(id);
+      this.mainPrismRef.openSceneAtIndex(index);
+    }
   }
 
   render() {
-    const { sceneIndex } = this.state;
     return (
       <Scene onAppStart={this.onAppStart}>
-        <MainPrism sceneName={'Dialog'} sceneIndex={sceneIndex} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+        <MainPrism ref={r => this.mainPrismRef = r} initialSceneName={'Dialog'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
-        <Prism size={[1.0, 1.0, 1.0]} position={[0.75, 0.0, 0.0]}>
-          <text alignment={"center-center"} textSize={0.075} >
-            {sceneIndex}
-          </text>
-        </Prism>
       </Scene>
     );
   }
