@@ -16,6 +16,7 @@ import {
   SceneDropdownList,
   SceneFilePicker,
   SceneGridLayout,
+  SceneHitTest,
   SceneImage,
   SceneImageRemote,
   SceneImageSlider,
@@ -99,6 +100,7 @@ class MainPrism extends React.Component {
       { name: 'Multiple Prisms', component: <SceneMultiPrism localPosition={[0, 0, 0]} onPrismAction={this.props.onPrismAction} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
+      { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
     ];
 
     const initialIndex = this.scenes.findIndex((item) => item.name == props.sceneName);

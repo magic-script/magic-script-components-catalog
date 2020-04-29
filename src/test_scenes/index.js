@@ -10,6 +10,7 @@ export * from './sceneDialog';
 export * from './sceneDropdownList';
 export * from './sceneFilePicker';
 export * from './sceneGridLayout';
+export * from './sceneHitTest';
 export * from './sceneImage';
 export * from './sceneImageRemote';
 export * from './sceneImageSlider/scene';
