@@ -4,7 +4,7 @@ import { PlaneDetector } from "magic-script-components";
 class ScenePlaneDetector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { planes: {} };
+    this.state = { planes: {}, showModel: false, modelPosition: [0.0, 0.0, 0.0] };
   }
 
   componentDidMount() {
@@ -30,14 +30,14 @@ class ScenePlaneDetector extends React.Component {
     console.log("onPlaneDetected", event);
     const { planes } = this.state;
     planes[event.id] = event;
-    this.setState({ planes: planes });
+    this.setState({ planes });
   };
 
   onPlaneUpdated = event => {
     console.log("onPlaneUpdated", event);
     const { planes } = this.state;
     planes[event.id] = event;
-    this.setState({ planes: planes });
+    this.setState({ planes });
   };
 
   onPlaneRemoved = event => {
@@ -46,15 +46,16 @@ class ScenePlaneDetector extends React.Component {
     if (event.id in planes) {
       delete planes[event.id];
     }
-    this.setState({ planes: planes });
+    this.setState({ planes });
   };
 
   onPlaneTapped = event => {
-    console.log("onPlaneTapped", event);
+    console.log("onPlaneTapped point", event.point, ", normal: ", event.normal);
+    this.setState({ showModel: true, modelPosition: event.point})
   };
 
   renderLine(key, points) {
-    return <line points={points} color={"yellow"} key={key}/>;
+    return <line points={points} color={"red"} key={key}/>;
   }
 
   renderLines() {
@@ -69,10 +70,14 @@ class ScenePlaneDetector extends React.Component {
   }
 
   render() {
-    const { planes } = this.state;
+    const { planes, showModel, modelPosition } = this.state;
     console.log("Number of planes", Object.keys(planes).length);
     return (
-      <view localScale={[2,2,2]}>{this.renderLines()}</view>
+      <view localScale={[2,2,2]}>
+        {showModel &&
+          (<model modelPath={require('../../assets/resources/models/MagicScriptCube.glb')} localPosition={modelPosition}/>)
+        }
+        {this.renderLines()}</view>
     );
   }
 }

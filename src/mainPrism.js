@@ -97,7 +97,7 @@ class MainPrism extends React.Component {
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
       { name: 'Multiple Prisms', component: <SceneMultiPrism localPosition={[0, 0, 0]} onPrismAction={this.props.onPrismAction} /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
-      // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
+      { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
       { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
     ];
 
@@ -150,7 +150,7 @@ class MainPrism extends React.Component {
     const scene = this.scenes[sceneIndex];
     
     return (
-      <Prism size={this.props.size}>
+      <Prism size={[15.0, 15.0, 15.0]}>
         <View
           name="main-view"
           alignment={"center-center"}
