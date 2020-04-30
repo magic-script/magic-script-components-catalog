@@ -43,7 +43,7 @@ class CatalogApp extends React.Component {
 
   tryOpenScene = () => {
     const schemaHost = 'catalog://scene/';
-    if (this.mainPrismRef != null && this.initialUri !== null && this.initialUri.startsWith(schemaHost)) {
+    if (this.mainPrismRef != null && this.initialUri != null && this.initialUri.startsWith(schemaHost)) {
       const id = this.initialUri.slice(schemaHost.length)
       const index = parseInt(id);
       this.mainPrismRef.openSceneAtIndex(index);
