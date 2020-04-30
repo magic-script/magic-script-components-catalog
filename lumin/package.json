@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "magic-script-components-lumin": "git+https://github.com/magic-script/magic-script-components-lumin",
-    "magic-script-polyfills": "^2.10.1"
+    "magic-script-polyfills": "^2.10.2"
   }
 }

@@ -9,6 +9,7 @@ export * from './sceneDatePicker';
 export * from './sceneDialog';
 export * from './sceneDropdownList';
 export * from './sceneFilePicker';
+export * from './sceneFileSystem';
 export * from './sceneGridLayout';
 export * from './sceneHitTest';
 export * from './sceneImage';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scene, Prism } from 'magic-script-components';
+import { Scene } from 'magic-script-components';
 import { MainPrism } from './mainPrism';
 
 class CatalogApp extends React.Component {
@@ -53,7 +53,7 @@ class CatalogApp extends React.Component {
   render() {
     return (
       <Scene onAppStart={this.onAppStart}>
-        <MainPrism ref={r => {this.mainPrismRef = r; this.tryOpenScene(); }} initialSceneName={'Dialog'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
+        <MainPrism ref={r => {this.mainPrismRef = r; this.tryOpenScene(); }} initialSceneName={'File system'} size={[1.0, 1.5, 0.75]} onPrismAction={this.onPrismAction}/>
         {this.state.prisms.map(prism => prism)}
       </Scene>
     );
