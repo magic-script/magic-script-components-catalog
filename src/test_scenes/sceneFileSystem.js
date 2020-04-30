@@ -5,7 +5,7 @@ class SceneFileSystem extends React.Component {
 
   constructor(props) {
     super(props);
-    const folderPath = (Platform.OS === 'Lumin') ? 'documents/C1/' : '';
+    const folderPath = (Platform.OS === 'Lumin') ? '/documents/C1/' : '';
     this.filePath = folderPath + 'sample.txt';
     this.state = { currentPath: '', text: '' };
   }
@@ -54,7 +54,7 @@ class SceneFileSystem extends React.Component {
         this.setState({ currentPath: this.filePath, text: content });
       }
     })
-    .catch(e => console.log('Unable to write file: ', e));
+    .catch(e => console.log('Unable to write file: ', e.message));
   }
 
   render() {
