@@ -15,6 +15,7 @@ import {
   SceneDialog,
   SceneDropdownList,
   SceneFilePicker,
+  SceneFileSystem,
   SceneGridLayout,
   SceneHitTest,
   SceneImage,
@@ -99,6 +100,7 @@ class MainPrism extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
       { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
+      { name: 'File system', component: <SceneFileSystem localPosition={[0, 0, 0]} /> },
     ];
 
     const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name == props.initialSceneName));
