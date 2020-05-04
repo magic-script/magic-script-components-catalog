@@ -48,6 +48,7 @@ import {
   SceneVideo,
   SceneVideoGrid,
   SceneWebView,
+  SceneEvents
 } from './test_scenes';
 
 class MainPrism extends React.Component {
@@ -97,6 +98,7 @@ class MainPrism extends React.Component {
       { name: 'Items Padding', component: <SceneItemsPadding localPosition={[0, 0, 0]} /> },
       { name: 'Items Alignment', component: <SceneItemsAlignment localPosition={[0, 0, 0]} /> },
       { name: 'Multiple Prisms', component: <SceneMultiPrism localPosition={[0, 0, 0]} onPrismAction={this.props.onPrismAction} /> },
+      { name: 'Events', component: <SceneEvents /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
       { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
