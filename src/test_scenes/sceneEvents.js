@@ -23,6 +23,14 @@ class SceneEvents extends React.Component {
     };
   }
 
+  componentDidMount() { 
+    this.mounted = true;
+  }
+  
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   renderNode() {
      return ( 
       <TextEdit
@@ -41,7 +49,11 @@ class SceneEvents extends React.Component {
           onUpdate={()=>{this.setState({onUpdate: true})}}
           onEnabled={()=>{this.setState({onEnabled: true})}}
           onDisabled={()=>{this.setState({onDisabled: true})}}
-          onDelete={()=>{this.setState({onDelete: true})}}
+          onDelete={()=>{
+            if (this.mounted) {
+               this.setState({onDelete: true});
+            }
+          }}
         />
      )
   }

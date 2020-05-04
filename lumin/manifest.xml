@@ -12,6 +12,7 @@
       <mode ml:shareable="true"/>
       <icon ml:model_folder="res/Icon/model"
             ml:portal_folder="res/Icon/portal"/>
+      <schema ml:name="catalog://" />
     </component>
     <uses-privilege ml:name="MagicScript"/>
     <uses-privilege ml:name="Internet"/>

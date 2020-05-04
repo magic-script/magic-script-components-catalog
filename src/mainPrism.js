@@ -15,7 +15,9 @@ import {
   SceneDialog,
   SceneDropdownList,
   SceneFilePicker,
+  SceneFileSystem,
   SceneGridLayout,
+  SceneHitTest,
   SceneImage,
   SceneImageRemote,
   SceneImageSlider,
@@ -48,8 +50,6 @@ import {
   SceneWebView,
   SceneEvents
 } from './test_scenes';
-
-import { registerOnDeeplinkSet } from "../global/globalVariables";
 
 class MainPrism extends React.Component {
   constructor(props) {
@@ -101,19 +101,19 @@ class MainPrism extends React.Component {
       { name: 'Events', component: <SceneEvents /> },
       // { name: 'File Picker', component: <SceneFilePicker localPosition={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector localPosition={[0, 0, -0.5]} /> },
+      { name: 'Hit test', component: <SceneHitTest localPosition={[0, 0, 0]} /> },
+      { name: 'File system', component: <SceneFileSystem localPosition={[0, 0, 0]} /> },
     ];
 
-    const initialIndex = this.scenes.findIndex((item) => item.name == props.sceneName);
+    const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name == props.initialSceneName));
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
+  }
 
-    registerOnDeeplinkSet((deeplink) => {
-      //deeplink example [catalog://scene/7]
-      const route = deeplink.replace(/.*?:\/\//g, '');
-      const id = route.match(/\/([^\/]+)\/?$/)[1];
-      let initialIndex = parseInt(id)
-      this.setState({ sceneIndex: initialIndex });
-    })
+  openSceneAtIndex(index) {
+    if (0 <= index && index < this.scenes.length) {
+      this.setState({ sceneIndex: index });
+    }
   }
 
   onNextScene = () => {
@@ -212,7 +212,7 @@ class MainPrism extends React.Component {
 
 MainPrism.defaultProps = {
   size: [1.0, 1.0, 0.5],
-  sceneName: 'Characters'
+  initialSceneName: 'Characters'
 }
 
 export { MainPrism };
