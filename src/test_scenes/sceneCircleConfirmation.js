@@ -6,6 +6,10 @@ class SceneCircleConfirmation extends React.Component {
     this.state = { showDialog: false, progress: 0.0, key: 0 };
   }
 
+  onConfirmationCanceled = event => {
+    console.log("onConfirmationCanceled event received: ", event);
+  }
+
   onConfirmationCompleted = event => {
     console.log("onConfirmationCompleted event received: ", event);
     this.setState({ showDialog: true });
@@ -41,10 +45,11 @@ class SceneCircleConfirmation extends React.Component {
 
         {!showDialog && (
           <circleConfirmation
-            radius={0.2}
-            onConfirmationUpdated={this.onConfirmationUpdated}
-            onConfirmationCompleted={this.onConfirmationCompleted}
             key={key}
+            onConfirmationCanceled={this.onConfirmationCanceled}
+            onConfirmationCompleted={this.onConfirmationCompleted}
+            onConfirmationUpdated={this.onConfirmationUpdated}
+            radius={0.2}
           />
         )}
 

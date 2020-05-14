@@ -1,12 +1,12 @@
 import React from 'react';
-// import { Platform } from 'magic-script-components';
+import { Platform } from 'magic-script-components';
 
 class SceneModel extends React.Component {
   renderAnimatedModel(position) {
-    const isAnimatedGlbSupported = true;//(Platform.OS !== 'android');
+    const isAnimatedGlbSupported = (Platform.OS !== 'android');
     
     if (isAnimatedGlbSupported) {
-      return <model modelPath={require('../../resources/models/animated.glb')} animation={{ name: 'All Animations' }} localPosition={position} localScale={[0.2, 0.2, 0.2]} />;
+      return <model modelPath={require('../../assets/resources/models/animated.glb')} animation={{ name: 'All Animations' }} localPosition={position} localScale={[0.2, 0.2, 0.2]} />;
     } else {
       return <text 
         alignment={'center-center'} 
@@ -26,7 +26,7 @@ class SceneModel extends React.Component {
       <view localPosition={this.props.localPosition}>
           <text alignment={'center-center'} localPosition={[-0.3, 0.4, 0]} textSize={0.08}>Static (.glb)</text>
           <text alignment={'center-center'} localPosition={[0.3, 0.4, 0]} textSize={0.08}>Animated (.glb)</text>
-          <model modelPath={require('../../resources/models/static.glb')} localPosition={[-0.3, 0, 0]} localScale={[0.3, 0.3, 0.3]} />
+          <model modelPath={require('../../assets/resources/models/static.glb')} localPosition={[-0.3, 0, 0]} localScale={[0.3, 0.3, 0.3]} />
           {this.renderAnimatedModel([0.3, 0, 0])} 
       </view>
     );

@@ -10,9 +10,9 @@ class SceneVideo extends React.Component {
   constructor(props) {
     super(props);
     this.localVideoPaths = [
-      require("../../resources/video.mp4"),
-      require("../../resources/video_1.mp4"),
-      require("../../resources/video_2.mp4")
+      require("../../assets/resources/video.mp4"),
+      require("../../assets/resources/video_1.mp4"),
+      require("../../assets/resources/video_2.mp4")
     ];
     this.remoteVideoPaths = [
       "http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4",

@@ -19,12 +19,13 @@
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-includepaths": "0.2.3",
     "rollup-plugin-node-resolve": "^4.0.0",
     "semistandard": "^13.0.1"
   },
   "dependencies": {
-    "magic-script-components-lumin": "1.0.13",
-    "magic-script-polyfills": "2.7.1"
+    "magic-script-components-lumin": "2.0.0",
+    "magic-script-polyfills": "^2.10.2"
   }
 }

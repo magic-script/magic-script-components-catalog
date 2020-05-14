@@ -18,7 +18,7 @@ class SceneTransformations extends React.Component {
 
         <view localPosition={[0, 0.1, 0]}>
           <model 
-            modelPath={require('../../resources/models/static.glb')}
+            modelPath={require('../../assets/resources/models/static.glb')}
             localPosition={[0, 0.2, -0.2]}
             localRotation={[0.0, 0.38268346, 0.0, 0.9238795]}
             localScale={[0.5, 0.5, 0.5]}
@@ -27,7 +27,7 @@ class SceneTransformations extends React.Component {
 
         <view localPosition={[0, -0.7, 0]}>
            <model 
-            modelPath={require('../../resources/models/static.glb')}
+            modelPath={require('../../assets/resources/models/static.glb')}
             localTransform={[0.3535534, 0.0, -0.35355334, 0.0, 0.0, 0.5, 0.0, 0.0, 0.35355334, 0.0, 0.3535534, 0.0, 0.0, 0.2, -0.2, 1.0]}
           />  
         </view>

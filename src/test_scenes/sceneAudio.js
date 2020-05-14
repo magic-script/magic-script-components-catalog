@@ -70,7 +70,7 @@ class SceneAudio extends React.Component {
     return (
       <view localPosition={this.props.localPosition}>
         <audio 
-          fileName={require('../../resources/bg_stereo.mp3')} 
+          fileName={require('../../assets/resources/bg_stereo.mp3')} 
           action={'start'} 
           soundMute={!bgSound} 
           soundLooping={true} 

@@ -78,6 +78,9 @@ import com.android.build.OutputFile
 project.ext.react = [
     entryFile: "index.js",
     enableHermes: false,  // clean and rebuild if changing
+    devDisabledInRelease: true,
+     // whether to bundle JS and assets in release mode
+    bundleInRelease     : true
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -109,7 +112,6 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
-
 /**
  * Whether to enable the Hermes VM.
  *
@@ -134,6 +136,18 @@ android {
         versionCode 1
         versionName "1.0"
     }
+	
+	signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+	
     splits {
         abi {
             reset()
@@ -144,11 +158,9 @@ android {
     }
     buildTypes {
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+			signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -162,8 +174,9 @@ android {
                 output.versionCodeOverride =
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
-
         }
+		
+		variant.getRuntimeConfiguration().exclude group: 'com.google.code.findbugs', module: 'jsr305'
     }
 
     packagingOptions {
@@ -177,6 +190,7 @@ android {
 }
 
 dependencies {
+    implementation project(':magic-script-components-react-native') // defined in settings.gradle
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
