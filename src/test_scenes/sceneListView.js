@@ -8,11 +8,11 @@ class SceneListView extends React.Component {
   constructor(props) {
     super(props);
     this.resources = [
-      require("../../resources/DemoPicture1.jpg"),
-      require("../../resources/DemoPicture2.jpg"),
-      require("../../resources/DemoPicture3.jpg"),
-      require("../../resources/DemoPicture4.jpg"),
-      require("../../resources/DemoPicture5.jpg")
+      require("../../assets/resources/DemoPicture1.jpg"),
+      require("../../assets/resources/DemoPicture2.jpg"),
+      require("../../assets/resources/DemoPicture3.jpg"),
+      require("../../assets/resources/DemoPicture4.jpg"),
+      require("../../assets/resources/DemoPicture5.jpg")
     ];
     this.state = {
       listViewOrientation: ListViewOrientation.vertical,
