@@ -149,12 +149,34 @@ class MainPrism extends React.Component {
     return this.scenes.map((scene, index) => <DropdownListItem key={index} id={index} label={scene.name.replace(/\n/g, ' ')} />)
   }
 
+  onModeChangedHandler = (event) => {
+    console.log("onModeChangedHandler", event);
+  }
+
+  onRotationChangedHandler = (event) => {
+    console.log("onRotationChangedHandler", event);
+  }
+
+  onScaleChangedHandler = (event) => {
+    console.log("onScaleChangedHandler", event);
+  }
+
+  onPositionChangedHandler = (event) => {
+    console.log("onPositionChangedHandler", event);
+  }
+
+
   render() {
     const { sceneIndex } = this.state;
     const scene = this.scenes[sceneIndex];
     
     return (
-      <Prism size={this.props.size}>
+      <Prism size={this.props.size} interactions={["scale", "position", "rotation"]}
+        onModeChanged={this.onModeChangedHandler}
+        onRotationChanged={this.onRotationChangedHandler}
+        onScaleChanged={this.onScaleChangedHandler}
+        onPositionChanged={this.onPositionChangedHandler}
+        >
         <View
           name="main-view"
           alignment={"center-center"}
