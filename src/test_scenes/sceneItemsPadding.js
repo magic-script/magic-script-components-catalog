@@ -19,7 +19,7 @@ class SceneItemsPadding extends React.Component {
     const { pageIndex } = this.state;
     return (
       <View position={[0, 0.9, 0]}>
-        <View position={[-0.7, 0, 0]}>
+        <View position={[-0.5, 0, 0]}>
           <Text textColor={'white'} fontSize={0.08}>Linear layout</Text>
           <LinearLayout
             debug={true}
@@ -41,7 +41,7 @@ class SceneItemsPadding extends React.Component {
           </LinearLayout>
         </View>
 
-        <View position={[-0.1, 0, 0]} >
+        <View position={[0, 0, 0]} >
           <Text textColor={'white'} fontSize={0.08}>Grid layout</Text>
           <GridLayout
             debug={true}
@@ -64,14 +64,14 @@ class SceneItemsPadding extends React.Component {
           </GridLayout>
         </View>
 
-        <View position={[0.5, 0, 0]} >
-          <Text textColor={'white'} fontSize={0.08}>Page view</Text>
-          <Toggle position={[0.3, -0.1, 0]} height={0.05} text={'Switch page'} onToggleChanged={this.onSwitchHandler} />
+        <View position={[0.4, 0, 0]} >
+          <Text textColor={'white'} fontSize={0.08} >Page view</Text>
+          <Toggle position={[0.275, -0.1, 0]} height={0.05} onToggleChanged={this.onSwitchHandler} fontSize={0.05}>Switch page</Toggle>
           <PageView
             width={0.3}
             height={0.3}
-            position={[0, -0.5, 0]}
             visiblePage={pageIndex}
+            position={[0, -0.35, 0]}
             pagePadding={[
               // The padding order is:  top, right, bottom, left
               { index: 0, padding: [0.1, 0.1, 0, 0] },

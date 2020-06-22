@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alignment } from '../utils/alignment';
-import { View, Text, LinearLayout, Toggle, GridLayout, PageView, ToggleGroup } from 'magic-script-components';
+import { View, Text, LinearLayout, Toggle, GridLayout, PageView } from 'magic-script-components';
 
 class SceneItemsAlignment extends React.Component {
   constructor(props) {
