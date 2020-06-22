@@ -323,7 +323,7 @@ class MainPrism extends React.Component {
               listMaxHeight={1}
               onSelectionChanged={this.onSceneSelected}
               text={scene.name}
-              fontSize={0.035}
+              fontSize={0.05}
             >
               {this.renderDropdownItems()}
             </DropdownList>
