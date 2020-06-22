@@ -46,8 +46,8 @@ class SceneEvents extends React.Component {
         debug
         position={[0, 0, 0]}
         text={"Interactive node"}
-        width={0.5}
-        height={0.2}
+        width={0.8}
+        height={0.4}
         multiline={true}
         enabled={this.state.enabled}
         onActivate={() => this.setState({ onActivate: true })}
@@ -103,7 +103,7 @@ class SceneEvents extends React.Component {
         alignment={"top-center"}
         defaultItemPadding={[0.01, 0.0, 0.01, 0.0]}
       >
-        <RectLayout width={0.5} height={0.4} contentAlignment={"center-center"}>
+        <RectLayout width={1} height={1} contentAlignment={"center-center"}>
           {this.state.deleted ? null : this.renderNode()}
         </RectLayout>
 

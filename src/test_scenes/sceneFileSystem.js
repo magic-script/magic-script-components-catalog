@@ -60,7 +60,7 @@ class SceneFileSystem extends React.Component {
   render() {
     const { currentPath, text } = this.state;
     return (
-      <View localPosition={this.props.localPosition}>
+      <View>
         <LinearLayout
           alignment={'center-center'}
           defaultItemAlignment={'center-center'}
@@ -74,13 +74,13 @@ class SceneFileSystem extends React.Component {
             onTextChanged={this.onTextChanged}
             text={text}
             textPadding={[0.03, 0.03, 0.03, 0.03]}
-            textSize={0.08}
+            fontSize={0.08}
           />
           <Text
             boundsSize={{ boundsSize: [0.9, 0.1], wrap: true }}
             text={currentPath}
             textColor={[1,1,1,0.4]}
-            textSize={0.06}
+            fontSize={0.06}
           />
           <GridLayout
             columns={2}
@@ -92,11 +92,11 @@ class SceneFileSystem extends React.Component {
               { column: 0, row: 2, alignment: 'center-right' }
             ]}
           >
-            <Button textSize={0.08} onClick={this.onLoad}>Load</Button>
-            <Button textSize={0.08} onClick={this.onSave}>Save</Button>
-            <Button textSize={0.08} onClick={this.onDelete}>Delete</Button>
-            <Button textSize={0.08} onClick={this.onCreate}>Create</Button>
-            <Button textSize={0.08} onClick={this.onMove}>Move</Button>
+            <Button fontSize={0.08} onClick={this.onLoad}>Load</Button>
+            <Button fontSize={0.08} onClick={this.onSave}>Save</Button>
+            <Button fontSize={0.08} onClick={this.onDelete}>Delete</Button>
+            <Button fontSize={0.08} onClick={this.onCreate}>Create</Button>
+            <Button fontSize={0.08} onClick={this.onMove}>Move</Button>
           </GridLayout>
         </LinearLayout>
       </View>
