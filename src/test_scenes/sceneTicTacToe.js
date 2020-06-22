@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Line, Text, GridLayout, LinearLayout } from 'magic-script-components';
+import { Button, View, Text, GridLayout, LinearLayout } from 'magic-script-components';
 
 function Square(props) {
   const color = props.value === 'X' ? [1, 0.1, 0.1, 1] : [0.1, 0.1, 1, 1];

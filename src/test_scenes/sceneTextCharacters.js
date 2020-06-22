@@ -1,5 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
+import { View, Text, GridLayout, Toggle } from 'magic-script-components';
 
 class SceneTextCharacters extends React.Component {
   static defaultProps = {
@@ -35,42 +36,42 @@ class SceneTextCharacters extends React.Component {
       const column = index % columns;
       const row = Math.floor(index / columns);
       const textColor = MathUtils.getGridColor(column / (columns - 1), row / (rows - 1));
-      return <text key={index} textColor={textColor} textSize={textSize}>{char}</text>;
+      return <Text key={index} textColor={textColor} fontSize={textSize}>{char}</Text>;
     });
   }
 
   render() {
     const { uppercase, specialCharacters } = this.state;
     return (
-      <view localPosition={this.props.localPosition}>
-        <gridLayout 
-          alignment={'top-center'} 
+      <View position={this.props.position}>
+        <GridLayout 
+          anchorPoint={'top-center'} 
           defaultItemAlignment={'center-center'}
           columns={this.props.columns} 
-          localPosition={[0, 1, 0]}
+          position={[0, 1, 0]}
           width={1.2} 
           height={1.7}
         >
           {this.renderCharacters()}
-        </gridLayout>
+        </GridLayout>
         
-        <toggle 
-          alignment={'center-right'}
-          localPosition={[0.5, -0.9, 0]}  
+        <Toggle 
+          anchorPoint={'center-right'}
+          position={[0.5, -0.9, 0]}  
           height={0.1} 
           on={specialCharacters} 
           onToggleChanged={this.onContentChanged}
-          textSize={0.08} 
-        >Special characters</toggle>
-        <toggle 
-          alignment={'center-right'}
-          localPosition={[0.5, -1.1, 0]}  
+          fontSize={0.08} 
+        >Special characters</Toggle>
+        <Toggle 
+          anchorPoint={'center-right'}
+          position={[0.5, -1.1, 0]}  
           height={0.1} 
           on={uppercase} 
           onToggleChanged={this.onUppercaseChanged}
-          textSize={0.08} 
-        >Uppercase</toggle>
-      </view>
+          fontSize={0.08} 
+        >Uppercase</Toggle>
+      </View>
     );
   }
 }
