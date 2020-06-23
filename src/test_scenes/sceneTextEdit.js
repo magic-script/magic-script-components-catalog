@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, View, Text } from "magic-script-components";
-import { TextEdit } from 'magic-script-components/src/components/text-edit';
+import { Button, View, Text, TextEdit } from "magic-script-components";
 
 class SceneTextEdit extends React.Component {
 
