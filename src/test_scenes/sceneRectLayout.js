@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alignment, AlignmentGroup } from '../utils/alignment';
+import { Button, View, Text, RectLayout, Image, Toggle, ToggleGroup, GridLayout, Line, LinearLayout } from 'magic-script-components';
 
 const ContentSizes = [
   { width: 0.25, height: 0.25 },
@@ -40,27 +41,27 @@ class SceneRectLayout extends React.Component {
 
   renderButton(size) {
     return (
-      <button
+      <Button
         key={`${size.width}x${size.height}`}
-        localPosition={[0, 0, 0.01]}
+        position={[0, 0, 0.01]}
         width={size.width}
         height={size.height}
         roundness={0.0}
-        textSize={0.08}
-      >Button</button>
+        fontSize={0.08}
+      >Button</Button>
     );
   }
 
   renderGrid(position, size,) {
     const min = { x: -0.5 * size, y: -0.5 * size };
     const max = { x: 0.5 * size, y: 0.5 * size };
-    const points = [ [min.x, min.y, 0], [min.x, max.y, 0], [max.x, max.y, 0], [max.x, min.y, 0], [min.x, min.y, 0] ];
+    const points = [[min.x, min.y, 0], [min.x, max.y, 0], [max.x, max.y, 0], [max.x, min.y, 0], [min.x, min.y, 0]];
     return (
-      <view alignment={'center-center'} localPosition={position}>
-        <line points={points} color={[1,1,0,1]}/>
-        <line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[1,1,0,0.5]}/>
-        <line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1,1,0,0.5]}/>
-      </view>
+      <View anchorPoint={'center-center'} position={position}>
+        <Line points={points} color={[1, 1, 0, 1]} />
+        <Line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[1, 1, 0, 0.5]} />
+        <Line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1, 1, 0, 0.5]} />
+      </View>
     );
   }
 
@@ -68,14 +69,13 @@ class SceneRectLayout extends React.Component {
     const contentSize = ContentSizes[index];
     const on = (index === selectedIndex);
     return (
-      <toggle
+      <Toggle
         height={0.075}
         on={on}
-        text={`${contentSize.width} x ${contentSize.height} m`}
-        textSize={0.075}
+        fontSize={0.075}
         type={'radio'}
         onToggleChanged={() => onChanged(index)}
-      />
+      >{`${contentSize.width} x ${contentSize.height} m`}</Toggle>
     );
   }
 
@@ -83,59 +83,59 @@ class SceneRectLayout extends React.Component {
     const { contentAlignment, alignment, contentSizeIndex } = this.state
 
     const rectPosition = [0, 0.5, 0];
-    const alignmentSectionPosition = [-0.5, -0.2, 0];
-    const contentAlignmentSectionPosition = [-0.5, -0.6, 0];
-    const contentSizeSectionPosition = [-0.5, -1.0, 0];
+    const alignmentSectionPosition = [0, -0.25, 0];
+    const contentAlignmentSectionPosition = [0, -0.65, 0];
+    const contentSizeSectionPosition = [0, -1.05, 0];
     const rectSize = { width: 0.5, height: 0.5 };
 
     return (
-      <view localPosition={this.props.localPosition}>
-        <image 
-          alignment={alignment} 
+      <View position={this.props.position}>
+        <Image
+          anchorPoint={alignment}
           color={[0.1, 0.25, 0.5, 0.8]}
-          localPosition={rectPosition} 
+          position={rectPosition}
           useFrame={true}
           width={rectSize.width}
           height={rectSize.height}
         />
-        <rectLayout
-          alignment={alignment}
-          contentAlignment={contentAlignment}
-          localPosition={rectPosition}
+        <RectLayout
+          anchorPoint={alignment}
+          alignment={contentAlignment}
+          position={rectPosition}
           width={rectSize.width}
           height={rectSize.height}
         >
           {this.renderButton(ContentSizes[contentSizeIndex])}
-        </rectLayout>
+        </RectLayout>
 
         {this.renderGrid(rectPosition, 1.0)}
 
-        <AlignmentGroup 
+        <AlignmentGroup
           alignment={alignment}
-          localPosition={alignmentSectionPosition}
+          position={alignmentSectionPosition}
           onAlignmentChanged={this.onAlignmentChanged}
-          title={'Alignment:'}  
+          title={'Alignment:'}
         />
-        <AlignmentGroup 
+        <AlignmentGroup
           alignment={contentAlignment}
-          localPosition={contentAlignmentSectionPosition}
+          position={contentAlignmentSectionPosition}
           onAlignmentChanged={this.onContentAlignmentChanged}
-          title={'Content alignment:'} 
+          title={'Content alignment:'}
         />
 
-        <view localPosition={contentSizeSectionPosition}>
-          <text textSize={0.08}>Content size:</text>
-          <gridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
-            <toggleGroup>
-              <linearLayout orientation={'vertical'}>
+        <View position={contentSizeSectionPosition}>
+          <Text fontSize={0.08} position={[0, 0.13, 0]} anchorPoint={'bottom-center'}>Content size:</Text>
+          <GridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
+            <ToggleGroup>
+              <LinearLayout orientation={'vertical'}>
                 {this.renderRadio(0, contentSizeIndex, this.onContentSizeChanged)}
                 {this.renderRadio(1, contentSizeIndex, this.onContentSizeChanged)}
                 {this.renderRadio(2, contentSizeIndex, this.onContentSizeChanged)}
-              </linearLayout>
-            </toggleGroup>
-          </gridLayout>
-        </view>
-      </view>
+              </LinearLayout>
+            </ToggleGroup>
+          </GridLayout>
+        </View>
+      </View>
     )
   }
 }
