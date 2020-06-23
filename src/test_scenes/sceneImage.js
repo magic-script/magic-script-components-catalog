@@ -17,10 +17,9 @@ class SceneImage extends React.Component {
           useFrame={useFrame}
         />
         <Text 
-          text={fit}
-          textAlignment={'center'}
-          textSize={0.06}
-        />
+          textAlign={'center'}
+          fontSize={0.06}
+        >{fit}</Text>
       </LinearLayout>
     );
   }
@@ -28,7 +27,7 @@ class SceneImage extends React.Component {
   render () {
     return (
       <LinearLayout 
-        alignment={'center-center'}
+        anchorPoint={'center-center'}
         defaultItemAlignment={'center-center'}
         defaultItemPadding={[0.05, 0, 0.05, 0]}
       >
