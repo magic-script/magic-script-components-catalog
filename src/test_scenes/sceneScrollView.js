@@ -1,4 +1,6 @@
 import React from 'react';
+import { View, LinearLayout, ScrollBar,ScrollView, Text, Button, Image, Toggle } from 'magic-script-components';
+
 
 const Orientation = {
   vertical: 'vertical',
@@ -48,43 +50,43 @@ class SceneScrollView extends React.Component {
     const scrollBarPosition = isVertical ? [aabb.max[0] - 0.5 * scrollBarThickness, 0, 0] : [0, aabb.min[1] + 0.5 * scrollBarThickness, 0];
     const alpha = 1;
     return (
-      <view localPosition={this.props.localPosition}>
-        <toggle localPosition={[0.3, 0, 0]} height={0.08} textSize={0.08} on={isVertical} onToggleChanged={this.onOrientationChanged}>{'Vertical scroll'}</toggle>
-        <scrollView 
+      <View position={this.props.position}>
+        <Toggle position={[0.3, 0, 0]} height={0.08} fontSize={0.08} on={isVertical} onToggleChanged={this.onOrientationChanged}>{'Vertical scroll'}</Toggle>
+        <ScrollView 
           debug
-          localPosition={[0, -0.7, 0]}
+          position={[0, -0.7, 0]}
           onScrollChanged={this.onScrollChanged}
           scrollBarVisibility={'auto'} 
           scrollBounds={aabb} 
           scrollDirection={direction}
           scrollValue={scrollValue}
         >
-          <scrollBar localPosition={scrollBarPosition} orientation={orientation} length={scrollBarLength} thickness={scrollBarThickness} />
-          <linearLayout alignment={alignment} defaultItemAlignment={'center-center'} orientation={orientation}>
-            <image width={size} height={size} color={[1,1,0.5,alpha]}/>
-            <image width={size} height={size} color={[1,0.5,1,alpha]}/>
-            <image width={size} height={size} color={[0.5,1,1,alpha]}/>
-            <image width={size} height={size} color={[1,0.5,0.5,alpha]}/>
-            <image width={size} height={size} color={[0.5,0.5,1,alpha]}/>
-            <image width={size} height={size} color={[0.5,1,0.5,alpha]}/>
-            <image width={size} height={size} color={[0.75,0.75,0.75,alpha]}/>
-            <image width={size} height={size} color={[1,1,1,alpha]}/>
-          </linearLayout>
-        </scrollView>
+          <ScrollBar position={scrollBarPosition} orientation={orientation} length={scrollBarLength} thickness={scrollBarThickness} />
+          <LinearLayout anchorPoint={alignment} defaultItemAlignment={'center-center'} orientation={orientation}>
+            <Image width={size} height={size} color={[1,1,0.5,alpha]}/>
+            <Image width={size} height={size} color={[1,0.5,1,alpha]}/>
+            <Image width={size} height={size} color={[0.5,1,1,alpha]}/>
+            <Image width={size} height={size} color={[1,0.5,0.5,alpha]}/>
+            <Image width={size} height={size} color={[0.5,0.5,1,alpha]}/>
+            <Image width={size} height={size} color={[0.5,1,0.5,alpha]}/>
+            <Image width={size} height={size} color={[0.75,0.75,0.75,alpha]}/>
+            <Image width={size} height={size} color={[1,1,1,alpha]}/>
+          </LinearLayout>
+        </ScrollView>
 
-        <view localPosition={[0, -1.5, 0]}>
-          <text localPosition={[0, 0.05, 0]} textSize={0.08} alignment={'bottom-center'}>Set content alignment:</text>
-          <button localPosition={[-0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopLeftButtonClick}>TL</button>
-          <button localPosition={[ 0.0, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopCenterButtonClick}>TC</button>
-          <button localPosition={[ 0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopRightButtonClick}>TR</button>
-          <button localPosition={[-0.3, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterLeftButtonClick}>CL</button>
-          <button localPosition={[ 0.0, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterCenterButtonClick}>CC</button>
-          <button localPosition={[ 0.3, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterRightButtonClick}>CR</button>
-          <button localPosition={[-0.3, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomLeftButtonClick}>BL</button>
-          <button localPosition={[ 0.0, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomCenterButtonClick}>BC</button>
-          <button localPosition={[ 0.3, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomRightButtonClick}>BR</button>
-        </view>
-      </view>
+        <View position={[0, -1.5, 0]}>
+          <Text position={[0, 0.05, 0]} fontSize={0.08} anchorPoint={'bottom-center'}>Set content alignment:</Text>
+          <Button position={[-0.3, -0.1, 0]} fontSize={0.08} roundness={0} onClick={this.onTopLeftButtonClick}>TL</Button>
+          <Button position={[ 0.0, -0.1, 0]} fontSize={0.08} roundness={0} onClick={this.onTopCenterButtonClick}>TC</Button>
+          <Button position={[ 0.3, -0.1, 0]} fontSize={0.08} roundness={0} onClick={this.onTopRightButtonClick}>TR</Button>
+          <Button position={[-0.3, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterLeftButtonClick}>CL</Button>
+          <Button position={[ 0.0, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterCenterButtonClick}>CC</Button>
+          <Button position={[ 0.3, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterRightButtonClick}>CR</Button>
+          <Button position={[-0.3, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomLeftButtonClick}>BL</Button>
+          <Button position={[ 0.0, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomCenterButtonClick}>BC</Button>
+          <Button position={[ 0.3, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomRightButtonClick}>BR</Button>
+        </View>
+      </View>
     );
   }
 }
