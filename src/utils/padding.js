@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Text, Toggle, LinearLayout,ToggleGroup } from 'magic-script-components';
 
 class PaddingGroup extends React.Component {
   static defaultProps = {
@@ -30,14 +31,13 @@ class PaddingGroup extends React.Component {
 
   renderCheckbox(title, on) {
     return (
-      <toggle
+      <Toggle
         height={0.075}
         on={on}
-        text={title}
-        textSize={0.075}
+        fontSize={0.075}
         type={'checkbox'}
         onToggleChanged={(e) => this.onToggleChanged(title, e.On)}
-      />
+      >{title}</Toggle>
     );
   }
 
@@ -45,25 +45,25 @@ class PaddingGroup extends React.Component {
     const { top, right, bottom, left } = this.state;
 
     return (
-      <view localPosition={this.props.localPosition}>
-        <text textSize={0.08}>{this.props.title}</text>
-          <toggleGroup allowMultipleOn allowAllOff>
-            <linearLayout orientation={'vertical'} defaultItemAlignment={'center-left'}>
-              <linearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
+      <View position={this.props.position}>
+        <Text position={[0, 0.13, 0]} anchorPoint={'bottom-center'} fontSize={0.08}>{this.props.title}</Text>
+          <ToggleGroup allowMultipleOn allowAllOff>
+            <LinearLayout orientation={'vertical'} defaultItemAlignment={'center-left'}>
+              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
                 {this.renderCheckbox('top', top)}
-              </linearLayout>
+              </LinearLayout>
               
-              <linearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0.15, 0, 0]}>
+              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0.15, 0, 0]}>
                 {this.renderCheckbox('left', left)}
                 {this.renderCheckbox('right', right)}
-              </linearLayout>
+              </LinearLayout>
 
-              <linearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
+              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
                 {this.renderCheckbox('bottom', bottom)}
-              </linearLayout>
-            </linearLayout>
-          </toggleGroup>
-      </view>
+              </LinearLayout>
+            </LinearLayout>
+          </ToggleGroup>
+      </View>
     );
   }
 }

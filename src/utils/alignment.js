@@ -80,7 +80,7 @@ class AlignmentGroup extends React.Component {
     return (
       <View position={this.props.position}>
         <Text position={[0, 0.13, 0]} anchorPoint={'bottom-center'} fontSize={0.08}>{this.props.title}</Text>
-        <GridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
+        <GridLayout defaultItemPadding={[0, 0.09, 0, 0]}>
           <ToggleGroup>
             <LinearLayout orientation={'vertical'}>
               {this.renderRadio('top', verticalAlignment, this.onVerticalAlignmentChanged)}
