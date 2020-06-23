@@ -46,6 +46,7 @@ class SceneEvents extends React.Component {
         debug
         position={[0, 0, 0]}
         text={"Interactive node"}
+        fontSize={0.08}
         width={0.8}
         height={0.4}
         multiline={true}
