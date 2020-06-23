@@ -1,4 +1,6 @@
 import React from "react";
+import { View, Button, Video, Toggle, Text } from 'magic-script-components';
+
 
 const VideoActions = {
   start: "start",
@@ -59,15 +61,15 @@ class SceneVideo extends React.Component {
     const onClickHandler =
       action === VideoActions.stop ? this.onStopClick : this.onStartPauseClick;
     return (
-      <button
-        localPosition={position}
-        textSize={0.1}
+      <Button
+        position={position}
+        fontSize={0.1}
         width={0.3}
         height={0.12}
         onClick={onClickHandler}
       >
         {title}
-      </button>
+      </Button>
     );
   }
 
@@ -87,33 +89,33 @@ class SceneVideo extends React.Component {
   renderVolumeControls(position) {
     const volume = "Volume: " + this.state.volume;
     return (
-      <view localPosition={position}>
-        <button
-          localPosition={[-0.35, 0, 0]}
-          textSize={0.1}
+      <View position={position}>
+        <Button
+          position={[-0.35, 0, 0]}
+          fontSize={0.1}
           width={0.1}
           height={0.1}
           roundness={0}
           onClick={this.onVolumeDownClick}
         >
           -
-        </button>
+        </Button>
 
-        <text alignment={"center-center"} textSize={0.08}>
+        <Text alignment={"center-center"} fontSize={0.08}>
           {volume}
-        </text>
+        </Text>
 
-        <button
-          localPosition={[0.35, 0, 0]}
-          textSize={0.1}
+        <Button
+          position={[0.35, 0, 0]}
+          fontSize={0.1}
           width={0.1}
           height={0.1}
           roundness={0}
           onClick={this.onVolumeUpClick}
         >
           +
-        </button>
-      </view>
+        </Button>
+      </View>
     );
   }
 
@@ -133,15 +135,15 @@ class SceneVideo extends React.Component {
     const title = "Toggle local movie";
     const onClickHandler = this.onToggleLocalMovie;
     return (
-      <button
-        localPosition={position}
-        textSize={0.075}
+      <Button
+        position={position}
+        fontSize={0.075}
         width={0.6}
         height={0.12}
         onClick={onClickHandler}
       >
         {title}
-      </button>
+      </Button>
     );
   }
 
@@ -149,15 +151,15 @@ class SceneVideo extends React.Component {
     const title = "Toggle remote movie";
     const onClickHandler = this.onToggleRemoteMovie;
     return (
-      <button
-        localPosition={position}
-        textSize={0.075}
+      <Button
+        position={position}
+        fontSize={0.075}
         width={0.7}
         height={0.12}
         onClick={onClickHandler}
       >
         {title}
-      </button>
+      </Button>
     );
   }
 
@@ -169,15 +171,15 @@ class SceneVideo extends React.Component {
       (resolution[1] * widthInMeters) / resolution[0]
     ];
     return (
-      <view localPosition={this.props.localPosition}>
-        <video
-          localPosition={[0, 0.75, 0]}
+      <View position={[0, -0.5, 0]}>
+        <Video
+          position={[0, 0.75, 0]}
           looping={this.state.isLooping}
           width={resolution[0]}
           height={resolution[1]}
           size={size}
           anchorPosition={[0.5 * size[0], 0.5 * size[1], 0]}
-          videoPath={this.state.videoPath}
+          path={this.state.videoPath}
           viewMode={"full-area"}
           volume={this.state.volume}
           action={this.state.action}
@@ -189,16 +191,16 @@ class SceneVideo extends React.Component {
         {this.renderToggleLocalMovieButton([0.0, -0.22, 0])}
         {this.renderToggleRemoteMovieButton([0.0, -0.38, 0])}
 
-        <toggle
-          localPosition={[0.2, -0.52, 0]}
+        <Toggle
+          position={[0.2, -0.52, 0]}
           height={0.1}
-          textSize={0.075}
+          fontSize={0.075}
           on={this.state.isLooping}
           onToggleChanged={this.onToggleChanged}
         >
           Looping
-        </toggle>
-      </view>
+        </Toggle>
+      </View>
     );
   }
 }
