@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text, CircleConfirmation, Dialog } from 'magic-script-components';
 
 class SceneCircleConfirmation extends React.Component {
   constructor(props) {
@@ -34,17 +35,17 @@ class SceneCircleConfirmation extends React.Component {
     const { showDialog, progress = 0.0, key } = this.state;
 
     return (
-      <view localPosition={this.props.localPosition}>
-        <text
+      <View position={this.props.localPosition}>
+        <Text
           alignment={'bottom-center'}
-          localPosition={[0, 0.35, 0]}
+          position={[0, 0.35, 0]}
           textAlignment={"center"}
-          textSize={0.07}
-          boundsSize={{ boundsSize: [0.5, 0.], wrap: false }}
-        >{`Progress = ${progress.toFixed(2)}`}</text>
+          fontSize={0.07}
+          boundsSize={{ boundsSize: [0.5, 0.5], wrap: false }}
+        >{`Progress = ${progress.toFixed(2)}`}</Text>
 
         {!showDialog && (
-          <circleConfirmation
+          <CircleConfirmation
             key={key}
             onConfirmationCanceled={this.onConfirmationCanceled}
             onConfirmationCompleted={this.onConfirmationCompleted}
@@ -54,8 +55,8 @@ class SceneCircleConfirmation extends React.Component {
         )}
 
         {showDialog && (
-          <dialog
-            localScale={[2, 2, 2]}
+          <Dialog
+            scale={[2, 2, 2]}
             title={"Action confirmed!"}
             confirmText={"OK"}
             cancelText={"Close"}
@@ -63,7 +64,7 @@ class SceneCircleConfirmation extends React.Component {
             onDialogCanceled={this.onDialogCanceled}
           />
         )}
-      </view>
+      </View>
     );
   }
 }
