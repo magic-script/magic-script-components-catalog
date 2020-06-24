@@ -1,9 +1,17 @@
 import React from "react";
-import { View, LinearLayout, Text, Image, Toggle, ListViewItem, ListView } from 'magic-script-components';
+import {
+  View,
+  LinearLayout,
+  Text,
+  Image,
+  Toggle,
+  ListViewItem,
+  ListView,
+} from "magic-script-components";
 
 const ListViewOrientation = {
   vertical: "vertical",
-  horizontal: "horizontal"
+  horizontal: "horizontal",
 };
 class SceneListView extends React.Component {
   constructor(props) {
@@ -13,12 +21,12 @@ class SceneListView extends React.Component {
       require("../../assets/resources/DemoPicture2.jpg"),
       require("../../assets/resources/DemoPicture3.jpg"),
       require("../../assets/resources/DemoPicture4.jpg"),
-      require("../../assets/resources/DemoPicture5.jpg")
+      require("../../assets/resources/DemoPicture5.jpg"),
     ];
     this.state = {
       listViewOrientation: ListViewOrientation.vertical,
       width: 0.0,
-      height: 1.0
+      height: 1.0,
     };
   }
 
@@ -33,14 +41,33 @@ class SceneListView extends React.Component {
             defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
             orientation={"horizontal"}
           >
-            <Image filePath={this.resources[i]} width={0.5} height={0.5} />
-            <Text
+            <LinearLayout
               anchorPoint={"center-center"}
-              textColor={'black'}
-              fontSize={0.08}
+              defaultItemAlignment={"center-center"}
+              defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
+              orientation={"horizontal"}
             >
-              {"Item no. " + i}
-            </Text>
+              <Image
+                filePath={this.resources[i]}
+                width={0.5}
+                height={0.5}
+                debug
+              />
+            </LinearLayout>
+            <LinearLayout
+              anchorPoint={"center-center"}
+              defaultItemAlignment={"center-center"}
+              defaultItemPadding={[0.1, 0.1, 0.1, 0.1]}
+              orientation={"horizontal"}
+            >
+              <Text
+                anchorPoint={"center-center"}
+                textColor={"black"}
+                fontSize={0.08}
+              >
+                {"Item no. " + i}
+              </Text>
+            </LinearLayout>
           </LinearLayout>
         </ListViewItem>
       );
@@ -48,19 +75,19 @@ class SceneListView extends React.Component {
     return items;
   }
 
-  toggleListViewOrientation = event => {
+  toggleListViewOrientation = (event) => {
     const { listViewOrientation } = this.state;
     if (listViewOrientation === "vertical") {
       this.setState({
         listViewOrientation: ListViewOrientation.horizontal,
         width: 1.0,
-        height: 0.0
+        height: 0.0,
       });
     } else {
       this.setState({
         listViewOrientation: ListViewOrientation.vertical,
         width: 0.0,
-        height: 1.0
+        height: 1.0,
       });
     }
   };
@@ -80,7 +107,7 @@ class SceneListView extends React.Component {
             anchorPoint={"center-center"}
             on={false}
             fontSize={0.05}
-            textColor={'white'}
+            textColor={"white"}
             height={0.075}
             onToggleChanged={this.toggleListViewOrientation}
           >
