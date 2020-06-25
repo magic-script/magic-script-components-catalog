@@ -1,11 +1,10 @@
 import React from "react";
-import { View, Button, Video, Toggle, Text } from 'magic-script-components';
-
+import { View, Button, Video, Toggle, Text } from "magic-script-components";
 
 const VideoActions = {
   start: "start",
   pause: "pause",
-  stop: "stop"
+  stop: "stop",
 };
 
 class SceneVideo extends React.Component {
@@ -14,11 +13,11 @@ class SceneVideo extends React.Component {
     this.localVideoPaths = [
       require("../../assets/resources/video.mp4"),
       require("../../assets/resources/video_1.mp4"),
-      require("../../assets/resources/video_2.mp4")
+      require("../../assets/resources/video_2.mp4"),
     ];
     this.remoteVideoPaths = [
       "http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4",
-      "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+      "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4",
     ];
     this.currentLocalIndex = 0;
     this.currentRemoteIndex = 0;
@@ -26,13 +25,13 @@ class SceneVideo extends React.Component {
       isLooping: false,
       action: VideoActions.pause,
       volume: 1.0,
-      videoPath: this.localVideoPaths[0]
+      videoPath: this.localVideoPaths[0],
     };
   }
 
   onToggleChanged = (event) => {
     this.setState({ isLooping: event.On });
-  }
+  };
 
   onStartPauseClick = () => {
     if (this.state.action === VideoActions.start) {
@@ -40,21 +39,21 @@ class SceneVideo extends React.Component {
     } else {
       this.setState({ action: VideoActions.start });
     }
-  }
+  };
 
   onStopClick = () => {
     this.setState({ action: VideoActions.stop });
-  }
+  };
 
   onVolumeDownClick = () => {
     const volumeNew = (this.state.volume - 0.1).toPrecision(2);
     this.setState({ volume: Math.max(0, volumeNew) });
-  }
+  };
 
   onVolumeUpClick = () => {
     const volumeNew = (this.state.volume + 0.1).toPrecision(2);
     this.setState({ volume: Math.min(1.0, volumeNew) });
-  }
+  };
 
   createButtonWithAction(action, position) {
     const title = action[0].toUpperCase() + action.substring(1);
@@ -120,16 +119,18 @@ class SceneVideo extends React.Component {
   }
 
   onToggleLocalMovie = () => {
-    const nextIndex = (this.currentLocalIndex + 1) % this.localVideoPaths.length;
+    const nextIndex =
+      (this.currentLocalIndex + 1) % this.localVideoPaths.length;
     this.currentLocalIndex = nextIndex;
     this.setState({ videoPath: this.localVideoPaths[nextIndex] });
-  }
+  };
 
   onToggleRemoteMovie = () => {
-    const nextIndex = (this.currentRemoteIndex + 1) % this.remoteVideoPaths.length;
+    const nextIndex =
+      (this.currentRemoteIndex + 1) % this.remoteVideoPaths.length;
     this.currentRemoteIndex = nextIndex;
     this.setState({ videoPath: this.remoteVideoPaths[nextIndex] });
-  }
+  };
 
   renderToggleLocalMovieButton(position) {
     const title = "Toggle local movie";
@@ -168,8 +169,9 @@ class SceneVideo extends React.Component {
     const widthInMeters = 1.4;
     const size = [
       widthInMeters,
-      (resolution[1] * widthInMeters) / resolution[0]
+      (resolution[1] * widthInMeters) / resolution[0],
     ];
+    console.log(size);
     return (
       <View position={[0, -0.5, 0]}>
         <Video
@@ -177,12 +179,12 @@ class SceneVideo extends React.Component {
           looping={this.state.isLooping}
           width={resolution[0]}
           height={resolution[1]}
-          size={size}
-          anchorPosition={[0.5 * size[0], 0.5 * size[1], 0]}
+          screenSize={size}
           path={this.state.videoPath}
           viewMode={"full-area"}
           volume={this.state.volume}
           action={this.state.action}
+          debug 
         />
 
         {this.renderVolumeControls([0, 0.15, 0])}
