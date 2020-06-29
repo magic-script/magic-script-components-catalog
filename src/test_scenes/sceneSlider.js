@@ -1,4 +1,5 @@
 import React from "react";
+import { Slider, Text, View, GridLayout } from 'magic-script-components';
 
 class SceneSlider extends React.Component {
   constructor(props) {
@@ -21,23 +22,23 @@ class SceneSlider extends React.Component {
   render() {
     const { defaultSliderValue, userDefinedSliderOneValue, userDefinedSliderTwoValue } = this.state;
     return (
-      <view localPosition={this.props.localPosition}>
-        <gridLayout
-          alignment={"top-center"}
+      <View position={this.props.position}>
+        <GridLayout
+          anchorPoint={"top-center"}
           columns={1}
           defaultItemPadding={[0.075, 0, 0, 0]}
-          localPosition={[0.0, 1.0, 0.0]}
+          position={[0.0, 1.0, 0.0]}
         >
-          <text alignment={"center-center"} textSize={0.075} >
+          <Text alignment={"center-center"} fontSize={0.075} >
             Default slider
-          </text>
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + defaultSliderValue.toPrecision(2)}/>
-          <slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
-          <text alignment={"center-center"} textSize={0.075}>
+          </Text>
+          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]} >{"Current value: " + defaultSliderValue.toPrecision(2)}</Text>
+          <Slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
+          <Text alignment={"center-center"} fontSize={0.075}>
             User configured sliders
-          </text>
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderOneValue.toPrecision(2)}/>
-          <slider
+          </Text>
+          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]}>{"Current value: " + userDefinedSliderOneValue.toPrecision(2)}</Text>
+          <Slider
             value={userDefinedSliderOneValue}
             min={5}
             max={10}
@@ -47,8 +48,8 @@ class SceneSlider extends React.Component {
             height={0.06}
             onSliderChanged={this.onUserDefinedSliderOneChanged}
           />
-          <text alignment={"center-center"} textSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderTwoValue.toPrecision(2)}/>
-          <slider
+          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderTwoValue.toPrecision(2)}/>
+          <Slider
             value={userDefinedSliderTwoValue}
             min={0}
             max={12}
@@ -58,8 +59,8 @@ class SceneSlider extends React.Component {
             height={0.08}
             onSliderChanged={this.onUserDefinedSliderTwoChanged}
           />
-        </gridLayout>
-      </view>
+        </GridLayout>
+      </View>
     );
   }
 }
