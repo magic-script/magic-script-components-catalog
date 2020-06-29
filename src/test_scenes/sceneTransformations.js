@@ -1,37 +1,39 @@
 import React from 'react';
+import { View , Text, Model} from 'magic-script-components';
 
 class SceneTransformations extends React.Component {
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
 
-       <text 
-          localPosition={[0, 1, 0]}
-          textSize={0.08}
+       <Text 
+          position={[0, 1, 0]}
+          fontSize={0.08}
           multiline={true}
           alignment={'top-center'}
-          boundsSize={{ boundsSize: [1.0, 0.3], wrap: true }} 
+          width={1.0}
+          height={0.3}
          >
           Should display 2 identical boxes (same scale, rotation, horizontal position)
-        </text> 
+        </Text> 
 
-        <view localPosition={[0, 0.1, 0]}>
-          <model 
-            modelPath={require('../../assets/resources/models/static.glb')}
-            localPosition={[0, 0.2, -0.2]}
-            localRotation={[0.0, 0.38268346, 0.0, 0.9238795]}
-            localScale={[0.5, 0.5, 0.5]}
+        <View position={[0, 0.1, 0]}>
+          <Model 
+            path={require('../../assets/resources/models/static.glb')}
+            position={[0, 0.2, -0.2]}
+            rotation={[0.0, 0.38268346, 0.0, 0.9238795]}
+            scale={[0.5, 0.5, 0.5]}
           />
-        </view>
+        </View>
 
-        <view localPosition={[0, -0.7, 0]}>
-           <model 
-            modelPath={require('../../assets/resources/models/static.glb')}
-            localTransform={[0.3535534, 0.0, -0.35355334, 0.0, 0.0, 0.5, 0.0, 0.0, 0.35355334, 0.0, 0.3535534, 0.0, 0.0, 0.2, -0.2, 1.0]}
+        <View position={[0, -0.7, 0]}>
+           <Model 
+            path={require('../../assets/resources/models/static.glb')}
+            transform={[0.3535534, 0.0, -0.35355334, 0.0, 0.0, 0.5, 0.0, 0.0, 0.35355334, 0.0, 0.3535534, 0.0, 0.0, 0.2, -0.2, 1.0]}
           />  
-        </view>
-      </view>
+        </View>
+      </View>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
 import { View, Audio, Toggle,Line, Image } from 'magic-script-components';
-import { SystemIcons } from '../utils/systemIcons';
 
 class SceneAudio extends React.Component {
   constructor(props) {
