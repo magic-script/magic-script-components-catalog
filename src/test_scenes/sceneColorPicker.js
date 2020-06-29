@@ -1,4 +1,5 @@
 import React from "react";
+import { View, LinearLayout, ColorPicker } from 'magic-script-components';
 
 class SceneColorPicker extends React.Component {
   onColorChanged = event => {
@@ -18,36 +19,36 @@ class SceneColorPicker extends React.Component {
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
-        <linearLayout
-          localPosition={[0, 0.5, 0]}
-          alignment={"center-center"}
+      <View position={this.props.position}>
+        <LinearLayout
+          position={[0, 0.5, 0]}
+          anchorPoint={"center-center"}
           columns={1}
           defaultItemAlignment={"center-center"}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
           orientation={"vertical"}
         >
-          <colorPicker
+          <ColorPicker
             startingColor={[0.75, 0.5, 0.25, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}
           />
-          <colorPicker
+          <ColorPicker
             color={[0.95, 0.85, 0.75, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}
           />
-          <colorPicker
+          <ColorPicker
             startingColor={[0.75, 0.5, 0.25, 1]}
             color={[0.95, 0.85, 0.75, 1]}
             onColorChanged={this.onColorChanged}
             onColorConfirmed={this.onColorConfirmed}
             onColorCanceled={this.onColorCanceled}
           />
-        </linearLayout>
-      </view>
+        </LinearLayout>
+      </View>
     );
   }
 }
