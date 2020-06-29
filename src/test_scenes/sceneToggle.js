@@ -8,7 +8,7 @@ class SceneToggle extends React.Component {
 
   render() {
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         <Toggle
           alignment={"center-center"}
           position={[0, 0.4, 0]}

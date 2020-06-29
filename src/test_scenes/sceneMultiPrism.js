@@ -29,7 +29,7 @@ class SceneMultiPrism extends React.Component {
             position={[0, 0, 0]}
             alignment={"center-center"}
             onClick={() => this.props.onPrismAction(index)}
-            textAlignment={"center"}
+            textAlign={"center"}
             fontSize={0.03}
           >
             {text}
@@ -48,7 +48,7 @@ class SceneMultiPrism extends React.Component {
   render() {
     const buttonProps = {
       alignment: "center-center",
-      textSize: 0.08,
+      fontSize: 0.08,
     };
     return (
       <View position={this.props.localPosition}>

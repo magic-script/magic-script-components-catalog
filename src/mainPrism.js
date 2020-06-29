@@ -313,7 +313,7 @@ class MainPrism extends React.Component {
               width={0.25}
               height={0.1}
               roundness={1}
-              textSize={0.025}
+              fontSize={0.05}
               onClick={this.onPreviousScene}
             >
               Prev
@@ -332,7 +332,7 @@ class MainPrism extends React.Component {
               width={0.25}
               height={0.1}
               roundness={1}
-              textSize={0.025}
+              fontSize={0.05}
               onClick={this.onNextScene}
             >
               Next

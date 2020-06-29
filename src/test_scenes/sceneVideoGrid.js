@@ -36,7 +36,7 @@ class SceneVideoGrid extends React.Component {
     const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
     return (
       <Button
-        textSize={0.1}
+        fontSize={0.1}
         width={0.3}
         height={0.12}
         onClick={onClickHandler}
@@ -92,7 +92,7 @@ class SceneVideoGrid extends React.Component {
 
   render() {
     return (
-      <View localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
         <GridLayout
           anchorPoint={"top-center"}
           columns={2}

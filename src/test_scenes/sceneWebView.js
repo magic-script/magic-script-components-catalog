@@ -39,7 +39,6 @@ class SceneWebView extends React.Component {
     const web = { width: 1.0, height: 0.75 };
     return (
       <LinearLayout 
-          alignment={'top-center'}
           orientation={'vertical'}
           defaultItemAlignment={'center-center'}
           defaultItemPadding={[0.03, 0, 0.03, 0]}
@@ -61,7 +60,7 @@ class SceneWebView extends React.Component {
           />
           <Button height={0.1} onClick={this.onLoad} fontSize={0.08} >Load</Button>
           <WebView url={url} height={web.height} width={web.width} />
-          <Button height={0.1} onClick={this.onOpenUrl} textSize={0.08} >Open in browser</Button> 
+          <Button height={0.1} onClick={this.onOpenUrl} fontSize={0.08} >Open in browser</Button> 
         </LinearLayout>
     );
   }

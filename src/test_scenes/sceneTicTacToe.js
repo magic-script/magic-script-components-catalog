@@ -104,7 +104,7 @@ export class GameTicTacToe extends React.Component {
           />
         </View>
         <View name="game-info" position={[0, 0.5, 0]}>
-          <Text textSize={0.05} position={[0.3, 0,0]} anchorPoint='top-left'>{status}</Text>
+          <Text fontSize={0.05} position={[0.3, 0,0]} anchorPoint='top-left'>{status}</Text>
           <LinearLayout defaultItemAlignment={'top-center'} position={[0, -0.08, 0]}>{moves}</LinearLayout>
         </View>
       </View>

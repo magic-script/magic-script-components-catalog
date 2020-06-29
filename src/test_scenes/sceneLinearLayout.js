@@ -48,13 +48,13 @@ class SceneLinearLayout extends React.Component {
     return (
       <View position={this.props.position}>
         <Toggle position={[0.3, 0.4, 0]} height={0.08} fontSize={0.08} on={isHorizontal} onToggleChanged={this.onOrientationChanged}>{'Horizontal'}</Toggle>
-        <View position={[-0.5, 0.2, 0]} >
+        <View position={[-0.38, 0.2, 0]} >
             <Text position={[0, 0, 0]} anchorPoint={'center-center'} fontSize={0.08}>Set size:</Text>
             <Toggle position={[0.2, -0.1, 0]} fontSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>1m width</Toggle>
             <Toggle position={[0.2, -0.2, 0]} fontSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>1m height</Toggle>
         </View> 
 
-        <View position={[0.3, 0.2, 0]} >
+        <View position={[0.23, 0.2, 0]} >
           <Text position={[0, 0, 0]} fontSize={0.08} anchorPoint={'center-left'}>Set items padding:</Text>
           <Toggle position={[0.4, -0.1, 0]} fontSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</Toggle>
           <Toggle position={[0.4, -0.2, 0]} fontSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</Toggle>

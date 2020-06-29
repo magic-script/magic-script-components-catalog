@@ -101,7 +101,6 @@ class SceneEvents extends React.Component {
 
     return (
       <LinearLayout
-        alignment={"top-center"}
         defaultItemPadding={[0.01, 0.0, 0.01, 0.0]}
       >
         <RectLayout width={1} height={1} contentAlignment={"center-center"}>

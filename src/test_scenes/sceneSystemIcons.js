@@ -72,9 +72,9 @@ class SceneSystemIcons extends React.Component {
   renderOption(position, leftText, rightText, value, callback) {
     return (
       <View position={position}>
-        <Text anchorPoint={'center-right'} position={[-0.2, 0, 0]} textSize={0.08}>{leftText}</Text>
+        <Text anchorPoint={'center-right'} position={[-0.2, 0, 0]} fontSize={0.08}>{leftText}</Text>
         <Toggle height={0.1} on={value} onToggleChanged={callback}>{' '}</Toggle>
-        <Text anchorPoint={'center-left'} position={[0.2, 0, 0]} textSize={0.08}>{rightText}</Text>
+        <Text anchorPoint={'center-left'} position={[0.2, 0, 0]} fontSize={0.08}>{rightText}</Text>
       </View> 
     );
   }

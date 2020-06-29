@@ -167,7 +167,7 @@ class SceneDialog extends React.Component {
             orientation={"vertical"}
           >
             <Button
-              textSize={0.08}
+              fontSize={0.08}
               roundness={0.5}
               onClick={this.onButtonClick}
             >Show dialog (short text)</Button>

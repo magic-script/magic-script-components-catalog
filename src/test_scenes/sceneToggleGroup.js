@@ -62,7 +62,7 @@ class SceneToggleGroup extends React.Component {
         {innerLayout && (
           <ToggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
             <LinearLayout 
-              alignment={'center-center'} 
+              anchorPoint={'center-center'} 
               defaultItemPadding={[0.01, 0.0, 0.01, 0.01]}
               orientation={'vertical'}
             >
@@ -85,9 +85,9 @@ class SceneToggleGroup extends React.Component {
 
   render() {
     return (
-      <View localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
         <LinearLayout 
-          alignment={'top-center'} 
+          anchorPoint={'top-center'} 
           defaultItemAlignment={'center-right'}
           defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
           orientation={'vertical'} 

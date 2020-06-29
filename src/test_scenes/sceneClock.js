@@ -61,7 +61,7 @@ class SceneClock extends React.Component {
           key={index}
           position={[x, y, 0]}
           anchorPoint={item.anchorPoint}
-          textSize={0.1}
+          fontSize={0.1}
         >
           {item.hour}
         </Text>
@@ -98,7 +98,7 @@ class SceneClock extends React.Component {
         <Button
           enabled={false}
           position={[center.x, center.y, 0]}
-          textSize={0.1}
+          fontSize={0.1}
           roundness={1}
           width={2 * radius + 0.1}
           height={2 * radius + 0.1}

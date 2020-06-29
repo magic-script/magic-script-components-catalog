@@ -62,7 +62,7 @@ class SceneFileSystem extends React.Component {
     return (
       <View>
         <LinearLayout
-          alignment={'center-center'}
+          anchorPoint={'center-center'}
           defaultItemAlignment={'center-center'}
           defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
         >
@@ -78,10 +78,9 @@ class SceneFileSystem extends React.Component {
           />
           <Text
             boundsSize={{ boundsSize: [0.9, 0.1], wrap: true }}
-            text={currentPath}
             textColor={[1,1,1,0.4]}
             fontSize={0.06}
-          />
+          >{currentPath}</Text>
           <GridLayout
             columns={2}
             defaultItemAlignment={'center-left'}
