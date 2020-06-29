@@ -1,5 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
+import { View, Text, Spinner, Line } from 'magic-script-components';
 
 class SceneSpinner extends React.Component {
 
@@ -38,11 +39,11 @@ class SceneSpinner extends React.Component {
     const value1 = determinate ? progress1 : 0.0;
     const value2 = determinate ? progress2 : 0.0;
     return (
-      <view localPosition={position}>
-        <text textSize={0.08} alignment={'bottom-center'}>{title}</text>
-        <spinner alignment={'top-center'} localPosition={[0, -0.15, 0]} height={0.1} size={[0.1, 0.1]} type={type} value={value1} determinate={determinate}/>
-        <spinner alignment={'top-center'} localPosition={[0, -0.5, 0]} height={0.3} size={[0.3, 0.3]} type={type} value={value2} determinate={determinate}/>
-      </view>
+      <View position={position}>
+        <Text fontSize={0.08} alignment={'bottom-center'}>{title}</Text>
+        <Spinner alignment={'top-center'} position={[0, -0.15, 0]} height={0.1} width={0.1} type={type} value={value1} determinate={determinate}/>
+        <Spinner alignment={'top-center'} position={[0, -0.5, 0]} height={0.3} width={0.3} type={type} value={value2} determinate={determinate}/>
+      </View>
     );
   }
 
@@ -50,17 +51,17 @@ class SceneSpinner extends React.Component {
     const { value1, value2 } = this.state;
     const quat = MathUtils.rotateBy(1.5707963268, [0, 0, -1]);
     return (
-      <view localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
         {this.renderSpinner('Sprite', [-0.3, 1.0, 0], 'sprite-animation', undefined)}
         {this.renderSpinner('Particles', [ 0.3, 1.0, 0], 'particle-package', undefined)}
 
         {this.renderSpinner('', [-0.3, 0.1, 0], 'sprite-animation', value1, value2)}
         {this.renderSpinner('', [ 0.3, 0.1, 0], 'particle-package', value1, value2)}
-        <line color={'white'} points={[[-0.5, 0.2, 0], [0.5, 0.2, 0]]}/>
+        <Line color={'white'} points={[[-0.5, 0.2, 0], [0.5, 0.2, 0]]}/>
 
-        <text localPosition={[0.6, 0.9, 0]} localRotation={quat} textSize={0.08} alignment={'bottom-left'}>indeterminate</text>
-        <text localPosition={[0.6, 0.0, 0]} localRotation={quat} textSize={0.08} alignment={'bottom-left'}>determinate</text>
-      </view>
+        <Text position={[0.6, 0.9, 0]} rotation={quat} fontSize={0.08} alignment={'bottom-left'}>indeterminate</Text>
+        <Text position={[0.6, 0.0, 0]} rotation={quat} fontSize={0.08} alignment={'bottom-left'}>determinate</Text>
+      </View>
     );
   }
 }

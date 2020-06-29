@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Button, GridLayout, Text } from 'magic-script-components-react-native';
+import { View, Button, GridLayout, Text } from 'magic-script-components';
 
 class SceneButton extends React.Component {
 	constructor(props) {
@@ -28,20 +28,20 @@ class SceneButton extends React.Component {
 		onClick = () => {},
 	}) {
 		return (
-			<button
+			<Button
 				enabled={enabled}
 				textColor={textColor}
-				textSize={textSize}
+				fontSize={textSize}
 				roundness={roundness}
 				width={width}
 				height={height}
 				onClick={onClick}
-			>{title}</button>
+			>{title}</Button>
 		);
 	}
 
 	renderHeader(text) {
-		return <text textAlignment={'right'} textSize={0.09} boundsSize={{ boundsSize: [0.4, 0.1], wrap: true }}>{text}</text>;
+		return <Text textAlign={'right'} fontSize={0.09} width={0.4} height={0.1} multiline={true}>{text}</Text>;
 	}
 
 	onButtonClick(param) {
@@ -50,8 +50,8 @@ class SceneButton extends React.Component {
 
   render () {
     return (
-      <view localPosition={this.props.localPosition}>
-				<gridLayout localPosition={[0,-0.2,0]} columns={4} alignment={'bottom-center'}>
+      <View position={this.props.position}>
+				<GridLayout position={[0,-0.2,0]} columns={4} anchorPoint={'bottom-center'}>
 
 					{this.renderHeader('Text:')}
 					{this.renderButton({ title: 'short', onClick: this.onButtonClick({ title: 'CTA'})})}
@@ -88,11 +88,11 @@ class SceneButton extends React.Component {
 					{this.renderButton({ title: 'enable', onClick: this.onButtonClick({ enabled: true })})}
 					{this.renderButton({ title: 'disable', onClick: this.onButtonClick({ enabled: false })})}
 					
-				</gridLayout>
-				<gridLayout localPosition={[0,-0.55,0]} alignment={'top-center'}>
+				</GridLayout>
+				<GridLayout position={[0,-0.55,0]} anchorPoint={'top-center'}>
 					{this.renderButton(this.state)}
-				</gridLayout>
-      </view>
+				</GridLayout>
+      </View>
     );
   }
 }

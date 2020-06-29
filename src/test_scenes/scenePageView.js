@@ -1,4 +1,5 @@
 import React from 'react';
+import { PageView, Line, LinearLayout, Tab, Image, View } from 'magic-script-components';
 
 class ScenePageView extends React.Component {
   constructor(props) {
@@ -33,15 +34,15 @@ class ScenePageView extends React.Component {
     ];
     const a = (index === this.state.selectedTab) ? 1 : 0.5;
     return (
-      <view key={index}>
-        <tab textColor={[1,1,1,a]} textSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
-        <line color={[1,1,1,1]} points={points} />
-      </view>
+      <View key={index}>
+        <Tab textColor={[1,1,1,a]} fontSize={0.12} text={`${index + 1}`} onActivate={() => this.onTabSelect(index)} />
+        <Line color={[1,1,1,1]} points={points} />
+      </View>
     );
   }
 
   renderPage = (item, size) => {
-    return <image key={item.name} color={item.value} width={size.width} height={size.height} />;
+    return <Image key={item.name} color={item.value} width={size.width} height={size.height} />;
   }
 
   render () {
@@ -57,22 +58,22 @@ class ScenePageView extends React.Component {
       [0, 0, 0],
     ];
     return (
-      <view localPosition={this.props.localPosition}>
-        <linearLayout defaultItemAlignment={'top-center'} alignment={'top-center'} orientation={'vertical'}>
-          <linearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={'horizontal'}>
+      <View position={this.props.position}>
+        <LinearLayout defaultItemAlignment={'top-center'} anchorPoint={'top-center'} orientation={'vertical'}>
+          <LinearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={'horizontal'}>
             {this.colors.map((item, index) => this.renderTab(item, index, pageSize.width, tabHeight))}
-          </linearLayout>
-          <pageView 
+          </LinearLayout>
+          <PageView 
             defaultPagePadding={[pp, pp, pp, pp]}
             visiblePage={selectedTab}
             width={pageSize.width}
             height={pageSize.height}
           >
             {this.colors.map(item => this.renderPage(item, { width: pageSize.width - 2 * pp, height: pageSize.height - 2 * pp }))}
-          </pageView>
-        </linearLayout>
-        <line localPosition={[-0.5 * pageSize.width, -pageSize.height - tabHeight, 0]} color={'white'} points={outline} />
-      </view>
+          </PageView>
+        </LinearLayout>
+        <Line position={[-0.5 * pageSize.width, -pageSize.height - tabHeight, 0]} color={'white'} points={outline} />
+      </View>
       
     );
   }

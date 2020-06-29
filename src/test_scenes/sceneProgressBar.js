@@ -1,4 +1,5 @@
 import React from 'react';
+import { Slider, ProgressBar, View, GridLayout } from 'magic-script-components';
 
 class SceneProgressBar extends React.Component {
 
@@ -37,58 +38,50 @@ class SceneProgressBar extends React.Component {
   render() {
     const { value1, value2, value3 } = this.state;
     return (
-      <view localPosition={this.props.localPosition}>
-        <progressBar 
+      <View position={this.props.position}>
+        <ProgressBar 
           alignment={'center-center'}
-          localPosition={[0, 0.2, 0]} 
+          position={[0, 0.2, 0]} 
           value={0.33} min={0} max={1}
           width={0.5}
         />
-        <progressBar 
+        <ProgressBar 
           alignment={'center-center'}
-          localPosition={[0, 0, 0]} 
+          position={[0, 0, 0]} 
           value={value1}
-          progressColor={{
-            beginColor: [0.1,0.5,0.9,1],
-            endColor: [0.1,0.9,0.5,1]
-          }}
+          beginColor={[0.1,0.5,0.9,1]}
+          endColor={[0.1,0.9,0.5,1]}
           width={0.75}
           height={0.05}
         />
-        <progressBar 
+        <ProgressBar 
           alignment={'center-center'}
-          localPosition={[0, -0.1, 0]} 
+          position={[0, -0.1, 0]} 
           value={value2}
-          progressColor={{
-            beginColor: [0.1,0.5,0.9,1],
-            endColor: [0.1,0.9,0.5,1]
-          }}
+          beginColor= {[0.1,0.5,0.9,1]}
+          endColor= {[0.1,0.9,0.5,1]}
           width={0.75}
           height={0.05}
         />
-        <progressBar 
+        <ProgressBar 
           alignment={'center-center'}
-          localPosition={[0, -0.2, 0]} 
+          position={[0, -0.2, 0]} 
           value={value3}
-          progressColor={{
-            beginColor: [0.1,0.5,0.9,1],
-            endColor: [0.1,0.9,0.5,1]
-          }}
+          beginColor= {[0.1,0.5,0.9,1]}
+          endColor= {[0.1,0.9,0.5,1]}
           width={0.75}
           height={0.05}
         />
         <progressBar 
           alignment={'center-center'}
-          localPosition={[0, -0.4, 0]} 
+          position={[0, -0.4, 0]} 
           value={0.9} min={-10} max={10}
-          progressColor={{
-            beginColor: [1, 0.1, 0.1, 1],
-            endColor: [1, 0.1, 0.1,1]
-          }}
+          beginColor={[1, 0.1, 0.1, 1]}
+          endColor={[1, 0.1, 0.1,1]}
           width={1}
           height={0.1}
         />
-      </view>
+      </View>
     );
   }
 }

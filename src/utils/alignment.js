@@ -1,4 +1,6 @@
 import React from 'react';
+import {  View, Text, Toggle, ToggleGroup,GridLayout, LinearLayout } from 'magic-script-components';
+
 
 const Alignment = {
   topLeft: 'top-left',
@@ -53,18 +55,17 @@ class AlignmentGroup extends React.Component {
   renderRadio(title, selectedText, onChanged) {
     const on = (title === selectedText);
     return (
-      <toggle
+      <Toggle
         height={0.075}
         on={on}
-        text={title}
-        textSize={0.075}
+        fontSize={0.075}
         type={'radio'}
         onToggleChanged={(e) => { 
           if (e.On) { 
             onChanged(title); 
           }
         }}
-      />
+      >{title}</Toggle>
     );
   }
 
@@ -77,25 +78,25 @@ class AlignmentGroup extends React.Component {
     const verticalAlignment = (elements.length > 0) ? elements[0] : '';
     const horizontalAlignment = (elements.length > 1) ? elements[1] : '';
     return (
-      <view localPosition={this.props.localPosition}>
-        <text textSize={0.08}>{this.props.title}</text>
-        <gridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
-          <toggleGroup>
-            <linearLayout orientation={'vertical'}>
+      <View position={this.props.position}>
+        <Text position={[0, 0.13, 0]} anchorPoint={'bottom-center'} fontSize={0.08}>{this.props.title}</Text>
+        <GridLayout defaultItemPadding={[0, 0.09, 0, 0]}>
+          <ToggleGroup>
+            <LinearLayout orientation={'vertical'}>
               {this.renderRadio('top', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('center', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('bottom', verticalAlignment, this.onVerticalAlignmentChanged)}
-            </linearLayout>
-          </toggleGroup>
-          <toggleGroup>
-            <linearLayout orientation={'vertical'}>
+            </LinearLayout>
+          </ToggleGroup>
+          <ToggleGroup>
+            <LinearLayout orientation={'vertical'}>
               {this.renderRadio('left', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('center', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('right', horizontalAlignment, this.onHorizontalAlignmentChanged)}
-            </linearLayout>
-          </toggleGroup>
-        </gridLayout>
-      </view>
+            </LinearLayout>
+          </ToggleGroup>
+        </GridLayout>
+      </View>
     );
   }
 }

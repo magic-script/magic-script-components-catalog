@@ -1,5 +1,6 @@
 import React from 'react';
 import { SystemIcons } from '../utils/systemIcons';
+import { Image, Line, View, Text, Toggle, GridLayout } from 'magic-script-components';
 
 class SceneSystemIcons extends React.Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class SceneSystemIcons extends React.Component {
     var key = 0;
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<image key={key} height={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} />);
+      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} />);
       key += 1;
     }
     return icons;
@@ -60,9 +61,9 @@ class SceneSystemIcons extends React.Component {
   renderSquare(length) {
     const s = 0.5 * length;
     return (
-      <line 
+      <Line 
         color={'yellow'}
-        localPosition={[0, -1, 0]} 
+        position={[0, -1, 0]} 
         points={[[-s, s, 0], [s, s, 0], [s, -s, 0], [-s, -s, 0], [-s, s, 0] ]}
       />
     );
@@ -70,11 +71,11 @@ class SceneSystemIcons extends React.Component {
 
   renderOption(position, leftText, rightText, value, callback) {
     return (
-      <view localPosition={position}>
-        <text alignment={'center-right'} localPosition={[-0.2, 0, 0]} textSize={0.08}>{leftText}</text>
-        <toggle height={0.1} on={value} onToggleChanged={callback}>{' '}</toggle>
-        <text alignment={'center-left'} localPosition={[0.2, 0, 0]} textSize={0.08}>{rightText}</text>
-      </view> 
+      <View position={position}>
+        <Text anchorPoint={'center-right'} position={[-0.2, 0, 0]} fontSize={0.08}>{leftText}</Text>
+        <Toggle height={0.1} on={value} onToggleChanged={callback}>{' '}</Toggle>
+        <Text anchorPoint={'center-left'} position={[0.2, 0, 0]} fontSize={0.08}>{rightText}</Text>
+      </View> 
     );
   }
 
@@ -83,25 +84,25 @@ class SceneSystemIcons extends React.Component {
     const icon = SystemIcons[currentIconIndex];
     const numberOfIcons = `${currentIconIndex + 1}/${SystemIcons.length}`;
     return (
-      <view localPosition={[0, 1.0, 0]}>
-        <image alignment={'top-center'} height={0.5} icon={icon} useDefaultIcon={!showLuminIcons} />
-        <text alignment={'top-center'} localPosition={[0, -0.52, 0]} textSize={0.08}>{icon}</text>
-        <text alignment={'top-right'} localPosition={[0.75, -0.52, 0]} textSize={0.08}>{numberOfIcons}</text>
-        <gridLayout
-          alignment={'center-center'}
-          localPosition={[0, -1, 0]}
+      <View position={[0, 1.0, 0]}>
+        <Image anchorPoint={'top-center'} height={0.5} width={0.5} icon={icon} useDefaultIcon={!showLuminIcons} debug/>
+        <Text anchorPoint={'top-center'} position={[0, -0.52, 0]} fontSize={0.08}>{icon}</Text>
+        <Text anchorPoint={'top-right'} position={[0.75, -0.52, 0]} fontSize={0.08}>{numberOfIcons}</Text>
+        <GridLayout
+          anchorPoint={'center-center'}
+          position={[0, -1, 0]}
           rows={1}
           defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
         >
           {this.renderIcons()}
-        </gridLayout>
+        </GridLayout>
 
         {this.renderSquare(1.3 * this.smallIconSize)}
         {this.renderSquare(1.5 * this.smallIconSize)}
         
         {this.renderOption([0, -1.4, 0], 'Default icons', 'Lumin icons', showLuminIcons, this.onShowLuminIconsChanged)}
         {this.renderOption([0, -1.7, 0], 'Slow animation', 'Fast animation', animateFast, this.onAnimateFastChanged)}
-      </view>
+      </View>
     );
   }
 }

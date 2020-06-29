@@ -1,4 +1,5 @@
 import React from "react";
+import { View, LinearLayout, DatePicker } from "magic-script-components";
 
 class SceneDatePicker extends React.Component {
   onDateChanged = event => {
@@ -13,41 +14,41 @@ class SceneDatePicker extends React.Component {
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
-        <linearLayout
-          localPosition={[0, 0.5, 0]}
-          alignment={"center-center"}
+      <View position={this.props.position}>
+        <LinearLayout
+          position={[0, 0.5, 0]}
+          anchorPoint={"center-center"}
           columns={1}
           defaultItemAlignment={"center-left"}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
           orientation={"vertical"}
         >
-          <datePicker
+          <DatePicker
             label={"Default date format (MM/DD/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
           />
 
-          <datePicker
+          <DatePicker
             label={"Custom date format (DD/MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"DD/MM/YYYY"}
           />
-          <datePicker
+          <DatePicker
             label={"Custom date format (MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"MM/YYYY"}
           />
-          <datePicker
+          <DatePicker
             label={"Custom date format (DD/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
             dateFormat={"DD/YYYY"}
           />
-        </linearLayout>
-      </view>
+        </LinearLayout>
+      </View>
     );
   }
 }

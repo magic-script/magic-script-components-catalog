@@ -1,5 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
+import { View, Audio, Toggle,Line, Image } from 'magic-script-components';
 
 class SceneAudio extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class SceneAudio extends React.Component {
     const { animate, positionAngle } = this.state;
     if (animate) {
       const deltaAngle = 0.25 * 2 * Math.PI * this.interval;
-      const radius = 2.0;
+      const radius = 0.75;
       const x = radius * Math.sin(positionAngle);
       const z = radius * Math.cos(positionAngle);
       this.setState({ positionAngle: positionAngle + deltaAngle, position: [x, 0, z] });
@@ -51,15 +52,15 @@ class SceneAudio extends React.Component {
     const origin = [0,0,0];
     const linkColor = [1,1,0.6,0.7];
     return (
-      <view>
-        <view localPosition={position}>
-          <image icon={'volume'} height={0.2} color={alarmColor}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat90}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat180}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} localRotation={quat270}/>
-        </view>
-        <line points={[origin, position]} color={linkColor} />
-      </view>
+      <View>
+        <View position={position}>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} />
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat90}/>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat180}/>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat270}/>
+        </View>
+        <Line points={[origin, position]} color={linkColor} />
+      </View>
     );
   }
 
@@ -68,16 +69,16 @@ class SceneAudio extends React.Component {
     const alarmColor = [1, 0.4, 0.4, 1];
     const alarmPosition = spatialSound ? position : [0, 0, 0];
     return (
-      <view localPosition={this.props.localPosition}>
-        <audio 
-          fileName={require('../../assets/resources/bg_stereo.mp3')} 
+      <View rotation={this.props.position}>
+        <Audio 
+          path={require('../../assets/resources/bg_stereo.mp3')} 
           action={'start'} 
           soundMute={!bgSound} 
           soundLooping={true} 
           soundVolumeLinear={3} 
         />
-        <audio 
-          fileName={'http://wolo-usa.com/siren6.wav'} 
+        <Audio 
+          path={'http://wolo-usa.com/siren6.wav'} 
           action={'start'} 
           soundLooping={true} 
           soundMute={!alarmSound}
@@ -85,40 +86,39 @@ class SceneAudio extends React.Component {
           spatialSoundEnable={spatialSound} 
           spatialSoundPosition={[{ channel: 0, channelPosition: alarmPosition }]}
         />
-        <toggle 
-          localPosition={[0.4, 0.9, 0]} 
+        <Toggle 
+          position={[0.4, 0.9, 0]} 
           on={bgSound} 
-          textSize={0.08} 
+          fontSize={0.08} 
           height={0.1} 
           onToggleChanged={this.onBackgroundSoundToggleChanged}
-        >Background sound</toggle>
-        <toggle 
-          localPosition={[0.4, 0.6, 0]} 
+        >Background sound</Toggle>
+        <Toggle 
+          position={[0.4, 0.6, 0]} 
           on={alarmSound} 
           textColor={alarmColor}
-          textSize={0.08} 
+          fontSize={0.08} 
           height={0.1} 
           onToggleChanged={this.onAlarmSoundToggleChanged}
-        >Siren sound (remote)</toggle>
-        {alarmSound && <toggle 
-          localPosition={[0.4, 0.45, 0]} 
+        >Siren sound (remote)</Toggle>
+        {alarmSound && <Toggle 
+          position={[0.4, 0.45, 0]} 
           on={spatialSound} 
           textColor={alarmColor}
-          textSize={0.08} 
+          fontSize={0.08} 
           height={0.1} 
           onToggleChanged={this.onSpatialSoundToggleChanged}
-        >Spatial sound</toggle>}
-        {alarmSound && <toggle 
-          localPosition={[0.4, 0.3, 0]} 
+        >Spatial sound</Toggle>}
+        {alarmSound && <Toggle 
+          position={[0.4, 0.3, 0]} 
           on={animate} 
           textColor={alarmColor}
-          textSize={0.08} 
+          fontSize={0.08} 
           height={0.1} 
           onToggleChanged={this.onAnimateToggleChanged}
-        >Animate</toggle>}
-
+        >Animate</Toggle>}
         {alarmSound && this.renderAlarmSpeaker(alarmPosition, alarmColor)}
-      </view>
+      </View>
     );
   }
 }

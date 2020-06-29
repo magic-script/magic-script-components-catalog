@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image, View, Text, Button } from 'magic-script-components';
 
 export default class ImageSlider extends React.Component {
     constructor(props) {
@@ -31,37 +32,37 @@ export default class ImageSlider extends React.Component {
 
     render() {
         return (
-            <view localPosition={this.props.localPosition}>
-                <text
-                    localPosition={[-0.07, 0.30, 0]}
-                    textSize={0.07}
-                    textAlignment={'left'}
-                >{this.props.caption}</text>
+            <View position={this.props.position}>
+                <Text
+                    position={[-0.07, 0.30, 0]}
+                    fontSize={0.07}
+                    textAlign={'left'}
+                >{this.props.caption}</Text>
 
-                <image
+                <Image
                     key={this.state.currentPosition}
                     filePath={this.state.items[this.state.currentPosition]}
                     width={0.75}
                     height={0.5}
-                ></image>
+                ></Image>
 
-                <button
-                    localPosition={[-0.25, -0.35, 0]}
+                <Button
+                    position={[-0.25, -0.35, 0]}
                     width={0.25}
                     height={0.10}
                     roundness={0.5}
-                    textSize={0.035}
+                    fontSize={0.035}
                     onClick={this.onPreviousClick}
-                >previous</button>
-                <button
-                    localPosition={[ 0.25, -0.35, 0]}
+                >previous</Button>
+                <Button
+                    position={[ 0.25, -0.35, 0]}
                     width={0.25}
                     height={0.10}
                     roundness={0.5}
-                    textSize={0.035}
+                    fontSize={0.035}
                     onClick={this.onNextClick}
-                >next</button>
-            </view>
+                >next</Button>
+            </View>
         );
     }
 }

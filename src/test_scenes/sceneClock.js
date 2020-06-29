@@ -1,5 +1,6 @@
 import React from "react";
-import { MathUtils } from "../utils/mathUtils";
+import { MathUtils  } from "../utils/mathUtils";
+import { Button,Text,View } from "magic-script-components";
 
 class SceneClock extends React.Component {
   constructor(props) {
@@ -37,18 +38,18 @@ class SceneClock extends React.Component {
 
   renderItems(center, radius) {
     const items = [
-      { alignment: "top-center", hour: "12" },
-      { alignment: "top-right", hour: "1" },
-      { alignment: "top-right", hour: "2" },
-      { alignment: "center-right", hour: "3" },
-      { alignment: "bottom-right", hour: "4" },
-      { alignment: "bottom-right", hour: "5" },
-      { alignment: "bottom-center", hour: "6" },
-      { alignment: "bottom-left", hour: "7" },
-      { alignment: "bottom-left", hour: "8" },
-      { alignment: "center-left", hour: "9" },
-      { alignment: "top-left", hour: "10" },
-      { alignment: "top-left", hour: "11" }
+      { anchorPoint: "top-center", hour: "12" },
+      { anchorPoint: "top-right", hour: "1" },
+      { anchorPoint: "top-right", hour: "2" },
+      { anchorPoint: "center-right", hour: "3" },
+      { anchorPoint: "bottom-right", hour: "4" },
+      { anchorPoint: "bottom-right", hour: "5" },
+      { anchorPoint: "bottom-center", hour: "6" },
+      { anchorPoint: "bottom-left", hour: "7" },
+      { anchorPoint: "bottom-left", hour: "8" },
+      { anchorPoint: "center-left", hour: "9" },
+      { anchorPoint: "top-left", hour: "10" },
+      { anchorPoint: "top-left", hour: "11" }
     ];
 
     return items.map((item, index) => {
@@ -56,14 +57,14 @@ class SceneClock extends React.Component {
       const x = center.x + radius * Math.sin(angle);
       const y = center.y + radius * Math.cos(angle);
       return (
-        <text
+        <Text
           key={index}
-          localPosition={[x, y, 0]}
-          alignment={item.alignment}
-          textSize={0.1}
+          position={[x, y, 0]}
+          anchorPoint={item.anchorPoint}
+          fontSize={0.1}
         >
           {item.hour}
-        </text>
+        </Text>
       );
     });
   }
@@ -72,15 +73,15 @@ class SceneClock extends React.Component {
     const quat = MathUtils.rotateBy(angle, [0, 0, -1]);
 
     return (
-      <view localPosition={[center.x, center.y, 0]} localRotation={quat}>
-        <text
-          alignment={"bottom-center"}
-          localScale={[width, length, 1]}
-          textSize={1}
+      <View position={[center.x, center.y, 0]} rotation={quat}>
+        <Text
+          anchorPoint={"bottom-center"}
+          scale={[width, length, 1]}
+          fontSize={1}
         >
           |
-        </text>
-      </view>
+        </Text>
+      </View>
     );
   }
 
@@ -92,22 +93,22 @@ class SceneClock extends React.Component {
     const angleMinutes = (minutes + seconds / 60) * ((2 * Math.PI) / 60);
     const angleHours = (hours + minutes / 60) * ((2 * Math.PI) / 12);
     return (
-      <view localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
         {this.renderItems(center, 0.9 * radius)}
-        <button
+        <Button
           enabled={false}
-          localPosition={[center.x, center.y, 0]}
-          textSize={0.1}
+          position={[center.x, center.y, 0]}
+          fontSize={0.1}
           roundness={1}
           width={2 * radius + 0.1}
           height={2 * radius + 0.1}
         >
           {"Clock face"}
-        </button>
+        </Button>
         {this.renderClockHand(center, 0.95 * radius, 0.1, angleSeconds)}
         {this.renderClockHand(center, 0.75 * radius, 0.3, angleMinutes)}
         {this.renderClockHand(center, 0.5 * radius, 0.4, angleHours)}
-      </view>
+      </View>
     );
   }
 }

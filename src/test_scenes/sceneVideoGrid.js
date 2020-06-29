@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Video, Button, GridLayout } from 'magic-script-components';
 
 const VideoActions = {
   start: "start",
@@ -34,14 +35,14 @@ class SceneVideoGrid extends React.Component {
     const title = action[0].toUpperCase() + action.substring(1);
     const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
     return (
-      <button
-        textSize={0.1}
+      <Button
+        fontSize={0.1}
         width={0.3}
         height={0.12}
         onClick={onClickHandler}
       >
         {title}
-      </button>
+      </Button>
     );
   }
 
@@ -74,37 +75,37 @@ class SceneVideoGrid extends React.Component {
       (resolution[1] * widthInMeters) / resolution[0]
     ];
     return (
-      <video
+      <Video
         key={videoPath}
         looping={true}
         width={resolution[0]}
         height={resolution[1]}
-        size={size}
-        anchorPosition={[0.5 * size[0], 0.5 * size[1], 0]}
-        videoPath={videoPath}
+        screenSize={size}
+        path={videoPath}
         viewMode={"full-area"}
         volume={0.0}
         action={this.state.action}
+        debug
       />
     );
   }
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
-        <gridLayout
-          alignment={"top-center"}
+      <View position={this.props.position}>
+        <GridLayout
+          anchorPoint={"top-center"}
           columns={2}
           rows={2}
           defaultItemAlignment={"center-center"}
           defaultItemPadding={[0.05, 0.05, 0.05, 0.05]}
-          localPosition={[0, 1.0, 0]}
+          position={[0, 1.0, 0]}
         >
           {this.renderVideoNodes()}
           {this.renderPlayOrPauseButton()}
           {this.renderStopButton()}
-        </gridLayout>
-      </view>
+        </GridLayout>
+      </View>
     );
   }
 }

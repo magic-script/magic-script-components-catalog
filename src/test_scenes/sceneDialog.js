@@ -60,11 +60,10 @@ class SceneDialog extends React.Component {
       <Toggle
         height={0.075}
         on={on}
-        text={dialogType}
-        textSize={0.075}
+        fontSize={0.075}
         type={'radio'}
         onToggleChanged={() => onChanged(index)}
-      />
+      >{dialogType}</Toggle> 
     );
   }
 
@@ -75,11 +74,10 @@ class SceneDialog extends React.Component {
       <Toggle
         height={0.075}
         on={on}
-        text={buttonType}
-        textSize={0.075}
+        fontSize={0.075}
         type={'radio'}
         onToggleChanged={() => onChanged(index)}
-      />
+      >{buttonType}</Toggle>
     );
   }
 
@@ -131,17 +129,17 @@ class SceneDialog extends React.Component {
     const buttonType = { buttonType: ButtonType[buttonTypeIndex] }
 
     return (
-      <View localPosition={this.props.localPosition}>
+      <View position={this.props.localPosition}>
         {showDialog && noActionTimeLeft > 0 && (
           <Text 
             alignment={'center-center'}
             boundsSize={{ boundsSize: [0.7, 0], wrap: true }}
-            localPosition={[0, 0.8, 0]} 
-            textColor={[1,1,1,0.1]} 
-            textSize={0.08}>{`This dialog will be closed in ${noActionTimeLeft} sec.`}</Text>
+            position={[0, 0.8, 0]} 
+            fontColor={[1,1,1,0.1]} 
+            fontSize={0.08}>{`This dialog will be closed in ${noActionTimeLeft} sec.`}</Text>
         )}
 
-        <View localScale={[2, 2, 2]} localPosition={[0, 0.3, 0.2]}>
+        <View scale={[2, 2, 2]} position={[0, 0.3, 0.2]}>
           {showDialog && (
             <Dialog
               onDialogConfirmed={this.onDialogConfirmed}
@@ -165,11 +163,11 @@ class SceneDialog extends React.Component {
             alignment={"center-center"}
             defaultItemAlignment={"center-center"}
             defaultItemPadding={[0.07, 0, 0.07, 0]}
-            localPosition={[0, 0.3, 0]}
+            position={[0, 0.3, 0]}
             orientation={"vertical"}
           >
             <Button
-              textSize={0.08}
+              fontSize={0.08}
               roundness={0.5}
               onClick={this.onButtonClick}
             >Show dialog (short text)</Button>

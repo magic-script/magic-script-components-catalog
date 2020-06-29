@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, View} from 'magic-script-components';
 
 class SceneButtonOutline extends React.Component {
 
@@ -8,12 +9,12 @@ class SceneButtonOutline extends React.Component {
     for (let i = 1; i < 10; i += 2) {
       const textSize = 0.01 + 0.01 * i * i;
       buttons.push(
-        <button 
+        <Button 
           key={`button_${i}`}
           enabled={false}
-          textSize={textSize} 
+          fontSize={textSize} 
           textColor={[1,1,1,0]}
-        >{`${i}`}</button>
+        >{`${i}`}</Button>
       );
     }
     return buttons;
@@ -21,9 +22,9 @@ class SceneButtonOutline extends React.Component {
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
+      <View position={this.props.position}>
         {this.renderButtons()}
-      </view>
+      </View>
     );
   }
 }

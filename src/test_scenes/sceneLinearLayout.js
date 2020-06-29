@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, View, Text, Image, Toggle, LinearLayout } from 'magic-script-components';
 
 class SceneLinearLayout extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class SceneLinearLayout extends React.Component {
 
   renderItem(color) {
     return (
-      <image debug={true} width={0.6} height={0.3} color={color}/>
+      <Image debug={true} width={0.6} height={0.3} color={color}/>
     );
   }
 
@@ -45,32 +46,32 @@ class SceneLinearLayout extends React.Component {
     const orientation = isHorizontal ? 'horizontal' : 'vertical';
   
     return (
-      <view localPosition={this.props.localPosition}>
-        <toggle localPosition={[0.3, 0.4, 0]} height={0.08} textSize={0.08} on={isHorizontal} onToggleChanged={this.onOrientationChanged}>{'Horizontal'}</toggle>
-        <view localPosition={[-0.5, 0.2, 0]} >
-            <text localPosition={[0, 0, 0]} alignment={'center-center'} textSize={0.08}>Set size:</text>
-            <toggle localPosition={[0.2, -0.1, 0]} textSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>1m width</toggle>
-            <toggle localPosition={[0.2, -0.2, 0]} textSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>1m height</toggle>
-        </view> 
+      <View position={this.props.position}>
+        <Toggle position={[0.3, 0.4, 0]} height={0.08} fontSize={0.08} on={isHorizontal} onToggleChanged={this.onOrientationChanged}>{'Horizontal'}</Toggle>
+        <View position={[-0.38, 0.2, 0]} >
+            <Text position={[0, 0, 0]} anchorPoint={'center-center'} fontSize={0.08}>Set size:</Text>
+            <Toggle position={[0.2, -0.1, 0]} fontSize={0.08} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>1m width</Toggle>
+            <Toggle position={[0.2, -0.2, 0]} fontSize={0.08} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>1m height</Toggle>
+        </View> 
 
-        <view localPosition={[0.3, 0.2, 0]} >
-          <text localPosition={[0, 0, 0]} textSize={0.08} alignment={'center-left'}>Set items padding:</text>
-          <toggle localPosition={[0.4, -0.1, 0]} textSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</toggle>
-          <toggle localPosition={[0.4, -0.2, 0]} textSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</toggle>
-          <toggle localPosition={[0.4, -0.3, 0]} textSize={0.08} height={0.1} on={padding[2] > 0} onToggleChanged={this.onBottomToggleChanged}>bottom</toggle>
-          <toggle localPosition={[0.4, -0.4, 0]} textSize={0.08} height={0.1} on={padding[3] > 0} onToggleChanged={this.onLeftToggleChanged}>left</toggle>
-        </view>
+        <View position={[0.23, 0.2, 0]} >
+          <Text position={[0, 0, 0]} fontSize={0.08} anchorPoint={'center-left'}>Set items padding:</Text>
+          <Toggle position={[0.4, -0.1, 0]} fontSize={0.08} height={0.1} on={padding[0] > 0} onToggleChanged={this.onTopToggleChanged}>top</Toggle>
+          <Toggle position={[0.4, -0.2, 0]} fontSize={0.08} height={0.1} on={padding[1] > 0} onToggleChanged={this.onRightToggleChanged}>right</Toggle>
+          <Toggle position={[0.4, -0.3, 0]} fontSize={0.08} height={0.1} on={padding[2] > 0} onToggleChanged={this.onBottomToggleChanged}>bottom</Toggle>
+          <Toggle position={[0.4, -0.4, 0]} fontSize={0.08} height={0.1} on={padding[3] > 0} onToggleChanged={this.onLeftToggleChanged}>left</Toggle>
+        </View>
  
          
-        <linearLayout
+        <LinearLayout
           debug={true}
           width={width}
           height={height}
           orientation={orientation}
-          alignment={'top-center'}
+          anchorPoint={'top-center'}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}
-          localPosition={[0, -0.3, 0]}
+          position={[0, -0.3, 0]}
         >
             {this.renderItem('blue')}
             {this.renderItem('green')}
@@ -78,22 +79,22 @@ class SceneLinearLayout extends React.Component {
             {this.renderItem('red')}
             {this.renderItem('magenta')}
           
-        </linearLayout>
+        </LinearLayout>
 
-        <view localPosition={[0, -2.2, 0]}>
-          <text localPosition={[0, 0.05, 0]} textSize={0.08} alignment={'bottom-center'}>Set items alignment:</text>
-          <button localPosition={[-0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopLeftButtonClick}>TL</button>
-          <button localPosition={[ 0.0, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopCenterButtonClick}>TC</button>
-          <button localPosition={[ 0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopRightButtonClick}>TR</button>
-          <button localPosition={[-0.3, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterLeftButtonClick}>CL</button>
-          <button localPosition={[ 0.0, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterCenterButtonClick}>CC</button>
-          <button localPosition={[ 0.3, -0.3, 0]} textSize={0.08} roundness={0} onClick={this.onCenterRightButtonClick}>CR</button>
-          <button localPosition={[-0.3, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomLeftButtonClick}>BL</button>
-          <button localPosition={[ 0.0, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomCenterButtonClick}>BC</button>
-          <button localPosition={[ 0.3, -0.5, 0]} textSize={0.08} roundness={0} onClick={this.onBottomRightButtonClick}>BR</button>
-        </view>
+        <View position={[0, -2.2, 0]}>
+          <Text position={[0, 0.05, 0]} fontSize={0.08} anchorPoint={'bottom-center'}>Set items alignment:</Text>
+          <Button position={[-0.3, -0.1, 0]} textSize={0.08} roundness={0} onClick={this.onTopLeftButtonClick}>TL</Button>
+          <Button position={[ 0.0, -0.1, 0]} fontSize={0.08} roundness={0} onClick={this.onTopCenterButtonClick}>TC</Button>
+          <Button position={[ 0.3, -0.1, 0]} fontSize={0.08} roundness={0} onClick={this.onTopRightButtonClick}>TR</Button>
+          <Button position={[-0.3, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterLeftButtonClick}>CL</Button>
+          <Button position={[ 0.0, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterCenterButtonClick}>CC</Button>
+          <Button position={[ 0.3, -0.3, 0]} fontSize={0.08} roundness={0} onClick={this.onCenterRightButtonClick}>CR</Button>
+          <Button position={[-0.3, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomLeftButtonClick}>BL</Button>
+          <Button position={[ 0.0, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomCenterButtonClick}>BC</Button>
+          <Button position={[ 0.3, -0.5, 0]} fontSize={0.08} roundness={0} onClick={this.onBottomRightButtonClick}>BR</Button>
+        </View>
         
-      </view>
+      </View>
     );
   }
 }

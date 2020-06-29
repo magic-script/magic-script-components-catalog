@@ -15,7 +15,7 @@ class SceneImageSlider extends React.Component {
     render() {
         return (
             <ImageSlider 
-                localPosition={this.props.localPosition} 
+                position={this.props.position} 
                 items={this.images} 
                 initialPosition={0} 
                 caption={'Gallery'}

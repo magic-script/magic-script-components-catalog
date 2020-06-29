@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, View, Text, TextEdit } from "magic-script-components";
 
 class SceneTextEdit extends React.Component {
 
@@ -53,28 +54,28 @@ class SceneTextEdit extends React.Component {
       delete validProps.textSize;
     }
     return (
-      <view localPosition={[0, y, 0]}>
-        <text 
-          alignment={'bottom-left'} 
-          localPosition={[-0.5 * width, 0.02, 0]}
+      <View position={[0, y, 0]}>
+        <Text 
+          anchorPoint={'bottom-left'} 
+          position={[-0.5 * width, 0.02, 0]}
           textColor={[1,1,1,1]}
-          textSize={0.05}
-        >{title}</text>
-        <textEdit {...validProps} alignment={'top-center'} fontParameters={fontParams} />
-      </view>
+          fontSize={0.05}
+        >{title}</Text>
+        <TextEdit {...validProps} anchorPoint={'top-center'} fontParameters={fontParams} />
+      </View>
     );
   }
 
   render () {
     return (
-      <view localPosition={this.props.localPosition}>
-        {this.renderTextEdit(0.45, 'Username', { hint: 'Username', text: this.state.username, textAlignment: 'center', textColor: [0,1,0,1], textSize: 0.05, weight: 'bold', style: 'normal' })}
-        {this.renderTextEdit(0.25, 'Password', { hint: 'Password', text: this.state.password, hintColor: [1,0,0,1], textAlignment: 'center', textSize: 0.05, password: true })}
-        {this.renderTextEdit(0.05, 'E-mail', { text: this.state.email, textEntry: 'email', textSize: 0.05 })}
-        {this.renderTextEdit(-0.15, 'Phone number', { text: this.state.phone, textEntry: 'numeric', textSize: 0.05, charLimit: 15, charSpacing: 0.1 })}
-        {this.renderTextEdit(-0.35, 'Additional info', { hint: '*optional', text: this.state.info, textPadding: [0.03, 0.03, 0.03, 0.03], textSize: 0.05, lineSpacing: 1.2, multiline: true, scrolling: true, weight: 'light', style: 'italic', allCaps: true })}
-        <button localPosition={[0.3, -0.8, 0]} textSize={0.05} onClick={this.onFillDataButtonAction}>Fill data</button>
-      </view>
+      <View position={this.props.position}>
+        {this.renderTextEdit(0.45, 'Username', { hint: 'Username', text: this.state.username, textAlign: 'center', textColor: [0,1,0,1], fontSize: 0.05, weight: 'bold', style: 'normal' })}
+        {this.renderTextEdit(0.25, 'Password', { hint: 'Password', text: this.state.password, hintColor: [1,0,0,1], textAlign: 'center', fontSize: 0.05, password: true })}
+        {this.renderTextEdit(0.05, 'E-mail', { text: this.state.email, textEntry: 'email', fontSize: 0.05 })}
+        {this.renderTextEdit(-0.15, 'Phone number', { text: this.state.phone, textEntry: 'numeric', fontSize: 0.05, charLimit: 15, charSpacing: 0.1 })}
+        {this.renderTextEdit(-0.35, 'Additional info', { hint: '*optional', text: this.state.info, textPadding: [0.03, 0.03, 0.03, 0.03], fontSize: 0.05, lineSpacing: 1.2, multiline: true, scrolling: true, weight: 'light', style: 'italic', allCaps: true })}
+        <Button position={[0.3, -0.8, 0]} fontSize={0.05} onClick={this.onFillDataButtonAction}>Fill data</Button>
+      </View>
     );
   }
 }

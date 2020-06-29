@@ -1,13 +1,8 @@
 import React from 'react';
+import { Line, View, Text, Toggle, Button } from 'magic-script-components';
+import { TextAlign } from 'magic-script-components/src/components/types/enums';
 
-const TextAlignment = {
-  left: 'left',
-  center: 'center',
-  justify: 'justify',
-  right: 'right'
-};
-
-const Text = {
+const labels = {
   short: 'Some text',
   long: 'With time and patience the mulberry leaf becomes a silk gown.',
 }
@@ -19,8 +14,8 @@ class SceneText extends React.Component {
       boundsWidth: 0,
       boundsHeight: 0,
       wrap: false,
-      textAlignment: TextAlignment.left,
-      text: Text.short
+      textAlignment: TextAlign.left,
+      text: labels.short
     };
   }
 
@@ -32,35 +27,35 @@ class SceneText extends React.Component {
   onButtonClick_V0_25 = () => { this.setState({ boundsHeight: 0.25 }); }
   onButtonClick_V1 = () => { this.setState({ boundsHeight: 1 }); }
 
-  onButtonClick_TA_Left = () => { this.setState({ textAlignment: 'left' }); }
-  onButtonClick_TA_Center = () => { this.setState({ textAlignment: 'center' }); }
-  onButtonClick_TA_Justify = () => { this.setState({ textAlignment: 'justify' }); }
-  onButtonClick_TA_Right = () => { this.setState({ textAlignment: 'right' }); }
+  onButtonClick_TA_Left = () => { this.setState({ textAlignment: TextAlign.left }); }
+  onButtonClick_TA_Center = () => { this.setState({ textAlignment: TextAlign.center }); }
+  onButtonClick_TA_Justify = () => { this.setState({ textAlignment: TextAlign.justify }); }
+  onButtonClick_TA_Right = () => { this.setState({ textAlignment: TextAlign.right }); }
 
-  onLongTextToggle = (event) => { this.setState({ text: event.On ? Text.long : Text.short }); }
+  onLongTextToggle = (event) => { this.setState({ text: event.On ? labels.long : labels.short }); }
   onWrapTextToggle = (event) => { this.setState({ wrap: event.On }); }
 
   renderGUI() {
     const textSize = 0.08;
     const offset = 0.2;
     return (
-      <view>
-        <button localPosition={[0, offset, 0]} onClick={this.onButtonClick_H0} textSize={textSize}>0</button>
-        <button localPosition={[0.25, offset, 0]} onClick={this.onButtonClick_H0_25} textSize={textSize}>0.25</button>
-        <button localPosition={[1, offset, 0]} onClick={this.onButtonClick_H1} textSize={textSize}>1</button>
+      <View>
+        <Button position={[0, offset, 0]} onClick={this.onButtonClick_H0} fontSize={textSize}>0</Button>
+        <Button position={[0.25, offset, 0]} onClick={this.onButtonClick_H0_25} fontSize={textSize}>0.25</Button>
+        <Button position={[1, offset, 0]} onClick={this.onButtonClick_H1} fontSize={textSize}>1</Button>
 
-        <button localPosition={[-offset, 0, 0]} onClick={this.onButtonClick_V0} textSize={textSize}>0</button>
-        <button localPosition={[-offset, -0.25, 0]} onClick={this.onButtonClick_V0_25} textSize={textSize}>0.25</button>
-        <button localPosition={[-offset, -1, 0]} onClick={this.onButtonClick_V1} textSize={textSize}>1</button>
+        <Button position={[-offset, 0, 0]} onClick={this.onButtonClick_V0} fontSize={textSize}>0</Button>
+        <Button position={[-offset, -0.25, 0]} onClick={this.onButtonClick_V0_25} fontSize={textSize}>0.25</Button>
+        <Button position={[-offset, -1, 0]} onClick={this.onButtonClick_V1} fontSize={textSize}>1</Button>
 
-        <button localPosition={[0, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Left} textSize={textSize}>left</button>
-        <button localPosition={[0.5, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Center} textSize={textSize}>center</button>
-        <button localPosition={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} textSize={textSize}>justify</button>
-        <button localPosition={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} textSize={textSize}>right</button>
+        <Button position={[0, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Left} fontSize={textSize}>left</Button>
+        <Button position={[0.5, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Center} fontSize={textSize}>center</Button>
+        <Button position={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} fontSize={textSize}>justify</Button>
+        <Button position={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} fontSize={textSize}>right</Button>
 
-        <toggle localPosition={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === Text.long} height={textSize} textSize={textSize} alignment={'top-right'}>Long text</toggle>
-        <toggle localPosition={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} textSize={textSize} alignment={'top-right'}>Wrap text</toggle>
-      </view>
+        <Toggle position={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === labels.long} height={textSize} fontSize={textSize} anchorPoint={'top-right'}>Long text</Toggle>
+        <Toggle position={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} fontSize={textSize} anchorPoint={'top-right'}>Wrap text</Toggle>
+      </View>
     );
   }
 
@@ -86,7 +81,7 @@ class SceneText extends React.Component {
     }
 
     if (points.length > 0) {
-      return <line points={points} color={[1, 1, 0.3, 1]} />;
+      return <Line points={points} color={[1, 1, 0.3, 1]} />;
     }
 
     return null;
@@ -94,24 +89,26 @@ class SceneText extends React.Component {
 
   renderText() {
     const { boundsWidth, boundsHeight, text, textAlignment, wrap } = this.state;
-    return <text
-      alignment={'top-left'}
-      boundsSize={{ boundsSize: [boundsWidth, boundsHeight], wrap }}
-      textAlignment={textAlignment}
+    return <Text
+      anchorPoint={'top-left'}
+      width={boundsWidth}
+      height={boundsHeight}
+      multiline={wrap}
+      textAlign={textAlignment}
       textColor={[1, 1, 1, 0.8]}
-      textSize={0.08}
-    >{text}</text>
+      fontSize={0.08}
+    >{text}</Text>
   }
 
   render() {
     return (
-      <view localPosition={this.props.localPosition}>
-        <view localPosition={[-0.5, 0, 0]}>
+      <View position={this.props.position}>
+        <View position={[-0.5, 0, 0]}>
           {this.renderGUI()}
           {this.renderBounds()}
           {this.renderText()}
-        </view>
-      </view>
+        </View>
+      </View>
     );
   }
 }

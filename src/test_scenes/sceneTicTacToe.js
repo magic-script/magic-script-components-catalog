@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, View, Text, GridLayout, LinearLayout } from 'magic-script-components';
 
 function Square(props) {
   const color = props.value === 'X' ? [1, 0.1, 0.1, 1] : [0.1, 0.1, 1, 1];
   return (
-    <button width={0.15} height={0.15} textColor={color} roundness={0.1} onClick={props.onClick}>
+    <Button width={0.15} height={0.15} textColor={color} roundness={0.1} onClick={props.onClick}>
       {props.value || ''}
-    </button>
+    </Button>
   );
 }
 
@@ -25,7 +26,7 @@ class Board extends React.Component {
     for (let i = 0; i < 9; i++) {
       items.push(this.renderSquare(i));
     }
-    return <gridLayout rows={3} columns={3} width={0.5} height={0.5}>{items}</gridLayout>;
+    return <GridLayout rows={3} columns={3} width={0.5} height={0.5}>{items}</GridLayout>;
   }
 }
 
@@ -79,13 +80,11 @@ export class GameTicTacToe extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        // <listViewItem key={move}>
-        <view key={move}>
-          <button roundness={0.1} textSize={0.03} onClick={event => this.jumpTo(move)}>
+        <View key={move}>
+          <Button roundness={0.1} fontSize={0.03} onClick={event => this.jumpTo(move)}>
             {desc}
-          </button>
-        </view>
-        // </listViewItem>
+          </Button>
+        </View>
       );
     });
 
@@ -97,18 +96,18 @@ export class GameTicTacToe extends React.Component {
     }
 
     return (
-      <view name="game">
-        <view name="game-board" localPosition={[-0.5, 0.5, 0]}>
+      <View name="game">
+        <View name="game-board" position={[-0.5, 0.5, 0]}>
           <Board
             squares={current.squares}
             onClick={i => this.handleClick(i)}
           />
-        </view>
-        <view name="game-info" localPosition={[0, 0.5, 0]}>
-          <text textSize={0.05} alignment='top-left'>{status}</text>
-          <linearLayout defaultItemAlignment={'top-center'} localPosition={[0, -0.08, 0]}>{moves}</linearLayout>
-        </view>
-      </view>
+        </View>
+        <View name="game-info" position={[0, 0.5, 0]}>
+          <Text fontSize={0.05} position={[0.3, 0,0]} anchorPoint='top-left'>{status}</Text>
+          <LinearLayout defaultItemAlignment={'top-center'} position={[0, -0.08, 0]}>{moves}</LinearLayout>
+        </View>
+      </View>
     );
   }
 }
