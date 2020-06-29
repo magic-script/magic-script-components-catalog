@@ -1,6 +1,7 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
-import { View, Audio, Toggle } from 'magic-script-components';
+import { View, Audio, Toggle,Line, Image } from 'magic-script-components';
+import { SystemIcons } from '../utils/systemIcons';
 
 class SceneAudio extends React.Component {
   constructor(props) {
@@ -52,15 +53,15 @@ class SceneAudio extends React.Component {
     const origin = [0,0,0];
     const linkColor = [1,1,0.6,0.7];
     return (
-      <view>
-        <view position={position}>
-          <image icon={'volume'} height={0.2} color={alarmColor}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} rotation={quat90}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} rotation={quat180}/>
-          <image icon={'volume'} height={0.2} color={alarmColor} rotation={quat270}/>
-        </view>
-        <line points={[origin, position]} color={linkColor} />
-      </view>
+      <View>
+        <View position={position}>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} />
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat90}/>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat180}/>
+          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat270}/>
+        </View>
+        <Line points={[origin, position]} color={linkColor} />
+      </View>
     );
   }
 
@@ -69,7 +70,7 @@ class SceneAudio extends React.Component {
     const alarmColor = [1, 0.4, 0.4, 1];
     const alarmPosition = spatialSound ? position : [0, 0, 0];
     return (
-      <View rotation={this.props.localPosition}>
+      <View rotation={this.props.position}>
         <Audio 
           fileName={require('../../assets/resources/bg_stereo.mp3')} 
           action={'start'} 
