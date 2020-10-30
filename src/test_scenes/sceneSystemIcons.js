@@ -52,7 +52,7 @@ class SceneSystemIcons extends React.Component {
     var key = 0;
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} />);
+      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} fit={'aspect-fit'} />);
       key += 1;
     }
     return icons;
@@ -85,7 +85,7 @@ class SceneSystemIcons extends React.Component {
     const numberOfIcons = `${currentIconIndex + 1}/${SystemIcons.length}`;
     return (
       <View position={[0, 1.0, 0]}>
-        <Image anchorPoint={'top-center'} height={0.5} width={0.5} icon={icon} useDefaultIcon={!showLuminIcons} debug/>
+        <Image anchorPoint={'top-center'} height={0.5} width={0.75} icon={icon} useDefaultIcon={!showLuminIcons} fit={'aspect-fit'} debug/>
         <Text anchorPoint={'top-center'} position={[0, -0.52, 0]} fontSize={0.08}>{icon}</Text>
         <Text anchorPoint={'top-right'} position={[0.75, -0.52, 0]} fontSize={0.08}>{numberOfIcons}</Text>
         <GridLayout
