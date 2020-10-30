@@ -1,5 +1,5 @@
 import React from "react";
-
+import { View, FilePicker, LinearLayout, Image, Toggle } from 'magic-script-components';
 class SceneFilePicker extends React.Component {
 
     constructor(props) {
@@ -26,37 +26,37 @@ class SceneFilePicker extends React.Component {
     render() {
         const { image, audio, mute } = this.state;
         return (
-            <view localPosition={this.props.localPosition}>
-                <linearLayout
-                    localPosition={[0, 0, 0]}
+            <View position={this.props.localPosition}>
+                <LinearLayout
+                    position={[0, 0, 0]}
                     alignment={"center-center"}
                     columns={1}
                     defaultItemAlignment={"center-left"}
                     defaultItemPadding={[0.07, 0, 0.07, 0]}
                     orientation={"vertical"}>
 
-                    <filePicker width={1} height={0.4} fileType="image/*" onFileSelected={this.onImageSelected}>Image Picker</filePicker>
+                    <FilePicker width={1} height={0.4} fileType="image/*" onFileSelected={this.onImageSelected}>Image Picker</FilePicker>
 
-                    <image
+                    <Image
                         filePath={image}
                         width={0.75}
                         height={0.75} />
 
-                    <filePicker width={1} height={0.4} fileType="audio/*" onFileSelected={this.onAudioSelected}>Audio Picker</filePicker>
+                    <FilePicker width={1} height={0.4} fileType="audio/*" onFileSelected={this.onAudioSelected}>Audio Picker</FilePicker>
 
-                    <audio
+                    <Audio
                         fileName={audio}
                         action={'start'}
                         soundLooping={true}
                         soundMute={mute}
                         soundVolumeLinear={'4.0'}/>
-                    <toggle
+                    <Toggle
                         on={!mute}
-                        textSize={0.08}
+                        fontSize={0.08}
                         height={0.1}
-                        onToggleChanged={this.onMute}>Play sound</toggle>
-                </linearLayout>
-            </view>
+                        onToggleChanged={this.onMute}>Play sound</Toggle>
+                </LinearLayout>
+            </View>
         );
     }
 }

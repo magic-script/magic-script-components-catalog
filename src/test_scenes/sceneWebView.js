@@ -68,7 +68,7 @@ class SceneWebView extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <View localPosition={this.props.localPosition}>
+      <View position={this.props.localPosition}>
         {!error && this.renderWebView()}
         {error && (
           <Dialog
