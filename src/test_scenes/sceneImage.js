@@ -44,18 +44,15 @@ class SceneImage extends React.Component {
 
   render () {
     return (
-      <View>
-        <LinearLayout 
-          anchorPoint={'center-center'}
-          defaultItemAlignment={'center-center'}
-          defaultItemPadding={[0, 0, 0.1, 0]}
-        >
-          {this.renderImage('yellow', 'stretch', false)}
-          {this.renderImage('orange', 'aspect-fill', true)}
-          {this.renderImage('white', 'aspect-fit', true)}
-        </LinearLayout>
-      </View>
-      
+      <LinearLayout 
+        anchorPoint={'center-center'}
+        defaultItemAlignment={'center-center'}
+        defaultItemPadding={[0, 0, 0.1, 0]}
+      >
+        {this.renderImage('yellow', 'stretch', false)}
+        {this.renderImage('orange', 'aspect-fill', true)}
+        {this.renderImage('white', 'aspect-fit', true)}
+      </LinearLayout>
     );
   }
 }
