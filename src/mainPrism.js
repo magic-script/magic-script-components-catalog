@@ -202,10 +202,7 @@ class MainPrism extends React.Component {
       },
     ];
 
-    const initialIndex = Math.max(
-      0,
-      this.scenes.findIndex((item) => item.name == props.initialSceneName)
-    );
+    const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name == props.initialSceneName));
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
   }
