@@ -1,11 +1,5 @@
 import React from "react";
-import { View, Button, Video, Toggle, Text } from "magic-script-components";
-
-const VideoActions = {
-  start: "start",
-  pause: "pause",
-  stop: "stop",
-};
+import { View, Button, Video, VideoAction, Toggle, Text } from "magic-script-components";
 
 class SceneVideo extends React.Component {
   constructor(props) {
@@ -23,7 +17,7 @@ class SceneVideo extends React.Component {
     this.currentRemoteIndex = 0;
     this.state = {
       isLooping: false,
-      action: VideoActions.pause,
+      action: VideoAction.pause,
       volume: 1.0,
       videoPath: this.localVideoPaths[0],
     };
@@ -34,15 +28,15 @@ class SceneVideo extends React.Component {
   };
 
   onStartPauseClick = () => {
-    if (this.state.action === VideoActions.start) {
-      this.setState({ action: VideoActions.pause });
+    if (this.state.action === VideoAction.start) {
+      this.setState({ action: VideoAction.pause });
     } else {
-      this.setState({ action: VideoActions.start });
+      this.setState({ action: VideoAction.start });
     }
   };
 
   onStopClick = () => {
-    this.setState({ action: VideoActions.stop });
+    this.setState({ action: VideoAction.stop });
   };
 
   onVolumeDownClick = () => {
@@ -58,7 +52,7 @@ class SceneVideo extends React.Component {
   createButtonWithAction(action, position) {
     const title = action[0].toUpperCase() + action.substring(1);
     const onClickHandler =
-      action === VideoActions.stop ? this.onStopClick : this.onStartPauseClick;
+      action === VideoAction.stop ? this.onStopClick : this.onStartPauseClick;
     return (
       <Button
         position={position}
@@ -74,15 +68,15 @@ class SceneVideo extends React.Component {
 
   renderPlayOrPauseButton(position) {
     const { action } = this.state;
-    if (action === VideoActions.start) {
-      return this.createButtonWithAction(VideoActions.pause, position);
+    if (action === VideoAction.start) {
+      return this.createButtonWithAction(VideoAction.pause, position);
     } else {
-      return this.createButtonWithAction(VideoActions.start, position);
+      return this.createButtonWithAction(VideoAction.start, position);
     }
   }
 
   renderStopButton(position) {
-    return this.createButtonWithAction(VideoActions.stop, position);
+    return this.createButtonWithAction(VideoAction.stop, position);
   }
 
   renderVolumeControls(position) {

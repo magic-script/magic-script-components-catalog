@@ -1,6 +1,5 @@
 import React from 'react';
-import { Line, View, Text, Toggle, Button } from 'magic-script-components';
-import { TextAlign } from 'magic-script-components/src/components/types/enums';
+import { Line, View, Text, TextAlign, Toggle, Button } from 'magic-script-components';
 
 const labels = {
   short: 'Some text',

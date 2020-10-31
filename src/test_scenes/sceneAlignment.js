@@ -1,6 +1,6 @@
 import React from "react";
-import { Alignment } from "../utils/alignment";
-import { Button, View, Line, Text } from "magic-script-components";
+import { Alignment, Button, GridLayout, Image, Line, Orientation, ScrollBar, ScrollView, ScrollBarVisibility, Text, View } from "magic-script-components";
+import { AlignmentList } from '../utils/alignment';
 
 class SceneAlignment extends React.Component {
   constructor(props) {
@@ -9,35 +9,22 @@ class SceneAlignment extends React.Component {
   }
 
   selectNextAlignment = () => {
-    const alignments = [
-      Alignment.topLeft,
-      Alignment.topCenter,
-      Alignment.topRight,
-      Alignment.centerLeft,
-      Alignment.centerCenter,
-      Alignment.centerRight,
-      Alignment.bottomLeft,
-      Alignment.bottomCenter,
-      Alignment.bottomRight,
-    ];
-
-    const currentIndex = alignments.indexOf(this.state.alignment);
-    const nextIndex = (currentIndex + 1) % alignments.length;
-    this.setState({ alignment: alignments[nextIndex] });
+    const nextAlignment = AlignmentList.next(this.state.alignment)
+    this.setState({ alignment: nextAlignment });
   };
 
   renderGridLayout(alignment) {
     return (
-      <gridLayout
+      <GridLayout
         alignment={alignment}
-        defaultItemAlignment={"center-center"}
+        defaultItemAlignment={Alignment.centerCenter}
         columns={2}
       >
-        <image width={0.1} height={0.1} color={[1, 1, 0.5, 1]} />
-        <image width={0.1} height={0.1} color={[1, 0.5, 1, 1]} />
-        <image width={0.1} height={0.1} color={[0.5, 1, 1, 1]} />
-        <image width={0.1} height={0.1} color={[1, 1, 1, 1]} />
-      </gridLayout>
+        <Image width={0.1} height={0.1} color={[1, 1, 0.5, 1]} />
+        <Image width={0.1} height={0.1} color={[1, 0.5, 1, 1]} />
+        <Image width={0.1} height={0.1} color={[0.5, 1, 1, 1]} />
+        <Image width={0.1} height={0.1} color={[1, 1, 1, 1]} />
+      </GridLayout>
     );
   }
 
@@ -47,30 +34,30 @@ class SceneAlignment extends React.Component {
       max: [0.5 * size, 0.5 * size, 0.1],
     };
     return (
-      <scrollView
+      <ScrollView
         alignment={alignment}
         enabled={false}
         scrollBounds={aabb}
-        scrollBarVisibility={"always"}
+        scrollBarVisibility={ScrollBarVisibility.always}
         scrollDirection={"vertical"}
       >
-        <scrollBar
-          orientation={"vertical"}
+        <ScrollBar
+          orientation={Orientation.vertical}
           length={size}
           position={[0.5 * size, 0, 0]}
         />
-        <gridLayout
-          defaultItemAlignment={"center-center"}
+        <GridLayout
+          defaultItemAlignment={Alignment.centerCenter}
           columns={1}
           width={size}
           height={4 * size}
         >
-          <image width={size} height={size} color={[1, 1, 0.5, 1]} />
-          <image width={size} height={size} color={[1, 0.5, 1, 1]} />
-          <image width={size} height={size} color={[0.5, 1, 1, 1]} />
-          <image width={size} height={size} color={[1, 1, 1, 1]} />
-        </gridLayout>
-      </scrollView>
+          <Image width={size} height={size} color={[1, 1, 0.5, 1]} />
+          <Image width={size} height={size} color={[1, 0.5, 1, 1]} />
+          <Image width={size} height={size} color={[0.5, 1, 1, 1]} />
+          <Image width={size} height={size} color={[1, 1, 1, 1]} />
+        </GridLayout>
+      </ScrollView>
     );
   }
 
@@ -85,10 +72,10 @@ class SceneAlignment extends React.Component {
       [min.x, min.y, 0],
     ];
     return (
-      <View key={index} alignment={"center-center"} position={position}>
+      <View key={index} alignment={Alignment.centerCenter} position={position}>
         {element}
         <Text
-          alignment={"top-center"}
+          alignment={Alignment.topCenter}
           position={[0, min.y - 0.01, 0]}
           textSize={0.05}
         >
@@ -246,7 +233,7 @@ class SceneAlignment extends React.Component {
         components.length
       )
     );
-    return <view>{components}</view>;
+    return <View>{components}</View>;
   }
 
   render() {
@@ -254,7 +241,7 @@ class SceneAlignment extends React.Component {
       <View position={this.props.position}>
         <Button
           Size={0.05}
-          alignment={"top-center"}
+          alignment={Alignment.topCenter}
           position={[0, 0.5, 0]}
           onClick={this.selectNextAlignment}
         >

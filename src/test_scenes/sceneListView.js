@@ -1,18 +1,6 @@
 import React from "react";
-import {
-  View,
-  LinearLayout,
-  Text,
-  Image,
-  Toggle,
-  ListViewItem,
-  ListView,
-} from "magic-script-components";
+import { View, LinearLayout, Orientation, Text, Image, Toggle, ListViewItem, ListView } from "magic-script-components";
 
-const ListViewOrientation = {
-  vertical: "vertical",
-  horizontal: "horizontal",
-};
 class SceneListView extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +12,7 @@ class SceneListView extends React.Component {
       require("../../assets/resources/DemoPicture5.jpg"),
     ];
     this.state = {
-      listViewOrientation: ListViewOrientation.vertical,
+      listViewOrientation: Orientation.vertical,
       width: 0.0,
       height: 1.0,
     };
@@ -77,15 +65,15 @@ class SceneListView extends React.Component {
 
   toggleListViewOrientation = (event) => {
     const { listViewOrientation } = this.state;
-    if (listViewOrientation === "vertical") {
+    if (listViewOrientation === Orientation.vertical) {
       this.setState({
-        listViewOrientation: ListViewOrientation.horizontal,
+        listViewOrientation: Orientation.horizontal,
         width: 1.0,
         height: 0.0,
       });
     } else {
       this.setState({
-        listViewOrientation: ListViewOrientation.vertical,
+        listViewOrientation: Orientation.vertical,
         width: 0.0,
         height: 1.0,
       });

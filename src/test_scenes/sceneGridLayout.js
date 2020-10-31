@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, GridLayout, Image, Line, Model, Slider, Spinner, Text, TextEdit, Toggle, View, RectLayout } from 'magic-script-components';
-import { Alignment, AlignmentGroup } from '../utils/alignment';
+import { Alignment, Button, GridLayout, Image, Line, Model, Slider, Spinner, Text, TextEdit, Toggle, View, RectLayout } from 'magic-script-components';
+import { AlignmentGroup } from '../utils/alignment';
 import { PaddingGroup } from '../utils/padding';
 
 class SceneGridLayout extends React.Component {
