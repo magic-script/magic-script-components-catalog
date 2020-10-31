@@ -1,5 +1,5 @@
 import React from "react";
-import { PlaneDetector } from "magic-script-components";
+import { Line, PlaneDetector, View } from "magic-script-components";
 
 class ScenePlaneDetector extends React.Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class ScenePlaneDetector extends React.Component {
   };
 
   renderLine(key, points) {
-    return <line points={points} color={"yellow"} key={key}/>;
+    return <Line points={points} color={"yellow"} key={key}/>;
   }
 
   renderLines() {

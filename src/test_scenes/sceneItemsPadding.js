@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageView, Text, View, LinearLayout, GridLayout, Toggle } from 'magic-script-components';
+import { GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
 
 class SceneItemsPadding extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class SceneItemsPadding extends React.Component {
   }
 
   renderItem(color) {
-    return <image debug={true} width={0.1} height={0.1} color={color} />;
+    return <Image debug={true} width={0.1} height={0.1} color={color} />;
   }
 
   onSwitchHandler = eventData => {

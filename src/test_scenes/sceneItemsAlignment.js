@@ -1,6 +1,5 @@
 import React from 'react';
-import { Alignment } from '../utils/alignment';
-import { View, Text, LinearLayout, Toggle, GridLayout, PageView } from 'magic-script-components';
+import { Alignment, GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
 
 class SceneItemsAlignment extends React.Component {
   constructor(props) {
@@ -9,7 +8,7 @@ class SceneItemsAlignment extends React.Component {
   }
 
   renderItem(color) {
-    return <image debug={true} width={0.1} height={0.1} color={color} />;
+    return <Image debug={true} width={0.1} height={0.1} color={color} />;
   }
 
   onSwitchHandler = eventData => {
