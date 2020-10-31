@@ -72,7 +72,7 @@ class ScenePlaneDetector extends React.Component {
     const { planes } = this.state;
     console.log("Number of planes", Object.keys(planes).length);
     return (
-      <view localScale={[2,2,2]}>{this.renderLines()}</view>
+      <View scale={[2,2,2]}>{this.renderLines()}</View>
     );
   }
 }

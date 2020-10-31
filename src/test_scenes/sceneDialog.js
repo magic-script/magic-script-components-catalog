@@ -129,7 +129,7 @@ class SceneDialog extends React.Component {
     const buttonType = { buttonType: ButtonType[buttonTypeIndex] }
 
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         {showDialog && noActionTimeLeft > 0 && (
           <Text 
             alignment={'center-center'}

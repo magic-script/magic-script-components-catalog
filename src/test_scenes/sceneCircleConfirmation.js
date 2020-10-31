@@ -35,7 +35,7 @@ class SceneCircleConfirmation extends React.Component {
     const { showDialog, progress = 0.0, key } = this.state;
 
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         <Text
           alignment={'bottom-center'}
           position={[0, 0.35, 0]}

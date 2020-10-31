@@ -4,7 +4,7 @@ import { Button, View } from 'magic-script-components';
 class SceneHitTest extends React.Component {
   render() {
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         <Button 
           key={'back'}
           position={[0, 0, -0.2]}

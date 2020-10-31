@@ -51,7 +51,7 @@ class SceneMultiPrism extends React.Component {
       fontSize: 0.08,
     };
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         <Button
           {...buttonProps}
           position={[0, 0.7, 0]}

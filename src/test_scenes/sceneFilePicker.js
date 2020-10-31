@@ -26,7 +26,7 @@ class SceneFilePicker extends React.Component {
     render() {
         const { image, audio, mute } = this.state;
         return (
-            <View position={this.props.localPosition}>
+            <View position={this.props.position}>
                 <LinearLayout
                     position={[0, 0, 0]}
                     alignment={"center-center"}

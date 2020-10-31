@@ -5,7 +5,6 @@ import { View, Text, GridLayout, Toggle } from 'magic-script-components';
 class SceneTextCharacters extends React.Component {
   static defaultProps = {
     columns: 5,
-    localPosition: [0, 0, 0],
   };
 
   constructor(props) {
