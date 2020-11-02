@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alignment, AlignmentGroup } from '../utils/alignment';
-import { Button, View, Text, RectLayout, Image, Toggle, ToggleGroup, GridLayout, Line, LinearLayout } from 'magic-script-components';
+import { AlignmentGroup, AlignmentList } from '../utils/alignment';
+import { Alignment, Button, View, Text, RectLayout, Image, Toggle, ToggleGroup, GridLayout, Line, LinearLayout } from 'magic-script-components';
 
 const ContentSizes = [
   { width: 0.25, height: 0.25 },
@@ -24,7 +24,7 @@ class SceneRectLayout extends React.Component {
   }
 
   updateAlignment = () => {
-    this.setState({ contentAlignment: Alignment.next(this.state.contentAlignment) });
+    this.setState({ contentAlignment: AlignmentList.next(this.state.contentAlignment) });
   }
 
   onAlignmentChanged = (alignment) => {

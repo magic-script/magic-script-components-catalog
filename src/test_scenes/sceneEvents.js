@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  LinearLayout,
-  Text,
-  TextEdit,
-  Toggle,
-  Button,
-  RectLayout,
-} from "magic-script-components";
+import { LinearLayout, TextEdit, Toggle, RectLayout } from "magic-script-components";
 
 class SceneEvents extends React.Component {
   constructor(props) {

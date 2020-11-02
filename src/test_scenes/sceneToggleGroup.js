@@ -11,11 +11,11 @@ class SceneToggleGroup extends React.Component {
     };
   }
 
-  renderRadio({ title = '', localPosition = [0,0,0] }) {
+  renderRadio({ title = '', position = [0,0,0] }) {
     return (
       <Toggle
         height={0.075}
-        position={localPosition}
+        position={position}
         fontSize={0.075}
         type={'radio'}
         onToggleChanged={(e) => console.log(`${title}.onToggleChanged event received: ${e.On}`)}
@@ -74,9 +74,9 @@ class SceneToggleGroup extends React.Component {
         )}
         {!innerLayout && (
           <ToggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
-            {this.renderRadio({ title: 'Item 1', localPosition: [-0.125, -0.125, 0.0] })}
-            {this.renderRadio({ title: 'Item 2', localPosition: [0, -0.25, 0.0] })}
-            {this.renderRadio({ title: 'Item 3', localPosition: [0.125, -0.375, 0.0] })}
+            {this.renderRadio({ title: 'Item 1', position: [-0.125, -0.125, 0.0] })}
+            {this.renderRadio({ title: 'Item 2', position: [0, -0.25, 0.0] })}
+            {this.renderRadio({ title: 'Item 3', position: [0.125, -0.375, 0.0] })}
           </ToggleGroup>
         )}
       </LinearLayout>

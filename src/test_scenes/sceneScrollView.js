@@ -1,11 +1,5 @@
 import React from 'react';
-import { View, LinearLayout, ScrollBar,ScrollView, Text, Button, Image, Toggle } from 'magic-script-components';
-
-
-const Orientation = {
-  vertical: 'vertical',
-  horizontal: 'horizontal',
-};
+import { View, LinearLayout, Orientation, ScrollBar,ScrollView, Text, Button, Image, Toggle } from 'magic-script-components';
 
 class SceneScrollView extends React.Component {
 

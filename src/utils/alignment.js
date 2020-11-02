@@ -1,32 +1,23 @@
 import React from 'react';
-import {  View, Text, Toggle, ToggleGroup,GridLayout, LinearLayout } from 'magic-script-components';
+import { Alignment, GridLayout, LinearLayout, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
 
-
-const Alignment = {
-  topLeft: 'top-left',
-  topCenter: 'top-center',
-  topRight: 'top-right',
-  centerLeft: 'center-left',
-  centerCenter: 'center-center',
-  centerRight: 'center-right',
-  bottomLeft: 'bottom-left',
-  bottomCenter: 'bottom-center',
-  bottomRight: 'bottom-right',
+const AlignmentList = {
+  all: [
+    Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
+    Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
+    Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
+  ],
   next: (alignment) => {
-    const index = AlignmentList.indexOf(alignment);
-    return AlignmentList[(index + 1) % AlignmentList.length];
+    const alignments = AlignmentList.all;
+    const index = alignments.indexOf(alignment);
+    return alignments[(index + 1) % alignments.length];
   },
   prev: (alignment) => {
-    const index = AlignmentList.indexOf(alignment);
-    return AlignmentList[(index + AlignmentList.length - 1) % AlignmentList.length];
+    const alignments = AlignmentList.all;
+    const index = alignments.indexOf(alignment);
+    return alignments[(index + alignments.length - 1) % alignments.length];
   }
-};
-
-const AlignmentList = [
-  Alignment.topLeft, Alignment.topCenter, Alignment.topRight,
-  Alignment.centerLeft, Alignment.centerCenter, Alignment.centerRight,
-  Alignment.bottomLeft, Alignment.bottomCenter, Alignment.bottomRight
-];
+}
 
 class AlignmentGroup extends React.Component {
   static defaultProps = {
@@ -101,4 +92,4 @@ class AlignmentGroup extends React.Component {
   }
 }
 
-export { Alignment, AlignmentGroup };
+export { AlignmentGroup, AlignmentList };

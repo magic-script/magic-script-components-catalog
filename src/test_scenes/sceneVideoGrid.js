@@ -1,11 +1,5 @@
 import React from "react";
-import { View, Video, Button, GridLayout } from 'magic-script-components';
-
-const VideoActions = {
-  start: "start",
-  pause: "pause",
-  stop: "stop"
-};
+import { Button, GridLayout, Video, VideoAction, View } from 'magic-script-components';
 
 class SceneVideoGrid extends React.Component {
   constructor(props) {
@@ -16,24 +10,24 @@ class SceneVideoGrid extends React.Component {
       "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4",
       require("../../assets/resources/video_2.mp4")
     ];
-    this.state = { action: VideoActions.pause };
+    this.state = { action: VideoAction.pause };
   }
 
   onStartPauseClick = () => {
-    if (this.state.action === VideoActions.start) {
-      this.setState({ action: VideoActions.pause });
+    if (this.state.action === VideoAction.start) {
+      this.setState({ action: VideoAction.pause });
     } else {
-      this.setState({ action: VideoActions.start });
+      this.setState({ action: VideoAction.start });
     }
   }
 
   onStopClick = () => {
-    this.setState({ action: VideoActions.stop });
+    this.setState({ action: VideoAction.stop });
   }
 
   createButtonWithAction(action) {
     const title = action[0].toUpperCase() + action.substring(1);
-    const onClickHandler = (action === VideoActions.stop) ? this.onStopClick : this.onStartPauseClick;
+    const onClickHandler = (action === VideoAction.stop) ? this.onStopClick : this.onStartPauseClick;
     return (
       <Button
         fontSize={0.1}
@@ -48,15 +42,15 @@ class SceneVideoGrid extends React.Component {
 
   renderPlayOrPauseButton() {
     const { action } = this.state;
-    if (action === VideoActions.start) {
-      return this.createButtonWithAction(VideoActions.pause);
+    if (action === VideoAction.start) {
+      return this.createButtonWithAction(VideoAction.pause);
     } else {
-      return this.createButtonWithAction(VideoActions.start);
+      return this.createButtonWithAction(VideoAction.start);
     }
   }
 
   renderStopButton() {
-    return this.createButtonWithAction(VideoActions.stop);
+    return this.createButtonWithAction(VideoAction.stop);
   }
 
   renderVideoNodes() {

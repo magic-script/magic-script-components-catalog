@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, ProgressBar, View, GridLayout } from 'magic-script-components';
+import { ProgressBar, View } from 'magic-script-components';
 
 class SceneProgressBar extends React.Component {
 
@@ -72,7 +72,7 @@ class SceneProgressBar extends React.Component {
           width={0.75}
           height={0.05}
         />
-        <progressBar 
+        <ProgressBar 
           alignment={'center-center'}
           position={[0, -0.4, 0]} 
           value={0.9} min={-10} max={10}

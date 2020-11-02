@@ -1,18 +1,18 @@
 import React from "react";
-import { LinearLayout, Button, View, Text, Dialog, ToggleGroup, Toggle } from 'magic-script-components';
+import { Alignment, Button, ButtonType, Dialog, DialogType, LinearLayout, Orientation, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
 
-const DialogType = [
-  "timed",
-  "no-action",
-  "single-action",
-  "dual-action"
+const DialogTypes = [
+  DialogType.timed,
+  DialogType.noAction,
+  DialogType.singleAction,
+  DialogType.dualAction
 ]
 
-const ButtonType = [
-  "icon",
-  "icon-with-label",
-  "text",
-  "text-with-icon"
+const ButtonTypes = [
+  ButtonType.icon,
+  ButtonType.iconWithLabel,
+  ButtonType.text,
+  ButtonType.textWithIcon
 ]
 
 const LoremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -43,7 +43,6 @@ class SceneDialog extends React.Component {
 
   updateTimer = () => {
     const timeLeft = this.state.noActionTimeLeft - 1;
-    console.log('timeLeft: ', timeLeft);
     if (timeLeft > 0) {
       this.setState({ noActionTimeLeft: timeLeft });
     } else {
@@ -53,8 +52,8 @@ class SceneDialog extends React.Component {
     }
   }
 
-  renderDialogTypeRadio(index, selectedIndex, onChanged) {
-    const dialogType = DialogType[index];
+  renderRadio(types, index, selectedIndex, onChanged) {
+    const type = types[index];
     const on = (index === selectedIndex);
     return (
       <Toggle
@@ -63,21 +62,7 @@ class SceneDialog extends React.Component {
         fontSize={0.075}
         type={'radio'}
         onToggleChanged={() => onChanged(index)}
-      >{dialogType}</Toggle> 
-    );
-  }
-
-  renderButtonTypeRadio(index, selectedIndex, onChanged) {
-    const buttonType = ButtonType[index];
-    const on = (index === selectedIndex);
-    return (
-      <Toggle
-        height={0.075}
-        on={on}
-        fontSize={0.075}
-        type={'radio'}
-        onToggleChanged={() => onChanged(index)}
-      >{buttonType}</Toggle>
+      >{type}</Toggle> 
     );
   }
 
@@ -113,26 +98,22 @@ class SceneDialog extends React.Component {
   }
 
   render() {
-    const {
-      showDialog,
-      dialogTypeIndex,
-      buttonTypeIndex,
-      noActionTimeLeft
-    } = this.state;
+    const { showDialog, dialogTypeIndex, buttonTypeIndex, noActionTimeLeft } = this.state;
     const showButtons = !showDialog;
 
-    const expireTime = dialogTypeIndex === 0 ? { expireTime: 3 } : null;
-    const confirmIcon = (dialogTypeIndex !== 0 && buttonTypeIndex !== 2) ? { confirmIcon: "thumbs-up" } : null;
-    const cancelIcon = (dialogTypeIndex !== 0 && buttonTypeIndex !== 2) ? { cancelIcon: "thumbs-down" } : null;
-    const confirmText = (dialogTypeIndex !== 0 && buttonTypeIndex !== 0) ? { confirmText: "Confirm" } : null;
-    const cancelText = (dialogTypeIndex !== 0 && buttonTypeIndex !== 0) ? { cancelText: "Cancel" } : null;
-    const buttonType = { buttonType: ButtonType[buttonTypeIndex] }
+    const confirmActionAllowed = (dialogTypeIndex === 2 || dialogTypeIndex === 3);
+    const cancelActionAllowed = (dialogTypeIndex === 3);
+    const expireTime = (dialogTypeIndex === 0) ? { expireTime: 3 } : null;
+    const confirmIcon = (confirmActionAllowed && buttonTypeIndex !== 2) ? { confirmIcon: "thumbs-up" } : null;
+    const confirmText = (confirmActionAllowed && buttonTypeIndex !== 0) ? { confirmText: "Confirm" } : null;
+    const cancelIcon = (cancelActionAllowed && buttonTypeIndex !== 2) ? { cancelIcon: "thumbs-down" } : null;
+    const cancelText = (cancelActionAllowed && buttonTypeIndex !== 0) ? { cancelText: "Cancel" } : null;
 
     return (
-      <View position={this.props.localPosition}>
+      <View position={this.props.position}>
         {showDialog && noActionTimeLeft > 0 && (
           <Text 
-            alignment={'center-center'}
+            alignment={Alignment.centerCenter}
             boundsSize={{ boundsSize: [0.7, 0], wrap: true }}
             position={[0, 0.8, 0]} 
             fontColor={[1,1,1,0.1]} 
@@ -152,19 +133,19 @@ class SceneDialog extends React.Component {
               {...cancelText}
               {...cancelIcon}
               {...expireTime}
-              {...buttonType}
-              type={DialogType[dialogTypeIndex]}
+              buttonType={ButtonTypes[buttonTypeIndex]}
+              type={DialogTypes[dialogTypeIndex]}
             />
           )}
         </View>
 
         {showButtons && (
           <LinearLayout
-            alignment={"center-center"}
-            defaultItemAlignment={"center-center"}
+            alignment={Alignment.centerCenter}
+            defaultItemAlignment={Alignment.centerCenter}
             defaultItemPadding={[0.07, 0, 0.07, 0]}
             position={[0, 0.3, 0]}
-            orientation={"vertical"}
+            orientation={Orientation.vertical}
           >
             <Button
               fontSize={0.08}
@@ -172,21 +153,21 @@ class SceneDialog extends React.Component {
               onClick={this.onButtonClick}
             >Show dialog (short text)</Button>
 
-            <LinearLayout orientation="horizontal">
+            <LinearLayout orientation={Orientation.horizontal}>
               <ToggleGroup>
-                <LinearLayout orientation={'vertical'}>
-                  {this.renderDialogTypeRadio(0, dialogTypeIndex, this.onDialogTypeChanged)}
-                  {this.renderDialogTypeRadio(1, dialogTypeIndex, this.onDialogTypeChanged)}
-                  {this.renderDialogTypeRadio(2, dialogTypeIndex, this.onDialogTypeChanged)}
-                  {this.renderDialogTypeRadio(3, dialogTypeIndex, this.onDialogTypeChanged)}
+                <LinearLayout orientation={Orientation.vertical}>
+                  {this.renderRadio(DialogTypes, 0, dialogTypeIndex, this.onDialogTypeChanged)}
+                  {this.renderRadio(DialogTypes, 1, dialogTypeIndex, this.onDialogTypeChanged)}
+                  {this.renderRadio(DialogTypes, 2, dialogTypeIndex, this.onDialogTypeChanged)}
+                  {this.renderRadio(DialogTypes, 3, dialogTypeIndex, this.onDialogTypeChanged)}
                 </LinearLayout>
               </ToggleGroup>
               <ToggleGroup>
-                <LinearLayout orientation={'vertical'}>
-                  {this.renderButtonTypeRadio(0, buttonTypeIndex, this.onButtonTypeChanged)}
-                  {this.renderButtonTypeRadio(1, buttonTypeIndex, this.onButtonTypeChanged)}
-                  {this.renderButtonTypeRadio(2, buttonTypeIndex, this.onButtonTypeChanged)}
-                  {this.renderButtonTypeRadio(3, buttonTypeIndex, this.onButtonTypeChanged)}
+                <LinearLayout orientation={Orientation.vertical}>
+                  {this.renderRadio(ButtonTypes, 0, buttonTypeIndex, this.onButtonTypeChanged)}
+                  {this.renderRadio(ButtonTypes, 1, buttonTypeIndex, this.onButtonTypeChanged)}
+                  {this.renderRadio(ButtonTypes, 2, buttonTypeIndex, this.onButtonTypeChanged)}
+                  {this.renderRadio(ButtonTypes, 3, buttonTypeIndex, this.onButtonTypeChanged)}
                 </LinearLayout>
               </ToggleGroup>
             </LinearLayout>
