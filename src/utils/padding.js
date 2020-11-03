@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Toggle, LinearLayout,ToggleGroup } from 'magic-script-components';
+import { Alignment, LinearLayout, Orientation, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
 
 class PaddingGroup extends React.Component {
   static defaultProps = {
@@ -48,17 +48,17 @@ class PaddingGroup extends React.Component {
       <View position={this.props.position}>
         <Text position={[0, 0.13, 0]} anchorPoint={'bottom-center'} fontSize={0.08}>{this.props.title}</Text>
           <ToggleGroup allowMultipleOn allowAllOff>
-            <LinearLayout orientation={'vertical'} defaultItemAlignment={'center-left'}>
-              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
+            <LinearLayout orientation={Orientation.vertical} defaultItemAlignment={Alignment.centerLeft}>
+              <LinearLayout orientation={Orientation.horizontal} defaultItemAlignment={Alignment.centerLeft} defaultItemPadding={[0, 0, 0, 0.2]}>
                 {this.renderCheckbox('top', top)}
               </LinearLayout>
               
-              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0.15, 0, 0]}>
+              <LinearLayout orientation={Orientation.horizontal} defaultItemAlignment={Alignment.centerLeft} defaultItemPadding={[0, 0.15, 0, 0]}>
                 {this.renderCheckbox('left', left)}
                 {this.renderCheckbox('right', right)}
               </LinearLayout>
 
-              <LinearLayout orientation={'horizontal'} defaultItemAlignment={'center-left'} defaultItemPadding={[0, 0, 0, 0.2]}>
+              <LinearLayout orientation={Orientation.horizontal} defaultItemAlignment={Alignment.centerLeft} defaultItemPadding={[0, 0, 0, 0.2]}>
                 {this.renderCheckbox('bottom', bottom)}
               </LinearLayout>
             </LinearLayout>
