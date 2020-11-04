@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, CircleConfirmation, Dialog } from 'magic-script-components';
+import { Alignment, CircleConfirmation, Dialog, Text, TextAlign, View } from 'magic-script-components';
 
 class SceneCircleConfirmation extends React.Component {
   constructor(props) {
@@ -37,9 +37,9 @@ class SceneCircleConfirmation extends React.Component {
     return (
       <View position={this.props.position}>
         <Text
-          alignment={'bottom-center'}
+          alignment={Alignment.bottomCenter}
           position={[0, 0.35, 0]}
-          textAlignment={"center"}
+          textAlignment={TextAlign.center}
           fontSize={0.07}
           boundsSize={{ boundsSize: [0.5, 0.5], wrap: false }}
         >{`Progress = ${progress.toFixed(2)}`}</Text>

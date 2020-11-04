@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProgressBar, View } from 'magic-script-components';
+import { Alignment, LinearLayout, ProgressBar } from 'magic-script-components';
 
 class SceneProgressBar extends React.Component {
 
@@ -38,15 +38,23 @@ class SceneProgressBar extends React.Component {
   render() {
     const { value1, value2, value3 } = this.state;
     return (
-      <View position={this.props.position}>
+      <LinearLayout 
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0.05, 0, 0, 0]}
+        itemPadding={[
+          { index: 0, padding: [0, 0, 0.1, 0] },
+          { index: 4, padding: [0.15, 0, 0, 0] },
+        ]}
+        position={this.props.position}
+      >
         <ProgressBar 
-          alignment={'center-center'}
+          alignment={Alignment.centerCenter}
           position={[0, 0.2, 0]} 
           value={0.33} min={0} max={1}
           width={0.5}
         />
         <ProgressBar 
-          alignment={'center-center'}
+          alignment={Alignment.centerCenter}
           position={[0, 0, 0]} 
           value={value1}
           beginColor={[0.1,0.5,0.9,1]}
@@ -55,7 +63,7 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={'center-center'}
+          alignment={Alignment.centerCenter}
           position={[0, -0.1, 0]} 
           value={value2}
           beginColor= {[0.1,0.5,0.9,1]}
@@ -64,7 +72,7 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={'center-center'}
+          alignment={Alignment.centerCenter}
           position={[0, -0.2, 0]} 
           value={value3}
           beginColor= {[0.1,0.5,0.9,1]}
@@ -73,7 +81,7 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={'center-center'}
+          alignment={Alignment.centerCenter}
           position={[0, -0.4, 0]} 
           value={0.9} min={-10} max={10}
           beginColor={[1, 0.1, 0.1, 1]}
@@ -81,7 +89,7 @@ class SceneProgressBar extends React.Component {
           width={1}
           height={0.1}
         />
-      </View>
+      </LinearLayout>
     );
   }
 }
