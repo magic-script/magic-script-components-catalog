@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text, Toggle, Video, VideoAction, View, ViewMode } from "magic-script-components";
+import { Alignment, Button, Text, Toggle, Video, VideoAction, View, ViewMode } from "magic-script-components";
 
 class SceneVideo extends React.Component {
   constructor(props) {

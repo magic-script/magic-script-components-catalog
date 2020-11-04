@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toggle, LinearLayout, ToggleGroup, Text, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, LinearLayout, Orientation, Text, TextAlign, Toggle, ToggleGroup, ToggleType, View } from 'magic-script-components';
 
 class SceneToggleGroup extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class SceneToggleGroup extends React.Component {
         height={0.075}
         position={position}
         fontSize={0.075}
-        type={'radio'}
+        type={ToggleType.radio}
         onToggleChanged={(e) => console.log(`${title}.onToggleChanged event received: ${e.On}`)}
       >{title}</Toggle>
     );
@@ -38,7 +38,7 @@ class SceneToggleGroup extends React.Component {
   renderSettingsPanel() {
     return (
       <LinearLayout
-        defaultItemAlignment={'center-right'}
+        defaultItemAlignment={Alignment.centerRight}
         defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
         orientation={'vertical'}
       >
@@ -54,17 +54,17 @@ class SceneToggleGroup extends React.Component {
     const title = innerLayout ? 'Toggles embedded in linearLayout' : 'Toggles embedded in group';
     return (
       <LinearLayout 
-        defaultItemAlignment={'center-left'}
-        orientation={'vertical'}
+        defaultItemAlignment={Alignment.centerLeft}
+        orientation={Orientation.vertical}
         width={0.8}
       >
-        <Text textAlignment={'left'} fontSize={0.06} >{title}</Text>
+        <Text textAlignment={TextAlign.left} fontSize={0.06} >{title}</Text>
         {innerLayout && (
           <ToggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
             <LinearLayout 
-              anchorPoint={'center-center'} 
+              anchorPoint={AnchorPoint.centerCenter} 
               defaultItemPadding={[0.01, 0.0, 0.01, 0.01]}
-              orientation={'vertical'}
+              orientation={Orientation.vertical}
             >
               {this.renderRadio({ title: 'Element 1' })}
               {this.renderRadio({ title: 'Element 2' })}
@@ -87,10 +87,10 @@ class SceneToggleGroup extends React.Component {
     return (
       <View position={this.props.position}>
         <LinearLayout 
-          anchorPoint={'top-center'} 
-          defaultItemAlignment={'center-right'}
+          anchorPoint={AnchorPoint.topCenter} 
+          defaultItemAlignment={Alignment.centerRight}
           defaultItemPadding={[0.025, 0.0, 0.025, 0.0]}
-          orientation={'vertical'} 
+          orientation={Orientation.vertical} 
         >
           {this.renderSettingsPanel()}
           {this.renderPresentationPanel()}
