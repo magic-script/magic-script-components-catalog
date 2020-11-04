@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog, LinearLayout, Platform, TextEdit, View, WebView } from 'magic-script-components';
+import { Alignment, Button, Dialog, LinearLayout, Orientation, Platform, TextEdit, View, WebView } from 'magic-script-components';
 
 class SceneWebView extends React.Component {
   constructor(props) {
@@ -39,11 +39,11 @@ class SceneWebView extends React.Component {
     const web = { width: 1.0, height: 0.75 };
     return (
       <LinearLayout 
-          orientation={'vertical'}
-          defaultItemAlignment={'center-center'}
+          orientation={Orientation.vertical}
+          defaultItemAlignment={Alignment.centerCenter}
           defaultItemPadding={[0.03, 0, 0.03, 0]}
           itemAlignment={[
-            { index: 1, alignment: 'center-right' }
+            { index: 1, alignment: Alignment.centerRight }
           ]}
           itemPadding={[
             { index: 1, padding: [0, 0.03, 0.1, 0]}

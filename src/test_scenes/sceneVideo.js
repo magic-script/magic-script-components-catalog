@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button, Video, VideoAction, Toggle, Text } from "magic-script-components";
+import { Button, Text, Toggle, Video, VideoAction, View, ViewMode } from "magic-script-components";
 
 class SceneVideo extends React.Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class SceneVideo extends React.Component {
           -
         </Button>
 
-        <Text alignment={"center-center"} fontSize={0.08}>
+        <Text alignment={Alignment.centerCenter} fontSize={0.08}>
           {volume}
         </Text>
 
@@ -175,7 +175,7 @@ class SceneVideo extends React.Component {
           height={resolution[1]}
           screenSize={size}
           path={this.state.videoPath}
-          viewMode={"full-area"}
+          viewMode={ViewMode.fullArea}
           volume={this.state.volume}
           action={this.state.action}
           debug 
