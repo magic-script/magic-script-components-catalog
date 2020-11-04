@@ -38,10 +38,10 @@ class SceneLinearLayout extends React.Component {
 
         <PaddingGroup
           anchorPoint={Alignment.topCenter}
-          values={[0.04, 0.04, 0.04, 0.04]}
           onPaddingChanged={this.onPaddingChanged}
           position={[0.4, 0.2, 0]}
           title={'Set items padding:'}
+          values={[0.04, 0.04, 0.04, 0.04]}
         />
  
         <LinearLayout

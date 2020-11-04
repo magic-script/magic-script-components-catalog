@@ -2,6 +2,7 @@ import React from 'react';
 import { Alignment, Button, GridLayout, Image, Line, Model, Slider, Spinner, Text, TextEdit, Toggle, View, RectLayout } from 'magic-script-components';
 import { AlignmentGroup } from '../utils/alignment';
 import { PaddingGroup } from '../utils/padding';
+import { OptionGroup } from '../utils/optionGroup';
 
 class SceneGridLayout extends React.Component {
   constructor(props) {
@@ -12,8 +13,7 @@ class SceneGridLayout extends React.Component {
 
   onItemsAlignmentChanged = (alignment) => this.setState({ alignment });
   onPaddingChanged = (padding) => this.setState({ padding });
-  onWidthToogleChanged = (event) => this.setState({ width: event.On ? 1 : 0 });
-  onHeightToogleChanged = (event) => this.setState({ height: event.On ? 1 : 0 });
+  onOptionChanged = (selectedIndices) => this.setState({ width: selectedIndices.has(0) ? 1 : 0, height: selectedIndices.has(1) ? 1 : 0 });
 
   render() {
     const { width, height, padding, alignment } = this.state;
@@ -22,32 +22,33 @@ class SceneGridLayout extends React.Component {
     const size = this.props.size;
     return (
       <View position={this.props.position}>
-
-        <View position={[0, -0.1, 0]}>
-          <RectLayout scale={[0.6,0.6,0.6]} position={[-0.4, 0, 0]}>
+        <View>
           <AlignmentGroup
-            alignment={alignment}
+            anchorPoint={Alignment.topCenter}
             onAlignmentChanged={this.onItemsAlignmentChanged}
+            position={[-0.35, 0, 0]}
             title={'Set items alignment:'}
           />
-          </RectLayout>
-          <RectLayout scale={[0.6,0.6,0.6]} position={[0.4, 0, 0]}>
 
           <PaddingGroup
-            values={[0.04, 0.04, 0.04, 0.04]}
+            anchorPoint={Alignment.topCenter}
             onPaddingChanged={this.onPaddingChanged}
+            position={[0.55, 0, 0]}
             title={'Set items padding:'}
+            values={[0.04, 0.04, 0.04, 0.04]}
           />
-          </RectLayout>
 
-          <View position={[0, -0.4, 0]} >
-            <Text position={[0, 0, 0]} anchorPoint={'center-center'} fontSize={0.075}>Set size:</Text>
-            <Toggle type={'checkbox'} position={[-0.1, -0.1, 0]} fontSize={0.075} height={0.1} on={width == 1} onToggleChanged={this.onWidthToogleChanged}>width: 1m</Toggle>
-            <Toggle type={'checkbox'} position={[-0.1, -0.2, 0]} fontSize={0.075} height={0.1} on={height == 1} onToggleChanged={this.onHeightToogleChanged}>height: 1m</Toggle>
-          </View>
+          <OptionGroup 
+            anchorPoint={Alignment.topCenter}
+            multipleOptions={true}
+            onOptionChanged={this.onOptionChanged}
+            options={['1m width', '1m height']}
+            position={[0, -0.45, 0]}
+            title={'Set size:'}
+          />
 
-          <Line color={[1, 1, 1, 1]} points={[[0.05, 0.1, 0], [0.05, -0.3, 0]]} />
-          <Line color={[1, 1, 1, 1]} points={[[-0.75, -0.3, 0], [0.8, -0.3, 0]]} />
+          <Line color={[1, 1, 1, 1]} points={[[0.05, 0, 0], [0.05, -0.4, 0]]} />
+          <Line color={[1, 1, 1, 1]} points={[[-0.8, -0.4, 0], [0.8, -0.4, 0]]} />
         </View>
 
         {/* 
@@ -80,7 +81,7 @@ class SceneGridLayout extends React.Component {
           <Slider debug width={0.4} height={0.08} />
           <Toggle debug fontSize={0.08} height={0.15}>Toggle</Toggle>
           <Toggle debug textColor={invisibleItemColor} fontSize={0.08} height={0.15} visible={false}>Toggle Invisible</Toggle>
-          <GridLayout debug defaultItemAlignment={'center-center'} columns={2} skipInvisibleItems={true}>
+          <GridLayout debug defaultItemAlignment={Alignment.centerCenter} columns={2} skipInvisibleItems={true}>
             <Image width={0.1} height={0.1} color={[1, 1, 0.5, 1]} />
             <Image width={0.1} height={0.1} color={invisibleItemColor} visible={false} />
             <Image width={0.1} height={0.1} color={[1, 0.4, 0.4, 1]} />
