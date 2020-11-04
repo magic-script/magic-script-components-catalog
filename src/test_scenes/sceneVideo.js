@@ -40,12 +40,12 @@ class SceneVideo extends React.Component {
   };
 
   onVolumeDownClick = () => {
-    const volumeNew = (this.state.volume - 0.1).toPrecision(2);
+    const volumeNew = (this.state.volume - 0.1).toFixed(2);
     this.setState({ volume: Math.max(0, volumeNew) });
   };
 
   onVolumeUpClick = () => {
-    const volumeNew = (this.state.volume + 0.1).toPrecision(2);
+    const volumeNew = (this.state.volume + 0.1).toFixed(2);
     this.setState({ volume: Math.min(1.0, volumeNew) });
   };
 
