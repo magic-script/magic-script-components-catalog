@@ -29,7 +29,6 @@ class SceneLinearLayout extends React.Component {
 
         <OptionGroup 
           anchorPoint={Alignment.topCenter}
-          debug
           multipleOptions={true}
           onOptionChanged={this.onOptionChanged}
           options={['1m width', '1m height']}
@@ -39,7 +38,6 @@ class SceneLinearLayout extends React.Component {
 
         <PaddingGroup
           anchorPoint={Alignment.topCenter}
-          debug
           values={[0.04, 0.04, 0.04, 0.04]}
           onPaddingChanged={this.onPaddingChanged}
           position={[0.4, 0.2, 0]}
