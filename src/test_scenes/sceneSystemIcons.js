@@ -1,13 +1,12 @@
 import React from 'react';
 import { SystemIcons } from '../utils/systemIcons';
-import { Image, Line, View, Text, Toggle, GridLayout } from 'magic-script-components';
+import { Alignment, AnchorPoint, FitMode, GridLayout, Image, Line, LinearLayout, Orientation, Text, Toggle, View } from 'magic-script-components';
 
 class SceneSystemIcons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIconIndex: 0,
-      showLuminIcons: true,
       animateFast: false
     };
     this.smallIconSize = 0.11;
@@ -34,16 +33,12 @@ class SceneSystemIcons extends React.Component {
     this.setState({ currentIconIndex });
   }
 
-  onShowLuminIconsChanged = (event) => {
-    this.setState({ showLuminIcons: event.On });
-  }
-
   onAnimateFastChanged = (event) => {
     this.setState({ animateFast: event.On }, () => this.reloadTimer());
   }
 
   renderIcons() {
-    const { currentIconIndex, showLuminIcons } = this.state;
+    const { currentIconIndex } = this.state;
     const iconsCount = 8;
     const startFromIndex = (currentIconIndex - Math.floor(iconsCount / 2)) % SystemIcons.length;
     const minIconIndex = (startFromIndex >= 0) ? startFromIndex : startFromIndex + SystemIcons.length;
@@ -52,7 +47,7 @@ class SceneSystemIcons extends React.Component {
     var key = 0;
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
       const index = i % SystemIcons.length;
-      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} useDefaultIcon={!showLuminIcons} fit={'aspect-fit'} />);
+      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} fit={FitMode.aspecFit} />);
       key += 1;
     }
     return icons;
@@ -71,25 +66,30 @@ class SceneSystemIcons extends React.Component {
 
   renderOption(position, leftText, rightText, value, callback) {
     return (
-      <View position={position}>
-        <Text anchorPoint={'center-right'} position={[-0.2, 0, 0]} fontSize={0.08}>{leftText}</Text>
-        <Toggle height={0.1} on={value} onToggleChanged={callback}>{' '}</Toggle>
-        <Text anchorPoint={'center-left'} position={[0.2, 0, 0]} fontSize={0.08}>{rightText}</Text>
-      </View> 
+      <LinearLayout 
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0, 0.05, 0, 0.05]}
+        orientation={Orientation.horizontal}
+        position={position} 
+      >
+        <Text fontSize={0.08}>{leftText}</Text>
+        <Toggle height={0.1} on={value} onToggleChanged={callback} debug />
+        <Text fontSize={0.08}>{rightText}</Text>
+      </LinearLayout> 
     );
   }
 
   render () {
-    const { currentIconIndex, showLuminIcons, animateFast } = this.state;
+    const { currentIconIndex, animateFast } = this.state;
     const icon = SystemIcons[currentIconIndex];
     const numberOfIcons = `${currentIconIndex + 1}/${SystemIcons.length}`;
     return (
       <View position={[0, 1.0, 0]}>
-        <Image anchorPoint={'top-center'} height={0.5} width={0.75} icon={icon} useDefaultIcon={!showLuminIcons} fit={'aspect-fit'} debug/>
-        <Text anchorPoint={'top-center'} position={[0, -0.52, 0]} fontSize={0.08}>{icon}</Text>
-        <Text anchorPoint={'top-right'} position={[0.75, -0.52, 0]} fontSize={0.08}>{numberOfIcons}</Text>
+        <Image anchorPoint={AnchorPoint.topCenter} height={0.5} width={0.75} icon={icon} fit={FitMode.aspectFit} debug/>
+        <Text anchorPoint={AnchorPoint.topCenter} position={[0, -0.52, 0]} fontSize={0.08}>{icon}</Text>
+        <Text anchorPoint={AnchorPoint.topRight} position={[0.75, -0.52, 0]} fontSize={0.08}>{numberOfIcons}</Text>
         <GridLayout
-          anchorPoint={'center-center'}
+          anchorPoint={AnchorPoint.centerCenter}
           position={[0, -1, 0]}
           rows={1}
           defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
@@ -100,8 +100,7 @@ class SceneSystemIcons extends React.Component {
         {this.renderSquare(1.3 * this.smallIconSize)}
         {this.renderSquare(1.5 * this.smallIconSize)}
         
-        {this.renderOption([0, -1.4, 0], 'Default icons', 'Lumin icons', showLuminIcons, this.onShowLuminIconsChanged)}
-        {this.renderOption([0, -1.7, 0], 'Slow animation', 'Fast animation', animateFast, this.onAnimateFastChanged)}
+        {this.renderOption([0, -1.4, 0], 'Slow animation', 'Fast animation', animateFast, this.onAnimateFastChanged)}
       </View>
     );
   }
