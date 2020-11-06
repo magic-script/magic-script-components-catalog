@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, Button, GridLayout, Image, Line, Orientation, ScrollBar, ScrollView, ScrollBarVisibility, Text, View } from "magic-script-components";
+import { Alignment, Button, GridLayout, Image, Line, Orientation, ScrollBar, ScrollDirection, ScrollView, ScrollBarVisibility, Text, VideoAction, View, ViewMode } from "magic-script-components";
 import { AlignmentList } from '../utils/alignment';
 
 class SceneAlignment extends React.Component {
@@ -39,7 +39,7 @@ class SceneAlignment extends React.Component {
         enabled={false}
         scrollBounds={aabb}
         scrollBarVisibility={ScrollBarVisibility.always}
-        scrollDirection={"vertical"}
+        scrollDirection={ScrollDirection.vertical}
       >
         <ScrollBar
           orientation={Orientation.vertical}
@@ -189,8 +189,8 @@ class SceneAlignment extends React.Component {
         size: videoSize,
         anchorPosition: [0.5 * videoSize[0], 0.5 * videoSize[1], 0],
         videoPath: require("../../assets/resources/video.mp4"),
-        action: "start",
-        viewMode: "full-area",
+        action: VideoAction.start,
+        viewMode: ViewMode.fullArea,
         volume: 0,
       },
       webView: {

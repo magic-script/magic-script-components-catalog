@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, GridLayout, Text } from 'magic-script-components';
+import { AnchorPoint, Button, GridLayout, Text, TextAlign, View } from 'magic-script-components';
 
 class SceneButton extends React.Component {
 	constructor(props) {
@@ -41,7 +41,7 @@ class SceneButton extends React.Component {
 	}
 
 	renderHeader(text) {
-		return <Text textAlign={'right'} fontSize={0.09} width={0.4} height={0.1} multiline={true}>{text}</Text>;
+		return <Text textAlign={TextAlign.right} fontSize={0.09} width={0.4} height={0.1} multiline={true}>{text}</Text>;
 	}
 
 	onButtonClick(param) {
@@ -51,7 +51,7 @@ class SceneButton extends React.Component {
   render () {
     return (
       <View position={this.props.position}>
-				<GridLayout position={[0,-0.2,0]} columns={4} anchorPoint={'bottom-center'}>
+				<GridLayout position={[0,-0.2,0]} columns={4} anchorPoint={AnchorPoint.bottomCenter}>
 
 					{this.renderHeader('Text:')}
 					{this.renderButton({ title: 'short', onClick: this.onButtonClick({ title: 'CTA'})})}
@@ -89,7 +89,7 @@ class SceneButton extends React.Component {
 					{this.renderButton({ title: 'disable', onClick: this.onButtonClick({ enabled: false })})}
 					
 				</GridLayout>
-				<GridLayout position={[0,-0.55,0]} anchorPoint={'top-center'}>
+				<GridLayout position={[0,-0.55,0]} anchorPoint={AnchorPoint.topCenter}>
 					{this.renderButton(this.state)}
 				</GridLayout>
       </View>

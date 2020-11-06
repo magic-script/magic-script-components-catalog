@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View, Text, Button } from 'magic-script-components';
+import { Button, Image, Text, TextAlign, View } from 'magic-script-components';
 
 export default class ImageSlider extends React.Component {
     constructor(props) {
@@ -34,9 +34,9 @@ export default class ImageSlider extends React.Component {
         return (
             <View position={this.props.position}>
                 <Text
-                    position={[-0.07, 0.30, 0]}
+                    position={[0, 0.30, 0]}
                     fontSize={0.07}
-                    textAlign={'left'}
+                    textAlign={TextAlign.center}
                 >{this.props.caption}</Text>
 
                 <Image
