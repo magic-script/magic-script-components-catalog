@@ -1,6 +1,6 @@
 import React from "react";
+import { AnchorPoint, Button, Text, View } from "magic-script-components";
 import { MathUtils  } from "../utils/mathUtils";
-import { Button,Text,View } from "magic-script-components";
 
 class SceneClock extends React.Component {
   constructor(props) {
@@ -38,18 +38,18 @@ class SceneClock extends React.Component {
 
   renderItems(center, radius) {
     const items = [
-      { anchorPoint: "top-center", hour: "12" },
-      { anchorPoint: "top-right", hour: "1" },
-      { anchorPoint: "top-right", hour: "2" },
-      { anchorPoint: "center-right", hour: "3" },
-      { anchorPoint: "bottom-right", hour: "4" },
-      { anchorPoint: "bottom-right", hour: "5" },
-      { anchorPoint: "bottom-center", hour: "6" },
-      { anchorPoint: "bottom-left", hour: "7" },
-      { anchorPoint: "bottom-left", hour: "8" },
-      { anchorPoint: "center-left", hour: "9" },
-      { anchorPoint: "top-left", hour: "10" },
-      { anchorPoint: "top-left", hour: "11" }
+      { anchorPoint: AnchorPoint.topCenter, hour: '12' },
+      { anchorPoint: AnchorPoint.topRight, hour: '1' },
+      { anchorPoint: AnchorPoint.topRight, hour: '2' },
+      { anchorPoint: AnchorPoint.centerRight, hour: '3' },
+      { anchorPoint: AnchorPoint.bottomRight, hour: '4' },
+      { anchorPoint: AnchorPoint.bottomRight, hour: '5' },
+      { anchorPoint: AnchorPoint.bottomCenter, hour: '6' },
+      { anchorPoint: AnchorPoint.bottomLeft, hour: '7' },
+      { anchorPoint: AnchorPoint.bottomLeft, hour: '8' },
+      { anchorPoint: AnchorPoint.centerLeft, hour: '9' },
+      { anchorPoint: AnchorPoint.topLeft, hour: '10' },
+      { anchorPoint: AnchorPoint.topLeft, hour: '11' }
     ];
 
     return items.map((item, index) => {
@@ -75,7 +75,7 @@ class SceneClock extends React.Component {
     return (
       <View position={[center.x, center.y, 0]} rotation={quat}>
         <Text
-          anchorPoint={"bottom-center"}
+          anchorPoint={AnchorPoint.bottomCenter}
           scale={[width, length, 1]}
           fontSize={1}
         >
@@ -112,5 +112,9 @@ class SceneClock extends React.Component {
     );
   }
 }
+
+SceneClock.defaultProps = {
+  position: [0, 0, 0]
+};
 
 export { SceneClock };

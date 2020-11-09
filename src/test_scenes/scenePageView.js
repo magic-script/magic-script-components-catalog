@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageView, Line, LinearLayout, Tab, Image, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, Image, Line, LinearLayout, Orientation, PageView, Tab, View } from 'magic-script-components';
 
 class ScenePageView extends React.Component {
   constructor(props) {
@@ -59,8 +59,8 @@ class ScenePageView extends React.Component {
     ];
     return (
       <View position={this.props.position}>
-        <LinearLayout defaultItemAlignment={'top-center'} anchorPoint={'top-center'} orientation={'vertical'}>
-          <LinearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={'horizontal'}>
+        <LinearLayout defaultItemAlignment={Alignment.topCenter} anchorPoint={AnchorPoint.topCenter}>
+          <LinearLayout defaultItemPadding={[0.0, 0.0, 0.0, 0.0]} orientation={Orientation.horizontal}>
             {this.colors.map((item, index) => this.renderTab(item, index, pageSize.width, tabHeight))}
           </LinearLayout>
           <PageView 

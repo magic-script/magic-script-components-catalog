@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
+import { AnchorPoint, GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
 
 class SceneItemsPadding extends React.Component {
   constructor(props) {
@@ -18,11 +18,12 @@ class SceneItemsPadding extends React.Component {
   render() {
     const { pageIndex } = this.state;
     return (
-      <View position={[0, 0.9, 0]}>
+      <View position={[0, 0.8, 0]}>
         <View position={[-0.5, 0, 0]}>
           <Text textColor={'white'} fontSize={0.08}>Linear layout</Text>
           <LinearLayout
-            debug={true}
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             defaultItemPadding={[0.02, 0.02, 0.02, 0.02]}
             itemPadding={[
               // The padding order is:  top, right, bottom, left
@@ -31,7 +32,7 @@ class SceneItemsPadding extends React.Component {
               { index: 2, padding: [0.04, 0, 0.04, 0] },
               { index: 3, padding: [0.08, 0, 0.08, 0] },
             ]}
-            position={[0, -0.5, 0]}
+            position={[0, -0.2, 0]}
           >
             {this.renderItem('blue')}
             {this.renderItem('green')}
@@ -44,7 +45,8 @@ class SceneItemsPadding extends React.Component {
         <View position={[0, 0, 0]} >
           <Text textColor={'white'} fontSize={0.08}>Grid layout</Text>
           <GridLayout
-            debug={true}
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             columns={2}
             defaultItemPadding={[0.02, 0.02, 0.02, 0.02]}
             itemPadding={[
@@ -54,7 +56,7 @@ class SceneItemsPadding extends React.Component {
               { column: 1, row: 0, padding: [0.04, 0, 0.04, 0] },
               { column: 1, row: 1, padding: [0.08, 0, 0.08, 0] },
             ]}
-            position={[0, -0.5, 0]}
+            position={[0, -0.2, 0]}
           >
             {this.renderItem('blue')}
             {this.renderItem('green')}
@@ -64,14 +66,16 @@ class SceneItemsPadding extends React.Component {
           </GridLayout>
         </View>
 
-        <View position={[0.4, 0, 0]} >
+        <View position={[0.45, 0, 0]} >
           <Text textColor={'white'} fontSize={0.08} >Page view</Text>
-          <Toggle position={[0.275, -0.1, 0]} height={0.05} onToggleChanged={this.onSwitchHandler} fontSize={0.05}>Switch page</Toggle>
+          <Toggle position={[0.2, -0.1, 0]} height={0.05} onToggleChanged={this.onSwitchHandler} fontSize={0.05}>Switch page</Toggle>
           <PageView
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             width={0.3}
             height={0.3}
             visiblePage={pageIndex}
-            position={[0, -0.35, 0]}
+            position={[0, -0.2, 0]}
             pagePadding={[
               // The padding order is:  top, right, bottom, left
               { index: 0, padding: [0.1, 0.1, 0, 0] },

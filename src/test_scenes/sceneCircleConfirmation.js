@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, CircleConfirmation, Dialog, Text, TextAlign, View } from 'magic-script-components';
+import { Alignment, Dialog, CircleConfirmation, Text, TextAlign, View } from 'magic-script-components';
 
 class SceneCircleConfirmation extends React.Component {
   constructor(props) {

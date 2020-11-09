@@ -1,11 +1,11 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
-import { View, Audio, Toggle,Line, Image } from 'magic-script-components';
+import { Audio, AudioAction, Image, Line, SystemIcon, Toggle, View } from 'magic-script-components';
 
 class SceneAudio extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { alarmSound: true, animate: true, bgSound: true, spatialSound: true, volume: 4, position: [0,0,0], positionAngle: 0 };
+    this.state = { alarmSound: true, animate: true, bgSound: true, spatialSound: true, volume: 0.5, position: [0,0,0], positionAngle: 0 };
     this.interval = 0.01;
   }
 
@@ -54,10 +54,10 @@ class SceneAudio extends React.Component {
     return (
       <View>
         <View position={position}>
-          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} />
-          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat90}/>
-          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat180}/>
-          <Image icon={"volume"} width={0.2} height={0.2} color={alarmColor} rotation={quat270}/>
+          <Image icon={SystemIcon.volume} width={0.2} height={0.2} color={alarmColor} />
+          <Image icon={SystemIcon.volume} width={0.2} height={0.2} color={alarmColor} rotation={quat90}/>
+          <Image icon={SystemIcon.volume} width={0.2} height={0.2} color={alarmColor} rotation={quat180}/>
+          <Image icon={SystemIcon.volume} width={0.2} height={0.2} color={alarmColor} rotation={quat270}/>
         </View>
         <Line points={[origin, position]} color={linkColor} />
       </View>
@@ -69,22 +69,22 @@ class SceneAudio extends React.Component {
     const alarmColor = [1, 0.4, 0.4, 1];
     const alarmPosition = spatialSound ? position : [0, 0, 0];
     return (
-      <View rotation={this.props.position}>
+      <View>
         <Audio 
+          action={AudioAction.start} 
+          looping={true} 
+          mute={!bgSound} 
           path={require('../../assets/resources/bg_stereo.mp3')} 
-          action={'start'} 
-          soundMute={!bgSound} 
-          soundLooping={true} 
-          soundVolumeLinear={3} 
+          volume={0.4} 
         />
         <Audio 
+          action={AudioAction.start} 
+          looping={true} 
+          mute={!alarmSound}
           path={'http://wolo-usa.com/siren6.wav'} 
-          action={'start'} 
-          soundLooping={true} 
-          soundMute={!alarmSound}
-          soundVolumeLinear={volume} 
           spatialSoundEnable={spatialSound} 
           spatialSoundPosition={[{ channel: 0, channelPosition: alarmPosition }]}
+          volume={volume} 
         />
         <Toggle 
           position={[0.4, 0.9, 0]} 

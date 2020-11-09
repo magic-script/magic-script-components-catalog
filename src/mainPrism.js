@@ -165,7 +165,7 @@ class MainPrism extends React.Component {
         name: "ColorPicker",
         component: <SceneColorPicker position={[0, 0, 0]} />,
       },
-      { name: "Audio", component: <SceneAudio position={[0, 0, 0]} /> },
+      { name: "Audio", component: <SceneAudio /> },
       { name: "Dialog", component: <SceneDialog position={[0, 0, 0]} /> },
       { name: "Web view", component: <SceneWebView position={[0, 0, 0]} /> },
       {
@@ -173,25 +173,11 @@ class MainPrism extends React.Component {
         component: <ScenePageView position={[0, 0.6, 0]} />,
       },
       { name: "Tic Tac Toe", component: <GameTicTacToe /> },
-      { name: "Clock", component: <SceneClock position={[0, 0, 0]} /> },
-      { name: "Line", component: <SceneLine position={[0, 0, 0]} /> },
-      {
-        name: "Items Padding",
-        component: <SceneItemsPadding position={[0, 0, 0]} />,
-      },
-      {
-        name: "Items Alignment",
-        component: <SceneItemsAlignment position={[0, 0, 0]} />,
-      },
-      {
-        name: "Multiple Prisms",
-        component: (
-          <SceneMultiPrism
-            position={[0, 0, 0]}
-            onPrismAction={this.props.onPrismAction}
-          />
-        ),
-      },
+      { name: "Clock", component: <SceneClock /> },
+      { name: "Line", component: <SceneLine /> },
+      { name: "Items Padding", component: <SceneItemsPadding /> },
+      { name: "Items Alignment", component: <SceneItemsAlignment /> },
+      { name: "Multiple Prisms", component: <SceneMultiPrism onPrismAction={this.props.onPrismAction} /> },
       { name: "Events", component: <SceneEvents /> },
       // { name: 'File Picker', component: <SceneFilePicker position={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector position={[0, 0, -0.5]} /> },

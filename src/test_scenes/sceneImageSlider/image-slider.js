@@ -1,5 +1,5 @@
 import React from 'react';
-import { FitMode, Image, View, Text, TextAlign, Button } from 'magic-script-components';
+import { Button, FitMode, Image, Text, TextAlign, View } from 'magic-script-components';
 
 export default class ImageSlider extends React.Component {
   constructor(props) {
@@ -34,11 +34,10 @@ export default class ImageSlider extends React.Component {
     return (
       <View position={this.props.position}>
         <Text
-          position={[-0.07, 0.30, 0]}
-          fontSize={0.07}
-          textAlign={TextAlign.left}
+            position={[0, 0.30, 0]}
+            fontSize={0.07}
+            textAlign={TextAlign.center}
         >{this.props.caption}</Text>
-
         <Image
           fit={FitMode.aspectFit}
           key={this.state.currentPosition}

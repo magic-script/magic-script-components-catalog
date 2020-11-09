@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, View, Line, Text } from 'magic-script-components';
+import { Button, Line, LinearLayout, Orientation, Text } from 'magic-script-components';
+import { Alignment, AnchorPoint } from 'magic-script-components/src/components/types/enums';
 
 class SceneLine extends React.Component {
 	constructor(props) {
@@ -45,16 +46,22 @@ class SceneLine extends React.Component {
   render() {
 	  const { points } = this.state;
     return (
-      <View position={this.props.position}>
-        <Line position={[0, 0.4, 0]} points={points} color={[1, 1, 0.3, 1]}/>
-        <Button position={[0.3, -0.35, 0]} width={0.3} height={0.15} fontSize={0.1} onClick={this.increaseVertexCount}>+</Button>
-        <Text 
-          alignment={'center-center'}
-          position={[0, -0.15, 0]} 
-          fontSize={0.1} 
-        >{`${points.length - 1} segments`}</Text>
-        <Button position={[-0.3, -0.35, 0]} width={0.3} height={0.15} fontSize={0.1} onClick={this.decreaseVertexCount}>-</Button>
-      </View>
+      <LinearLayout 
+        anchorPoint={AnchorPoint.bottomCenter}
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0, 0, 0.05, 0]}
+        position={[0, -0.4, 0]}
+      >
+        <Line points={points} color={[1, 1, 0.3, 1]} />
+        <Text fontSize={0.1}>{`${points.length - 1} segments`}</Text>
+        <LinearLayout
+          defaultItemPadding={[0, 0.05, 0, 0.05]}
+          orientation={Orientation.horizontal}
+        >
+          <Button width={0.3} height={0.15} fontSize={0.1} onClick={this.decreaseVertexCount}>-</Button>
+          <Button width={0.3} height={0.15} fontSize={0.1} onClick={this.increaseVertexCount}>+</Button>
+        </LinearLayout>
+      </LinearLayout>
     );
   }
 }
