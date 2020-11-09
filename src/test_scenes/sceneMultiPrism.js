@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Prism, View } from "magic-script-components";
+import { Alignment, AnchorPoint, Button, LinearLayout, Prism, TextAlign } from "magic-script-components";
 
 class SceneMultiPrism extends React.Component {
   onAddPrism = () => {
@@ -27,9 +27,9 @@ class SceneMultiPrism extends React.Component {
         >
           <Button
             position={[0, 0, 0]}
-            alignment={"center-center"}
+            alignment={Alignment.centerCenter}
             onClick={() => this.props.onPrismAction(index)}
-            textAlign={"center"}
+            textAlign={TextAlign.center}
             fontSize={0.03}
           >
             {text}
@@ -47,26 +47,18 @@ class SceneMultiPrism extends React.Component {
 
   render() {
     const buttonProps = {
-      alignment: "center-center",
+      alignment: Alignment.centerCenter,
       fontSize: 0.08,
     };
     return (
-      <View position={this.props.position}>
-        <Button
-          {...buttonProps}
-          position={[0, 0.7, 0]}
-          onClick={this.onAddPrism}
-        >
-          Add prism
-        </Button>
-        <Button
-          {...buttonProps}
-          position={[0, 0.45, 0]}
-          onClick={this.onDeletePrism}
-        >
-          Delete prism
-        </Button>
-      </View>
+      <LinearLayout 
+        anchorPoint={AnchorPoint.bottomCenter}
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0, 0, 0.1, 0]}
+      >
+        <Button {...buttonProps} onClick={this.onAddPrism}>Add prism</Button>
+        <Button {...buttonProps} onClick={this.onDeletePrism}>Add prism</Button>
+      </LinearLayout>
     );
   }
 }

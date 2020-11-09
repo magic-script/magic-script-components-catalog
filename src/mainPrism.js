@@ -177,15 +177,7 @@ class MainPrism extends React.Component {
       { name: "Line", component: <SceneLine /> },
       { name: "Items Padding", component: <SceneItemsPadding /> },
       { name: "Items Alignment", component: <SceneItemsAlignment /> },
-      {
-        name: "Multiple Prisms",
-        component: (
-          <SceneMultiPrism
-            position={[0, 0, 0]}
-            onPrismAction={this.props.onPrismAction}
-          />
-        ),
-      },
+      { name: "Multiple Prisms", component: <SceneMultiPrism onPrismAction={this.props.onPrismAction} /> },
       { name: "Events", component: <SceneEvents /> },
       // { name: 'File Picker', component: <SceneFilePicker position={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector position={[0, 0, -0.5]} /> },
