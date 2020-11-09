@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog, LinearLayout, Platform, TextEdit, View, WebView } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, Dialog, DialogType, LinearLayout, Orientation, Platform, TextEdit, View, WebView } from 'magic-script-components';
 
 class SceneWebView extends React.Component {
   constructor(props) {
@@ -39,29 +39,30 @@ class SceneWebView extends React.Component {
     const web = { width: 1.0, height: 0.75 };
     return (
       <LinearLayout 
-          orientation={'vertical'}
-          defaultItemAlignment={'center-center'}
-          defaultItemPadding={[0.03, 0, 0.03, 0]}
-          itemAlignment={[
-            { index: 1, alignment: 'center-right' }
-          ]}
-          itemPadding={[
-            { index: 1, padding: [0, 0.03, 0.1, 0]}
-          ]}
-        >
-          <TextEdit 
-            hint={'Enter url...'}
-            height={0.08}
-            onTextChanged={this.onTextChanged}
-            text={text}
-            fontColor={[1,1,1,0.75]}
-            fontSize={0.05}
-            width={web.width}
-          />
-          <Button height={0.1} onClick={this.onLoad} fontSize={0.08} >Load</Button>
-          <WebView url={url} height={web.height} width={web.width} />
-          <Button height={0.1} onClick={this.onOpenUrl} fontSize={0.08} >Open in browser</Button> 
-        </LinearLayout>
+        debug
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0.03, 0, 0.03, 0]}
+        itemAlignment={[
+          { index: 1, alignment: Alignment.centerRight }
+        ]}
+        itemPadding={[
+          { index: 1, padding: [0, 0.03, 0.1, 0]}
+        ]}
+        orientation={Orientation.vertical}
+      >
+        <TextEdit 
+          hint={'Enter url...'}
+          height={0.08}
+          onTextChanged={this.onTextChanged}
+          text={text}
+          fontColor={[1,1,1,0.75]}
+          fontSize={0.05}
+          width={web.width}
+        />
+        <Button height={0.1} onClick={this.onLoad} fontSize={0.08} >Load</Button>
+        <WebView url={url} height={web.height} width={web.width} />
+        <Button height={0.1} onClick={this.onOpenUrl} fontSize={0.08} >Open in browser</Button> 
+      </LinearLayout>
     );
   }
 
@@ -77,7 +78,7 @@ class SceneWebView extends React.Component {
             message={error}
             onDialogConfirmed={this.onDialogConfirmed}
             title={'Cannot open url'}
-            type={'single-action'}
+            type={DialogType.singleAction}
           />
         )}
       </View>
