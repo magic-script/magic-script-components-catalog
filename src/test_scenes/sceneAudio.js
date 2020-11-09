@@ -69,7 +69,7 @@ class SceneAudio extends React.Component {
     const alarmColor = [1, 0.4, 0.4, 1];
     const alarmPosition = spatialSound ? position : [0, 0, 0];
     return (
-      <View position={this.props.position}>
+      <View>
         <Audio 
           action={AudioAction.start} 
           looping={true} 

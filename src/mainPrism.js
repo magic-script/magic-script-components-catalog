@@ -165,7 +165,7 @@ class MainPrism extends React.Component {
         name: "ColorPicker",
         component: <SceneColorPicker position={[0, 0, 0]} />,
       },
-      { name: "Audio", component: <SceneAudio position={[0, 0, 0]} /> },
+      { name: "Audio", component: <SceneAudio /> },
       { name: "Dialog", component: <SceneDialog position={[0, 0, 0]} /> },
       { name: "Web view", component: <SceneWebView position={[0, 0, 0]} /> },
       {
@@ -173,8 +173,8 @@ class MainPrism extends React.Component {
         component: <ScenePageView position={[0, 0.6, 0]} />,
       },
       { name: "Tic Tac Toe", component: <GameTicTacToe /> },
-      { name: "Clock", component: <SceneClock position={[0, 0, 0]} /> },
-      { name: "Line", component: <SceneLine position={[0, 0, 0]} /> },
+      { name: "Clock", component: <SceneClock /> },
+      { name: "Line", component: <SceneLine /> },
       {
         name: "Items Padding",
         component: <SceneItemsPadding position={[0, 0, 0]} />,

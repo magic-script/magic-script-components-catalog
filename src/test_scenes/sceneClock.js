@@ -113,4 +113,8 @@ class SceneClock extends React.Component {
   }
 }
 
+SceneClock.defaultProps = {
+  position: [0, 0, 0]
+};
+
 export { SceneClock };
