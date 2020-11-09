@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, GridLayout, Image, LinearLayout, PageView, Text, Toggle, View } from 'magic-script-components';
 
 class SceneItemsAlignment extends React.Component {
   constructor(props) {
@@ -19,11 +19,12 @@ class SceneItemsAlignment extends React.Component {
     const { pageIndex } = this.state;
 
     return (
-      <View position={[0, 0.3, 0]}>
+      <View position={[0, 0.8, 0]}>
         <View position={[-0.5, 0, 0]} >
-          <Text textColor={'white'} fontSize={0.08} position={[0, 0.35, 0]}>Linear layout</Text>
+          <Text textColor={'white'} fontSize={0.08}>Linear layout</Text>
           <LinearLayout
-            debug={true}
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             width={0.4}
             height={0.8}
             defaultItemAlignment={Alignment.centerCenter}
@@ -45,9 +46,10 @@ class SceneItemsAlignment extends React.Component {
         </View>
 
         <View position={[0, 0, 0]} >
-          <Text textColor={'white'} fontSize={0.08} position={[0, 0.35, 0]}>Grid layout</Text>
+          <Text textColor={'white'} fontSize={0.08}>Grid layout</Text>
           <GridLayout
-            debug={true}
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             width={0.4}
             height={0.8}
             columns={1}
@@ -69,10 +71,12 @@ class SceneItemsAlignment extends React.Component {
           </GridLayout>
         </View>
 
-        <View position={[0.4, 0, 0]} >
-          <Text textColor={'white'} fontSize={0.08} position={[0, 0.35, 0]}>Page view</Text>
-          <Toggle position={[0.3, 0.275, 0]} height={0.05} onToggleChanged={this.onSwitchHandler} fontSize={0.05}>Switch page</Toggle>
+        <View position={[0.45, 0, 0]} >
+          <Text textColor={'white'} fontSize={0.08}>Page view</Text>
+          <Toggle position={[0.2, -0.1, 0]} height={0.05} onToggleChanged={this.onSwitchHandler} fontSize={0.05}>Switch page</Toggle>
           <PageView
+            anchorPoint={AnchorPoint.topCenter}
+            debug
             width={0.3}
             height={0.3}
             visiblePage={pageIndex}
@@ -80,6 +84,7 @@ class SceneItemsAlignment extends React.Component {
               { index: 0, alignment: Alignment.topLeft },
               { index: 1, alignment: Alignment.bottomCenter }
             ]}
+            position={[0, -0.2, 0]}
           >
             {this.renderItem('blue')}
             {this.renderItem('green')}

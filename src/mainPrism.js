@@ -175,14 +175,8 @@ class MainPrism extends React.Component {
       { name: "Tic Tac Toe", component: <GameTicTacToe /> },
       { name: "Clock", component: <SceneClock /> },
       { name: "Line", component: <SceneLine /> },
-      {
-        name: "Items Padding",
-        component: <SceneItemsPadding position={[0, 0, 0]} />,
-      },
-      {
-        name: "Items Alignment",
-        component: <SceneItemsAlignment position={[0, 0, 0]} />,
-      },
+      { name: "Items Padding", component: <SceneItemsPadding /> },
+      { name: "Items Alignment", component: <SceneItemsAlignment /> },
       {
         name: "Multiple Prisms",
         component: (
