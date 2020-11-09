@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider, Text, View, GridLayout } from 'magic-script-components';
+import { AnchorPoint, LinearLayout, Slider, Text, View } from 'magic-script-components';
 
 class SceneSlider extends React.Component {
   constructor(props) {
@@ -22,45 +22,42 @@ class SceneSlider extends React.Component {
   render() {
     const { defaultSliderValue, userDefinedSliderOneValue, userDefinedSliderTwoValue } = this.state;
     return (
-      <View position={this.props.position}>
-        <GridLayout
-          anchorPoint={"top-center"}
-          columns={1}
-          defaultItemPadding={[0.075, 0, 0, 0]}
-          position={[0.0, 1.0, 0.0]}
-        >
-          <Text alignment={"center-center"} fontSize={0.075} >
-            Default slider
-          </Text>
-          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]} >{"Current value: " + defaultSliderValue.toPrecision(2)}</Text>
-          <Slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
-          <Text alignment={"center-center"} fontSize={0.075}>
-            User configured sliders
-          </Text>
-          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]}>{"Current value: " + userDefinedSliderOneValue.toPrecision(2)}</Text>
-          <Slider
-            value={userDefinedSliderOneValue}
-            min={5}
-            max={10}
-            minLabel={"-"}
-            maxLabel={"+"}
-            width={0.95}
-            height={0.06}
-            onSliderChanged={this.onUserDefinedSliderOneChanged}
-          />
-          <Text alignment={"center-center"} fontSize={0.05} textColor={[0.75,0.5,0.25,1]} text={"Current value: " + userDefinedSliderTwoValue.toPrecision(2)}/>
-          <Slider
-            value={userDefinedSliderTwoValue}
-            min={0}
-            max={12}
-            minLabel={"min"}
-            maxLabel={"max"}
-            width={0.75}
-            height={0.08}
-            onSliderChanged={this.onUserDefinedSliderTwoChanged}
-          />
-        </GridLayout>
-      </View>
+      <LinearLayout
+        anchorPoint={AnchorPoint.topCenter}
+        defaultItemPadding={[0.075, 0, 0, 0]}
+        position={this.props.position}
+      >
+        <Text fontSize={0.075} >Default slider</Text>
+        
+        <Text fontSize={0.05} textColor={[0.75,0.5,0.25,1]} >{"Current value: " + defaultSliderValue.toFixed(2)}</Text>
+        <Slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />
+        
+        <Text fontSize={0.075}>User configured sliders</Text>
+
+        <Text fontSize={0.05} textColor={[0.75,0.5,0.25,1]}>{"Current value: " + userDefinedSliderOneValue.toFixed(2)}</Text>
+        <Slider
+          value={userDefinedSliderOneValue}
+          min={5}
+          max={10}
+          minLabel={"-"}
+          maxLabel={"+"}
+          width={0.95}
+          height={0.06}
+          onSliderChanged={this.onUserDefinedSliderOneChanged}
+        />
+
+        <Text fontSize={0.05} textColor={[0.75,0.5,0.25,1]} >{"Current value: " + userDefinedSliderTwoValue.toFixed(2)}</Text>
+        <Slider
+          value={userDefinedSliderTwoValue}
+          min={0}
+          max={12}
+          minLabel={"min"}
+          maxLabel={"max"}
+          width={0.75}
+          height={0.08}
+          onSliderChanged={this.onUserDefinedSliderTwoChanged}
+        />
+      </LinearLayout>
     );
   }
 }

@@ -146,9 +146,9 @@ class MainPrism extends React.Component {
       },
       {
         name: "Progress bar",
-        component: <SceneProgressBar position={[0, 0.7, 0]} />,
+        component: <SceneProgressBar position={[0, 0.5, 0]} />,
       },
-      { name: "Slider", component: <SceneSlider position={[0, 0, 0]} /> },
+      { name: "Slider", component: <SceneSlider position={[0, 0.8, 0]} /> },
       {
         name: "Dropdown list",
         component: <SceneDropdownList position={[0, 0, 0]} />,
@@ -188,7 +188,7 @@ class MainPrism extends React.Component {
       },
     ];
 
-    const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name == props.initialSceneName));
+    const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name.toUpperCase() === props.initialSceneName.toUpperCase()));
     this.state = { sceneIndex: initialIndex, showGrid: false };
     console.log(`Runs on ${Platform.OS} (${Platform.Version})`);
   }

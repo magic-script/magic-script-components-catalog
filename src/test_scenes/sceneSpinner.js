@@ -1,6 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
-import { View, Text, Spinner, Line } from 'magic-script-components';
+import { Alignment, Line, Spinner, Text, View } from 'magic-script-components';
 
 class SceneSpinner extends React.Component {
 
@@ -40,9 +40,9 @@ class SceneSpinner extends React.Component {
     const value2 = determinate ? progress2 : 0.0;
     return (
       <View position={position}>
-        <Text fontSize={0.08} alignment={'bottom-center'}>{title}</Text>
-        <Spinner alignment={'top-center'} position={[0, -0.15, 0]} height={0.1} width={0.1} type={type} value={value1} determinate={determinate}/>
-        <Spinner alignment={'top-center'} position={[0, -0.5, 0]} height={0.3} width={0.3} type={type} value={value2} determinate={determinate}/>
+        <Text fontSize={0.08} alignment={Alignment.bottomCenter}>{title}</Text>
+        <Spinner alignment={Alignment.topCenter} position={[0, -0.15, 0]} height={0.1} width={0.1} type={type} value={value1} determinate={determinate}/>
+        <Spinner alignment={Alignment.topCenter} position={[0, -0.5, 0]} height={0.3} width={0.3} type={type} value={value2} determinate={determinate}/>
       </View>
     );
   }
@@ -59,8 +59,8 @@ class SceneSpinner extends React.Component {
         {this.renderSpinner('', [ 0.3, 0.1, 0], 'particle-package', value1, value2)}
         <Line color={'white'} points={[[-0.5, 0.2, 0], [0.5, 0.2, 0]]}/>
 
-        <Text position={[0.6, 0.9, 0]} rotation={quat} fontSize={0.08} alignment={'bottom-left'}>indeterminate</Text>
-        <Text position={[0.6, 0.0, 0]} rotation={quat} fontSize={0.08} alignment={'bottom-left'}>determinate</Text>
+        <Text position={[0.6, 0.7, 0]} rotation={quat} fontSize={0.08} alignment={Alignment.bottomLeft}>indeterminate</Text>
+        <Text position={[0.6, -0.1, 0]} rotation={quat} fontSize={0.08} alignment={Alignment.bottomLeft}>determinate</Text>
       </View>
     );
   }

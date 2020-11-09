@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, GridLayout, Video, VideoAction, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, GridLayout, Video, VideoAction, View, ViewMode } from 'magic-script-components';
 
 class SceneVideoGrid extends React.Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class SceneVideoGrid extends React.Component {
         height={resolution[1]}
         screenSize={size}
         path={videoPath}
-        viewMode={"full-area"}
+        viewMode={ViewMode.fullArea}
         volume={0.0}
         action={this.state.action}
         debug
@@ -88,10 +88,10 @@ class SceneVideoGrid extends React.Component {
     return (
       <View position={this.props.position}>
         <GridLayout
-          anchorPoint={"top-center"}
+          anchorPoint={AnchorPoint.topCenter}
           columns={2}
           rows={2}
-          defaultItemAlignment={"center-center"}
+          defaultItemAlignment={Alignment.centerCenter}
           defaultItemPadding={[0.05, 0.05, 0.05, 0.05]}
           position={[0, 1.0, 0]}
         >
