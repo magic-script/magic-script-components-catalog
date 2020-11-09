@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, AnchorPoint, LinearLayout, Slider, Text, View } from 'magic-script-components';
+import { AnchorPoint, LinearLayout, Slider, Text, View } from 'magic-script-components';
 
 class SceneSlider extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class SceneSlider extends React.Component {
         defaultItemPadding={[0.075, 0, 0, 0]}
         position={this.props.position}
       >
-        <Text  fontSize={0.075} >Default slider</Text>
+        <Text fontSize={0.075} >Default slider</Text>
         
         <Text fontSize={0.05} textColor={[0.75,0.5,0.25,1]} >{"Current value: " + defaultSliderValue.toFixed(2)}</Text>
         <Slider onSliderChanged={this.onDefaultSliderChanged} value={defaultSliderValue} width={1} />

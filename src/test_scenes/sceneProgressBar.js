@@ -48,14 +48,10 @@ class SceneProgressBar extends React.Component {
         position={this.props.position}
       >
         <ProgressBar 
-          alignment={Alignment.centerCenter}
-          position={[0, 0.2, 0]} 
           value={0.33} min={0} max={1}
           width={0.5}
         />
         <ProgressBar 
-          alignment={Alignment.centerCenter}
-          position={[0, 0, 0]} 
           value={value1}
           beginColor={[0.1,0.5,0.9,1]}
           endColor={[0.1,0.9,0.5,1]}
@@ -63,8 +59,6 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={Alignment.centerCenter}
-          position={[0, -0.1, 0]} 
           value={value2}
           beginColor= {[0.1,0.5,0.9,1]}
           endColor= {[0.1,0.9,0.5,1]}
@@ -72,8 +66,6 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={Alignment.centerCenter}
-          position={[0, -0.2, 0]} 
           value={value3}
           beginColor= {[0.1,0.5,0.9,1]}
           endColor= {[0.1,0.9,0.5,1]}
@@ -81,8 +73,6 @@ class SceneProgressBar extends React.Component {
           height={0.05}
         />
         <ProgressBar 
-          alignment={Alignment.centerCenter}
-          position={[0, -0.4, 0]} 
           value={0.9} min={-10} max={10}
           beginColor={[1, 0.1, 0.1, 1]}
           endColor={[1, 0.1, 0.1,1]}
