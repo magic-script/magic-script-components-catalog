@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, GridLayout, LinearLayout, Orientation, Text, Toggle, ToggleGroup, ToggleType, View } from 'magic-script-components';
+import { Alignment, GridLayout, LinearLayout, Orientation, Text, Toggle, ToggleGroup, ToggleType } from 'magic-script-components';
 
 const AlignmentList = {
   all: [

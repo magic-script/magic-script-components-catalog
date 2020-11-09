@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, Button, GridLayout, Image, LinearLayout, Orientation, Text, Toggle, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, GridLayout, Image, LinearLayout, Orientation, Text, Toggle, View } from 'magic-script-components';
 import { PaddingGroup } from '../utils/padding';
 import { OptionGroup } from '../utils/optionGroup';
 
@@ -68,7 +68,7 @@ class SceneLinearLayout extends React.Component {
           defaultItemPadding={[0, 0, 0.02, 0]}
           position={[0.4, -1.3, 0]}
         >
-          <Text position={[0, 0.05, 0]} fontSize={0.08} anchorPoint={'bottom-center'}>Set items alignment:</Text>
+          <Text position={[0, 0.05, 0]} fontSize={0.08} anchorPoint={AnchorPoint.bottomCenter}>Set items alignment:</Text>
           <GridLayout
             columns={3}
             defaultItemAlignment={Alignment.centerCenter}
