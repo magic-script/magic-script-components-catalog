@@ -146,9 +146,9 @@ class MainPrism extends React.Component {
       },
       {
         name: "Progress bar",
-        component: <SceneProgressBar position={[0, 0.7, 0]} />,
+        component: <SceneProgressBar position={[0, 0.5, 0]} />,
       },
-      { name: "Slider", component: <SceneSlider position={[0, 0, 0]} /> },
+      { name: "Slider", component: <SceneSlider position={[0, 0.8, 0]} /> },
       {
         name: "Dropdown list",
         component: <SceneDropdownList position={[0, 0, 0]} />,
@@ -167,7 +167,7 @@ class MainPrism extends React.Component {
       },
       { name: "Audio", component: <SceneAudio position={[0, 0, 0]} /> },
       { name: "Dialog", component: <SceneDialog position={[0, 0, 0]} /> },
-      { name: "Web view", component: <SceneWebView position={[0, 0.8, 0]} /> },
+      { name: "Web view", component: <SceneWebView position={[0, 0, 0]} /> },
       {
         name: "Page view",
         component: <ScenePageView position={[0, 0.6, 0]} />,

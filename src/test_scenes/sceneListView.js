@@ -1,5 +1,5 @@
 import React from "react";
-import { View, LinearLayout, Orientation, Text, Image, Toggle, ListViewItem, ListView } from "magic-script-components";
+import { Alignment, AnchorPoint, Image, LinearLayout, ListView, ListViewItem, Orientation, Text, Toggle, View } from "magic-script-components";
 
 class SceneListView extends React.Component {
   constructor(props) {
@@ -24,32 +24,32 @@ class SceneListView extends React.Component {
       items.push(
         <ListViewItem backgroundColor={[1, 0.9, 0, 1]} key={i}>
           <LinearLayout
-            anchorPoint={"center-center"}
-            defaultItemAlignment={"center-center"}
+            anchorPoint={AnchorPoint.centerCenter}
+            defaultItemAlignment={Alignment.centerCenter}
             defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
-            orientation={"horizontal"}
+            orientation={Orientation.horizontal}
           >
             <LinearLayout
-              anchorPoint={"center-center"}
-              defaultItemAlignment={"center-center"}
+              anchorPoint={AnchorPoint.centerCenter}
+              defaultItemAlignment={Alignment.centerCenter}
               defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
-              orientation={"horizontal"}
+              orientation={Orientation.horizontal}
             >
               <Image
-                filePath={this.resources[i]}
+                path={this.resources[i]}
                 width={0.5}
                 height={0.5}
                 debug
               />
             </LinearLayout>
             <LinearLayout
-              anchorPoint={"center-center"}
-              defaultItemAlignment={"center-center"}
+              anchorPoint={AnchorPoint.centerCenter}
+              defaultItemAlignment={Alignment.centerCenter}
               defaultItemPadding={[0.1, 0.1, 0.1, 0.1]}
-              orientation={"horizontal"}
+              orientation={Orientation.horizontal}
             >
               <Text
-                anchorPoint={"center-center"}
+                anchorPoint={AnchorPoint.centerCenter}
                 textColor={"black"}
                 fontSize={0.08}
               >
@@ -86,13 +86,13 @@ class SceneListView extends React.Component {
       <View position={this.props.position}>
         <LinearLayout
           position={[0, 0.5, 0]}
-          anchorPoint={"center-center"}
-          defaultItemAlignment={"center-center"}
+          anchorPoint={AnchorPoint.centerCenter}
+          defaultItemAlignment={Alignment.centerCenter}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
-          orientation={"vertical"}
+          orientation={Orientation.vertical}
         >
           <Toggle
-            anchorPoint={"center-center"}
+            anchorPoint={AnchorPoint.centerCenter}
             on={false}
             fontSize={0.05}
             textColor={"white"}
@@ -103,7 +103,7 @@ class SceneListView extends React.Component {
           </Toggle>
           <ListView
             orientation={listViewOrientation}
-            defaultItemAlignment={"center-center"}
+            defaultItemAlignment={Alignment.centerCenter}
             defaultItemPadding={[0, 0.05, 0, 0.0]}
             height={height}
             width={width}

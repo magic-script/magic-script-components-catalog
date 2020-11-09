@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Line, LinearLayout, Text, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, FitMode, Image, Line, LinearLayout, Text, TextAlign, View } from 'magic-script-components';
 
 class SceneImage extends React.Component {
   renderImage(color, fit, useFrame) {
@@ -8,14 +8,14 @@ class SceneImage extends React.Component {
     const border = 0.03;
     return (
       <LinearLayout 
-        defaultItemAlignment={'top-center'}
+        defaultItemAlignment={Alignment.topCenter}
         defaultItemPadding={[0, 0, 0.01, 0]}
       >
         <View>
           {this.renderRectangle(width + border, height + border)}
           <Image
             color={color}
-            filePath={require('../../assets/resources/board.png')}
+            path={require('../../assets/resources/board.png')}
             fit={fit}
             width={width}
             height={height}
@@ -24,7 +24,7 @@ class SceneImage extends React.Component {
         </View>
         
         <Text 
-          textAlign={'center'}
+          textAlign={TextAlign.center}
           fontSize={0.06}
         >{fit}</Text>
       </LinearLayout>
@@ -45,13 +45,13 @@ class SceneImage extends React.Component {
   render () {
     return (
       <LinearLayout 
-        anchorPoint={'center-center'}
-        defaultItemAlignment={'center-center'}
+        anchorPoint={AnchorPoint.centerCenter}
+        defaultItemAlignment={Alignment.centerCenter}
         defaultItemPadding={[0, 0, 0.1, 0]}
       >
-        {this.renderImage('yellow', 'stretch', false)}
-        {this.renderImage('orange', 'aspect-fill', true)}
-        {this.renderImage('white', 'aspect-fit', true)}
+        {this.renderImage('yellow', FitMode.stretch, false)}
+        {this.renderImage('orange', FitMode.aspectFill, true)}
+        {this.renderImage('white', FitMode.aspectFit, true)}
       </LinearLayout>
     );
   }

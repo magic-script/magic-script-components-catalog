@@ -38,7 +38,7 @@ class SceneFilePicker extends React.Component {
                     <FilePicker width={1} height={0.4} fileType="image/*" onFileSelected={this.onImageSelected}>Image Picker</FilePicker>
 
                     <Image
-                        filePath={image}
+                        path={image}
                         width={0.75}
                         height={0.75} />
 
