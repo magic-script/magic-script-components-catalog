@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Line, LinearLayout, Orientation, Text, View } from 'magic-script-components';
+import { Button, Line, LinearLayout, Orientation, Text } from 'magic-script-components';
 import { Alignment, AnchorPoint } from 'magic-script-components/src/components/types/enums';
 
 class SceneLine extends React.Component {

@@ -6,10 +6,8 @@ class SceneButtonType extends React.Component {
 		return (
       <View position={this.props.position}>
         <LinearLayout 
-        anchorPoint={AnchorPoint.topCenter} 
-        defaultItemAlignment={Alignment.centeerLeft}
-        position={[0, 0.75, 0]} 
-        defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
+          defaultItemAlignment={Alignment.centerLeft}
+          defaultItemPadding={[0.01, 0.01, 0.01, 0.01]}
         >
           <Text fontSize={0.04}> Normal button</Text>	
           <Button height={0.15}>text</Button>
