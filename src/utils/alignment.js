@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, GridLayout, LinearLayout, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
+import { Alignment, GridLayout, LinearLayout, Orientation, Text, Toggle, ToggleGroup, ToggleType } from 'magic-script-components';
 
 const AlignmentList = {
   all: [
@@ -20,13 +20,6 @@ const AlignmentList = {
 }
 
 class AlignmentGroup extends React.Component {
-  static defaultProps = {
-    title: 'Alignment:',
-    position: [0, 0, 0],
-    alignment: Alignment.topLeft,
-    onAlignmentChanged: () => {},
-  };
-
   onVerticalAlignmentChanged = (text) => {
     const elements = this.props.alignment.split('-');
     if (elements.length > 0) {
@@ -50,11 +43,9 @@ class AlignmentGroup extends React.Component {
         height={0.075}
         on={on}
         fontSize={0.075}
-        type={'radio'}
+        type={ToggleType.radio}
         onToggleChanged={(e) => { 
-          if (e.On) { 
-            onChanged(title); 
-          }
+          if (e.On) {  onChanged(title); }
         }}
       >{title}</Toggle>
     );
@@ -69,27 +60,41 @@ class AlignmentGroup extends React.Component {
     const verticalAlignment = (elements.length > 0) ? elements[0] : '';
     const horizontalAlignment = (elements.length > 1) ? elements[1] : '';
     return (
-      <View position={this.props.position}>
-        <Text position={[0, 0.13, 0]} anchorPoint={'bottom-center'} fontSize={0.08}>{this.props.title}</Text>
+      <LinearLayout 
+        anchorPoint={this.props.anchorPoint}
+        defaultItemPadding={[0, 0, 0.02, 0]}
+        debug={this.props.debug}
+        position={this.props.position}
+      >
+        <Text fontSize={0.08}>{this.props.title}</Text>
         <GridLayout defaultItemPadding={[0, 0.09, 0, 0]}>
           <ToggleGroup>
-            <LinearLayout orientation={'vertical'}>
+            <LinearLayout orientation={Orientation.vertical}>
               {this.renderRadio('top', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('center', verticalAlignment, this.onVerticalAlignmentChanged)}
               {this.renderRadio('bottom', verticalAlignment, this.onVerticalAlignmentChanged)}
             </LinearLayout>
           </ToggleGroup>
           <ToggleGroup>
-            <LinearLayout orientation={'vertical'}>
+            <LinearLayout orientation={Orientation.vertical}>
               {this.renderRadio('left', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('center', horizontalAlignment, this.onHorizontalAlignmentChanged)}
               {this.renderRadio('right', horizontalAlignment, this.onHorizontalAlignmentChanged)}
             </LinearLayout>
           </ToggleGroup>
         </GridLayout>
-      </View>
+      </LinearLayout>
     );
   }
 }
+
+AlignmentGroup.defaultProps = {
+  alignment: Alignment.topLeft,
+  anchorPoint: Alignment.topCenter,
+  debug: false,
+  title: 'Alignment:',
+  position: [0, 0, 0],
+  onAlignmentChanged: () => {},
+};
 
 export { AlignmentGroup, AlignmentList };
