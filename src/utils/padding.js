@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, LinearLayout, Orientation, Text, Toggle, ToggleGroup, ToggleType, View } from 'magic-script-components';
+import { Alignment, LinearLayout, Orientation, Text, Toggle, ToggleGroup, ToggleType } from 'magic-script-components';
 
 class PaddingGroup extends React.Component {
   static defaultProps = {
