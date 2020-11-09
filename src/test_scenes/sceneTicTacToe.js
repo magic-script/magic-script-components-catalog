@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, GridLayout, LinearLayout } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, GridLayout, LinearLayout, Text, View } from 'magic-script-components';
 
 function Square(props) {
   const color = props.value === 'X' ? [1, 0.1, 0.1, 1] : [0.1, 0.1, 1, 1];
@@ -104,8 +104,8 @@ export class GameTicTacToe extends React.Component {
           />
         </View>
         <View name="game-info" position={[0, 0.5, 0]}>
-          <Text fontSize={0.05} position={[0.3, 0,0]} anchorPoint='top-left'>{status}</Text>
-          <LinearLayout defaultItemAlignment={'top-center'} position={[0, -0.08, 0]}>{moves}</LinearLayout>
+          <Text fontSize={0.05} position={[0.3, 0,0]} anchorPoint={AnchorPoint.topLeft}>{status}</Text>
+          <LinearLayout defaultItemAlignment={Alignment.topCenter} position={[0, -0.08, 0]}>{moves}</LinearLayout>
         </View>
       </View>
     );
