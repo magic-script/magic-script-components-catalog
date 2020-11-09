@@ -39,7 +39,6 @@ class SceneWebView extends React.Component {
     const web = { width: 1.0, height: 0.75 };
     return (
       <LinearLayout 
-        debug
         defaultItemAlignment={Alignment.centerCenter}
         defaultItemPadding={[0.03, 0, 0.03, 0]}
         itemAlignment={[
