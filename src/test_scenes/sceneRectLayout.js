@@ -1,6 +1,7 @@
 import React from 'react';
+import { Alignment, AnchorPoint, Button, Image, Line, LinearLayout, Orientation, RectLayout, Toggle, View } from 'magic-script-components';
 import { AlignmentGroup, AlignmentList } from '../utils/alignment';
-import { Alignment, Button, View, Text, RectLayout, Image, Toggle, ToggleGroup, GridLayout, Line, LinearLayout } from 'magic-script-components';
+import { OptionGroup } from '../utils/optionGroup';
 
 const ContentSizes = [
   { width: 0.25, height: 0.25 },
@@ -35,8 +36,19 @@ class SceneRectLayout extends React.Component {
     this.setState({ contentAlignment: alignment });
   }
 
-  onContentSizeChanged = (index) => {
-    this.setState({ contentSizeIndex: index });
+  onContentSizeChanged = (selectedIndices) => {
+    console.log('selectedIndices: ' + selectedIndices.length);
+    this.setState({ contentSizeIndex: (selectedIndices.length > 0) ? selectedIndices[0] : 0 });
+  }
+
+  getContentSizeOptions = () => {
+    var items = [];
+    for (var i = 0; i < ContentSizes.length; i += 1) {
+      const size = ContentSizes[i];
+      items.push(`${size.width}x${size.height}`);
+    }
+
+    return items;
   }
 
   renderButton(size) {
@@ -57,7 +69,7 @@ class SceneRectLayout extends React.Component {
     const max = { x: 0.5 * size, y: 0.5 * size };
     const points = [[min.x, min.y, 0], [min.x, max.y, 0], [max.x, max.y, 0], [max.x, min.y, 0], [min.x, min.y, 0]];
     return (
-      <View anchorPoint={'center-center'} position={position}>
+      <View anchorPoint={AnchorPoint.centerCenter} position={position}>
         <Line points={points} color={[1, 1, 0, 1]} />
         <Line points={[[min.x, 0, 0], [max.x, 0, 0]]} color={[1, 1, 0, 0.5]} />
         <Line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1, 1, 0, 0.5]} />
@@ -73,7 +85,7 @@ class SceneRectLayout extends React.Component {
         height={0.075}
         on={on}
         fontSize={0.075}
-        type={'radio'}
+        type={ToggleType.radio}
         onToggleChanged={() => onChanged(index)}
       >{`${contentSize.width} x ${contentSize.height} m`}</Toggle>
     );
@@ -81,11 +93,7 @@ class SceneRectLayout extends React.Component {
 
   render() {
     const { contentAlignment, alignment, contentSizeIndex } = this.state
-
     const rectPosition = [0, 0.5, 0];
-    const alignmentSectionPosition = [0, -0.25, 0];
-    const contentAlignmentSectionPosition = [0, -0.65, 0];
-    const contentSizeSectionPosition = [0, -1.05, 0];
     const rectSize = { width: 0.5, height: 0.5 };
 
     return (
@@ -110,31 +118,48 @@ class SceneRectLayout extends React.Component {
 
         {this.renderGrid(rectPosition, 1.0)}
 
-        <AlignmentGroup
-          alignment={alignment}
-          position={alignmentSectionPosition}
-          onAlignmentChanged={this.onAlignmentChanged}
-          title={'Alignment:'}
-        />
-        <AlignmentGroup
-          alignment={contentAlignment}
-          position={contentAlignmentSectionPosition}
-          onAlignmentChanged={this.onContentAlignmentChanged}
-          title={'Content alignment:'}
-        />
+        <LinearLayout 
+          anchorPoint={AnchorPoint.topCenter}
+          defaultItemAlignment={Alignment.centerCenter}
+          defaultItemPadding={[0, 0, 0.15, 0]}
+          position={[0, -0.2, 0]}
+        >
+          <LinearLayout orientation={Orientation.horizontal}>
+            <AlignmentGroup
+              alignment={alignment}
+              onAlignmentChanged={this.onAlignmentChanged}
+              title={'Alignment:'}
+            />
+            <AlignmentGroup
+              alignment={contentAlignment}
+              onAlignmentChanged={this.onContentAlignmentChanged}
+              title={'Content alignment:'}
+            />
+          </LinearLayout>
 
-        <View position={contentSizeSectionPosition}>
-          <Text fontSize={0.08} position={[0, 0.13, 0]} anchorPoint={'bottom-center'}>Content size:</Text>
+          <OptionGroup 
+            anchorPoint={Alignment.topCenter}
+            multipleOptions={false}
+            onOptionChanged={this.onContentSizeChanged}
+            options={this.getContentSizeOptions()}
+            title={'Content size:'}
+          />
+        </LinearLayout>
+
+        
+
+        {/* <View position={contentSizeSectionPosition}>
+          <Text fontSize={0.08} position={[0, 0.13, 0]} anchorPoint={AnchorPoint.bottomCenter}>Content size:</Text>
           <GridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
             <ToggleGroup>
-              <LinearLayout orientation={'vertical'}>
+              <LinearLayout orientation={Orientation.vertical}>
                 {this.renderRadio(0, contentSizeIndex, this.onContentSizeChanged)}
                 {this.renderRadio(1, contentSizeIndex, this.onContentSizeChanged)}
                 {this.renderRadio(2, contentSizeIndex, this.onContentSizeChanged)}
               </LinearLayout>
             </ToggleGroup>
           </GridLayout>
-        </View>
+        </View> */}
       </View>
     )
   }
