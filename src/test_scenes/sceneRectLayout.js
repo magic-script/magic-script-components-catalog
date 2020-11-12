@@ -37,7 +37,6 @@ class SceneRectLayout extends React.Component {
   }
 
   onContentSizeChanged = (selectedIndices) => {
-    console.log('selectedIndices: ' + selectedIndices.length);
     this.setState({ contentSizeIndex: (selectedIndices.length > 0) ? selectedIndices[0] : 0 });
   }
 
@@ -142,24 +141,10 @@ class SceneRectLayout extends React.Component {
             multipleOptions={false}
             onOptionChanged={this.onContentSizeChanged}
             options={this.getContentSizeOptions()}
+            initialSelectedOptionsIndices={[contentSizeIndex]}
             title={'Content size:'}
           />
         </LinearLayout>
-
-        
-
-        {/* <View position={contentSizeSectionPosition}>
-          <Text fontSize={0.08} position={[0, 0.13, 0]} anchorPoint={AnchorPoint.bottomCenter}>Content size:</Text>
-          <GridLayout defaultItemPadding={[0, 0.05, 0, 0]}>
-            <ToggleGroup>
-              <LinearLayout orientation={Orientation.vertical}>
-                {this.renderRadio(0, contentSizeIndex, this.onContentSizeChanged)}
-                {this.renderRadio(1, contentSizeIndex, this.onContentSizeChanged)}
-                {this.renderRadio(2, contentSizeIndex, this.onContentSizeChanged)}
-              </LinearLayout>
-            </ToggleGroup>
-          </GridLayout>
-        </View> */}
       </View>
     )
   }
