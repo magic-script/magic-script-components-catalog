@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FileSystem, GridLayout, LinearLayout, Platform, Text, TextEdit, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, FileSystem, GridLayout, LinearLayout, Platform, Text, TextEdit, View } from 'magic-script-components';
 
 class SceneFileSystem extends React.Component {
 
@@ -62,8 +62,8 @@ class SceneFileSystem extends React.Component {
     return (
       <View>
         <LinearLayout
-          anchorPoint={'center-center'}
-          defaultItemAlignment={'center-center'}
+          anchorPoint={AnchorPoint.centerCenter}
+          defaultItemAlignment={Alignment.centerCenter}
           defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
         >
           <TextEdit 
@@ -83,12 +83,12 @@ class SceneFileSystem extends React.Component {
           >{currentPath}</Text>
           <GridLayout
             columns={2}
-            defaultItemAlignment={'center-left'}
+            defaultItemAlignment={Alignment.centerLeft}
             defaultItemPadding={[0.03, 0.03, 0.03, 0.03]}
             itemAlignment={[
-              { column: 0, row: 0, alignment: 'center-right' },
-              { column: 0, row: 1, alignment: 'center-right' },
-              { column: 0, row: 2, alignment: 'center-right' }
+              { column: 0, row: 0, alignment: Alignment.centerRight },
+              { column: 0, row: 1, alignment: Alignment.centerRight },
+              { column: 0, row: 2, alignment: Alignment.centerRight }
             ]}
           >
             <Button fontSize={0.08} onClick={this.onLoad}>Load</Button>
