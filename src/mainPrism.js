@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  DropdownList,
-  DropdownListItem,
-  Toggle,
-  View,
-  Platform,
-  Prism,
-} from "magic-script-components";
+import { Alignment, AnchorPoint, Button, DropdownList, DropdownListItem, LinearLayout, Orientation, Platform, Prism, Toggle, View } from "magic-script-components";
 import { Grid } from "./utils/grid";
 import {
   GameTicTacToe,
@@ -212,6 +204,7 @@ class MainPrism extends React.Component {
   };
 
   onSceneSelected = (event) => {
+    console.log('onSceneSelected: ' + event);
     if (event.SelectedItems.length > 0) {
       const item = event.SelectedItems[0];
       this.setState({ sceneIndex: item.id });
@@ -233,19 +226,11 @@ class MainPrism extends React.Component {
 
   renderGrid() {
     const { showGrid } = this.state;
-    return showGrid ? (
-      <Grid bounds={this.getBoundsFromSize(this.props.size)} />
-    ) : null;
+    return showGrid ? <Grid bounds={this.getBoundsFromSize(this.props.size)} /> : null;
   }
 
   renderDropdownItems() {
-    return this.scenes.map((scene, index) => (
-      <DropdownListItem
-        key={index}
-        id={index}
-        label={scene.name.replace(/\n/g, " ")}
-      />
-    ));
+    return this.scenes.map((scene, index) => <DropdownListItem key={index} id={index} label={scene.name.replace(/\n/g, " ")} />);
   }
 
   onModeChangedHandler = (event) => {
@@ -270,69 +255,43 @@ class MainPrism extends React.Component {
     const size = this.props.size;
     const buttonSize = { width: 0.25, height: 0.1 };
     const toggleSize = { height: 0.035 };
+    const sidePadding = size[0] - 2 * buttonSize.width;
     return (
       <Prism
         size={this.props.size}
         position={[0, 0, 0]}
-        interactions={["scale", "position", "rotation"]}
+        interactions={['scale', 'position', 'rotation']}
         onModeChanged={this.onModeChangedHandler}
         onRotationChanged={this.onRotationChangedHandler}
         onScaleChanged={this.onScaleChangedHandler}
         onPositionChanged={this.onPositionChangedHandler}
         debug
       >
-        <View
-          name="main-view"
-          alignment={"top-center"}
-          position={[0, 0, 0]}
-          scale={[0.5, 0.5, 0.5]}
-        >
-          <View
-            alignment={"center-center"}
+        <View name="main-view" scale={[0.5, 0.5, 0.5]} >
+          <LinearLayout 
+            anchorPoint={AnchorPoint.topCenter}
+            defaultItemAlignment={Alignment.centerCenter}
+            defaultItemPadding={[0, 0, 0.05, 0]}
             position={[0, size[1] - buttonSize.height, 0]}
           >
-            <Button
-              position={[-(size[0] - buttonSize.width), 0, 0]}
-              width={0.25}
-              height={0.1}
-              roundness={1}
-              fontSize={0.05}
-              onClick={this.onPreviousScene}
-            >
-              Prev
-            </Button>
-            <DropdownList
-              position={[0, -buttonSize.height, 0]}
-              listMaxHeight={1}
-              onSelectionChanged={this.onSceneSelected}
-              text={scene.name}
-              fontSize={0.05}
-            >
+            <Toggle height={toggleSize.height} fontSize={0.035} on={this.state.showGrid} onToggleChanged={this.onShowGridAction}>Grid</Toggle>
+            <DropdownList listMaxHeight={1} onSelectionChanged={this.onSceneSelected} text={scene.name} fontSize={0.05}>
               {this.renderDropdownItems()}
             </DropdownList>
-            <Button
-              position={[size[0] - buttonSize.width, 0, 0]}
-              width={0.25}
-              height={0.1}
-              roundness={1}
-              fontSize={0.05}
-              onClick={this.onNextScene}
-            >
-              Next
-            </Button>
-            <Toggle
-              position={[toggleSize.height * 2, 0, 0]}
-              height={toggleSize.height}
-              fontSize={0.035}
-              text={"Grid"}
-              on={this.state.showGrid}
-              onToggleChanged={this.onShowGridAction}
-              alignment={"bottom-center"}
-            >
-              Grid
-            </Toggle>
-          </View>
-          <View alignment={"center-center"} position={[0, 0, 0]}>
+          </LinearLayout>
+
+          <LinearLayout
+            itemPadding={[
+              { index: 0, padding: [0, sidePadding, 0, 0] },
+              { index: 1, padding: [0, 0, 0, sidePadding] }
+            ]}
+            orientation={Orientation.horizontal}
+            position={[0, size[1] - buttonSize.height, 0]}
+          >
+            <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
+            <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onNextScene}>Next</Button>
+          </LinearLayout>
+          <View alignment={Alignment.centerCenter}>
             {this.renderGrid()}
             {scene.component}
           </View>
@@ -344,7 +303,7 @@ class MainPrism extends React.Component {
 
 MainPrism.defaultProps = {
   size: [1.0, 1.0, 0.5],
-  initialSceneName: "Characters",
+  initialSceneName: 'Characters',
 };
 
 export { MainPrism };
