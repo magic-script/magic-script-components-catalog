@@ -1,5 +1,5 @@
 import React from "react";
-import { View, LinearLayout, DatePicker } from "magic-script-components";
+import { Alignment, AnchorPoint, DateFormat, DatePicker, LinearLayout, Orientation, View } from "magic-script-components";
 
 class SceneDatePicker extends React.Component {
   onDateChanged = event => {
@@ -17,11 +17,11 @@ class SceneDatePicker extends React.Component {
       <View position={this.props.position}>
         <LinearLayout
           position={[0, 0.5, 0]}
-          anchorPoint={"center-center"}
+          anchorPoint={AnchorPoint.centerCenter}
           columns={1}
-          defaultItemAlignment={"center-left"}
+          defaultItemAlignment={Alignment.centerLeft}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
-          orientation={"vertical"}
+          orientation={Orientation.vertical}
         >
           <DatePicker
             label={"Default date format (MM/DD/YYYY)"}
@@ -33,19 +33,19 @@ class SceneDatePicker extends React.Component {
             label={"Custom date format (DD/MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
-            dateFormat={"DD/MM/YYYY"}
+            dateFormat={DateFormat.DDMMYYYY}
           />
           <DatePicker
             label={"Custom date format (MM/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
-            dateFormat={"MM/YYYY"}
+            dateFormat={DateFormat.MMYYYY}
           />
           <DatePicker
             label={"Custom date format (DD/YYYY)"}
             onDateChanged={this.onDateChanged}
             onDateConfirmed={this.onDateConfirmed}
-            dateFormat={"DD/YYYY"}
+            dateFormat={DateFormat.DDYYYY}
           />
         </LinearLayout>
       </View>
