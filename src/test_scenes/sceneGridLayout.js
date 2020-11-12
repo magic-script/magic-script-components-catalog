@@ -62,7 +62,7 @@ class SceneGridLayout extends React.Component {
           debug={true}
           width={width}
           height={height}
-          anchorPoint={'top-center'}
+          anchorPoint={AnchorPoint.topCenter}
           columns={columns}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}

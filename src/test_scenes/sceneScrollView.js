@@ -5,7 +5,7 @@ class SceneScrollView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { isVertical: true, alignment: Alignment.centerCenter, scrollValue: 0 };
+    this.state = { isVertical: true, scrollValue: 0 };
   }
 
   onOrientationChanged = event => this.setState({ isVertical: event.On, scrollValue: 0 });
@@ -15,7 +15,7 @@ class SceneScrollView extends React.Component {
   }
 
   render() {
-    const { isVertical, alignment, scrollValue } = this.state;
+    const { isVertical, scrollValue } = this.state;
     const size = 1.0;
     const orientation = isVertical ? Orientation.vertical : Orientation.horizontal;
     const direction = isVertical ? ScrollDirection.vertical : ScrollDirection.horizontal;;
@@ -61,7 +61,7 @@ class SceneScrollView extends React.Component {
           scrollValue={scrollValue}
         >
           <ScrollBar position={scrollBarPosition} orientation={orientation} length={scrollBarLength} thickness={scrollBarThickness} />
-          <LinearLayout anchorPoint={alignment} defaultItemAlignment={Alignment.centerCenter} orientation={orientation}>
+          <LinearLayout defaultItemAlignment={Alignment.centerCenter} orientation={orientation}>
             <Image width={size} height={size} color={[1,1,0.5,alpha]}/>
             <Image width={size} height={size} color={[1,0.5,1,alpha]}/>
             <Image width={size} height={size} color={[0.5,1,1,alpha]}/>

@@ -52,8 +52,8 @@ class SceneText extends React.Component {
         <Button position={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} fontSize={textSize}>justify</Button>
         <Button position={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} fontSize={textSize}>right</Button>
 
-        <Toggle position={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === labels.long} height={textSize} fontSize={textSize} anchorPoint={'top-right'}>Long text</Toggle>
-        <Toggle position={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} fontSize={textSize} anchorPoint={'top-right'}>Wrap text</Toggle>
+        <Toggle position={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === labels.long} height={textSize} fontSize={textSize} anchorPoint={AnchorPoint.topRight}>Long text</Toggle>
+        <Toggle position={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} fontSize={textSize} anchorPoint={AnchorPoint.topRight}>Wrap text</Toggle>
       </View>
     );
   }

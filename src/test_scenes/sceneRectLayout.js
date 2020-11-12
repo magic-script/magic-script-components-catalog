@@ -12,7 +12,7 @@ const ContentSizes = [
 class SceneRectLayout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { alignment: Alignment.centerCenter, contentAlignment: Alignment.topRight, contentSizeIndex: 0 };
+    this.state = { anchorPoint: AnchorPoint.centerCenter, contentAlignment: Alignment.topRight, contentSizeIndex: 0 };
     this.interval = 0.5;
   }
 
@@ -28,8 +28,8 @@ class SceneRectLayout extends React.Component {
     this.setState({ contentAlignment: AlignmentList.next(this.state.contentAlignment) });
   }
 
-  onAlignmentChanged = (alignment) => {
-    this.setState({ alignment });
+  onAnchorPointChanged = (anchorPoint) => {
+    this.setState({ anchorPoint });
   }
 
   onContentAlignmentChanged = (alignment) => {
@@ -91,14 +91,14 @@ class SceneRectLayout extends React.Component {
   }
 
   render() {
-    const { contentAlignment, alignment, contentSizeIndex } = this.state
+    const { contentAlignment, anchorPoint, contentSizeIndex } = this.state
     const rectPosition = [0, 0.5, 0];
     const rectSize = { width: 0.5, height: 0.5 };
 
     return (
       <View position={this.props.position}>
         <Image
-          anchorPoint={alignment}
+          anchorPoint={anchorPoint}
           color={[0.1, 0.25, 0.5, 0.8]}
           position={rectPosition}
           useFrame={true}
@@ -106,7 +106,7 @@ class SceneRectLayout extends React.Component {
           height={rectSize.height}
         />
         <RectLayout
-          anchorPoint={alignment}
+          anchorPoint={anchorPoint}
           alignment={contentAlignment}
           position={rectPosition}
           width={rectSize.width}
@@ -125,9 +125,9 @@ class SceneRectLayout extends React.Component {
         >
           <LinearLayout orientation={Orientation.horizontal}>
             <AlignmentGroup
-              alignment={alignment}
-              onAlignmentChanged={this.onAlignmentChanged}
-              title={'Alignment:'}
+              alignment={anchorPoint}
+              onAlignmentChanged={this.onAnchorPointChanged}
+              title={'Anchor point:'}
             />
             <AlignmentGroup
               alignment={contentAlignment}
@@ -137,7 +137,7 @@ class SceneRectLayout extends React.Component {
           </LinearLayout>
 
           <OptionGroup 
-            anchorPoint={Alignment.topCenter}
+            anchorPoint={AnchorPoint.topCenter}
             multipleOptions={false}
             onOptionChanged={this.onContentSizeChanged}
             options={this.getContentSizeOptions()}
