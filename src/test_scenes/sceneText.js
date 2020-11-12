@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, View, Text, TextAlign, Toggle, Button } from 'magic-script-components';
+import { AnchorPoint, Button, Line, Text, TextAlign, Toggle, View } from 'magic-script-components';
 
 const labels = {
   short: 'Some text',
@@ -89,7 +89,7 @@ class SceneText extends React.Component {
   renderText() {
     const { boundsWidth, boundsHeight, text, textAlignment, wrap } = this.state;
     return <Text
-      anchorPoint={'top-left'}
+      anchorPoint={AnchorPoint.topLeft}
       width={boundsWidth}
       height={boundsHeight}
       multiline={wrap}
