@@ -1,6 +1,5 @@
 import React from 'react';
-import { SystemIcons } from '../utils/systemIcons';
-import { Alignment, AnchorPoint, FitMode, GridLayout, Image, Line, LinearLayout, Orientation, Text, Toggle, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, FitMode, GridLayout, Image, Line, LinearLayout, Orientation, SystemIcon, Text, Toggle, View } from 'magic-script-components';
 
 class SceneSystemIcons extends React.Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class SceneSystemIcons extends React.Component {
       animateFast: false
     };
     this.smallIconSize = 0.11;
+    this.allIcons = Object.keys(SystemIcon).map((key) => SystemIcon[key]).sort();
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ class SceneSystemIcons extends React.Component {
 
   updateProgress = () => {
     var { currentIconIndex } = this.state;
-    currentIconIndex = (currentIconIndex + 1) % SystemIcons.length;
+    currentIconIndex = (currentIconIndex + 1) % this.allIcons.length;
     this.setState({ currentIconIndex });
   }
 
@@ -40,14 +40,14 @@ class SceneSystemIcons extends React.Component {
   renderIcons() {
     const { currentIconIndex } = this.state;
     const iconsCount = 8;
-    const startFromIndex = (currentIconIndex - Math.floor(iconsCount / 2)) % SystemIcons.length;
-    const minIconIndex = (startFromIndex >= 0) ? startFromIndex : startFromIndex + SystemIcons.length;
+    const startFromIndex = (currentIconIndex - Math.floor(iconsCount / 2)) % this.allIcons.length;
+    const minIconIndex = (startFromIndex >= 0) ? startFromIndex : startFromIndex + this.allIcons.length;
     const maxIconIndex = minIconIndex + iconsCount;
     var icons = [];
     var key = 0;
     for (var i = minIconIndex; i <= maxIconIndex; ++i) {
-      const index = i % SystemIcons.length;
-      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={SystemIcons[index]} fit={FitMode.aspecFit} />);
+      const index = i % this.allIcons.length;
+      icons.push(<Image key={key} height={this.smallIconSize} width={this.smallIconSize} icon={this.allIcons[index]} fit={FitMode.aspecFit} />);
       key += 1;
     }
     return icons;
@@ -81,8 +81,8 @@ class SceneSystemIcons extends React.Component {
 
   render () {
     const { currentIconIndex, animateFast } = this.state;
-    const icon = SystemIcons[currentIconIndex];
-    const numberOfIcons = `${currentIconIndex + 1}/${SystemIcons.length}`;
+    const icon = this.allIcons[currentIconIndex];
+    const numberOfIcons = `${currentIconIndex + 1}/${this.allIcons.length}`;
     return (
       <View position={[0, 1.0, 0]}>
         <Image anchorPoint={AnchorPoint.topCenter} height={0.5} width={0.75} icon={icon} fit={FitMode.aspectFit} debug/>
