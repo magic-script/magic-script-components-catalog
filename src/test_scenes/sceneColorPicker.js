@@ -1,5 +1,5 @@
 import React from "react";
-import { View, LinearLayout, ColorPicker } from 'magic-script-components';
+import { Alignment, AnchorPoint, ColorPicker, LinearLayout, Orientation } from 'magic-script-components';
 
 class SceneColorPicker extends React.Component {
   onColorChanged = event => {
@@ -19,36 +19,39 @@ class SceneColorPicker extends React.Component {
 
   render() {
     return (
-      <View position={this.props.position}>
-        <LinearLayout
-          position={[0, 0.5, 0]}
-          anchorPoint={"center-center"}
-          columns={1}
-          defaultItemAlignment={"center-center"}
-          defaultItemPadding={[0.07, 0, 0.07, 0]}
-          orientation={"vertical"}
-        >
-          <ColorPicker
-            startingColor={[0.75, 0.5, 0.25, 1]}
-            onColorChanged={this.onColorChanged}
-            onColorConfirmed={this.onColorConfirmed}
-            onColorCanceled={this.onColorCanceled}
-          />
-          <ColorPicker
-            color={[0.95, 0.85, 0.75, 1]}
-            onColorChanged={this.onColorChanged}
-            onColorConfirmed={this.onColorConfirmed}
-            onColorCanceled={this.onColorCanceled}
-          />
-          <ColorPicker
-            startingColor={[0.75, 0.5, 0.25, 1]}
-            color={[0.95, 0.85, 0.75, 1]}
-            onColorChanged={this.onColorChanged}
-            onColorConfirmed={this.onColorConfirmed}
-            onColorCanceled={this.onColorCanceled}
-          />
-        </LinearLayout>
-      </View>
+      <LinearLayout
+        anchorPoint={AnchorPoint.centerCenter}
+        columns={1}
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0.07, 0, 0.07, 0]}
+        orientation={Orientation.vertical}
+        position={this.props.position}
+      >
+        <ColorPicker
+          color={[0.75, 0.5, 0.25, 1]}
+          onColorChanged={this.onColorChanged}
+          onColorConfirmed={this.onColorConfirmed}
+          onColorCanceled={this.onColorCanceled}
+        />
+        <ColorPicker
+          color={'red'}
+          onColorChanged={this.onColorChanged}
+          onColorConfirmed={this.onColorConfirmed}
+          onColorCanceled={this.onColorCanceled}
+        />
+        <ColorPicker
+          color={'#00FF00'}
+          onColorChanged={this.onColorChanged}
+          onColorConfirmed={this.onColorConfirmed}
+          onColorCanceled={this.onColorCanceled}
+        />
+        <ColorPicker
+          color={[1,1,0,1]}
+          onColorChanged={this.onColorChanged}
+          onColorConfirmed={this.onColorConfirmed}
+          onColorCanceled={this.onColorCanceled}
+        />
+      </LinearLayout>
     );
   }
 }
