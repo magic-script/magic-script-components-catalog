@@ -15,12 +15,12 @@ class SceneScrollBar extends React.Component {
           <LinearLayout>
             <LinearLayout defaultItemPadding={[0.07, 0.07, 0.07, 0.07]} orientation={Orientation.horizontal}>
               <ScrollBar thumbPosition={0.1} length={1.2} thickness={0.07} rotation={quat} />
-              <ScrollBar thumbSize={7.0} thumbPosition={0.33} length={0.7} thickness={0.11} rotation={quat} />
+              <ScrollBar thumbSize={1.0} thumbPosition={0.33} length={0.7} thickness={0.11} rotation={quat} />
             </LinearLayout>
             <LinearLayout defaultItemPadding={[0.07, 0.07, 0.07, 0.07]}>
               <ScrollBar thumbPosition={0.1} length={1.2} thickness={0.07} orientation={Orientation.horizontal} />
               <ScrollBar thumbSize={0.33} thumbPosition={0.33} length={1} thickness={0.11} orientation={Orientation.horizontal} />
-              <ScrollBar thumbSize={0.5} thumbPosition={2.0} length={1.2} thickness={0.08} orientation={Orientation.horizontal} />
+              <ScrollBar thumbSize={0.5} thumbPosition={1.0} length={1.2} thickness={0.08} orientation={Orientation.horizontal} />
             </LinearLayout>
           </LinearLayout>
         </LinearLayout>
