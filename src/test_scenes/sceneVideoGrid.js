@@ -79,7 +79,6 @@ class SceneVideoGrid extends React.Component {
         viewMode={ViewMode.fullArea}
         volume={0.0}
         action={this.state.action}
-        debug
       />
     );
   }

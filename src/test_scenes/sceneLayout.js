@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, RectLayout, Slider } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, RectLayout, Slider, Text, View } from 'magic-script-components';
 
 const ElementSize = { width: 0.4, height: 0.2 };
 
@@ -39,17 +39,17 @@ class SceneLayout extends React.Component {
     return (
       <View position={this.props.position}>
         <View key={'standalone_element'} position={[0, 0.9, 0]}>
-          <Text  anchorPoint={'bottom-left'} position={[-0.5, 0, 0]} fontSize={0.08}>• Standalone element:</Text>
+          <Text anchorPoint={AnchorPoint.bottomLeft} position={[-0.5, 0, 0]} fontSize={0.08}>• Standalone element:</Text>
           <View position={[0, -0.15, 0]}>
             {this.renderElement({})}
           </View>
         </View>
         
         <View key={'fixed_rect'} position={[0, 0.5, 0]}>
-          <Text anchorPoint={'bottom-left'} position={[-0.5, 0.0, 0]} fontSize={0.08}>• Element in fixed rect layout:</Text>
+          <Text anchorPoint={AnchorPoint.bottomLeft} position={[-0.5, 0.0, 0]} fontSize={0.08}>• Element in fixed rect layout:</Text>
           <RectLayout
-            anchorPoint={'top-center'}
-            alignment={'center-center'}
+            anchorPoint={AnchorPoint.topCenter}
+            alignment={Alignment.centerCenter}
             position={[0, -0.05, 0]}
             padding={padding}
           >
@@ -58,10 +58,10 @@ class SceneLayout extends React.Component {
         </View>
 
         <View key={'resizable_rect'} position={[0, 0.1, 0]}>
-          <Text anchorPoint={'bottom-left'} position={[-0.5, 0.0, 0]} fontSize={0.08} >• Element in resizable rect layout:</Text>
+          <Text anchorPoint={AnchorPoint.bottomLeft} position={[-0.5, 0.0, 0]} fontSize={0.08} >• Element in resizable rect layout:</Text>
           <RectLayout
-            anchorPoint={'top-center'}
-            alignment={'center-center'}
+            anchorPoint={AnchorPoint.topCenter}
+            alignment={Alignment.centerCenter}
             position={[0, -0.05, 0]}
             height={height}
             width={width}
@@ -69,8 +69,8 @@ class SceneLayout extends React.Component {
             {this.renderElement({})}
           </RectLayout>
           <RectLayout
-            anchorPoint={'top-center'}
-            alignment={'center-center'}
+            anchorPoint={AnchorPoint.topCenter}
+            alignment={Alignment.centerCenter}
             position={[0, -0.05, 0]}
             height={height}
             width={width}
@@ -80,7 +80,7 @@ class SceneLayout extends React.Component {
         </View>
 
         <View key={'slider'} position={[0, -0.6, 0]}>
-          <Text anchorPoint={'bottom-left'} position={[-0.5, 0, 0]} fontSize={0.08}>{`Scale ${scale.toFixed(2)}`}</Text>
+          <Text anchorPoint={AnchorPoint.bottomLeft} position={[-0.5, 0, 0]} fontSize={0.08}>{`Scale ${scale.toFixed(2)}`}</Text>
           <Slider 
             position={[0, -0.1, 0]}
             value={scale}

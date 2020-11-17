@@ -1,5 +1,5 @@
 import React from "react";
-import { LinearLayout, TextEdit, Toggle, RectLayout } from "magic-script-components";
+import { Alignment, LinearLayout, RectLayout, TextEdit, Toggle, ToggleType } from "magic-script-components";
 
 class SceneEvents extends React.Component {
   constructor(props) {
@@ -68,7 +68,7 @@ class SceneEvents extends React.Component {
       <Toggle
         height={0.075}
         fontSize={0.035}
-        type="checkbox"
+        type={ToggleType.checkbox}
         on={on}
         enabled={false}
       >
@@ -96,7 +96,7 @@ class SceneEvents extends React.Component {
       <LinearLayout
         defaultItemPadding={[0.01, 0.0, 0.01, 0.0]}
       >
-        <RectLayout width={1} height={1} contentAlignment={"center-center"}>
+        <RectLayout width={1} height={1} contentAlignment={Alignment.centerCenter}>
           {this.state.deleted ? null : this.renderNode()}
         </RectLayout>
 

@@ -3,14 +3,28 @@ import { Alignment, GridLayout, LinearLayout, Orientation, Text, Toggle, ToggleG
 
 class OptionGroup extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.selectedOptionIndices = new Set();
-  }
-  state = { selectedOptionIndices: [] }
+  state = { selectedOptionIndices: new Set(this.props.initialSelectedOptionsIndices) }
 
-  renderRadio(option, index, selectedIndex) {
-    const on = (index === selectedIndex);
+  onToggleChanged = (on, index) => {
+    const { multipleOptions } = this.props;
+    var { selectedOptionIndices } = this.state;
+    if (multipleOptions) {
+      if (on) {
+        selectedOptionIndices.add(index);
+      } else {
+        selectedOptionIndices.delete(index);
+      }
+    } else {
+      selectedOptionIndices.clear();
+      selectedOptionIndices.add(index);
+    }
+
+    this.setState({ selectedOptionIndices }, () => {
+      this.props.onOptionChanged(Array.from(selectedOptionIndices)); 
+    });
+  }
+
+  renderRadio(option, index, on) {
     const type = this.props.multipleOptions ? ToggleType.checkbox : ToggleType.radio;
     return (
       <Toggle
@@ -19,20 +33,13 @@ class OptionGroup extends React.Component {
         fontSize={0.075}
         key={index}
         type={type}
-        onToggleChanged={(e) => {
-          if (e.On) {
-            this.selectedOptionIndices.add(index);
-          } else {
-            this.selectedOptionIndices.delete(index);
-          }
-          this.props.onOptionChanged(this.selectedOptionIndices); }
-        }
+        onToggleChanged={(e) => this.onToggleChanged(e.On, index)}
       >{option}</Toggle>
     );
   }
 
   render() {
-    const { selectedOptionIndex } = this.state;
+    const { selectedOptionIndices } = this.state;
     const { columns, options } = this.props;
     return (
       <LinearLayout 
@@ -42,9 +49,9 @@ class OptionGroup extends React.Component {
         position={this.props.position}
       >
         <Text fontSize={0.08}>{this.props.title}</Text>
-        <ToggleGroup allowMultipleOn={this.props.multipleOptions} allowAllOff={true}>
+        <ToggleGroup allowMultipleOn={this.props.multipleOptions} allowAllOff={this.props.multipleOptions}>
           <GridLayout columns={columns} defaultItemPadding={[0, 0, 0.01, 0]}>
-            {options.map((option, index) => this.renderRadio(option, index, selectedOptionIndex))}
+            {options.map((option, index) => this.renderRadio(option, index, selectedOptionIndices.has(index)))}
           </GridLayout>
         </ToggleGroup>
       </LinearLayout>
@@ -57,8 +64,9 @@ OptionGroup.defaultProps = {
   columns: 1,
   debug: false,
   multipleOptions: false,
-  onOptionChanged: () => {},
+  onOptionChanged: ([]) => {},
   options: [],
+  initialSelectedOptionsIndices: [],
   title: 'Options:',
 };
 

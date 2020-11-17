@@ -13,7 +13,7 @@ class SceneLinearLayout extends React.Component {
   onOrientationChanged = event => this.setState({ isHorizontal: event.On });
   onPaddingChanged = (padding) => this.setState({ padding });
   onAlignmentButtonClick = (alignment) => this.setState({ alignment });
-  onOptionChanged = (selectedIndices) => this.setState({ width: selectedIndices.has(0) ? 1 : 0, height: selectedIndices.has(1) ? 1 : 0 });
+  onOptionChanged = (selectedIndices) => this.setState({ width: selectedIndices.includes(0) ? 1 : 0, height: selectedIndices.includes(1) ? 1 : 0 });
 
   renderItem(color) {
     return (<Image debug={true} width={0.6} height={0.3} color={color}/>);
@@ -28,7 +28,7 @@ class SceneLinearLayout extends React.Component {
         <Toggle position={[0.3, 0.4, 0]} height={0.08} fontSize={0.08} on={isHorizontal} onToggleChanged={this.onOrientationChanged}>{'Horizontal'}</Toggle>
 
         <OptionGroup 
-          anchorPoint={Alignment.topCenter}
+          anchorPoint={AnchorPoint.topCenter}
           multipleOptions={true}
           onOptionChanged={this.onOptionChanged}
           options={['1m width', '1m height']}
@@ -37,7 +37,7 @@ class SceneLinearLayout extends React.Component {
         />
 
         <PaddingGroup
-          anchorPoint={Alignment.topCenter}
+          anchorPoint={AnchorPoint.topCenter}
           onPaddingChanged={this.onPaddingChanged}
           position={[0.4, 0.2, 0]}
           title={'Set items padding:'}
@@ -49,7 +49,7 @@ class SceneLinearLayout extends React.Component {
           width={width}
           height={height}
           orientation={orientation}
-          anchorPoint={Alignment.topCenter}
+          anchorPoint={AnchorPoint.topCenter}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}
           position={[-0.4, -0.3, 0]}
@@ -63,7 +63,7 @@ class SceneLinearLayout extends React.Component {
 
         <LinearLayout
           orientation={Orientation.vertical}
-          anchorPoint={Alignment.topCenter}
+          anchorPoint={AnchorPoint.topCenter}
           defaultItemAlignment={Alignment.topCenter}
           defaultItemPadding={[0, 0, 0.02, 0]}
           position={[0.4, -1.3, 0]}

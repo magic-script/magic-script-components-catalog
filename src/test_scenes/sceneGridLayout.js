@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, Button, GridLayout, Image, Line, Model, Slider, Spinner, Text, TextEdit, Toggle, View, RectLayout } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, GridLayout, Image, Line, Model, Slider, Spinner, Text, TextEdit, Toggle, View, RectLayout } from 'magic-script-components';
 import { AlignmentGroup } from '../utils/alignment';
 import { PaddingGroup } from '../utils/padding';
 import { OptionGroup } from '../utils/optionGroup';
@@ -13,7 +13,7 @@ class SceneGridLayout extends React.Component {
 
   onItemsAlignmentChanged = (alignment) => this.setState({ alignment });
   onPaddingChanged = (padding) => this.setState({ padding });
-  onOptionChanged = (selectedIndices) => this.setState({ width: selectedIndices.has(0) ? 1 : 0, height: selectedIndices.has(1) ? 1 : 0 });
+  onOptionChanged = (selectedIndices) => this.setState({ width: selectedIndices.includes(0) ? 1 : 0, height: selectedIndices.includes(1) ? 1 : 0 });
 
   render() {
     const { width, height, padding, alignment } = this.state;
@@ -24,14 +24,15 @@ class SceneGridLayout extends React.Component {
       <View position={this.props.position}>
         <View>
           <AlignmentGroup
-            anchorPoint={Alignment.topCenter}
+            alignment={alignment}
+            anchorPoint={AnchorPoint.topCenter}
             onAlignmentChanged={this.onItemsAlignmentChanged}
             position={[-0.35, 0, 0]}
             title={'Set items alignment:'}
           />
 
           <PaddingGroup
-            anchorPoint={Alignment.topCenter}
+            anchorPoint={AnchorPoint.topCenter}
             onPaddingChanged={this.onPaddingChanged}
             position={[0.55, 0, 0]}
             title={'Set items padding:'}
@@ -39,7 +40,7 @@ class SceneGridLayout extends React.Component {
           />
 
           <OptionGroup 
-            anchorPoint={Alignment.topCenter}
+            anchorPoint={AnchorPoint.topCenter}
             multipleOptions={true}
             onOptionChanged={this.onOptionChanged}
             options={['1m width', '1m height']}
@@ -61,7 +62,7 @@ class SceneGridLayout extends React.Component {
           debug={true}
           width={width}
           height={height}
-          anchorPoint={'top-center'}
+          anchorPoint={AnchorPoint.topCenter}
           columns={columns}
           defaultItemAlignment={alignment}
           defaultItemPadding={padding}
@@ -70,11 +71,11 @@ class SceneGridLayout extends React.Component {
         >
           <Text debug fontSize={0.15}>Item 1</Text>
           <Text debug textColor={invisibleItemColor} fontSize={0.15} visible={false}>Item Invisible</Text>
-          <Text debug fontSize={0.15} anchorPoint={'bottom-right'} textColor={[1, 0, 0, 1]}>Lorem ipsum dolor</Text>
+          <Text debug fontSize={0.15} anchorPoint={AnchorPoint.bottomRight} textColor={[1, 0, 0, 1]}>Lorem ipsum dolor</Text>
           <Text debug fontSize={0.3} scale={[0.5, 0.5, 1]}>Item 3</Text>
           <Button debug width={1} height={0.4} scale={[0.3, 0.3, 1]}>Scaled</Button>
-          <Model debug anchorPoint={'center-left'} scale={[0.2, 0.2, 0.2]} path={require('../../assets/resources/models/static.glb')} />
-          <Image debug width={0.5} height={0.4} anchorPoint={'bottom-left'} scale={[0.5, 0.5, 0.5]} color={[0, 0, 1, 1]} />
+          <Model debug anchorPoint={AnchorPoint.centerLeft} scale={[0.2, 0.2, 0.2]} path={require('../../assets/resources/models/static.glb')} />
+          <Image debug width={0.5} height={0.4} anchorPoint={AnchorPoint.bottomLeft} scale={[0.5, 0.5, 0.5]} color={[0, 0, 1, 1]} />
           <Image debug width={0.25} height={0.2} color={[0, 1, 0, 1]} />
           <TextEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[1, 0, 0, 1]} multiline />
           <Spinner debug height={0.15} position={[0.5, 0, 0]} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MathUtils } from '../utils/mathUtils';
-import { View, Text, GridLayout, Toggle } from 'magic-script-components';
+import { Alignment, AnchorPoint, GridLayout, Text, Toggle, View } from 'magic-script-components';
 
 class SceneTextCharacters extends React.Component {
   static defaultProps = {
@@ -44,8 +44,8 @@ class SceneTextCharacters extends React.Component {
     return (
       <View position={this.props.position}>
         <GridLayout 
-          anchorPoint={'top-center'} 
-          defaultItemAlignment={'center-center'}
+          anchorPoint={AnchorPoint.topCenter} 
+          defaultItemAlignment={Alignment.centerCenter}
           columns={this.props.columns} 
           position={[0, 1, 0]}
           width={1.2} 
@@ -55,7 +55,7 @@ class SceneTextCharacters extends React.Component {
         </GridLayout>
         
         <Toggle 
-          anchorPoint={'center-right'}
+          anchorPoint={AnchorPoint.centerRight}
           position={[0.5, -0.9, 0]}  
           height={0.1} 
           on={specialCharacters} 
@@ -63,7 +63,7 @@ class SceneTextCharacters extends React.Component {
           fontSize={0.08} 
         >Special characters</Toggle>
         <Toggle 
-          anchorPoint={'center-right'}
+          anchorPoint={AnchorPoint.centerRight}
           position={[0.5, -1.1, 0]}  
           height={0.1} 
           on={uppercase} 
