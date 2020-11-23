@@ -1,4 +1,4 @@
-export * from './sceneAlignment';
+export * from './sceneAnchorPoint';
 export * from './sceneAudio';
 export * from './sceneButton';
 export * from './sceneButtonOutline';
