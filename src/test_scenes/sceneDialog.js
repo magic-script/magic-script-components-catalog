@@ -114,10 +114,12 @@ class SceneDialog extends React.Component {
         {showDialog && noActionTimeLeft > 0 && (
           <Text 
             alignment={Alignment.centerCenter}
-            boundsSize={{ boundsSize: [0.7, 0], wrap: true }}
-            position={[0, 0.8, 0]} 
             fontColor={[1,1,1,0.1]} 
-            fontSize={0.08}>{`This dialog will be closed in ${noActionTimeLeft} sec.`}</Text>
+            fontSize={0.08}
+            multiline
+            position={[0, 0.8, 0]} 
+            width={0.7}
+          >{`This dialog will be closed in ${noActionTimeLeft} sec.`}</Text>
         )}
 
         <View scale={[2, 2, 2]} position={[0, 0.3, 0.2]}>

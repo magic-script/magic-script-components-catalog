@@ -10,11 +10,12 @@ class SceneModel extends React.Component {
     } else {
       return <Text 
         anchorPoint={AnchorPoint.centerCenter} 
-        boundsSize={{ boundsSize: [0.5, 0], wrap: true }} 
+        fontSize={0.08}
+        multiline
         position={position} 
         textAlignment={TextAlign.center} 
         textColor={'red'}
-        fontSize={0.08}
+        width={0.5}
       >Animated models are not supported on Android.</Text>;
     }
   }

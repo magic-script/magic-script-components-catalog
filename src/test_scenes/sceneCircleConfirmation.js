@@ -41,7 +41,9 @@ class SceneCircleConfirmation extends React.Component {
           position={[0, 0.35, 0]}
           textAlignment={TextAlign.center}
           fontSize={0.07}
-          boundsSize={{ boundsSize: [0.5, 0.5], wrap: false }}
+          width={0.5}
+          height={0.5}
+          multiline={false}
         >{`Progress = ${progress.toFixed(2)}`}</Text>
 
         {!showDialog && (
