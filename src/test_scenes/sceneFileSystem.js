@@ -72,10 +72,9 @@ class SceneFileSystem extends React.Component {
             width={0.9} 
             height={0.9} 
             onTextChanged={this.onTextChanged}
-            text={text}
             textPadding={[0.03, 0.03, 0.03, 0.03]}
             fontSize={0.08}
-          />
+          >{text}</TextEdit>
           <Text
             fontSize={0.06}
             multiline

@@ -53,11 +53,10 @@ class SceneWebView extends React.Component {
           hint={'Enter url...'}
           height={0.08}
           onTextChanged={this.onTextChanged}
-          text={text}
           fontColor={[1,1,1,0.75]}
           fontSize={0.05}
           width={web.width}
-        />
+        >{text}</TextEdit>
         <Button height={0.1} onClick={this.onLoad} fontSize={0.08} >Load</Button>
         <WebView url={url} height={web.height} width={web.width} />
         <Button height={0.1} onClick={this.onOpenUrl} fontSize={0.08} >Open in browser</Button> 

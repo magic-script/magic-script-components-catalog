@@ -13,7 +13,7 @@ class SceneModel extends React.Component {
         fontSize={0.08}
         multiline
         position={position} 
-        textAlignment={TextAlign.center} 
+        textAlign={TextAlign.center} 
         textColor={'red'}
         width={0.5}
       >Animated models are not supported on Android.</Text>;
