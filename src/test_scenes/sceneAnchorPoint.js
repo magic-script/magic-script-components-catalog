@@ -74,7 +74,7 @@ class SceneAnchorPoint extends React.Component {
     return (
       <View key={index} anchorPoint={AnchorPoint.centerCenter} position={position}>
         {element}
-        <Text anchorPoint={AnchorPoint.topCenter} position={[0, min.y - 0.01, 0]} textSize={0.05}>{name}</Text>
+        <Text anchorPoint={AnchorPoint.topCenter} position={[0, min.y - 0.01, 0]} fontSize={0.05}>{name}</Text>
         <Line points={points} color={[1, 1, 0, 1]} />
         <Line points={[[min.x, 0, 0], [max.x, 0, 0] ]} color={[1, 1, 0, 0.5]} />
         <Line points={[[0, min.y, 0], [0, max.y, 0]]} color={[1, 1, 0, 0.5]} />
@@ -128,7 +128,7 @@ class SceneAnchorPoint extends React.Component {
       { name: 'Spinner', element: <Spinner anchorPoint={anchorPoint} height={itemSize} width={itemSize} value={0.5} /> },
       { name: 'Text', element: <Text anchorPoint={anchorPoint} fontSize={0.048} multiline={true} height={itemSize} width={itemSize}>A B C D E F G H I J K L M N O P Q R S T U W X Y Z</Text> },
       { name: 'TextEdit', element: <TextEdit anchorPoint={anchorPoint} enabled={false} fontSize={0.03} multiline={true} scrolling={true} width={itemSize} height={itemSize}>{textEditContent}</TextEdit> },
-      { name: 'Toggle', element: <Toggle anchorPoint={anchorPoint} height={0.25 * itemSize} on={true} textSize={0.07}>foo</Toggle> },
+      { name: 'Toggle', element: <Toggle anchorPoint={anchorPoint} height={0.25 * itemSize} on={true} fontSize={0.07}>foo</Toggle> },
       { name: 'Video', element: <Video anchorPoint={anchorPoint} action={VideoAction.start} looping={true} width={videoResolution[0]} height={videoResolution[1]} screenSize={videoSize} anchorPosition={[0.5 * videoSize[0], 0.5 * videoSize[1], 0]} path={require("../../assets/resources/video.mp4")} viewMode={ViewMode.fullArea} volume={0} /> },
       { name: 'WebView', element: <WebView anchorPoint={anchorPoint} url={'https://www.magicleap.com'} enable={false} height={itemSize} width={itemSize} /> },
       { name: 'ScrollView', element: this.renderScrollView(anchorPoint, itemSize) },
