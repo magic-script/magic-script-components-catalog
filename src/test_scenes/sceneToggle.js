@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, Toggle, ToggleType, View } from 'magic-script-components';
+import { AnchorPoint, Toggle, ToggleType, View } from 'magic-script-components';
 
 class SceneToggle extends React.Component {
   onChanged = event => {
@@ -10,7 +10,7 @@ class SceneToggle extends React.Component {
     return (
       <View position={this.props.position}>
         <Toggle
-          alignment={Alignment.centerCenter}
+          anchorPoint={AnchorPoint.centerCenter}
           position={[0, 0.4, 0]}
           on={false}
           fontSize={0.08}
@@ -22,7 +22,7 @@ class SceneToggle extends React.Component {
         </Toggle>
         <Toggle
           type={ToggleType.checkbox}
-          alignment={Alignment.centerCenter}
+          anchorPoint={AnchorPoint.centerCenter}
           position={[0, 0.0, 0]}
           fontSize={0.08}
           on={true}
@@ -34,7 +34,7 @@ class SceneToggle extends React.Component {
         </Toggle>
         <Toggle
           type={ToggleType.radio}
-          alignment={Alignment.centerCenter}
+          anchorPoint={AnchorPoint.centerCenter}
           position={[0, -0.4, 0]}
           fontSize={0.08}
           on={false}

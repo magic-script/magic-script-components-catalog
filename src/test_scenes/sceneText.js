@@ -13,7 +13,7 @@ class SceneText extends React.Component {
       boundsWidth: 0,
       boundsHeight: 0,
       wrap: false,
-      textAlignment: TextAlign.left,
+      textAlign: TextAlign.left,
       text: labels.short
     };
   }
@@ -26,10 +26,10 @@ class SceneText extends React.Component {
   onButtonClick_V0_25 = () => { this.setState({ boundsHeight: 0.25 }); }
   onButtonClick_V1 = () => { this.setState({ boundsHeight: 1 }); }
 
-  onButtonClick_TA_Left = () => { this.setState({ textAlignment: TextAlign.left }); }
-  onButtonClick_TA_Center = () => { this.setState({ textAlignment: TextAlign.center }); }
-  onButtonClick_TA_Justify = () => { this.setState({ textAlignment: TextAlign.justify }); }
-  onButtonClick_TA_Right = () => { this.setState({ textAlignment: TextAlign.right }); }
+  onButtonClick_TA_Left = () => { this.setState({ textAlign: TextAlign.left }); }
+  onButtonClick_TA_Center = () => { this.setState({ textAlign: TextAlign.center }); }
+  onButtonClick_TA_Justify = () => { this.setState({ textAlign: TextAlign.justify }); }
+  onButtonClick_TA_Right = () => { this.setState({ textAlign: TextAlign.right }); }
 
   onLongTextToggle = (event) => { this.setState({ text: event.On ? labels.long : labels.short }); }
   onWrapTextToggle = (event) => { this.setState({ wrap: event.On }); }
@@ -87,13 +87,13 @@ class SceneText extends React.Component {
   }
 
   renderText() {
-    const { boundsWidth, boundsHeight, text, textAlignment, wrap } = this.state;
+    const { boundsWidth, boundsHeight, text, textAlign, wrap } = this.state;
     return <Text
       anchorPoint={AnchorPoint.topLeft}
       width={boundsWidth}
       height={boundsHeight}
       multiline={wrap}
-      textAlign={textAlignment}
+      textAlign={textAlign}
       textColor={[1, 1, 1, 0.8]}
       fontSize={0.08}
     >{text}</Text>

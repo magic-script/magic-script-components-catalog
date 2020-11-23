@@ -81,7 +81,7 @@ class MainPrism extends React.Component {
       { name: 'Toggle', component: <SceneToggle position={[0, 0, 0]} /> },
       { name: 'Toggle group', component: <SceneToggleGroup position={[0, 1.0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner position={[0, 0, 0]} /> },
-      { name: 'Circle confirmation', component: <SceneCircleConfirmation position={[0, 0.5, 0]} /> },
+      { name: 'Circle confirmation', component: <SceneCircleConfirmation /> },
       { name: 'Progress bar', component: <SceneProgressBar position={[0, 0.5, 0]} /> },
       { name: 'Slider', component: <SceneSlider position={[0, 0.8, 0]} /> },
       { name: 'Dropdown list', component: <SceneDropdownList position={[0, 0, 0]} /> },
@@ -216,7 +216,7 @@ class MainPrism extends React.Component {
             <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
             <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onNextScene}>Next</Button>
           </LinearLayout>
-          <View alignment={Alignment.centerCenter}>
+          <View anchorPoint={AnchorPoint.centerCenter}>
             {this.renderGrid()}
             {scene.component}
           </View>

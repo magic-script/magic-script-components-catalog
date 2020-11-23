@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, Button, ButtonType, Dialog, DialogType, LinearLayout, Orientation, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
+import { Alignment, AnchorPoint, Button, ButtonType, Dialog, DialogType, LinearLayout, Orientation, Text, Toggle, ToggleGroup, View } from 'magic-script-components';
 
 const DialogTypes = [
   DialogType.timed,
@@ -113,7 +113,7 @@ class SceneDialog extends React.Component {
       <View position={this.props.position}>
         {showDialog && noActionTimeLeft > 0 && (
           <Text 
-            alignment={Alignment.centerCenter}
+            anchorPoint={AnchorPoint.centerCenter}
             fontColor={[1,1,1,0.1]} 
             fontSize={0.08}
             multiline
@@ -143,7 +143,7 @@ class SceneDialog extends React.Component {
 
         {showButtons && (
           <LinearLayout
-            alignment={Alignment.centerCenter}
+            anchorPoint={AnchorPoint.centerCenter}
             defaultItemAlignment={Alignment.centerCenter}
             defaultItemPadding={[0.07, 0, 0.07, 0]}
             position={[0, 0.3, 0]}

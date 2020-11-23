@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, Button, Text, Toggle, Video, VideoAction, View, ViewMode } from "magic-script-components";
+import { AnchorPoint, Button, Text, Toggle, Video, VideoAction, View, ViewMode } from "magic-script-components";
 
 class SceneVideo extends React.Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class SceneVideo extends React.Component {
           -
         </Button>
 
-        <Text alignment={Alignment.centerCenter} fontSize={0.08}>
+        <Text anchorPoint={AnchorPoint.centerCenter} fontSize={0.08}>
           {volume}
         </Text>
 
