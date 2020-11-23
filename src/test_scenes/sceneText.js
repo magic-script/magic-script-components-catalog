@@ -35,25 +35,25 @@ class SceneText extends React.Component {
   onWrapTextToggle = (event) => { this.setState({ wrap: event.On }); }
 
   renderGUI() {
-    const textSize = 0.08;
+    const fontSize = 0.08;
     const offset = 0.2;
     return (
       <View>
-        <Button position={[0, offset, 0]} onClick={this.onButtonClick_H0} fontSize={textSize}>0</Button>
-        <Button position={[0.25, offset, 0]} onClick={this.onButtonClick_H0_25} fontSize={textSize}>0.25</Button>
-        <Button position={[1, offset, 0]} onClick={this.onButtonClick_H1} fontSize={textSize}>1</Button>
+        <Button position={[0, offset, 0]} onClick={this.onButtonClick_H0} fontSize={fontSize}>0</Button>
+        <Button position={[0.25, offset, 0]} onClick={this.onButtonClick_H0_25} fontSize={fontSize}>0.25</Button>
+        <Button position={[1, offset, 0]} onClick={this.onButtonClick_H1} fontSize={fontSize}>1</Button>
 
-        <Button position={[-offset, 0, 0]} onClick={this.onButtonClick_V0} fontSize={textSize}>0</Button>
-        <Button position={[-offset, -0.25, 0]} onClick={this.onButtonClick_V0_25} fontSize={textSize}>0.25</Button>
-        <Button position={[-offset, -1, 0]} onClick={this.onButtonClick_V1} fontSize={textSize}>1</Button>
+        <Button position={[-offset, 0, 0]} onClick={this.onButtonClick_V0} fontSize={fontSize}>0</Button>
+        <Button position={[-offset, -0.25, 0]} onClick={this.onButtonClick_V0_25} fontSize={fontSize}>0.25</Button>
+        <Button position={[-offset, -1, 0]} onClick={this.onButtonClick_V1} fontSize={fontSize}>1</Button>
 
-        <Button position={[0, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Left} fontSize={textSize}>left</Button>
-        <Button position={[0.5, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Center} fontSize={textSize}>center</Button>
-        <Button position={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} fontSize={textSize}>justify</Button>
-        <Button position={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} fontSize={textSize}>right</Button>
+        <Button position={[0, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Left} fontSize={fontSize}>left</Button>
+        <Button position={[0.5, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Center} fontSize={fontSize}>center</Button>
+        <Button position={[0.5, -1.2 - offset, 0]} onClick={this.onButtonClick_TA_Justify} fontSize={fontSize}>justify</Button>
+        <Button position={[1, -1.0 - offset, 0]} onClick={this.onButtonClick_TA_Right} fontSize={fontSize}>right</Button>
 
-        <Toggle position={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === labels.long} height={textSize} fontSize={textSize} anchorPoint={AnchorPoint.topRight}>Long text</Toggle>
-        <Toggle position={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={textSize} fontSize={textSize} anchorPoint={AnchorPoint.topRight}>Wrap text</Toggle>
+        <Toggle position={[1, -1.6, 0]} onToggleChanged={this.onLongTextToggle} on={this.state.text === labels.long} height={fontSize} fontSize={fontSize} anchorPoint={AnchorPoint.topRight}>Long text</Toggle>
+        <Toggle position={[1, -1.8, 0]} onToggleChanged={this.onWrapTextToggle} on={this.state.wrap} height={fontSize} fontSize={fontSize} anchorPoint={AnchorPoint.topRight}>Wrap text</Toggle>
       </View>
     );
   }

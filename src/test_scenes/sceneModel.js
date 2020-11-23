@@ -23,8 +23,8 @@ class SceneModel extends React.Component {
   render () {
     return (
       <View position={this.props.position}>
-          <Text anchorPoint={AnchorPoint.centerCenter} position={[-0.3, 0.4, 0]} textSize={0.08}>Static (.glb)</Text>
-          <Text anchorPoint={AnchorPoint.centerCenter} position={[0.3, 0.4, 0]} textSize={0.08}>Animated (.glb)</Text>
+          <Text anchorPoint={AnchorPoint.centerCenter} position={[-0.3, 0.4, 0]} fontSize={0.08}>Static (.glb)</Text>
+          <Text anchorPoint={AnchorPoint.centerCenter} position={[0.3, 0.4, 0]} fontSize={0.08}>Animated (.glb)</Text>
           <Model path={require('../../assets/resources/models/static.glb')} position={[-0.3, 0, 0]} scale={[0.3, 0.3, 0.3]} />
           {this.renderAnimatedModel([0.3, 0, 0])} 
       </View>
