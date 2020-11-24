@@ -10,11 +10,12 @@ class SceneModel extends React.Component {
     } else {
       return <Text 
         anchorPoint={AnchorPoint.centerCenter} 
-        boundsSize={{ boundsSize: [0.5, 0], wrap: true }} 
-        position={position} 
-        textAlignment={TextAlign.center} 
-        textColor={'red'}
         fontSize={0.08}
+        multiline
+        position={position} 
+        textAlign={TextAlign.center} 
+        textColor={'red'}
+        width={0.5}
       >Animated models are not supported on Android.</Text>;
     }
   }
@@ -22,8 +23,8 @@ class SceneModel extends React.Component {
   render () {
     return (
       <View position={this.props.position}>
-          <Text anchorPoint={AnchorPoint.centerCenter} position={[-0.3, 0.4, 0]} textSize={0.08}>Static (.glb)</Text>
-          <Text anchorPoint={AnchorPoint.centerCenter} position={[0.3, 0.4, 0]} textSize={0.08}>Animated (.glb)</Text>
+          <Text anchorPoint={AnchorPoint.centerCenter} position={[-0.3, 0.4, 0]} fontSize={0.08}>Static (.glb)</Text>
+          <Text anchorPoint={AnchorPoint.centerCenter} position={[0.3, 0.4, 0]} fontSize={0.08}>Animated (.glb)</Text>
           <Model path={require('../../assets/resources/models/static.glb')} position={[-0.3, 0, 0]} scale={[0.3, 0.3, 0.3]} />
           {this.renderAnimatedModel([0.3, 0, 0])} 
       </View>

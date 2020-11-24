@@ -73,7 +73,7 @@ class SceneLinearLayout extends React.Component {
             columns={3}
             defaultItemAlignment={Alignment.centerCenter}
           >
-            <Button textSize={0.08} roundness={0} onClick={() => this.onAlignmentButtonClick(Alignment.topLeft)}>TL</Button>
+            <Button fontSize={0.08} roundness={0} onClick={() => this.onAlignmentButtonClick(Alignment.topLeft)}>TL</Button>
             <Button fontSize={0.08} roundness={0} onClick={() => this.onAlignmentButtonClick(Alignment.topCenter)}>TC</Button>
             <Button fontSize={0.08} roundness={0} onClick={() => this.onAlignmentButtonClick(Alignment.topRight)}>TR</Button>
             <Button fontSize={0.08} roundness={0} onClick={() => this.onAlignmentButtonClick(Alignment.centerLeft)}>CL</Button>

@@ -27,7 +27,7 @@ class SceneMultiPrism extends React.Component {
         >
           <Button
             position={[0, 0, 0]}
-            alignment={Alignment.centerCenter}
+            anchorPoint={AnchorPoint.centerCenter}
             onClick={() => this.props.onPrismAction(index)}
             textAlign={TextAlign.center}
             fontSize={0.03}

@@ -72,14 +72,15 @@ class SceneFileSystem extends React.Component {
             width={0.9} 
             height={0.9} 
             onTextChanged={this.onTextChanged}
-            text={text}
             textPadding={[0.03, 0.03, 0.03, 0.03]}
             fontSize={0.08}
-          />
+          >{text}</TextEdit>
           <Text
-            boundsSize={{ boundsSize: [0.9, 0.1], wrap: true }}
-            textColor={[1,1,1,0.4]}
             fontSize={0.06}
+            multiline
+            textColor={[1,1,1,0.4]}
+            width={0.9}
+            height={0.1}
           >{currentPath}</Text>
           <GridLayout
             columns={2}

@@ -17,7 +17,7 @@ class SceneFilePicker extends React.Component {
     return (
       <View position={this.props.position}>
         <LinearLayout
-          alignment={Alignment.centerCenter}
+          anchorPoint={AnchorPoint.centerCenter}
           defaultItemAlignment={Alignment.centerLeft}
           defaultItemPadding={[0.07, 0, 0.07, 0]}
         >

@@ -3,7 +3,7 @@ import { Alignment, AnchorPoint, Button, DropdownList, DropdownListItem, LinearL
 import { Grid } from './utils/grid';
 import {
   GameTicTacToe,
-  SceneAlignment,
+  SceneAnchorPoint,
   SceneAudio,
   SceneButton,
   SceneButtonOutline,
@@ -56,114 +56,42 @@ class MainPrism extends React.Component {
     super(props);
 
     this.scenes = [
-      {
-        name: 'Characters',
-        component: <SceneTextCharacters position={[0, 0, 0]} />,
-      },
+      { name: 'Characters', component: <SceneTextCharacters position={[0, 0, 0]} /> },
       { name: 'Icons', component: <SceneSystemIcons /> },
       { name: 'Text', component: <SceneText position={[0, 0.5, 0]} /> },
-      {
-        name: 'Alignment',
-        component: <SceneAlignment position={[0, 0.5, 0]} />,
-      },
-      {
-        name: 'Text edit',
-        component: <SceneTextEdit position={[0, 0.5, 0]} />,
-      },
-      {
-        name: 'Button\n(properties)',
-        component: <SceneButton position={[0, 0, 0]} />,
-      },
-      {
-        name: 'Button\n(outline)',
-        component: <SceneButtonOutline position={[0, 0, 0]} />,
-      },
-      {
-        name: 'Button Type',
-        component: <SceneButtonType position={[0, 0, 0]} />,
-      },
+      { name: 'Anchor Point', component: <SceneAnchorPoint position={[0, 0.5, 0]} /> },
+      { name: 'Text edit', component: <SceneTextEdit position={[0, 0.5, 0]} /> },
+      { name: 'Button\n(properties)', component: <SceneButton position={[0, 0, 0]} /> },
+      { name: 'Button\n(outline)', component: <SceneButtonOutline position={[0, 0, 0]} /> },
+      { name: 'Button Type', component: <SceneButtonType position={[0, 0, 0]} /> },
       { name: 'Layout size', component: <SceneLayout position={[0, 0, 0]} /> },
-      {
-        name: 'Rect layout',
-        component: <SceneRectLayout position={[0, 0.0, 0]} />,
-      },
-      {
-        name: 'Linear layout',
-        component: <SceneLinearLayout position={[0, 0.5, 0]} />,
-      },
-      {
-        name: 'Grid layout',
-        component: <SceneGridLayout position={[0, 1.0, 0]} />,
-      },
-      {
-        name: 'Scroll bar',
-        component: <SceneScrollBar position={[0, 0, 0]} />,
-      },
-      {
-        name: 'Scroll view',
-        component: <SceneScrollView position={[0, 1.0, 0]} />,
-      },
+      { name: 'Rect layout', component: <SceneRectLayout position={[0, 0.0, 0]} /> },
+      { name: 'Linear layout', component: <SceneLinearLayout position={[0, 0.5, 0]} /> },
+      { name: 'Grid layout', component: <SceneGridLayout position={[0, 1.0, 0]} /> },
+      { name: 'Scroll bar', component: <SceneScrollBar position={[0, 0, 0]} /> },
+      { name: 'Scroll view', component: <SceneScrollView position={[0, 1.0, 0]} /> },
       { name: 'List view', component: <SceneListView position={[0, 0, 0]} /> },
-      {
-        name: 'Local images',
-        component: <SceneImage position={[0, 0.5, 0]} />,
-      },
-      {
-        name: 'Remote images',
-        component: <SceneImageRemote position={[0, 0, 0]} />,
-      },
-      {
-        name: 'Image slider',
-        component: <SceneImageSlider position={[0, 0, 0]} />,
-      },
+      { name: 'Local images', component: <SceneImage position={[0, 0.5, 0]} /> },
+      { name: 'Remote images', component: <SceneImageRemote position={[0, 0, 0]} /> },
+      { name: 'Image slider', component: <SceneImageSlider position={[0, 0, 0]} /> },
       { name: 'Video', component: <SceneVideo position={[0, 0, 0]} /> },
-      {
-        name: 'Video grid',
-        component: <SceneVideoGrid position={[0, 0, 0]} />,
-      },
+      { name: 'Video grid', component: <SceneVideoGrid position={[0, 0, 0]} /> },
       { name: 'Models', component: <SceneModel position={[0, 0, 0]} /> },
-      {
-        name: 'Transformations',
-        component: <SceneTransformations position={[0, 0, 0]} />,
-      },
+      { name: 'Transformations', component: <SceneTransformations position={[0, 0, 0]} /> },
       { name: 'Toggle', component: <SceneToggle position={[0, 0, 0]} /> },
-      {
-        name: 'Toggle group',
-        component: <SceneToggleGroup position={[0, 1.0, 0]} />,
-      },
+      { name: 'Toggle group', component: <SceneToggleGroup position={[0, 1.0, 0]} /> },
       { name: 'Spinner', component: <SceneSpinner position={[0, 0, 0]} /> },
-      {
-        name: 'Circle confirmation',
-        component: <SceneCircleConfirmation position={[0, 0.5, 0]} />,
-      },
-      {
-        name: 'Progress bar',
-        component: <SceneProgressBar position={[0, 0.5, 0]} />,
-      },
+      { name: 'Circle confirmation', component: <SceneCircleConfirmation /> },
+      { name: 'Progress bar', component: <SceneProgressBar position={[0, 0.5, 0]} /> },
       { name: 'Slider', component: <SceneSlider position={[0, 0.8, 0]} /> },
-      {
-        name: 'Dropdown list',
-        component: <SceneDropdownList position={[0, 0, 0]} />,
-      },
-      {
-        name: 'DatePicker',
-        component: <SceneDatePicker position={[0, 0, 0]} />,
-      },
-      {
-        name: 'TimePicker',
-        component: <SceneTimePicker position={[0, 0, 0]} />,
-      },
-      {
-        name: 'ColorPicker',
-        component: <SceneColorPicker position={[0, 0, 0]} />,
-      },
+      { name: 'Dropdown list', component: <SceneDropdownList position={[0, 0, 0]} /> },
+      { name: 'DatePicker', component: <SceneDatePicker position={[0, 0, 0]} /> },
+      { name: 'TimePicker', component: <SceneTimePicker position={[0, 0, 0]} /> },
+      { name: 'ColorPicker', component: <SceneColorPicker position={[0, 0, 0]} /> },
       { name: 'Audio', component: <SceneAudio /> },
       { name: 'Dialog', component: <SceneDialog position={[0, 0, 0]} /> },
       { name: 'Web view', component: <SceneWebView position={[0, 0, 0]} /> },
-      {
-        name: 'Page view',
-        component: <ScenePageView position={[0, 0.6, 0]} />,
-      },
+      { name: 'Page view', component: <ScenePageView position={[0, 0.6, 0]} /> },
       { name: 'Tic Tac Toe', component: <GameTicTacToe /> },
       { name: 'Clock', component: <SceneClock /> },
       { name: 'Line', component: <SceneLine /> },
@@ -174,10 +102,7 @@ class MainPrism extends React.Component {
       // { name: 'File Picker', component: <SceneFilePicker position={[0, 0, -0.5]} /> },
       // { name: 'Plane Detector', component: <ScenePlaneDetector position={[0, 0, -0.5]} /> },
       { name: 'Hit test', component: <SceneHitTest position={[0, 0, 0]} /> },
-      {
-        name: 'File system',
-        component: <SceneFileSystem position={[0, 0, 0]} />,
-      },
+      { name: 'File system', component: <SceneFileSystem position={[0, 0, 0]} /> },
     ];
 
     const initialIndex = Math.max(0, this.scenes.findIndex((item) => item.name.toUpperCase() === props.initialSceneName.toUpperCase()));
@@ -291,7 +216,7 @@ class MainPrism extends React.Component {
             <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onPreviousScene}>Prev</Button>
             <Button width={0.25} height={0.1} roundness={1} fontSize={0.05} onClick={this.onNextScene}>Next</Button>
           </LinearLayout>
-          <View alignment={Alignment.centerCenter}>
+          <View anchorPoint={AnchorPoint.centerCenter}>
             {this.renderGrid()}
             {scene.component}
           </View>
@@ -303,7 +228,7 @@ class MainPrism extends React.Component {
 
 MainPrism.defaultProps = {
   size: [1.0, 1.0, 0.5],
-  initialSceneName: 'scroll bar',
+  initialSceneName: 'Characters',
 };
 
 export { MainPrism };

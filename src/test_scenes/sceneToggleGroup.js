@@ -58,7 +58,7 @@ class SceneToggleGroup extends React.Component {
         orientation={Orientation.vertical}
         width={0.8}
       >
-        <Text textAlignment={TextAlign.left} fontSize={0.06} >{title}</Text>
+        <Text textAlign={TextAlign.left} fontSize={0.06} >{title}</Text>
         {innerLayout && (
           <ToggleGroup allowMultipleOn={allowMultipleOn} allowAllOff={allowAllOff}>
             <LinearLayout 

@@ -77,7 +77,7 @@ class SceneGridLayout extends React.Component {
           <Model debug anchorPoint={AnchorPoint.centerLeft} scale={[0.2, 0.2, 0.2]} path={require('../../assets/resources/models/static.glb')} />
           <Image debug width={0.5} height={0.4} anchorPoint={AnchorPoint.bottomLeft} scale={[0.5, 0.5, 0.5]} color={[0, 0, 1, 1]} />
           <Image debug width={0.25} height={0.2} color={[0, 1, 0, 1]} />
-          <TextEdit debug width={0.35} height={0.2} text={'text edit'} hintColor={[1, 0, 0, 1]} multiline />
+          <TextEdit debug width={0.35} height={0.2} hintColor={[1, 0, 0, 1]} multiline>text edit</TextEdit>
           <Spinner debug height={0.15} position={[0.5, 0, 0]} />
           <Slider debug width={0.4} height={0.08} />
           <Toggle debug fontSize={0.08} height={0.15}>Toggle</Toggle>

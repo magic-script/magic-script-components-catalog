@@ -9,7 +9,7 @@ class SceneButton extends React.Component {
 			enabled: true, 
 			roundness: 0.5, 
 			textColor: [0.75,0.75,0.75,1],
-			textSize: 0.08,
+			fontSize: 0.08,
 			width: 0.0,
 			height: 0.0,
 		};
@@ -22,7 +22,7 @@ class SceneButton extends React.Component {
 		enabled = true, 
 		roundness = 0.5, 
 		textColor = [1,1,1,1],
-		textSize = 0.08,
+		fontSize = 0.08,
 		width = 0.0,
 		height = 0.0,
 		onClick = () => {},
@@ -31,7 +31,7 @@ class SceneButton extends React.Component {
 			<Button
 				enabled={enabled}
 				textColor={textColor}
-				fontSize={textSize}
+				fontSize={fontSize}
 				roundness={roundness}
 				width={width}
 				height={height}
@@ -59,9 +59,9 @@ class SceneButton extends React.Component {
 					{this.renderButton({ title: 'long', onClick: this.onButtonClick({ title: 'Lorem ipsum dolor sit amet'})})}
 
 					{this.renderHeader('Text size:')}
-					{this.renderButton({ title: '0.1', onClick: this.onButtonClick({ textSize: 0.1 })})}
-					{this.renderButton({ title: '0.2', onClick: this.onButtonClick({ textSize: 0.2 })})}
-					{this.renderButton({ title: '0.3', onClick: this.onButtonClick({ textSize: 0.3 })})}
+					{this.renderButton({ title: '0.1', onClick: this.onButtonClick({ fontSize: 0.1 })})}
+					{this.renderButton({ title: '0.2', onClick: this.onButtonClick({ fontSize: 0.2 })})}
+					{this.renderButton({ title: '0.3', onClick: this.onButtonClick({ fontSize: 0.3 })})}
 
 					{this.renderHeader('Color:')}
 					{this.renderButton({ title: 'red', textColor: 'red', onClick: this.onButtonClick({ textColor: 'red' })})}

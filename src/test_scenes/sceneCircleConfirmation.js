@@ -1,5 +1,5 @@
-import React from "react";
-import { Alignment, Dialog, CircleConfirmation, Text, TextAlign, View } from 'magic-script-components';
+import React from 'react';
+import { Alignment, AnchorPoint, Dialog, CircleConfirmation, LinearLayout, Text } from 'magic-script-components';
 
 class SceneCircleConfirmation extends React.Component {
   constructor(props) {
@@ -8,26 +8,26 @@ class SceneCircleConfirmation extends React.Component {
   }
 
   onConfirmationCanceled = event => {
-    console.log("onConfirmationCanceled event received: ", event);
+    console.log('onConfirmationCanceled event received: ', event);
   }
 
   onConfirmationCompleted = event => {
-    console.log("onConfirmationCompleted event received: ", event);
+    console.log('onConfirmationCompleted event received: ', event);
     this.setState({ showDialog: true });
   };
 
   onConfirmationUpdated = event => {
-    console.log("onConfirmationUpdated event received: ", event);
+    console.log('onConfirmationUpdated event received: ', event);
     this.setState({ progress: 0.5 * (event.Angle / Math.PI) });
   };
 
   onDialogConfirmed = event => {
-    console.log("onDialogConfirmed event received: ", event);
+    console.log('onDialogConfirmed event received: ', event);
     this.setState({ showDialog: false, progress: 0.0, key: this.state.key + 1 });
   };
 
   onDialogCanceled = event => {
-    console.log("onDialogCanceled event received: ", event);
+    console.log('onDialogCanceled event received: ', event);
     this.setState({ showDialog: false, progress: 0.0, key: this.state.key + 1 });
   };
 
@@ -35,15 +35,12 @@ class SceneCircleConfirmation extends React.Component {
     const { showDialog, progress = 0.0, key } = this.state;
 
     return (
-      <View position={this.props.position}>
-        <Text
-          alignment={Alignment.bottomCenter}
-          position={[0, 0.35, 0]}
-          textAlignment={TextAlign.center}
-          fontSize={0.07}
-          boundsSize={{ boundsSize: [0.5, 0.5], wrap: false }}
-        >{`Progress = ${progress.toFixed(2)}`}</Text>
-
+      <LinearLayout 
+        anchorPoint={AnchorPoint.bottomCenter}
+        defaultItemAlignment={Alignment.centerCenter}
+        defaultItemPadding={[0.03, 0, 0.03, 0]}
+      >
+        {!showDialog && <Text fontSize={0.07}>{`Progress = ${progress.toFixed(2)}`}</Text>}
         {!showDialog && (
           <CircleConfirmation
             key={key}
@@ -57,14 +54,14 @@ class SceneCircleConfirmation extends React.Component {
         {showDialog && (
           <Dialog
             scale={[2, 2, 2]}
-            title={"Action confirmed!"}
-            confirmText={"OK"}
-            cancelText={"Close"}
+            title={'Action confirmed!'}
+            confirmText={'OK'}
+            cancelText={'Close'}
             onDialogConfirmed={this.onDialogConfirmed}
             onDialogCanceled={this.onDialogCanceled}
           />
         )}
-      </View>
+      </LinearLayout>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alignment, Model, Text, View } from 'magic-script-components';
+import { AnchorPoint, Model, Text, View } from 'magic-script-components';
 
 class SceneTransformations extends React.Component {
 
@@ -10,7 +10,7 @@ class SceneTransformations extends React.Component {
           position={[0, 1, 0]}
           fontSize={0.08}
           multiline={true}
-          alignment={Alignment.topCenter}
+          anchorPoint={AnchorPoint.topCenter}
           width={1.0}
           height={0.3}
         >

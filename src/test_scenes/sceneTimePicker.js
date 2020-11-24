@@ -1,5 +1,5 @@
 import React from "react";
-import { Alignment, AnchorPoint, LinearLayout, Orientation, TimeFormat, TimePicker, View } from "magic-script-components";
+import { Alignment, AnchorPoint, LinearLayout, Orientation, TimeFormat, TimePicker } from "magic-script-components";
 
 class SceneTimePicker extends React.Component {
   onTimeChanged = event => {
@@ -17,13 +17,13 @@ class SceneTimePicker extends React.Component {
       <LinearLayout
         position={this.props.position}
         anchorPoint={AnchorPoint.bottomCenter}
-        columns={1}
         defaultItemAlignment={Alignment.centerLeft}
         defaultItemPadding={[0.07, 0, 0.07, 0]}
         orientation={Orientation.vertical}
       >
         <TimePicker
           label={"Default time format (HH:MM:SS)"}
+          timeFormat={TimeFormat.hhmmss}
           onTimeChanged={this.onTimeChanged}
           onTimeConfirmed={this.onTimeConfirmed}
         />

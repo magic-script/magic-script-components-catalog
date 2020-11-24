@@ -24,18 +24,18 @@ class SceneTextCharacters extends React.Component {
     const { uppercase, specialCharacters } = this.state;
     const string = specialCharacters ? ',.:_-!@#$%^&*()[]{}<>/\\~`假借字•łóźśćąę' : '0123456789abcdefghijklmnopqrstuvwxyz';
     const characters = uppercase ? [...string.toUpperCase()] : [...string];
-    const minTextSize = specialCharacters ? 0.2 : 0.05;
-    const maxTextSize = 0.2;
+    const minFontSize = specialCharacters ? 0.2 : 0.05;
+    const maxFontSize = 0.2;
     const columns = this.props.columns;
     const rows = Math.ceil(characters.length / columns);
-    const textSizeFactor = (maxTextSize - minTextSize) / characters.length;
+    const fontSizeFactor = (maxFontSize - minFontSize) / characters.length;
 
     return characters.map((char, index) => {
-      const textSize = minTextSize + textSizeFactor * index;
+      const fontSize = minFontSize + fontSizeFactor * index;
       const column = index % columns;
       const row = Math.floor(index / columns);
       const textColor = MathUtils.getGridColor(column / (columns - 1), row / (rows - 1));
-      return <Text key={index} textColor={textColor} fontSize={textSize}>{char}</Text>;
+      return <Text key={index} textColor={textColor} fontSize={fontSize}>{char}</Text>;
     });
   }
 
