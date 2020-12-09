@@ -1,4 +1,6 @@
-printf "\033c"
+source ./utils.sh
+
+clean_screen
 
 echo "building app..."
 npm install
@@ -14,4 +16,4 @@ cd android
 # ./gradlew assembleRelease
 cd ../../
 
-say -v Melina 'android build done'
+speak 'android build done'
